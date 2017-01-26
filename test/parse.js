@@ -7,11 +7,23 @@ describe( 'BlockMap', function() {
 
   describe( '.parse()', function() {
 
-    BlockMap.versions.forEach( function( v ) {
-      it( 'should parse version ' + v, function() {
-        var json = require( `./data/version-${v}` )
-        var xml = fs.readFileSync( path.join( __dirname, `./data/version-${v}.bmap` ), 'utf8' )
-        assert.deepEqual( json, BlockMap.parse( xml ) )
+    context( 'when input is a string', function() {
+      BlockMap.versions.forEach( function( v ) {
+        it( 'parses version ' + v, function() {
+          var json = require( `./data/version-${v}` )
+          var xml = fs.readFileSync( path.join( __dirname, `/data/version-${v}.bmap` ), 'utf8' )
+          assert.deepEqual( json, BlockMap.parse( xml ) )
+        })
+      })
+    })
+
+    context( 'when input is a buffer', function() {
+      BlockMap.versions.forEach( function( v ) {
+        it( 'parses version ' + v, function() {
+          var json = require( `./data/version-${v}` )
+          var xml = fs.readFileSync( path.join( __dirname, `/data/version-${v}.bmap` ) )
+          assert.deepEqual( json, BlockMap.parse( xml ) )
+        })
       })
     })
 
