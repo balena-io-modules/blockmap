@@ -18,6 +18,8 @@ $ npm install --save blockmap
 var BlockMap = require( 'blockmap' )
 ```
 
+Parse a block map:
+
 ```
 var blockMap = BlockMap.parse( xml )
 ```
@@ -44,4 +46,25 @@ BlockMap {
     end: 199
   }]
 }
+```
+
+Use a parsed block map to read only mapped regions:
+
+```js
+var blockMap = BlockMap.parse( fs.readFileSync( '/path/to/resin-os.bmap' ) )
+var readStream = new BlockMap.ReadStream( '/path/to/resin-os.img', blockMap )
+
+readStream.on( 'data', function( buffer ) {
+  // The buffer will have two additional properties set;
+  // 1) buffer.address – it's block address in respect to the .bmap's block size
+  // 2) buffer.position – the block's offset (or address) in bytes
+  // Which can then be used to write only those blocks to the target:
+  fs.writeSync( fd, buffer, 0, buffer.length, buffer.position )
+})
+
+readStream.once( 'end', function() {
+  console.log( 'Read', readStream.blocksRead, 'mapped blocks' )
+  console.log( 'Read', readStream.bytesRead, 'mapped bytes' )
+  console.log( 'Read', readStream.rangesRead, 'mapped ranges' )
+})
 ```
