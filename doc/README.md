@@ -15,10 +15,13 @@
         * [.ranges](#BlockMap+ranges) : <code>Number</code>
         * [.parse(value)](#BlockMap+parse) ⇒ <code>[BlockMap](#BlockMap)</code>
     * _static_
+        * [.ReadStream](#BlockMap.ReadStream)
+            * [new ReadStream(filename, blockMap, options)](#new_BlockMap.ReadStream_new)
         * [.parse](#BlockMap.parse) ⇒ <code>[BlockMap](#BlockMap)</code>
         * [.versions](#BlockMap.versions) : <code>Array</code>
         * [.create(options)](#BlockMap.create) ⇒ <code>[BlockMap](#BlockMap)</code>
         * [.fromJSON(data)](#BlockMap.fromJSON) ⇒ <code>[BlockMap](#BlockMap)</code>
+        * [.createReadStream(filename, blockMap, options)](#BlockMap.createReadStream) ⇒ <code>[ReadStream](#BlockMap.ReadStream)</code>
         * [.parse(value, blockMap)](#BlockMap.parse) ⇒ <code>[BlockMap](#BlockMap)</code>
 
 
@@ -112,6 +115,28 @@ Parse a .bmap formatted input
 
 -
 
+<a name="BlockMap.ReadStream"></a>
+
+### BlockMap.ReadStream
+**Kind**: static class of <code>[BlockMap](#BlockMap)</code>  
+
+-
+
+<a name="new_BlockMap.ReadStream_new"></a>
+
+#### new ReadStream(filename, blockMap, options)
+ReadStream
+
+**Params**
+
+- filename <code>String</code> - image path
+- blockMap <code>[BlockMap](#BlockMap)</code> - image's blockmap
+- options <code>Object</code>
+    - .flags <code>String</code> - fs.open() flags
+
+
+-
+
 <a name="BlockMap.parse"></a>
 
 ### BlockMap.parse ⇒ <code>[BlockMap](#BlockMap)</code>
@@ -157,6 +182,22 @@ Create a block map from it's JSON representation
 **Params**
 
 - data <code>String</code> | <code>Object</code>
+
+
+-
+
+<a name="BlockMap.createReadStream"></a>
+
+### BlockMap.createReadStream(filename, blockMap, options) ⇒ <code>[ReadStream](#BlockMap.ReadStream)</code>
+Create a ReadStream for an image with a block map
+
+**Kind**: static method of <code>[BlockMap](#BlockMap)</code>  
+**Params**
+
+- filename <code>String</code>
+- blockMap <code>[BlockMap](#BlockMap)</code> - image's blockmap
+- options <code>Object</code>
+    - .flags <code>String</code> - fs.open() flags
 
 
 -
