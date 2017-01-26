@@ -1,0 +1,36 @@
+{
+  "name": "blockmap",
+  "version": "0.0.0",
+  "description": "Tizen's block map format",
+  "license": "MIT",
+  "author": "Jonas Hermsmeier <jhermsmeier@gmail.com> (https://jhermsmeier.de)",
+  "keywords": [
+    "tizen",
+    "bmap",
+    "block",
+    "map",
+    "blockmap"
+  ],
+  "main": "lib/blockmap.js",
+  "dependencies": {
+    "htmlparser2": "^3.9.2"
+  },
+  "devDependencies": {
+    "jsdoc-to-markdown": "^2.0.1",
+    "mocha": "^3.2.0"
+  },
+  "peerDependencies": {},
+  "optionalDependencies": {},
+  "homepage": "https://github.com/resin-io-playground/blockmap",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/resin-io-playground/blockmap.git"
+  },
+  "bugs": {
+    "url": "https://github.com/resin-io-playground/blockmap/issues"
+  },
+  "scripts": {
+    "test": "mocha",
+    "doc": "jsdoc2md 'lib/**/*.js' --separators --param-list-format list > doc/README.md"
+  }
+}
