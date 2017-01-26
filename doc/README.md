@@ -6,6 +6,13 @@
 * [BlockMap](#BlockMap)
     * [new BlockMap(options)](#new_BlockMap_new)
     * _instance_
+        * [.version](#BlockMap+version) : <code>String</code>
+        * [.imageSize](#BlockMap+imageSize) : <code>Number</code>
+        * [.blockSize](#BlockMap+blockSize) : <code>Number</code>
+        * [.blockCount](#BlockMap+blockCount) : <code>Number</code>
+        * [.mappedBlockCount](#BlockMap+mappedBlockCount) : <code>Number</code>
+        * [.checksumType](#BlockMap+checksumType) : <code>Number</code>
+        * [.ranges](#BlockMap+ranges) : <code>Number</code>
         * [.parse(value)](#BlockMap+parse) ⇒ <code>[BlockMap](#BlockMap)</code>
     * _static_
         * [.parse](#BlockMap.parse) ⇒ <code>[BlockMap](#BlockMap)</code>
@@ -26,6 +33,69 @@ BlockMap
 
 - options <code>Object</code>
 
+
+-
+
+<a name="BlockMap+version"></a>
+
+### blockMap.version : <code>String</code>
+format version
+
+**Kind**: instance property of <code>[BlockMap](#BlockMap)</code>  
+
+-
+
+<a name="BlockMap+imageSize"></a>
+
+### blockMap.imageSize : <code>Number</code>
+size of the image in bytes
+
+**Kind**: instance property of <code>[BlockMap](#BlockMap)</code>  
+
+-
+
+<a name="BlockMap+blockSize"></a>
+
+### blockMap.blockSize : <code>Number</code>
+size of a block in bytes
+
+**Kind**: instance property of <code>[BlockMap](#BlockMap)</code>  
+
+-
+
+<a name="BlockMap+blockCount"></a>
+
+### blockMap.blockCount : <code>Number</code>
+total number of blocks in image
+
+**Kind**: instance property of <code>[BlockMap](#BlockMap)</code>  
+
+-
+
+<a name="BlockMap+mappedBlockCount"></a>
+
+### blockMap.mappedBlockCount : <code>Number</code>
+number of mapped blocks
+
+**Kind**: instance property of <code>[BlockMap](#BlockMap)</code>  
+
+-
+
+<a name="BlockMap+checksumType"></a>
+
+### blockMap.checksumType : <code>Number</code>
+checksum algorithm
+
+**Kind**: instance property of <code>[BlockMap](#BlockMap)</code>  
+
+-
+
+<a name="BlockMap+ranges"></a>
+
+### blockMap.ranges : <code>Number</code>
+block ranges
+
+**Kind**: instance property of <code>[BlockMap](#BlockMap)</code>  
 
 -
 
