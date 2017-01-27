@@ -21,13 +21,13 @@
   },
   "peerDependencies": {},
   "optionalDependencies": {},
-  "homepage": "https://github.com/resin-io-playground/blockmap",
+  "homepage": "https://github.com/resin-io-modules/blockmap",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/resin-io-playground/blockmap.git"
+    "url": "git+https://github.com/resin-io-modules/blockmap.git"
   },
   "bugs": {
-    "url": "https://github.com/resin-io-playground/blockmap/issues"
+    "url": "https://github.com/resin-io-modules/blockmap/issues"
   },
   "scripts": {
     "test": "mocha",
