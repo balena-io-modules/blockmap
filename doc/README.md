@@ -15,6 +15,17 @@
         * [.ranges](#BlockMap+ranges) : <code>Number</code>
         * [.parse(value)](#BlockMap+parse) ⇒ <code>[BlockMap](#BlockMap)</code>
     * _static_
+        * [.FilterStream](#BlockMap.FilterStream)
+            * [new FilterStream(blockMap, options)](#new_BlockMap.FilterStream_new)
+            * [.blockMap](#BlockMap.FilterStream+blockMap) : <code>[BlockMap](#BlockMap)</code>
+            * [.blockSize](#BlockMap.FilterStream+blockSize) : <code>Number</code>
+            * [.currentRange](#BlockMap.FilterStream+currentRange) : <code>BlockMap.Range</code>
+            * [.rangesRead](#BlockMap.FilterStream+rangesRead) : <code>Number</code>
+            * [.blocksRead](#BlockMap.FilterStream+blocksRead) : <code>Number</code>
+            * [.bytesRead](#BlockMap.FilterStream+bytesRead) : <code>Number</code>
+            * [.blocksWritten](#BlockMap.FilterStream+blocksWritten) : <code>Number</code>
+            * [.bytesWritten](#BlockMap.FilterStream+bytesWritten) : <code>Number</code>
+            * [.position](#BlockMap.FilterStream+position) : <code>Number</code>
         * [.ReadStream](#BlockMap.ReadStream)
             * [new ReadStream(filename, blockMap, options)](#new_BlockMap.ReadStream_new)
             * [.path](#BlockMap.ReadStream+path) : <code>String</code>
@@ -122,6 +133,120 @@ Parse a .bmap formatted input
 
 - value <code>String</code> | <code>Buffer</code>
 
+
+-
+
+<a name="BlockMap.FilterStream"></a>
+
+### BlockMap.FilterStream
+**Kind**: static class of <code>[BlockMap](#BlockMap)</code>  
+
+* [.FilterStream](#BlockMap.FilterStream)
+    * [new FilterStream(blockMap, options)](#new_BlockMap.FilterStream_new)
+    * [.blockMap](#BlockMap.FilterStream+blockMap) : <code>[BlockMap](#BlockMap)</code>
+    * [.blockSize](#BlockMap.FilterStream+blockSize) : <code>Number</code>
+    * [.currentRange](#BlockMap.FilterStream+currentRange) : <code>BlockMap.Range</code>
+    * [.rangesRead](#BlockMap.FilterStream+rangesRead) : <code>Number</code>
+    * [.blocksRead](#BlockMap.FilterStream+blocksRead) : <code>Number</code>
+    * [.bytesRead](#BlockMap.FilterStream+bytesRead) : <code>Number</code>
+    * [.blocksWritten](#BlockMap.FilterStream+blocksWritten) : <code>Number</code>
+    * [.bytesWritten](#BlockMap.FilterStream+bytesWritten) : <code>Number</code>
+    * [.position](#BlockMap.FilterStream+position) : <code>Number</code>
+
+
+-
+
+<a name="new_BlockMap.FilterStream_new"></a>
+
+#### new FilterStream(blockMap, options)
+FilterStream
+
+**Params**
+
+- blockMap <code>[BlockMap](#BlockMap)</code> - the block map
+- options <code>Object</code> - options
+
+
+-
+
+<a name="BlockMap.FilterStream+blockMap"></a>
+
+#### filterStream.blockMap : <code>[BlockMap](#BlockMap)</code>
+The block map
+
+**Kind**: instance property of <code>[FilterStream](#BlockMap.FilterStream)</code>  
+
+-
+
+<a name="BlockMap.FilterStream+blockSize"></a>
+
+#### filterStream.blockSize : <code>Number</code>
+Size of a mapped block in bytes
+
+**Kind**: instance property of <code>[FilterStream](#BlockMap.FilterStream)</code>  
+
+-
+
+<a name="BlockMap.FilterStream+currentRange"></a>
+
+#### filterStream.currentRange : <code>BlockMap.Range</code>
+Range being currently processed
+
+**Kind**: instance property of <code>[FilterStream](#BlockMap.FilterStream)</code>  
+
+-
+
+<a name="BlockMap.FilterStream+rangesRead"></a>
+
+#### filterStream.rangesRead : <code>Number</code>
+Number of block map ranges read
+
+**Kind**: instance property of <code>[FilterStream](#BlockMap.FilterStream)</code>  
+
+-
+
+<a name="BlockMap.FilterStream+blocksRead"></a>
+
+#### filterStream.blocksRead : <code>Number</code>
+Number of blocks read
+
+**Kind**: instance property of <code>[FilterStream](#BlockMap.FilterStream)</code>  
+
+-
+
+<a name="BlockMap.FilterStream+bytesRead"></a>
+
+#### filterStream.bytesRead : <code>Number</code>
+Number of bytes read
+
+**Kind**: instance property of <code>[FilterStream](#BlockMap.FilterStream)</code>  
+
+-
+
+<a name="BlockMap.FilterStream+blocksWritten"></a>
+
+#### filterStream.blocksWritten : <code>Number</code>
+Number of bytes written
+
+**Kind**: instance property of <code>[FilterStream](#BlockMap.FilterStream)</code>  
+
+-
+
+<a name="BlockMap.FilterStream+bytesWritten"></a>
+
+#### filterStream.bytesWritten : <code>Number</code>
+Number of bytes written
+
+**Kind**: instance property of <code>[FilterStream](#BlockMap.FilterStream)</code>  
+
+-
+
+<a name="BlockMap.FilterStream+position"></a>
+
+#### filterStream.position : <code>Number</code>
+Current offset in bytes
+
+**Kind**: instance property of <code>[FilterStream](#BlockMap.FilterStream)</code>  
 
 -
 
