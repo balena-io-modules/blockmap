@@ -73,7 +73,7 @@ Use a filter transform to filter out unmapped blocks from a stream:
 
 ```js
 var blockMap = BlockMap.parse( fs.readFileSync( '/path/to/resin-os.bmap' ) )
-var readStream = fs.createReadStream( '/path/to/resin-os.img', blockMap )
+var readStream = fs.createReadStream( '/path/to/resin-os.img' )
 var blockStream = new BlockMap.FilterStream( blockMap )
 
 readStream.pipe( blockStream )
