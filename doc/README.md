@@ -17,6 +17,16 @@
     * _static_
         * [.ReadStream](#BlockMap.ReadStream)
             * [new ReadStream(filename, blockMap, options)](#new_BlockMap.ReadStream_new)
+            * [.path](#BlockMap.ReadStream+path) : <code>String</code>
+            * [.flags](#BlockMap.ReadStream+flags) : <code>String</code>
+            * [.blockMap](#BlockMap.ReadStream+blockMap) : <code>[BlockMap](#BlockMap)</code>
+            * [.blockSize](#BlockMap.ReadStream+blockSize) : <code>Number</code>
+            * [.currentRange](#BlockMap.ReadStream+currentRange) : <code>BlockMap.Range</code>
+            * [.blockInRange](#BlockMap.ReadStream+blockInRange) : <code>Number</code>
+            * [.rangesRead](#BlockMap.ReadStream+rangesRead) : <code>Number</code>
+            * [.blocksRead](#BlockMap.ReadStream+blocksRead) : <code>Number</code>
+            * [.bytesRead](#BlockMap.ReadStream+bytesRead) : <code>Number</code>
+            * [.position](#BlockMap.ReadStream+position) : <code>Number</code>
         * [.parse](#BlockMap.parse) ⇒ <code>[BlockMap](#BlockMap)</code>
         * [.versions](#BlockMap.versions) : <code>Array</code>
         * [.create(options)](#BlockMap.create) ⇒ <code>[BlockMap](#BlockMap)</code>
@@ -120,6 +130,20 @@ Parse a .bmap formatted input
 ### BlockMap.ReadStream
 **Kind**: static class of <code>[BlockMap](#BlockMap)</code>  
 
+* [.ReadStream](#BlockMap.ReadStream)
+    * [new ReadStream(filename, blockMap, options)](#new_BlockMap.ReadStream_new)
+    * [.path](#BlockMap.ReadStream+path) : <code>String</code>
+    * [.flags](#BlockMap.ReadStream+flags) : <code>String</code>
+    * [.blockMap](#BlockMap.ReadStream+blockMap) : <code>[BlockMap](#BlockMap)</code>
+    * [.blockSize](#BlockMap.ReadStream+blockSize) : <code>Number</code>
+    * [.currentRange](#BlockMap.ReadStream+currentRange) : <code>BlockMap.Range</code>
+    * [.blockInRange](#BlockMap.ReadStream+blockInRange) : <code>Number</code>
+    * [.rangesRead](#BlockMap.ReadStream+rangesRead) : <code>Number</code>
+    * [.blocksRead](#BlockMap.ReadStream+blocksRead) : <code>Number</code>
+    * [.bytesRead](#BlockMap.ReadStream+bytesRead) : <code>Number</code>
+    * [.position](#BlockMap.ReadStream+position) : <code>Number</code>
+
+
 -
 
 <a name="new_BlockMap.ReadStream_new"></a>
@@ -134,6 +158,96 @@ ReadStream
 - options <code>Object</code>
     - .flags <code>String</code> - fs.open() flags
 
+
+-
+
+<a name="BlockMap.ReadStream+path"></a>
+
+#### readStream.path : <code>String</code>
+File path
+
+**Kind**: instance property of <code>[ReadStream](#BlockMap.ReadStream)</code>  
+
+-
+
+<a name="BlockMap.ReadStream+flags"></a>
+
+#### readStream.flags : <code>String</code>
+File open flags
+
+**Kind**: instance property of <code>[ReadStream](#BlockMap.ReadStream)</code>  
+
+-
+
+<a name="BlockMap.ReadStream+blockMap"></a>
+
+#### readStream.blockMap : <code>[BlockMap](#BlockMap)</code>
+The block map
+
+**Kind**: instance property of <code>[ReadStream](#BlockMap.ReadStream)</code>  
+
+-
+
+<a name="BlockMap.ReadStream+blockSize"></a>
+
+#### readStream.blockSize : <code>Number</code>
+Size of a mapped block in bytes
+
+**Kind**: instance property of <code>[ReadStream](#BlockMap.ReadStream)</code>  
+
+-
+
+<a name="BlockMap.ReadStream+currentRange"></a>
+
+#### readStream.currentRange : <code>BlockMap.Range</code>
+Range being currently processed
+
+**Kind**: instance property of <code>[ReadStream](#BlockMap.ReadStream)</code>  
+
+-
+
+<a name="BlockMap.ReadStream+blockInRange"></a>
+
+#### readStream.blockInRange : <code>Number</code>
+Current block in range
+
+**Kind**: instance property of <code>[ReadStream](#BlockMap.ReadStream)</code>  
+
+-
+
+<a name="BlockMap.ReadStream+rangesRead"></a>
+
+#### readStream.rangesRead : <code>Number</code>
+Number of block map ranges read
+
+**Kind**: instance property of <code>[ReadStream](#BlockMap.ReadStream)</code>  
+
+-
+
+<a name="BlockMap.ReadStream+blocksRead"></a>
+
+#### readStream.blocksRead : <code>Number</code>
+Number of blocks read
+
+**Kind**: instance property of <code>[ReadStream](#BlockMap.ReadStream)</code>  
+
+-
+
+<a name="BlockMap.ReadStream+bytesRead"></a>
+
+#### readStream.bytesRead : <code>Number</code>
+Number of bytes read
+
+**Kind**: instance property of <code>[ReadStream](#BlockMap.ReadStream)</code>  
+
+-
+
+<a name="BlockMap.ReadStream+position"></a>
+
+#### readStream.position : <code>Number</code>
+Current offset in bytes
+
+**Kind**: instance property of <code>[ReadStream](#BlockMap.ReadStream)</code>  
 
 -
 
