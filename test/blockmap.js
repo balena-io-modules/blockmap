@@ -1,6 +1,20 @@
 var BlockMap = require( '..' )
 var assert = require( 'assert' )
 var fs = require( 'fs' )
+var path = require( 'path' )
+var zlib = require( 'zlib' )
+
+before( 'decompress', function( done ) {
+
+  var source = path.join( __dirname, '/data/bmap.img.gz' )
+  var destination = path.join( __dirname, '/data/bmap.img' )
+
+  fs.createReadStream( source )
+    .pipe( zlib.createGunzip() )
+    .pipe( fs.createWriteStream( destination ) )
+    .once( 'finish', done )
+
+})
 
 describe( 'BlockMap.fromJSON()', function() {
 
