@@ -23,13 +23,20 @@ describe( 'BlockMap.ReadStream', function() {
     var filename = path.join( __dirname, '/data/bmap.img' )
     var blockMap = BlockMap.create( require( './data/version-2.0' ) )
     var readStream = new BlockMap.ReadStream( filename, blockMap )
+    var blockCount = 0
 
-    readStream.resume()
+    readStream
+      .on( 'data', ( block ) => {
+        blockCount++
+        assert.ok( block.address != null, 'block address missing' )
+        assert.ok( block.position != null, 'block position missing' )
+      })
       .once( 'error', done )
       .once( 'end', function() {
         assert.equal( this.blocksRead, blockMap.mappedBlockCount, 'blocksRead mismatch' )
         assert.equal( this.bytesRead, blockMap.mappedBlockCount * blockMap.blockSize, 'bytesRead mismatch' )
         assert.equal( this.rangesRead, blockMap.ranges.length, 'rangesRead mismatch' )
+        assert.equal( blockCount, blockMap.mappedBlockCount, 'actual blocks read mismatch' )
         done()
       })
 
