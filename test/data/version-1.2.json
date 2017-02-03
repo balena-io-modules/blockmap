@@ -4,6 +4,7 @@
   "blockSize": 4096,
   "blockCount": 201,
   "mappedBlockCount": 117,
+  "checksum": null,
   "checksumType": "sha1",
   "ranges": [{
     "checksum": "94789636db14cdb8929133e7b8d3a158837e2e5a",

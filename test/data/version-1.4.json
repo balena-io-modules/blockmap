@@ -4,6 +4,7 @@
   "blockSize": 4096,
   "blockCount": 201,
   "mappedBlockCount": 117,
+  "checksum": "4310fd457a88d307abeeb593a7888e1fa3cae0cfc01d905158967c904c5375e5",
   "checksumType": "sha256",
   "ranges": [{
     "checksum": "9eaf19215d55d23de1be1fe4bed4a95bfe620a404352fd06e782738fff58e500",
