@@ -13,8 +13,9 @@
   ],
   "main": "lib/blockmap.js",
   "dependencies": {
-    "bloodline": "~1.0.0",
-    "htmlparser2": "^3.9.2"
+    "bloodline": "^1.0.0",
+    "htmlparser2": "^3.9.2",
+    "xml": "^1.0.1"
   },
   "devDependencies": {
     "jsdoc-to-markdown": "^2.0.1",

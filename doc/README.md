@@ -39,11 +39,13 @@
             * [.bytesRead](#BlockMap.ReadStream+bytesRead) : <code>Number</code>
             * [.position](#BlockMap.ReadStream+position) : <code>Number</code>
         * [.parse](#BlockMap.parse) ⇒ <code>[BlockMap](#BlockMap)</code>
+        * [.stringify](#BlockMap.stringify) ⇒ <code>String</code>
         * [.versions](#BlockMap.versions) : <code>Array</code>
         * [.create(options)](#BlockMap.create) ⇒ <code>[BlockMap](#BlockMap)</code>
         * [.fromJSON(data)](#BlockMap.fromJSON) ⇒ <code>[BlockMap](#BlockMap)</code>
         * [.createReadStream(filename, blockMap, options)](#BlockMap.createReadStream) ⇒ <code>[ReadStream](#BlockMap.ReadStream)</code>
         * [.parse(value, blockMap)](#BlockMap.parse) ⇒ <code>[BlockMap](#BlockMap)</code>
+        * [.stringify(blockMap, [options])](#BlockMap.stringify) ⇒ <code>String</code>
 
 
 -
@@ -385,7 +387,21 @@ Parse a .bmap file
 **Params**
 
 - value <code>String</code> | <code>Buffer</code>
-- blockMap <code>[BlockMap](#BlockMap)</code>
+- [blockMap] <code>[BlockMap](#BlockMap)</code> - – BlockMap instance
+
+
+-
+
+<a name="BlockMap.stringify"></a>
+
+### BlockMap.stringify ⇒ <code>String</code>
+Stringify a block map into .bmap format
+
+**Kind**: static property of <code>[BlockMap](#BlockMap)</code>  
+**Returns**: <code>String</code> - xml  
+**Params**
+
+- blockMap <code>[BlockMap](#BlockMap)</code> - – BlockMap instance
 
 
 -
@@ -451,6 +467,21 @@ Parse a .bmap file
 
 - value <code>String</code> | <code>Buffer</code>
 - blockMap <code>[BlockMap](#BlockMap)</code>
+
+
+-
+
+<a name="BlockMap.stringify"></a>
+
+### BlockMap.stringify(blockMap, [options]) ⇒ <code>String</code>
+Stringify a block map into .bmap format
+
+**Kind**: static method of <code>[BlockMap](#BlockMap)</code>  
+**Returns**: <code>String</code> - xml  
+**Params**
+
+- blockMap <code>[BlockMap](#BlockMap)</code> - – BlockMap instance
+- [options] <code>Object</code> - – options
 
 
 -
