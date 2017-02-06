@@ -17,7 +17,8 @@
         * [.parse(value, [options])](#BlockMap+parse) ⇒ <code>[BlockMap](#BlockMap)</code>
     * _static_
         * [.FilterStream](#BlockMap.FilterStream)
-            * [new FilterStream(blockMap, options)](#new_BlockMap.FilterStream_new)
+            * [new FilterStream(blockMap, [options])](#new_BlockMap.FilterStream_new)
+            * [.options](#BlockMap.FilterStream+options) : <code>Object</code>
             * [.blockMap](#BlockMap.FilterStream+blockMap) : <code>[BlockMap](#BlockMap)</code>
             * [.blockSize](#BlockMap.FilterStream+blockSize) : <code>Number</code>
             * [.currentRange](#BlockMap.FilterStream+currentRange) : <code>BlockMap.Range</code>
@@ -28,7 +29,8 @@
             * [.bytesWritten](#BlockMap.FilterStream+bytesWritten) : <code>Number</code>
             * [.position](#BlockMap.FilterStream+position) : <code>Number</code>
         * [.ReadStream](#BlockMap.ReadStream)
-            * [new ReadStream(filename, blockMap, options)](#new_BlockMap.ReadStream_new)
+            * [new ReadStream(filename, blockMap, [options])](#new_BlockMap.ReadStream_new)
+            * [.options](#BlockMap.ReadStream+options) : <code>Object</code>
             * [.path](#BlockMap.ReadStream+path) : <code>String</code>
             * [.flags](#BlockMap.ReadStream+flags) : <code>String</code>
             * [.blockMap](#BlockMap.ReadStream+blockMap) : <code>[BlockMap](#BlockMap)</code>
@@ -156,7 +158,8 @@ Parse a .bmap formatted input
 **Kind**: static class of <code>[BlockMap](#BlockMap)</code>  
 
 * [.FilterStream](#BlockMap.FilterStream)
-    * [new FilterStream(blockMap, options)](#new_BlockMap.FilterStream_new)
+    * [new FilterStream(blockMap, [options])](#new_BlockMap.FilterStream_new)
+    * [.options](#BlockMap.FilterStream+options) : <code>Object</code>
     * [.blockMap](#BlockMap.FilterStream+blockMap) : <code>[BlockMap](#BlockMap)</code>
     * [.blockSize](#BlockMap.FilterStream+blockSize) : <code>Number</code>
     * [.currentRange](#BlockMap.FilterStream+currentRange) : <code>BlockMap.Range</code>
@@ -172,14 +175,24 @@ Parse a .bmap formatted input
 
 <a name="new_BlockMap.FilterStream_new"></a>
 
-#### new FilterStream(blockMap, options)
+#### new FilterStream(blockMap, [options])
 FilterStream
 
 **Params**
 
 - blockMap <code>[BlockMap](#BlockMap)</code> - the block map
-- options <code>Object</code> - options
+- [options] <code>Object</code> - options
+    - [.verify] <code>Boolean</code> <code> = true</code> - verify range checksums
 
+
+-
+
+<a name="BlockMap.FilterStream+options"></a>
+
+#### filterStream.options : <code>Object</code>
+options
+
+**Kind**: instance property of <code>[FilterStream](#BlockMap.FilterStream)</code>  
 
 -
 
@@ -270,7 +283,8 @@ Current offset in bytes
 **Kind**: static class of <code>[BlockMap](#BlockMap)</code>  
 
 * [.ReadStream](#BlockMap.ReadStream)
-    * [new ReadStream(filename, blockMap, options)](#new_BlockMap.ReadStream_new)
+    * [new ReadStream(filename, blockMap, [options])](#new_BlockMap.ReadStream_new)
+    * [.options](#BlockMap.ReadStream+options) : <code>Object</code>
     * [.path](#BlockMap.ReadStream+path) : <code>String</code>
     * [.flags](#BlockMap.ReadStream+flags) : <code>String</code>
     * [.blockMap](#BlockMap.ReadStream+blockMap) : <code>[BlockMap](#BlockMap)</code>
@@ -287,16 +301,26 @@ Current offset in bytes
 
 <a name="new_BlockMap.ReadStream_new"></a>
 
-#### new ReadStream(filename, blockMap, options)
+#### new ReadStream(filename, blockMap, [options])
 ReadStream
 
 **Params**
 
 - filename <code>String</code> - image path
 - blockMap <code>[BlockMap](#BlockMap)</code> - image's blockmap
-- options <code>Object</code>
-    - .flags <code>String</code> - fs.open() flags
+- [options] <code>Object</code> - options
+    - [.flags] <code>String</code> <code> = &#x27;r&#x27;</code> - fs.open() flags
+    - [.verify] <code>Boolean</code> <code> = true</code> - verify range checksums
 
+
+-
+
+<a name="BlockMap.ReadStream+options"></a>
+
+#### readStream.options : <code>Object</code>
+options
+
+**Kind**: instance property of <code>[ReadStream](#BlockMap.ReadStream)</code>  
 
 -
 
