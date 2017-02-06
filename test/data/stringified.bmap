@@ -5,7 +5,7 @@
   <BlocksCount>201</BlocksCount>
   <MappedBlocksCount>117</MappedBlocksCount>
   <ChecksumType>sha256</ChecksumType>
-  <BmapFileChecksum>fbfc7dac6f7308ba98c83dc165f56b0eb8b2a13a8d3be0569f6369e4d6f6eb2c</BmapFileChecksum>
+  <BmapFileChecksum>b712e55b4991cecc00e1f5ed9aff3c115963c7c2e174361c3cd3279f5e6d31ad</BmapFileChecksum>
   <BlockMap>
     <Range chksum="9eaf19215d55d23de1be1fe4bed4a95bfe620a404352fd06e782738fff58e500">0-1</Range>
     <Range chksum="e8a26f49a71262870f8294a73f40f122d622fd70fb82bef01c0322785e9fd6b2">3-5</Range>

@@ -14,11 +14,10 @@ describe( 'BlockMap.stringify()', function() {
     assert.strictEqual( blockMap.toString(), compare )
   })
 
-  it( 'parses own ouput', function() {
-    var json = require( `./data/version-2.0` )
+  it( 'has equivalent input & output', function() {
     var xml = fs.readFileSync( path.join( __dirname, `/data/stringified.bmap` ) )
     var blockMap = BlockMap.parse( xml )
-    assert.deepEqual( json, BlockMap.parse( xml ) )
+    assert.deepEqual( xml.toString(), blockMap.toString() )
   })
 
 })
