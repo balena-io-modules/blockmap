@@ -1,0 +1,19 @@
+build: off
+clone_depth: 1
+cache:
+  - '%AppData%\npm-cache'
+  - node_modules
+init:
+  - git config --global core.autocrlf false
+environment:
+  matrix:
+    - nodejs_version: ""
+    - nodejs_version: "6"
+    - nodejs_version: "4"
+install:
+  - ps: Install-Product node $env:nodejs_version x64
+  - npm install
+test_script:
+  - node --version
+  - npm --version
+  - cmd: npm test

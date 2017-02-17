@@ -2,7 +2,8 @@
 [![npm](https://img.shields.io/npm/v/blockmap.svg?style=flat-square)](https://npmjs.com/package/blockmap)
 [![npm license](https://img.shields.io/npm/l/blockmap.svg?style=flat-square)](https://npmjs.com/package/blockmap)
 [![npm downloads](https://img.shields.io/npm/dm/blockmap.svg?style=flat-square)](https://npmjs.com/package/blockmap)
-[![build status](https://img.shields.io/travis/resin-io-modules/blockmap.svg?style=flat-square)](https://travis-ci.org/resin-io-modules/blockmap)
+[![build status](https://img.shields.io/travis/resin-io-modules/blockmap/master.svg?style=flat-square&label=linux)](https://travis-ci.org/resin-io-modules/blockmap)
+[![build status](https://img.shields.io/appveyor/ci/resin-io/blockmap/master.svg?style=flat-square&label=windows)](https://ci.appveyor.com/project/resin-io/blockmap)
 
 This module implements [Tizen's block map format](https://source.tizen.org/documentation/reference/bmaptool/introduction),
 which maps non-empty blocks or block ranges from a raw image file,
