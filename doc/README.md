@@ -32,6 +32,7 @@
         * [.ReadStream](#BlockMap.ReadStream)
             * [new ReadStream(filename, blockMap, [options])](#new_BlockMap.ReadStream_new)
             * [.options](#BlockMap.ReadStream+options) : <code>Object</code>
+            * [.fd](#BlockMap.ReadStream+fd) : <code>Number</code>
             * [.path](#BlockMap.ReadStream+path) : <code>String</code>
             * [.flags](#BlockMap.ReadStream+flags) : <code>String</code>
             * [.blockMap](#BlockMap.ReadStream+blockMap) : <code>[BlockMap](#BlockMap)</code>
@@ -302,6 +303,7 @@ Current offset in bytes
 * [.ReadStream](#BlockMap.ReadStream)
     * [new ReadStream(filename, blockMap, [options])](#new_BlockMap.ReadStream_new)
     * [.options](#BlockMap.ReadStream+options) : <code>Object</code>
+    * [.fd](#BlockMap.ReadStream+fd) : <code>Number</code>
     * [.path](#BlockMap.ReadStream+path) : <code>String</code>
     * [.flags](#BlockMap.ReadStream+flags) : <code>String</code>
     * [.blockMap](#BlockMap.ReadStream+blockMap) : <code>[BlockMap](#BlockMap)</code>
@@ -326,6 +328,7 @@ ReadStream
 - filename <code>String</code> - image path
 - blockMap <code>[BlockMap](#BlockMap)</code> - image's blockmap
 - [options] <code>Object</code> - options
+    - [.fd] <code>String</code> <code> = </code> - file descriptor
     - [.flags] <code>String</code> <code> = &#x27;r&#x27;</code> - fs.open() flags
     - [.verify] <code>Boolean</code> <code> = true</code> - verify range checksums
 
@@ -336,6 +339,15 @@ ReadStream
 
 #### readStream.options : <code>Object</code>
 options
+
+**Kind**: instance property of <code>[ReadStream](#BlockMap.ReadStream)</code>  
+
+-
+
+<a name="BlockMap.ReadStream+fd"></a>
+
+#### readStream.fd : <code>Number</code>
+File descriptor
 
 **Kind**: instance property of <code>[ReadStream](#BlockMap.ReadStream)</code>  
 
@@ -480,11 +492,13 @@ Create a block map from it's JSON representation
 Create a ReadStream for an image with a block map
 
 **Kind**: static method of <code>[BlockMap](#BlockMap)</code>  
+**Returns**: <code>[ReadStream](#BlockMap.ReadStream)</code> - stream  
 **Params**
 
 - filename <code>String</code>
 - blockMap <code>[BlockMap](#BlockMap)</code> - image's blockmap
 - [options] <code>Object</code> - options
+    - [.fd] <code>String</code> <code> = </code> - file descriptor
     - [.flags] <code>String</code> <code> = &#x27;r&#x27;</code> - fs.open() flags
     - [.verify] <code>Boolean</code> <code> = true</code> - verify range checksums
 

@@ -29,6 +29,31 @@ describe( 'BlockMap.ReadStream', function() {
 
   })
 
+  it( 'should ignore path when given a file descriptor', function( done ) {
+
+    var filename = path.join( __dirname, '/data/bmap.img' )
+    var blockMap = BlockMap.create( require( './data/version-2.0' ) )
+    var fd = fs.openSync( filename, 'r' )
+    var readStream = new BlockMap.ReadStream( null, blockMap, { fd: fd })
+    var blockCount = 0
+
+    readStream
+      .on( 'data', ( block ) => {
+        blockCount++
+        assert.ok( block.address != null, 'block address missing' )
+        assert.ok( block.position != null, 'block position missing' )
+      })
+      .once( 'error', done )
+      .once( 'end', function() {
+        assert.equal( this.blocksRead, blockMap.mappedBlockCount, 'blocksRead mismatch' )
+        assert.equal( this.bytesRead, blockMap.mappedBlockCount * blockMap.blockSize, 'bytesRead mismatch' )
+        assert.equal( this.rangesRead, blockMap.ranges.length, 'rangesRead mismatch' )
+        assert.equal( blockCount, blockMap.mappedBlockCount, 'actual blocks read mismatch' )
+        done()
+      })
+
+  })
+
   context( 'disabled verification', function() {
     BlockMap.versions.forEach( function( v ) {
       it( `v${v}: ignore invalid ranges`, function( done ) {
