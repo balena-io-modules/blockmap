@@ -329,7 +329,7 @@ ReadStream
 - filename <code>String</code> - image path
 - blockMap <code>[BlockMap](#BlockMap)</code> - image's blockmap
 - [options] <code>Object</code> - options
-    - [.fd] <code>String</code> <code> = </code> - file descriptor
+    - [.fd] <code>Number</code> <code> = </code> - file descriptor
     - [.flags] <code>String</code> <code> = &#x27;r&#x27;</code> - fs.open() flags
     - [.verify] <code>Boolean</code> <code> = true</code> - verify range checksums
 
@@ -499,7 +499,7 @@ Create a ReadStream for an image with a block map
 - filename <code>String</code>
 - blockMap <code>[BlockMap](#BlockMap)</code> - image's blockmap
 - [options] <code>Object</code> - options
-    - [.fd] <code>String</code> <code> = </code> - file descriptor
+    - [.fd] <code>Number</code> <code> = </code> - file descriptor
     - [.flags] <code>String</code> <code> = &#x27;r&#x27;</code> - fs.open() flags
     - [.verify] <code>Boolean</code> <code> = true</code> - verify range checksums
 
