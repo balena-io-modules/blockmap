@@ -47,6 +47,7 @@
         * [.create([options])](#BlockMap.create) ⇒ <code>[BlockMap](#BlockMap)</code>
         * [.fromJSON(data)](#BlockMap.fromJSON) ⇒ <code>[BlockMap](#BlockMap)</code>
         * [.createReadStream(filename, blockMap, [options])](#BlockMap.createReadStream) ⇒ <code>[ReadStream](#BlockMap.ReadStream)</code>
+        * [.createFilterStream(blockMap, [options])](#BlockMap.createFilterStream) ⇒ <code>[FilterStream](#BlockMap.FilterStream)</code>
         * [.parse(value, [blockMap], [options])](#BlockMap.parse) ⇒ <code>[BlockMap](#BlockMap)</code>
         * [.stringify(blockMap)](#BlockMap.stringify) ⇒ <code>String</code>
 
@@ -500,6 +501,22 @@ Create a ReadStream for an image with a block map
 - [options] <code>Object</code> - options
     - [.fd] <code>String</code> <code> = </code> - file descriptor
     - [.flags] <code>String</code> <code> = &#x27;r&#x27;</code> - fs.open() flags
+    - [.verify] <code>Boolean</code> <code> = true</code> - verify range checksums
+
+
+-
+
+<a name="BlockMap.createFilterStream"></a>
+
+### BlockMap.createFilterStream(blockMap, [options]) ⇒ <code>[FilterStream](#BlockMap.FilterStream)</code>
+Create a FilterStream with a given block map
+
+**Kind**: static method of <code>[BlockMap](#BlockMap)</code>  
+**Returns**: <code>[FilterStream](#BlockMap.FilterStream)</code> - stream  
+**Params**
+
+- blockMap <code>[BlockMap](#BlockMap)</code>
+- [options] <code>Object</code>
     - [.verify] <code>Boolean</code> <code> = true</code> - verify range checksums
 
 
