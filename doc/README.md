@@ -4,7 +4,7 @@
 **Kind**: global class  
 
 * [BlockMap](#BlockMap)
-    * [new BlockMap(options)](#new_BlockMap_new)
+    * [new BlockMap([options])](#new_BlockMap_new)
     * _instance_
         * [.version](#BlockMap+version) : <code>String</code>
         * [.imageSize](#BlockMap+imageSize) : <code>Number</code>
@@ -43,7 +43,7 @@
             * [.bytesRead](#BlockMap.ReadStream+bytesRead) : <code>Number</code>
             * [.position](#BlockMap.ReadStream+position) : <code>Number</code>
         * [.versions](#BlockMap.versions) : <code>Array</code>
-        * [.create(options)](#BlockMap.create) ⇒ <code>[BlockMap](#BlockMap)</code>
+        * [.create([options])](#BlockMap.create) ⇒ <code>[BlockMap](#BlockMap)</code>
         * [.fromJSON(data)](#BlockMap.fromJSON) ⇒ <code>[BlockMap](#BlockMap)</code>
         * [.createReadStream(filename, blockMap, [options])](#BlockMap.createReadStream) ⇒ <code>[ReadStream](#BlockMap.ReadStream)</code>
         * [.parse(value, [blockMap], [options])](#BlockMap.parse) ⇒ <code>[BlockMap](#BlockMap)</code>
@@ -54,12 +54,20 @@
 
 <a name="new_BlockMap_new"></a>
 
-### new BlockMap(options)
+### new BlockMap([options])
 BlockMap
 
 **Params**
 
-- options <code>Object</code>
+- [options] <code>Object</code>
+    - [.version] <code>String</code> <code> = &#x27;2.0&#x27;</code>
+    - [.imageSize] <code>Number</code> <code> = 0</code>
+    - [.blockSize] <code>Number</code> <code> = 4096</code>
+    - [.blockCount] <code>Number</code> <code> = 0</code>
+    - [.mappedBlockCount] <code>Number</code> <code> = 0</code>
+    - [.checksum] <code>String</code>
+    - [.checksumType] <code>String</code> <code> = &#x27;sha256&#x27;</code>
+    - [.ranges] <code>Array</code> <code> = []</code>
 
 
 -
@@ -434,13 +442,21 @@ Supported .bmap format versions
 
 <a name="BlockMap.create"></a>
 
-### BlockMap.create(options) ⇒ <code>[BlockMap](#BlockMap)</code>
+### BlockMap.create([options]) ⇒ <code>[BlockMap](#BlockMap)</code>
 Create a new block map
 
 **Kind**: static method of <code>[BlockMap](#BlockMap)</code>  
 **Params**
 
-- options <code>Object</code>
+- [options] <code>Object</code>
+    - [.version] <code>String</code> <code> = &#x27;2.0&#x27;</code>
+    - [.imageSize] <code>Number</code> <code> = 0</code>
+    - [.blockSize] <code>Number</code> <code> = 4096</code>
+    - [.blockCount] <code>Number</code> <code> = 0</code>
+    - [.mappedBlockCount] <code>Number</code> <code> = 0</code>
+    - [.checksum] <code>String</code>
+    - [.checksumType] <code>String</code> <code> = &#x27;sha256&#x27;</code>
+    - [.ranges] <code>Array</code> <code> = []</code>
 
 
 -
