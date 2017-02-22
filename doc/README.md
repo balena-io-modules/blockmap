@@ -43,6 +43,8 @@
             * [.blocksRead](#BlockMap.ReadStream+blocksRead) : <code>Number</code>
             * [.bytesRead](#BlockMap.ReadStream+bytesRead) : <code>Number</code>
             * [.position](#BlockMap.ReadStream+position) : <code>Number</code>
+            * [.start](#BlockMap.ReadStream+start) : <code>Number</code>
+            * [.end](#BlockMap.ReadStream+end) : <code>Number</code>
         * [.versions](#BlockMap.versions) : <code>Array</code>
         * [.create([options])](#BlockMap.create) ⇒ <code>[BlockMap](#BlockMap)</code>
         * [.fromJSON(data)](#BlockMap.fromJSON) ⇒ <code>[BlockMap](#BlockMap)</code>
@@ -315,6 +317,8 @@ Current offset in bytes
     * [.blocksRead](#BlockMap.ReadStream+blocksRead) : <code>Number</code>
     * [.bytesRead](#BlockMap.ReadStream+bytesRead) : <code>Number</code>
     * [.position](#BlockMap.ReadStream+position) : <code>Number</code>
+    * [.start](#BlockMap.ReadStream+start) : <code>Number</code>
+    * [.end](#BlockMap.ReadStream+end) : <code>Number</code>
 
 
 -
@@ -332,6 +336,9 @@ ReadStream
     - [.fd] <code>Number</code> <code> = </code> - file descriptor
     - [.flags] <code>String</code> <code> = &#x27;r&#x27;</code> - fs.open() flags
     - [.verify] <code>Boolean</code> <code> = true</code> - verify range checksums
+    - [.autoClose] <code>Boolean</code> <code> = true</code> - close the fd on end
+    - [.start] <code>Number</code> - byte offset in file to read from
+    - [.end] <code>Number</code> - byte offset in file to stop at
 
 
 -
@@ -444,6 +451,24 @@ Current offset in bytes
 
 -
 
+<a name="BlockMap.ReadStream+start"></a>
+
+#### readStream.start : <code>Number</code>
+Position start offset in bytes
+
+**Kind**: instance property of <code>[ReadStream](#BlockMap.ReadStream)</code>  
+
+-
+
+<a name="BlockMap.ReadStream+end"></a>
+
+#### readStream.end : <code>Number</code>
+End offset in bytes
+
+**Kind**: instance property of <code>[ReadStream](#BlockMap.ReadStream)</code>  
+
+-
+
 <a name="BlockMap.versions"></a>
 
 ### BlockMap.versions : <code>Array</code>
@@ -502,6 +527,9 @@ Create a ReadStream for an image with a block map
     - [.fd] <code>Number</code> <code> = </code> - file descriptor
     - [.flags] <code>String</code> <code> = &#x27;r&#x27;</code> - fs.open() flags
     - [.verify] <code>Boolean</code> <code> = true</code> - verify range checksums
+    - [.autoClose] <code>Boolean</code> <code> = true</code> - close the fd on end
+    - [.start] <code>Number</code> - byte offset in file to read from
+    - [.end] <code>Number</code> - byte offset in file to stop at
 
 
 -

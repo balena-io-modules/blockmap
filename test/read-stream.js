@@ -54,6 +54,143 @@ describe( 'BlockMap.ReadStream', function() {
 
   })
 
+  it( 'should not close the fd if autoClose = false', function( done ) {
+
+    var filename = path.join( __dirname, '/data/bmap.img' )
+    var blockMap = BlockMap.create( require( './data/version-2.0' ) )
+    var fd = fs.openSync( filename, 'r' )
+    var blockCount = 0
+    var readStream = new BlockMap.ReadStream( null, blockMap, {
+      fd: fd,
+      autoClose: false,
+    })
+
+    readStream
+      .on( 'data', ( block ) => {
+        blockCount++
+        assert.ok( block.address != null, 'block address missing' )
+        assert.ok( block.position != null, 'block position missing' )
+      })
+      .once( 'error', done )
+      .once( 'end', function() {
+        assert.equal( this.blocksRead, blockMap.mappedBlockCount, 'blocksRead mismatch' )
+        assert.equal( this.bytesRead, blockMap.mappedBlockCount * blockMap.blockSize, 'bytesRead mismatch' )
+        assert.equal( this.rangesRead, blockMap.ranges.length, 'rangesRead mismatch' )
+        assert.equal( blockCount, blockMap.mappedBlockCount, 'actual blocks read mismatch' )
+        assert.ok( fs.fstatSync( readStream.fd ) )
+        fs.closeSync( readStream.fd )
+        done()
+      })
+
+  })
+
+  it( 'should not close if autoClose = false, and a filename was given', function( done ) {
+
+    var filename = path.join( __dirname, '/data/bmap.img' )
+    var blockMap = BlockMap.create( require( './data/version-2.0' ) )
+    var blockCount = 0
+    var readStream = new BlockMap.ReadStream( filename, blockMap, {
+      autoClose: false,
+    })
+
+    readStream
+      .on( 'data', ( block ) => {
+        blockCount++
+        assert.ok( block.address != null, 'block address missing' )
+        assert.ok( block.position != null, 'block position missing' )
+      })
+      .once( 'error', done )
+      .once( 'end', function() {
+        assert.equal( this.blocksRead, blockMap.mappedBlockCount, 'blocksRead mismatch' )
+        assert.equal( this.bytesRead, blockMap.mappedBlockCount * blockMap.blockSize, 'bytesRead mismatch' )
+        assert.equal( this.rangesRead, blockMap.ranges.length, 'rangesRead mismatch' )
+        assert.equal( blockCount, blockMap.mappedBlockCount, 'actual blocks read mismatch' )
+        assert.ok( fs.fstatSync( readStream.fd ) )
+        fs.closeSync( readStream.fd )
+        done()
+      })
+
+  })
+
+  it( 'should start reading at `start`, if specified', function( done ) {
+
+    var filename = path.join( __dirname, '/data/padded-bmap.img' )
+    var blockMap = BlockMap.create( require( './data/version-2.0' ) )
+    var blockCount = 0
+    var readStream = new BlockMap.ReadStream( filename, blockMap, {
+      start: 4096,
+    })
+
+    readStream
+      .on( 'data', ( block ) => {
+        blockCount++
+        assert.ok( block.address != null, 'block address missing' )
+        assert.ok( block.position != null, 'block position missing' )
+      })
+      .once( 'error', done )
+      .once( 'end', function() {
+        assert.equal( this.blocksRead, blockMap.mappedBlockCount, 'blocksRead mismatch' )
+        assert.equal( this.bytesRead, blockMap.mappedBlockCount * blockMap.blockSize, 'bytesRead mismatch' )
+        assert.equal( this.rangesRead, blockMap.ranges.length, 'rangesRead mismatch' )
+        assert.equal( blockCount, blockMap.mappedBlockCount, 'actual blocks read mismatch' )
+        done()
+      })
+
+  })
+
+  it( 'should stop reading at `end`, if specified', function( done ) {
+
+    var filename = path.join( __dirname, '/data/bmap.img' )
+    var blockMap = BlockMap.create( require( './data/version-2.0' ) )
+    var blockCount = 0
+    var readStream = new BlockMap.ReadStream( filename, blockMap, {
+      end: blockMap.blockSize,
+    })
+
+    readStream
+      .on( 'data', ( block ) => {
+        blockCount++
+        assert.ok( block.address != null, 'block address missing' )
+        assert.ok( block.position != null, 'block position missing' )
+      })
+      .once( 'error', done )
+      .once( 'end', function() {
+        assert.equal( this.blocksRead, 1, 'blocksRead mismatch' )
+        assert.equal( this.bytesRead, blockMap.blockSize, 'bytesRead mismatch' )
+        assert.equal( this.rangesRead, 1, 'rangesRead mismatch' )
+        assert.equal( blockCount, 1, 'actual blocks read mismatch' )
+        done()
+      })
+
+  })
+
+  it( 'should start reading at `start` and stop reading at `end`, if specified', function( done ) {
+
+    var filename = path.join( __dirname, '/data/padded-bmap.img' )
+    var blockMap = BlockMap.create( require( './data/version-2.0' ) )
+    var blockCount = 0
+    var readStream = new BlockMap.ReadStream( filename, blockMap, {
+      start: 4096,
+      end: 4096 + blockMap.blockSize,
+    })
+
+    readStream
+      .on( 'data', ( block ) => {
+        blockCount++
+        assert.ok( block.address != null, 'block address missing' )
+        assert.ok( block.position != null, 'block position missing' )
+      })
+      .once( 'error', done )
+      .once( 'end', function() {
+        assert.equal( this.blocksRead, 1, 'blocksRead mismatch' )
+        assert.equal( this.bytesRead, blockMap.blockSize, 'bytesRead mismatch' )
+        assert.equal( this.rangesRead, 1, 'rangesRead mismatch' )
+        assert.equal( blockCount, 1, 'actual blocks read mismatch' )
+        done()
+      })
+
+  })
+
   context( 'disabled verification', function() {
     BlockMap.versions.forEach( function( v ) {
       it( `v${v}: ignore invalid ranges`, function( done ) {
