@@ -15,6 +15,7 @@
         * [.checksumType](#BlockMap+checksumType) : <code>Number</code>
         * [.ranges](#BlockMap+ranges) : <code>Number</code>
         * [.parse(value, [options])](#BlockMap+parse) ⇒ <code>[BlockMap](#BlockMap)</code>
+        * [.toString()](#BlockMap+toString) ⇒ <code>String</code>
     * _static_
         * [.FilterStream](#BlockMap.FilterStream)
             * [new FilterStream(blockMap, [options])](#new_BlockMap.FilterStream_new)
@@ -41,14 +42,12 @@
             * [.blocksRead](#BlockMap.ReadStream+blocksRead) : <code>Number</code>
             * [.bytesRead](#BlockMap.ReadStream+bytesRead) : <code>Number</code>
             * [.position](#BlockMap.ReadStream+position) : <code>Number</code>
-        * [.parse](#BlockMap.parse) ⇒ <code>[BlockMap](#BlockMap)</code>
-        * [.stringify](#BlockMap.stringify) ⇒ <code>String</code>
         * [.versions](#BlockMap.versions) : <code>Array</code>
         * [.create(options)](#BlockMap.create) ⇒ <code>[BlockMap](#BlockMap)</code>
         * [.fromJSON(data)](#BlockMap.fromJSON) ⇒ <code>[BlockMap](#BlockMap)</code>
-        * [.createReadStream(filename, blockMap, options)](#BlockMap.createReadStream) ⇒ <code>[ReadStream](#BlockMap.ReadStream)</code>
+        * [.createReadStream(filename, blockMap, [options])](#BlockMap.createReadStream) ⇒ <code>[ReadStream](#BlockMap.ReadStream)</code>
         * [.parse(value, [blockMap], [options])](#BlockMap.parse) ⇒ <code>[BlockMap](#BlockMap)</code>
-        * [.stringify(blockMap, [options])](#BlockMap.stringify) ⇒ <code>String</code>
+        * [.stringify(blockMap)](#BlockMap.stringify) ⇒ <code>String</code>
 
 
 -
@@ -147,8 +146,18 @@ Parse a .bmap formatted input
 
 - value <code>String</code> | <code>Buffer</code>
 - [options] <code>Object</code> - options
-    - [.verify] <code>Boolean</code> <code> = true</code> - options
+    - [.verify] <code>Boolean</code> <code> = true</code> - verify range checksums
 
+
+-
+
+<a name="BlockMap+toString"></a>
+
+### blockMap.toString() ⇒ <code>String</code>
+Stringify the block map into .bmap format
+
+**Kind**: instance method of <code>[BlockMap](#BlockMap)</code>  
+**Returns**: <code>String</code> - xml  
 
 -
 
@@ -414,34 +423,6 @@ Current offset in bytes
 
 -
 
-<a name="BlockMap.parse"></a>
-
-### BlockMap.parse ⇒ <code>[BlockMap](#BlockMap)</code>
-Parse a .bmap file
-
-**Kind**: static property of <code>[BlockMap](#BlockMap)</code>  
-**Params**
-
-- value <code>String</code> | <code>Buffer</code>
-- [blockMap] <code>[BlockMap](#BlockMap)</code> - – BlockMap instance
-
-
--
-
-<a name="BlockMap.stringify"></a>
-
-### BlockMap.stringify ⇒ <code>String</code>
-Stringify a block map into .bmap format
-
-**Kind**: static property of <code>[BlockMap](#BlockMap)</code>  
-**Returns**: <code>String</code> - xml  
-**Params**
-
-- blockMap <code>[BlockMap](#BlockMap)</code> - – BlockMap instance
-
-
--
-
 <a name="BlockMap.versions"></a>
 
 ### BlockMap.versions : <code>Array</code>
@@ -479,7 +460,7 @@ Create a block map from it's JSON representation
 
 <a name="BlockMap.createReadStream"></a>
 
-### BlockMap.createReadStream(filename, blockMap, options) ⇒ <code>[ReadStream](#BlockMap.ReadStream)</code>
+### BlockMap.createReadStream(filename, blockMap, [options]) ⇒ <code>[ReadStream](#BlockMap.ReadStream)</code>
 Create a ReadStream for an image with a block map
 
 **Kind**: static method of <code>[BlockMap](#BlockMap)</code>  
@@ -487,8 +468,9 @@ Create a ReadStream for an image with a block map
 
 - filename <code>String</code>
 - blockMap <code>[BlockMap](#BlockMap)</code> - image's blockmap
-- options <code>Object</code>
-    - .flags <code>String</code> - fs.open() flags
+- [options] <code>Object</code> - options
+    - [.flags] <code>String</code> <code> = &#x27;r&#x27;</code> - fs.open() flags
+    - [.verify] <code>Boolean</code> <code> = true</code> - verify range checksums
 
 
 -
@@ -503,22 +485,22 @@ Parse a .bmap file
 
 - value <code>String</code> | <code>Buffer</code> - input
 - [blockMap] <code>[BlockMap](#BlockMap)</code> - BlockMap instance to populate
-- [options] <code>Objects</code> - options
+- [options] <code>Object</code> - options
+    - [.verify] <code>Boolean</code> - verify range checksums
 
 
 -
 
 <a name="BlockMap.stringify"></a>
 
-### BlockMap.stringify(blockMap, [options]) ⇒ <code>String</code>
+### BlockMap.stringify(blockMap) ⇒ <code>String</code>
 Stringify a block map into .bmap format
 
 **Kind**: static method of <code>[BlockMap](#BlockMap)</code>  
 **Returns**: <code>String</code> - xml  
 **Params**
 
-- blockMap <code>[BlockMap](#BlockMap)</code> - – BlockMap instance
-- [options] <code>Object</code> - – options
+- blockMap <code>[BlockMap](#BlockMap)</code> - BlockMap instance
 
 
 -
