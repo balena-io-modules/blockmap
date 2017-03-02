@@ -1,7 +1,13 @@
+# Files
 .*
 *.md
 *.log
+
+# Directories
 doc
 test
 example
 benchmark
+
+# Versionist configuration
+versionist.conf.js
