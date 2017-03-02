@@ -14,6 +14,7 @@
         * [.checksum](#BlockMap+checksum) : <code>String</code>
         * [.checksumType](#BlockMap+checksumType) : <code>Number</code>
         * [.ranges](#BlockMap+ranges) : <code>Number</code>
+        * [.addRange(start, end, checksum)](#BlockMap+addRange) ⇒ <code>[BlockMap](#BlockMap)</code>
         * [.parse(value, [options])](#BlockMap+parse) ⇒ <code>[BlockMap](#BlockMap)</code>
         * [.toString()](#BlockMap+toString) ⇒ <code>String</code>
     * _static_
@@ -145,6 +146,21 @@ checksum algorithm
 block ranges
 
 **Kind**: instance property of <code>[BlockMap](#BlockMap)</code>  
+
+-
+
+<a name="BlockMap+addRange"></a>
+
+### blockMap.addRange(start, end, checksum) ⇒ <code>[BlockMap](#BlockMap)</code>
+Add a block range to the block map
+
+**Kind**: instance method of <code>[BlockMap](#BlockMap)</code>  
+**Params**
+
+- start <code>Number</code>
+- end <code>Number</code>
+- checksum <code>String</code> - hex digest
+
 
 -
 
