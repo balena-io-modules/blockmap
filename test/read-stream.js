@@ -191,6 +191,134 @@ describe( 'BlockMap.ReadStream', function() {
 
   })
 
+  it( 'should throw if start is negative', function() {
+
+    var filename = path.join( __dirname, '/data/bmap.img' )
+    var blockMap = BlockMap.create( require( './data/version-2.0' ) )
+
+    assert.throws( function() {
+      new BlockMap.ReadStream( filename, blockMap, {
+        start: -1,
+      })
+    })
+
+  })
+
+  it( 'should throw if end is negative', function() {
+
+    var filename = path.join( __dirname, '/data/bmap.img' )
+    var blockMap = BlockMap.create( require( './data/version-2.0' ) )
+
+    assert.throws( function() {
+      new BlockMap.ReadStream( filename, blockMap, {
+        end: -1,
+      })
+    })
+
+  })
+
+  it( 'should not emit blocks if end is 0', function( done ) {
+
+    var filename = path.join( __dirname, '/data/bmap.img' )
+    var blockMap = BlockMap.create( require( './data/version-2.0' ) )
+    var blockCount = 0
+    var readStream = new BlockMap.ReadStream( filename, blockMap, {
+      end: 0,
+    })
+
+    readStream
+      .on( 'error', done )
+      .on( 'end', () => {
+        assert.strictEqual( blockCount, 0 )
+        done()
+      })
+      .on( 'data', ( block ) => {
+        blockCount++
+      })
+
+  })
+
+  it( 'should throw if start is greater than end', function() {
+
+    var filename = path.join( __dirname, '/data/bmap.img' )
+    var blockMap = BlockMap.create( require( './data/version-2.0' ) )
+
+    assert.throws( function() {
+      new BlockMap.ReadStream( filename, blockMap, {
+        start: blockMap.blockSize,
+        end: 0,
+      })
+    })
+
+  })
+
+  it( 'should not emit blocks if start is equal to end', function( done ) {
+
+    var filename = path.join( __dirname, '/data/bmap.img' )
+    var blockMap = BlockMap.create( require( './data/version-2.0' ) )
+    var blockCount = 0
+    var readStream = new BlockMap.ReadStream( filename, blockMap, {
+      start: blockMap.blockSize,
+      end: blockMap.blockSize,
+    })
+
+    readStream
+      .on( 'error', done )
+      .on( 'end', () => {
+        assert.strictEqual( blockCount, 0 )
+        done()
+      })
+      .on( 'data', ( block ) => {
+        blockCount++
+      })
+
+  })
+
+  it( 'should emit an error if start goes beyond the file', function( done ) {
+
+    var filename = path.join( __dirname, '/data/bmap.img' )
+    var blockMap = BlockMap.create( require( './data/version-2.0' ) )
+    var readStream = new BlockMap.ReadStream( filename, blockMap, {
+      start: fs.statSync( filename ).size + blockMap.blockSize,
+    })
+
+    var hadError = false
+
+    readStream
+      .on( 'error', ( error ) => { done() })
+      .on( 'end', () => {
+        if( !hadError ) {
+          done( new Error( 'Missing expected exception' ) )
+        }
+      })
+      .on( 'data', () => {})
+
+  })
+
+  it( 'should ignore an end beyond the file', function( done ) {
+
+    var filename = path.join( __dirname, '/data/bmap.img' )
+    var blockMap = BlockMap.create( require( './data/version-2.0' ) )
+    var blockCount = 0
+    var readStream = new BlockMap.ReadStream( filename, blockMap, {
+      end: fs.statSync( filename ).size + blockMap.blockSize,
+    })
+
+    readStream
+      .on( 'error', done )
+      .on( 'end', function() {
+        assert.equal( this.blocksRead, blockMap.mappedBlockCount, 'blocksRead mismatch' )
+        assert.equal( this.bytesRead, blockMap.mappedBlockCount * blockMap.blockSize, 'bytesRead mismatch' )
+        assert.equal( this.rangesRead, blockMap.ranges.length, 'rangesRead mismatch' )
+        assert.equal( blockCount, blockMap.mappedBlockCount, 'actual blocks read mismatch' )
+        done()
+      })
+      .on( 'data', ( block ) => {
+        blockCount++
+      })
+
+  })
+
   context( 'disabled verification', function() {
     BlockMap.versions.forEach( function( v ) {
       it( `v${v}: ignore invalid ranges`, function( done ) {
