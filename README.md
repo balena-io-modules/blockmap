@@ -99,7 +99,7 @@ var blockMap = BlockMap.parse( bmap, { verify: false })
 
 ```js
 // Disable range checksum verification:
-var readStream = new BlockMap.ReadStream( '/path/to/resin-os.img', blockMap, {
+var blockReadStream = new BlockMap.ReadStream( '/path/to/resin-os.img', blockMap, {
   verify: false,
 })
 // Same for filter streams:
@@ -114,23 +114,23 @@ Use a parsed block map to read only mapped regions:
 
 ```js
 var blockMap = BlockMap.parse( fs.readFileSync( '/path/to/resin-os.bmap' ) )
-var readStream = new BlockMap.ReadStream( '/path/to/resin-os.img', blockMap )
+var blockReadStream = new BlockMap.ReadStream( '/path/to/resin-os.img', blockMap )
 
 // The buffer will have two additional properties set;
 // 1) buffer.address – it's block address in respect to the .bmap's block size
 // 2) buffer.position – the block's offset (or address) in bytes
 // Which can then be used to write only those blocks to the target:
-readStream.on( 'readable', function() {
+blockReadStream.on( 'readable', function() {
   var buffer = null
   while( buffer = this.read() ) {
     fs.writeSync( fd, buffer, 0, buffer.length, buffer.position )
   }
 })
 
-readStream.once( 'end', function() {
-  console.log( 'Read', readStream.blocksRead, 'mapped blocks' )
-  console.log( 'Read', readStream.bytesRead, 'mapped bytes' )
-  console.log( 'Read', readStream.rangesRead, 'mapped ranges' )
+blockReadStream.once( 'end', function() {
+  console.log( 'Read', blockReadStream.blocksRead, 'mapped blocks' )
+  console.log( 'Read', blockReadStream.bytesRead, 'mapped bytes' )
+  console.log( 'Read', blockReadStream.rangesRead, 'mapped ranges' )
 })
 ```
 
@@ -201,9 +201,9 @@ the error will have a `.checksum` and `.range` property,
 denoting the calculated checksum, and the range for which it occured:
 
 ```js
-var readStream = new BlockMap.ReadStream( '/path/to/resin-os.img', blockMap )
+var blockReadStream = new BlockMap.ReadStream( '/path/to/resin-os.img', blockMap )
 
-readStream.on( 'error', function( error ) {
+blockReadStream.on( 'error', function( error ) {
   if( error.checksum ) {
     console.log( `Checksum mismatch for range [${error.range.start},${error.range.end}]:` )
     console.log( `${error.checksum} != ${error.range.checksum}` )
