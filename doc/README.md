@@ -32,6 +32,7 @@
         * [.ReadStream](#BlockMap.ReadStream)
             * [new ReadStream(filename, blockMap, [options])](#new_BlockMap.ReadStream_new)
             * [.options](#BlockMap.ReadStream+options) : <code>Object</code>
+            * [.fd](#BlockMap.ReadStream+fd) : <code>Number</code>
             * [.path](#BlockMap.ReadStream+path) : <code>String</code>
             * [.flags](#BlockMap.ReadStream+flags) : <code>String</code>
             * [.blockMap](#BlockMap.ReadStream+blockMap) : <code>[BlockMap](#BlockMap)</code>
@@ -42,10 +43,13 @@
             * [.blocksRead](#BlockMap.ReadStream+blocksRead) : <code>Number</code>
             * [.bytesRead](#BlockMap.ReadStream+bytesRead) : <code>Number</code>
             * [.position](#BlockMap.ReadStream+position) : <code>Number</code>
+            * [.start](#BlockMap.ReadStream+start) : <code>Number</code>
+            * [.end](#BlockMap.ReadStream+end) : <code>Number</code>
         * [.versions](#BlockMap.versions) : <code>Array</code>
         * [.create([options])](#BlockMap.create) ⇒ <code>[BlockMap](#BlockMap)</code>
         * [.fromJSON(data)](#BlockMap.fromJSON) ⇒ <code>[BlockMap](#BlockMap)</code>
         * [.createReadStream(filename, blockMap, [options])](#BlockMap.createReadStream) ⇒ <code>[ReadStream](#BlockMap.ReadStream)</code>
+        * [.createFilterStream(blockMap, [options])](#BlockMap.createFilterStream) ⇒ <code>[FilterStream](#BlockMap.FilterStream)</code>
         * [.parse(value, [blockMap], [options])](#BlockMap.parse) ⇒ <code>[BlockMap](#BlockMap)</code>
         * [.stringify(blockMap)](#BlockMap.stringify) ⇒ <code>String</code>
 
@@ -302,6 +306,7 @@ Current offset in bytes
 * [.ReadStream](#BlockMap.ReadStream)
     * [new ReadStream(filename, blockMap, [options])](#new_BlockMap.ReadStream_new)
     * [.options](#BlockMap.ReadStream+options) : <code>Object</code>
+    * [.fd](#BlockMap.ReadStream+fd) : <code>Number</code>
     * [.path](#BlockMap.ReadStream+path) : <code>String</code>
     * [.flags](#BlockMap.ReadStream+flags) : <code>String</code>
     * [.blockMap](#BlockMap.ReadStream+blockMap) : <code>[BlockMap](#BlockMap)</code>
@@ -312,6 +317,8 @@ Current offset in bytes
     * [.blocksRead](#BlockMap.ReadStream+blocksRead) : <code>Number</code>
     * [.bytesRead](#BlockMap.ReadStream+bytesRead) : <code>Number</code>
     * [.position](#BlockMap.ReadStream+position) : <code>Number</code>
+    * [.start](#BlockMap.ReadStream+start) : <code>Number</code>
+    * [.end](#BlockMap.ReadStream+end) : <code>Number</code>
 
 
 -
@@ -326,8 +333,12 @@ ReadStream
 - filename <code>String</code> - image path
 - blockMap <code>[BlockMap](#BlockMap)</code> - image's blockmap
 - [options] <code>Object</code> - options
+    - [.fd] <code>Number</code> <code> = </code> - file descriptor
     - [.flags] <code>String</code> <code> = &#x27;r&#x27;</code> - fs.open() flags
     - [.verify] <code>Boolean</code> <code> = true</code> - verify range checksums
+    - [.autoClose] <code>Boolean</code> <code> = true</code> - close the fd on end
+    - [.start] <code>Number</code> - byte offset in file to read from
+    - [.end] <code>Number</code> - byte offset in file to stop at
 
 
 -
@@ -336,6 +347,15 @@ ReadStream
 
 #### readStream.options : <code>Object</code>
 options
+
+**Kind**: instance property of <code>[ReadStream](#BlockMap.ReadStream)</code>  
+
+-
+
+<a name="BlockMap.ReadStream+fd"></a>
+
+#### readStream.fd : <code>Number</code>
+File descriptor
 
 **Kind**: instance property of <code>[ReadStream](#BlockMap.ReadStream)</code>  
 
@@ -431,6 +451,24 @@ Current offset in bytes
 
 -
 
+<a name="BlockMap.ReadStream+start"></a>
+
+#### readStream.start : <code>Number</code>
+Position start offset in bytes
+
+**Kind**: instance property of <code>[ReadStream](#BlockMap.ReadStream)</code>  
+
+-
+
+<a name="BlockMap.ReadStream+end"></a>
+
+#### readStream.end : <code>Number</code>
+End offset in bytes
+
+**Kind**: instance property of <code>[ReadStream](#BlockMap.ReadStream)</code>  
+
+-
+
 <a name="BlockMap.versions"></a>
 
 ### BlockMap.versions : <code>Array</code>
@@ -480,12 +518,33 @@ Create a block map from it's JSON representation
 Create a ReadStream for an image with a block map
 
 **Kind**: static method of <code>[BlockMap](#BlockMap)</code>  
+**Returns**: <code>[ReadStream](#BlockMap.ReadStream)</code> - stream  
 **Params**
 
 - filename <code>String</code>
 - blockMap <code>[BlockMap](#BlockMap)</code> - image's blockmap
 - [options] <code>Object</code> - options
+    - [.fd] <code>Number</code> <code> = </code> - file descriptor
     - [.flags] <code>String</code> <code> = &#x27;r&#x27;</code> - fs.open() flags
+    - [.verify] <code>Boolean</code> <code> = true</code> - verify range checksums
+    - [.autoClose] <code>Boolean</code> <code> = true</code> - close the fd on end
+    - [.start] <code>Number</code> - byte offset in file to read from
+    - [.end] <code>Number</code> - byte offset in file to stop at
+
+
+-
+
+<a name="BlockMap.createFilterStream"></a>
+
+### BlockMap.createFilterStream(blockMap, [options]) ⇒ <code>[FilterStream](#BlockMap.FilterStream)</code>
+Create a FilterStream with a given block map
+
+**Kind**: static method of <code>[BlockMap](#BlockMap)</code>  
+**Returns**: <code>[FilterStream](#BlockMap.FilterStream)</code> - stream  
+**Params**
+
+- blockMap <code>[BlockMap](#BlockMap)</code>
+- [options] <code>Object</code>
     - [.verify] <code>Boolean</code> <code> = true</code> - verify range checksums
 
 
