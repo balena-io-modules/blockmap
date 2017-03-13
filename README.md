@@ -47,7 +47,9 @@ BlockMap {
     checksum: 'e8a26f49a71262870f8294a73f40f122d622fd70fb82bef01c0322785e9fd6b2',
     start: 3,
     end: 5
-  }, {
+  },
+  // More ranges omitted for brevity
+  {
     checksum: 'cb732fc3f3a0f81f6a761a534201c05549c8efe4a92630ccd24241f72d7d618c',
     start: 198,
     end: 199
@@ -78,6 +80,7 @@ Where `xml` would look like the following, given the block map from above:
   <BlockMap>
     <Range chksum="9eaf19215d55d23de1be1fe4bed4a95bfe620a404352fd06e782738fff58e500">0-1</Range>
     <Range chksum="e8a26f49a71262870f8294a73f40f122d622fd70fb82bef01c0322785e9fd6b2">3-5</Range>
+    <!-- More ranges omitted for brevity -->
     <Range chksum="cb732fc3f3a0f81f6a761a534201c05549c8efe4a92630ccd24241f72d7d618c">198-199</Range>
   </BlockMap>
 </bmap>
