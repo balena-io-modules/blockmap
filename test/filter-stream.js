@@ -16,6 +16,34 @@ describe( 'BlockMap.FilterStream', function() {
     readStream.pipe( transform )
       .on( 'data', ( block ) => {
         blockCount++
+        assert.equal( block.length, blockMap.blockSize, 'Invalid block size' )
+        assert.ok( block.address != null, 'block address missing' )
+        assert.ok( block.position != null, 'block position missing' )
+      })
+      .once( 'error', done )
+      .once( 'end', function() {
+        assert.equal( this.blocksWritten, blockMap.mappedBlockCount, 'blocksRead mismatch' )
+        assert.equal( this.bytesWritten, blockMap.mappedBlockCount * blockMap.blockSize, 'bytesWritten mismatch' )
+        assert.equal( this.rangesRead, blockMap.ranges.length, 'rangesRead mismatch' )
+        assert.equal( blockCount, blockMap.mappedBlockCount, 'actual blocks read mismatch' )
+        done()
+      })
+
+  })
+
+
+  it( 'should only emit properly sized blocks', function( done ) {
+
+    var filename = path.join( __dirname, '/data/bmap.img' )
+    var blockMap = BlockMap.create( require( './data/version-2.0' ) )
+    var readStream = fs.createReadStream( filename, { highWaterMark: 123 })
+    var transform = new BlockMap.FilterStream( blockMap )
+    var blockCount = 0
+
+    readStream.pipe( transform )
+      .on( 'data', ( block ) => {
+        blockCount++
+        assert.equal( block.length, blockMap.blockSize, 'Invalid block size' )
         assert.ok( block.address != null, 'block address missing' )
         assert.ok( block.position != null, 'block position missing' )
       })
@@ -40,7 +68,12 @@ describe( 'BlockMap.FilterStream', function() {
         var readStream = fs.createReadStream( filename )
         var transform = new BlockMap.FilterStream( blockMap, { verify: false })
 
-        readStream.pipe( transform ).resume()
+        readStream.pipe( transform )
+          .on( 'data', ( block ) => {
+            assert.equal( block.length, blockMap.blockSize, 'Invalid block size' )
+            assert.ok( block.address != null, 'block address missing' )
+            assert.ok( block.position != null, 'block position missing' )
+          })
           .on( 'error', done )
           .on( 'end', done )
 
@@ -58,7 +91,12 @@ describe( 'BlockMap.FilterStream', function() {
         var readStream = fs.createReadStream( filename )
         var transform = new BlockMap.FilterStream( blockMap )
 
-        readStream.pipe( transform ).resume()
+        readStream.pipe( transform )
+          .on( 'data', ( block ) => {
+            assert.equal( block.length, blockMap.blockSize, 'Invalid block size' )
+            assert.ok( block.address != null, 'block address missing' )
+            assert.ok( block.position != null, 'block position missing' )
+          })
           .on( 'error', function( error ) {
             assert.ok( error instanceof Error, 'error not instance of Error' )
             // The calculated checksum
@@ -88,7 +126,12 @@ describe( 'BlockMap.FilterStream', function() {
         var transform = new BlockMap.FilterStream( blockMap, { verify: true })
         var hadErrors = 0
 
-        readStream.pipe( transform ).resume()
+        readStream.pipe( transform )
+          .on( 'data', ( block ) => {
+            assert.equal( block.length, blockMap.blockSize, 'Invalid block size' )
+            assert.ok( block.address != null, 'block address missing' )
+            assert.ok( block.position != null, 'block position missing' )
+          })
           .on( 'error', function( error ) {
             assert.ok( error instanceof Error, 'error not instance of Error' )
             assert.ok( /^Invalid checksum for range/.test( error.message ) )
