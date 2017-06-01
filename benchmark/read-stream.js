@@ -41,3 +41,25 @@ bench( 'BlockMap.ReadStream', function( run ) {
   })
 
 })
+
+bench( 'BlockMap.FilterStream', function( run ) {
+
+  const filename = path.join( __dirname, '..', 'test/data/bmap.img' )
+  const blockMap = BlockMap.create( require( '../test/data/version-2.0' ) )
+  const readStream = fs.createReadStream( filename )
+  const filter = BlockMap.createFilterStream( blockMap )
+
+  run.start()
+
+  readStream.pipe( filter )
+    .on( 'readable', function() {
+      var chunk = null
+      while( chunk = this.read() ) {
+        continue
+      }
+    })
+    .once( 'end', function() {
+      run.end()
+    })
+
+})

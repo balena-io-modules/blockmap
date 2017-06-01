@@ -15,14 +15,15 @@ describe( 'BlockMap.FilterStream', function() {
 
     readStream.pipe( transform )
       .on( 'data', ( block ) => {
-        blockCount++
-        assert.equal( block.length, blockMap.blockSize, 'Invalid block size' )
+        blockCount += block.length / blockMap.blockSize
+        assert.equal( block.length % blockMap.blockSize, 0, 'Invalid block size: ' + block.length )
         assert.ok( block.address != null, 'block address missing' )
+        assert.ok( Number.isInteger( block.address ), 'block address must be an integer' )
         assert.ok( block.position != null, 'block position missing' )
       })
       .once( 'error', done )
       .once( 'end', function() {
-        assert.equal( this.blocksWritten, blockMap.mappedBlockCount, 'blocksRead mismatch' )
+        assert.equal( this.blocksWritten, blockMap.mappedBlockCount, 'blocksWritten mismatch' )
         assert.equal( this.bytesWritten, blockMap.mappedBlockCount * blockMap.blockSize, 'bytesWritten mismatch' )
         assert.equal( this.rangesRead, blockMap.ranges.length, 'rangesRead mismatch' )
         assert.equal( blockCount, blockMap.mappedBlockCount, 'actual blocks read mismatch' )
@@ -42,14 +43,14 @@ describe( 'BlockMap.FilterStream', function() {
 
     readStream.pipe( transform )
       .on( 'data', ( block ) => {
-        blockCount++
-        assert.equal( block.length, blockMap.blockSize, 'Invalid block size' )
+        blockCount += block.length / blockMap.blockSize
+        assert.equal( block.length % blockMap.blockSize, 0, 'Invalid block size: ' + block.length )
         assert.ok( block.address != null, 'block address missing' )
         assert.ok( block.position != null, 'block position missing' )
       })
       .once( 'error', done )
       .once( 'end', function() {
-        assert.equal( this.blocksWritten, blockMap.mappedBlockCount, 'blocksRead mismatch' )
+        assert.equal( this.blocksWritten, blockMap.mappedBlockCount, 'blocksWritten mismatch' )
         assert.equal( this.bytesWritten, blockMap.mappedBlockCount * blockMap.blockSize, 'bytesWritten mismatch' )
         assert.equal( this.rangesRead, blockMap.ranges.length, 'rangesRead mismatch' )
         assert.equal( blockCount, blockMap.mappedBlockCount, 'actual blocks read mismatch' )
@@ -70,7 +71,7 @@ describe( 'BlockMap.FilterStream', function() {
 
         readStream.pipe( transform )
           .on( 'data', ( block ) => {
-            assert.equal( block.length, blockMap.blockSize, 'Invalid block size' )
+            assert.equal( block.length % blockMap.blockSize, 0, 'Invalid block size: ' + block.length )
             assert.ok( block.address != null, 'block address missing' )
             assert.ok( block.position != null, 'block position missing' )
           })
@@ -93,7 +94,7 @@ describe( 'BlockMap.FilterStream', function() {
 
         readStream.pipe( transform )
           .on( 'data', ( block ) => {
-            assert.equal( block.length, blockMap.blockSize, 'Invalid block size' )
+            assert.equal( block.length % blockMap.blockSize, 0, 'Invalid block size: ' + block.length )
             assert.ok( block.address != null, 'block address missing' )
             assert.ok( block.position != null, 'block position missing' )
           })
@@ -102,8 +103,8 @@ describe( 'BlockMap.FilterStream', function() {
             // The calculated checksum
             assert.ok( error.checksum, 'missing checksum' )
             // The faulty range's data
-            assert.strictEqual( error.range.start, 119, 'incorrect range start' )
-            assert.strictEqual( error.range.end, 133, 'incorrect range end' )
+            assert.strictEqual( error.range.startLBA, 119, 'incorrect range start' )
+            assert.strictEqual( error.range.endLBA, 133, 'incorrect range end' )
             assert.ok( error.range.checksum, 'missing "faulty" checksum' )
             done()
           })
@@ -128,7 +129,7 @@ describe( 'BlockMap.FilterStream', function() {
 
         readStream.pipe( transform )
           .on( 'data', ( block ) => {
-            assert.equal( block.length, blockMap.blockSize, 'Invalid block size' )
+            assert.equal( block.length % blockMap.blockSize, 0, 'Invalid block size: ' + block.length )
             assert.ok( block.address != null, 'block address missing' )
             assert.ok( block.position != null, 'block position missing' )
           })
