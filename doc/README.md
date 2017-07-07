@@ -14,6 +14,7 @@
         * [.checksum](#BlockMap+checksum) : <code>String</code>
         * [.checksumType](#BlockMap+checksumType) : <code>Number</code>
         * [.ranges](#BlockMap+ranges) : <code>Number</code>
+        * [.addRange(start, end, checksum)](#BlockMap+addRange) ⇒ <code>[BlockMap](#BlockMap)</code>
         * [.parse(value, [options])](#BlockMap+parse) ⇒ <code>[BlockMap](#BlockMap)</code>
         * [.toString()](#BlockMap+toString) ⇒ <code>String</code>
     * _static_
@@ -22,13 +23,21 @@
             * [.options](#BlockMap.FilterStream+options) : <code>Object</code>
             * [.blockMap](#BlockMap.FilterStream+blockMap) : <code>[BlockMap](#BlockMap)</code>
             * [.blockSize](#BlockMap.FilterStream+blockSize) : <code>Number</code>
-            * [.currentRange](#BlockMap.FilterStream+currentRange) : <code>BlockMap.Range</code>
+            * [.currentRange](#BlockMap.FilterStream+currentRange) : <code>[Range](#BlockMap.Range)</code>
             * [.rangesRead](#BlockMap.FilterStream+rangesRead) : <code>Number</code>
             * [.blocksRead](#BlockMap.FilterStream+blocksRead) : <code>Number</code>
             * [.bytesRead](#BlockMap.FilterStream+bytesRead) : <code>Number</code>
             * [.blocksWritten](#BlockMap.FilterStream+blocksWritten) : <code>Number</code>
             * [.bytesWritten](#BlockMap.FilterStream+bytesWritten) : <code>Number</code>
             * [.position](#BlockMap.FilterStream+position) : <code>Number</code>
+        * [.Range](#BlockMap.Range)
+            * [new Range(start, end, checksum)](#new_BlockMap.Range_new)
+            * _instance_
+                * [.start](#BlockMap.Range+start) : <code>Number</code>
+                * [.end](#BlockMap.Range+end) : <code>Number</code>
+                * [.checksum](#BlockMap.Range+checksum) : <code>String</code> &#124; <code>null</code>
+            * _static_
+                * [.create(start, end, checksum)](#BlockMap.Range.create) ⇒ <code>Range</code>
         * [.ReadStream](#BlockMap.ReadStream)
             * [new ReadStream(filename, blockMap, [options])](#new_BlockMap.ReadStream_new)
             * [.options](#BlockMap.ReadStream+options) : <code>Object</code>
@@ -37,7 +46,7 @@
             * [.flags](#BlockMap.ReadStream+flags) : <code>String</code>
             * [.blockMap](#BlockMap.ReadStream+blockMap) : <code>[BlockMap](#BlockMap)</code>
             * [.blockSize](#BlockMap.ReadStream+blockSize) : <code>Number</code>
-            * [.currentRange](#BlockMap.ReadStream+currentRange) : <code>BlockMap.Range</code>
+            * [.currentRange](#BlockMap.ReadStream+currentRange) : <code>[Range](#BlockMap.Range)</code>
             * [.blockInRange](#BlockMap.ReadStream+blockInRange) : <code>Number</code>
             * [.rangesRead](#BlockMap.ReadStream+rangesRead) : <code>Number</code>
             * [.blocksRead](#BlockMap.ReadStream+blocksRead) : <code>Number</code>
@@ -50,6 +59,7 @@
         * [.fromJSON(data)](#BlockMap.fromJSON) ⇒ <code>[BlockMap](#BlockMap)</code>
         * [.createReadStream(filename, blockMap, [options])](#BlockMap.createReadStream) ⇒ <code>[ReadStream](#BlockMap.ReadStream)</code>
         * [.createFilterStream(blockMap, [options])](#BlockMap.createFilterStream) ⇒ <code>[FilterStream](#BlockMap.FilterStream)</code>
+        * [.inRange(blockNumber, range)](#BlockMap.inRange) ⇒ <code>Boolean</code>
         * [.parse(value, [blockMap], [options])](#BlockMap.parse) ⇒ <code>[BlockMap](#BlockMap)</code>
         * [.stringify(blockMap)](#BlockMap.stringify) ⇒ <code>String</code>
 
@@ -148,6 +158,21 @@ block ranges
 
 -
 
+<a name="BlockMap+addRange"></a>
+
+### blockMap.addRange(start, end, checksum) ⇒ <code>[BlockMap](#BlockMap)</code>
+Add a block range to the block map
+
+**Kind**: instance method of <code>[BlockMap](#BlockMap)</code>  
+**Params**
+
+- start <code>Number</code>
+- end <code>Number</code>
+- checksum <code>String</code> - hex digest
+
+
+-
+
 <a name="BlockMap+parse"></a>
 
 ### blockMap.parse(value, [options]) ⇒ <code>[BlockMap](#BlockMap)</code>
@@ -183,7 +208,7 @@ Stringify the block map into .bmap format
     * [.options](#BlockMap.FilterStream+options) : <code>Object</code>
     * [.blockMap](#BlockMap.FilterStream+blockMap) : <code>[BlockMap](#BlockMap)</code>
     * [.blockSize](#BlockMap.FilterStream+blockSize) : <code>Number</code>
-    * [.currentRange](#BlockMap.FilterStream+currentRange) : <code>BlockMap.Range</code>
+    * [.currentRange](#BlockMap.FilterStream+currentRange) : <code>[Range](#BlockMap.Range)</code>
     * [.rangesRead](#BlockMap.FilterStream+rangesRead) : <code>Number</code>
     * [.blocksRead](#BlockMap.FilterStream+blocksRead) : <code>Number</code>
     * [.bytesRead](#BlockMap.FilterStream+bytesRead) : <code>Number</code>
@@ -237,7 +262,7 @@ Size of a mapped block in bytes
 
 <a name="BlockMap.FilterStream+currentRange"></a>
 
-#### filterStream.currentRange : <code>BlockMap.Range</code>
+#### filterStream.currentRange : <code>[Range](#BlockMap.Range)</code>
 Range being currently processed
 
 **Kind**: instance property of <code>[FilterStream](#BlockMap.FilterStream)</code>  
@@ -298,6 +323,79 @@ Current offset in bytes
 
 -
 
+<a name="BlockMap.Range"></a>
+
+### BlockMap.Range
+**Kind**: static class of <code>[BlockMap](#BlockMap)</code>  
+
+* [.Range](#BlockMap.Range)
+    * [new Range(start, end, checksum)](#new_BlockMap.Range_new)
+    * _instance_
+        * [.start](#BlockMap.Range+start) : <code>Number</code>
+        * [.end](#BlockMap.Range+end) : <code>Number</code>
+        * [.checksum](#BlockMap.Range+checksum) : <code>String</code> &#124; <code>null</code>
+    * _static_
+        * [.create(start, end, checksum)](#BlockMap.Range.create) ⇒ <code>Range</code>
+
+
+-
+
+<a name="new_BlockMap.Range_new"></a>
+
+#### new Range(start, end, checksum)
+BlockMap Range
+
+**Params**
+
+- start <code>Number</code>
+- end <code>Number</code>
+- checksum <code>String</code>
+
+
+-
+
+<a name="BlockMap.Range+start"></a>
+
+#### range.start : <code>Number</code>
+First block of range
+
+**Kind**: instance property of <code>[Range](#BlockMap.Range)</code>  
+
+-
+
+<a name="BlockMap.Range+end"></a>
+
+#### range.end : <code>Number</code>
+Last block of range
+
+**Kind**: instance property of <code>[Range](#BlockMap.Range)</code>  
+
+-
+
+<a name="BlockMap.Range+checksum"></a>
+
+#### range.checksum : <code>String</code> &#124; <code>null</code>
+Range checksum
+
+**Kind**: instance property of <code>[Range](#BlockMap.Range)</code>  
+
+-
+
+<a name="BlockMap.Range.create"></a>
+
+#### Range.create(start, end, checksum) ⇒ <code>Range</code>
+Create a Range
+
+**Kind**: static method of <code>[Range](#BlockMap.Range)</code>  
+**Params**
+
+- start <code>Number</code>
+- end <code>Number</code>
+- checksum <code>String</code>
+
+
+-
+
 <a name="BlockMap.ReadStream"></a>
 
 ### BlockMap.ReadStream
@@ -311,7 +409,7 @@ Current offset in bytes
     * [.flags](#BlockMap.ReadStream+flags) : <code>String</code>
     * [.blockMap](#BlockMap.ReadStream+blockMap) : <code>[BlockMap](#BlockMap)</code>
     * [.blockSize](#BlockMap.ReadStream+blockSize) : <code>Number</code>
-    * [.currentRange](#BlockMap.ReadStream+currentRange) : <code>BlockMap.Range</code>
+    * [.currentRange](#BlockMap.ReadStream+currentRange) : <code>[Range](#BlockMap.Range)</code>
     * [.blockInRange](#BlockMap.ReadStream+blockInRange) : <code>Number</code>
     * [.rangesRead](#BlockMap.ReadStream+rangesRead) : <code>Number</code>
     * [.blocksRead](#BlockMap.ReadStream+blocksRead) : <code>Number</code>
@@ -399,7 +497,7 @@ Size of a mapped block in bytes
 
 <a name="BlockMap.ReadStream+currentRange"></a>
 
-#### readStream.currentRange : <code>BlockMap.Range</code>
+#### readStream.currentRange : <code>[Range](#BlockMap.Range)</code>
 Range being currently processed
 
 **Kind**: instance property of <code>[ReadStream](#BlockMap.ReadStream)</code>  
@@ -546,6 +644,20 @@ Create a FilterStream with a given block map
 - blockMap <code>[BlockMap](#BlockMap)</code>
 - [options] <code>Object</code>
     - [.verify] <code>Boolean</code> <code> = true</code> - verify range checksums
+
+
+-
+
+<a name="BlockMap.inRange"></a>
+
+### BlockMap.inRange(blockNumber, range) ⇒ <code>Boolean</code>
+Determine whether a given block number is in a given range
+
+**Kind**: static method of <code>[BlockMap](#BlockMap)</code>  
+**Params**
+
+- blockNumber <code>Number</code>
+- range <code>[Range](#BlockMap.Range)</code>
 
 
 -
