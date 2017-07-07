@@ -14,6 +14,7 @@
   "main": "lib/blockmap.js",
   "dependencies": {
     "bloodline": "^1.0.0",
+    "debug": "^2.6.8",
     "htmlparser2": "^3.9.2",
     "nanobench": "^2.1.0",
     "xml": "^1.0.1"

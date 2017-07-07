@@ -31,20 +31,23 @@
             * [.position](#BlockMap.FilterStream+position) : <code>Number</code>
         * [.ReadStream](#BlockMap.ReadStream)
             * [new ReadStream(filename, blockMap, [options])](#new_BlockMap.ReadStream_new)
-            * [.options](#BlockMap.ReadStream+options) : <code>Object</code>
             * [.fd](#BlockMap.ReadStream+fd) : <code>Number</code>
             * [.path](#BlockMap.ReadStream+path) : <code>String</code>
             * [.flags](#BlockMap.ReadStream+flags) : <code>String</code>
             * [.blockMap](#BlockMap.ReadStream+blockMap) : <code>[BlockMap](#BlockMap)</code>
             * [.blockSize](#BlockMap.ReadStream+blockSize) : <code>Number</code>
+            * [.verify](#BlockMap.ReadStream+verify) : <code>Boolean</code>
             * [.currentRange](#BlockMap.ReadStream+currentRange) : <code>BlockMap.Range</code>
-            * [.blockInRange](#BlockMap.ReadStream+blockInRange) : <code>Number</code>
             * [.rangesRead](#BlockMap.ReadStream+rangesRead) : <code>Number</code>
             * [.blocksRead](#BlockMap.ReadStream+blocksRead) : <code>Number</code>
             * [.bytesRead](#BlockMap.ReadStream+bytesRead) : <code>Number</code>
             * [.position](#BlockMap.ReadStream+position) : <code>Number</code>
             * [.start](#BlockMap.ReadStream+start) : <code>Number</code>
             * [.end](#BlockMap.ReadStream+end) : <code>Number</code>
+            * [.closed](#BlockMap.ReadStream+closed) : <code>Boolean</code>
+            * [.destroyed](#BlockMap.ReadStream+destroyed) : <code>Boolean</code>
+            * [.close([callback])](#BlockMap.ReadStream+close)
+            * [.destroy()](#BlockMap.ReadStream+destroy)
         * [.versions](#BlockMap.versions) : <code>Array</code>
         * [.create([options])](#BlockMap.create) ⇒ <code>[BlockMap](#BlockMap)</code>
         * [.fromJSON(data)](#BlockMap.fromJSON) ⇒ <code>[BlockMap](#BlockMap)</code>
@@ -305,20 +308,23 @@ Current offset in bytes
 
 * [.ReadStream](#BlockMap.ReadStream)
     * [new ReadStream(filename, blockMap, [options])](#new_BlockMap.ReadStream_new)
-    * [.options](#BlockMap.ReadStream+options) : <code>Object</code>
     * [.fd](#BlockMap.ReadStream+fd) : <code>Number</code>
     * [.path](#BlockMap.ReadStream+path) : <code>String</code>
     * [.flags](#BlockMap.ReadStream+flags) : <code>String</code>
     * [.blockMap](#BlockMap.ReadStream+blockMap) : <code>[BlockMap](#BlockMap)</code>
     * [.blockSize](#BlockMap.ReadStream+blockSize) : <code>Number</code>
+    * [.verify](#BlockMap.ReadStream+verify) : <code>Boolean</code>
     * [.currentRange](#BlockMap.ReadStream+currentRange) : <code>BlockMap.Range</code>
-    * [.blockInRange](#BlockMap.ReadStream+blockInRange) : <code>Number</code>
     * [.rangesRead](#BlockMap.ReadStream+rangesRead) : <code>Number</code>
     * [.blocksRead](#BlockMap.ReadStream+blocksRead) : <code>Number</code>
     * [.bytesRead](#BlockMap.ReadStream+bytesRead) : <code>Number</code>
     * [.position](#BlockMap.ReadStream+position) : <code>Number</code>
     * [.start](#BlockMap.ReadStream+start) : <code>Number</code>
     * [.end](#BlockMap.ReadStream+end) : <code>Number</code>
+    * [.closed](#BlockMap.ReadStream+closed) : <code>Boolean</code>
+    * [.destroyed](#BlockMap.ReadStream+destroyed) : <code>Boolean</code>
+    * [.close([callback])](#BlockMap.ReadStream+close)
+    * [.destroy()](#BlockMap.ReadStream+destroy)
 
 
 -
@@ -340,15 +346,6 @@ ReadStream
     - [.start] <code>Number</code> - byte offset in file to read from
     - [.end] <code>Number</code> - byte offset in file to stop at
 
-
--
-
-<a name="BlockMap.ReadStream+options"></a>
-
-#### readStream.options : <code>Object</code>
-options
-
-**Kind**: instance property of <code>[ReadStream](#BlockMap.ReadStream)</code>  
 
 -
 
@@ -397,19 +394,19 @@ Size of a mapped block in bytes
 
 -
 
-<a name="BlockMap.ReadStream+currentRange"></a>
+<a name="BlockMap.ReadStream+verify"></a>
 
-#### readStream.currentRange : <code>BlockMap.Range</code>
-Range being currently processed
+#### readStream.verify : <code>Boolean</code>
+Whether or not to verify range checksums
 
 **Kind**: instance property of <code>[ReadStream](#BlockMap.ReadStream)</code>  
 
 -
 
-<a name="BlockMap.ReadStream+blockInRange"></a>
+<a name="BlockMap.ReadStream+currentRange"></a>
 
-#### readStream.blockInRange : <code>Number</code>
-Current block in range
+#### readStream.currentRange : <code>BlockMap.Range</code>
+Range being currently processed
 
 **Kind**: instance property of <code>[ReadStream](#BlockMap.ReadStream)</code>  
 
@@ -466,6 +463,46 @@ Position start offset in bytes
 End offset in bytes
 
 **Kind**: instance property of <code>[ReadStream](#BlockMap.ReadStream)</code>  
+
+-
+
+<a name="BlockMap.ReadStream+closed"></a>
+
+#### readStream.closed : <code>Boolean</code>
+Whether the stream has been closed
+
+**Kind**: instance property of <code>[ReadStream](#BlockMap.ReadStream)</code>  
+
+-
+
+<a name="BlockMap.ReadStream+destroyed"></a>
+
+#### readStream.destroyed : <code>Boolean</code>
+Whether the stream has been destroyed
+
+**Kind**: instance property of <code>[ReadStream](#BlockMap.ReadStream)</code>  
+
+-
+
+<a name="BlockMap.ReadStream+close"></a>
+
+#### readStream.close([callback])
+Close the stream, and the underlying file handle
+
+**Kind**: instance method of <code>[ReadStream](#BlockMap.ReadStream)</code>  
+**Params**
+
+- [callback] <code>function</code> - callback(error)
+
+
+-
+
+<a name="BlockMap.ReadStream+destroy"></a>
+
+#### readStream.destroy()
+Destroy the stream, release any internal resources
+
+**Kind**: instance method of <code>[ReadStream](#BlockMap.ReadStream)</code>  
 
 -
 

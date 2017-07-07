@@ -10,11 +10,11 @@ describe( 'BlockMap.ReadStream', function() {
     var filename = path.join( __dirname, '/data/bmap.img' )
     var blockMap = BlockMap.create( require( './data/version-2.0' ) )
     var readStream = new BlockMap.ReadStream( filename, blockMap )
-    var blockCount = 0
+    var byteCount = 0
 
     readStream
       .on( 'data', ( block ) => {
-        blockCount++
+        byteCount += block.length
         assert.ok( block.address != null, 'block address missing' )
         assert.ok( block.position != null, 'block position missing' )
       })
@@ -23,7 +23,7 @@ describe( 'BlockMap.ReadStream', function() {
         assert.equal( this.blocksRead, blockMap.mappedBlockCount, 'blocksRead mismatch' )
         assert.equal( this.bytesRead, blockMap.mappedBlockCount * blockMap.blockSize, 'bytesRead mismatch' )
         assert.equal( this.rangesRead, blockMap.ranges.length, 'rangesRead mismatch' )
-        assert.equal( blockCount, blockMap.mappedBlockCount, 'actual blocks read mismatch' )
+        assert.equal( byteCount / blockMap.blockSize, blockMap.mappedBlockCount, 'actual blocks read mismatch' )
         done()
       })
 
@@ -35,11 +35,11 @@ describe( 'BlockMap.ReadStream', function() {
     var blockMap = BlockMap.create( require( './data/version-2.0' ) )
     var fd = fs.openSync( filename, 'r' )
     var readStream = new BlockMap.ReadStream( null, blockMap, { fd: fd })
-    var blockCount = 0
+    var byteCount = 0
 
     readStream
       .on( 'data', ( block ) => {
-        blockCount++
+        byteCount += block.length
         assert.ok( block.address != null, 'block address missing' )
         assert.ok( block.position != null, 'block position missing' )
       })
@@ -48,7 +48,7 @@ describe( 'BlockMap.ReadStream', function() {
         assert.equal( this.blocksRead, blockMap.mappedBlockCount, 'blocksRead mismatch' )
         assert.equal( this.bytesRead, blockMap.mappedBlockCount * blockMap.blockSize, 'bytesRead mismatch' )
         assert.equal( this.rangesRead, blockMap.ranges.length, 'rangesRead mismatch' )
-        assert.equal( blockCount, blockMap.mappedBlockCount, 'actual blocks read mismatch' )
+        assert.equal( byteCount / blockMap.blockSize, blockMap.mappedBlockCount, 'actual blocks read mismatch' )
         done()
       })
 
@@ -59,7 +59,7 @@ describe( 'BlockMap.ReadStream', function() {
     var filename = path.join( __dirname, '/data/bmap.img' )
     var blockMap = BlockMap.create( require( './data/version-2.0' ) )
     var fd = fs.openSync( filename, 'r' )
-    var blockCount = 0
+    var byteCount = 0
     var readStream = new BlockMap.ReadStream( null, blockMap, {
       fd: fd,
       autoClose: false,
@@ -67,7 +67,7 @@ describe( 'BlockMap.ReadStream', function() {
 
     readStream
       .on( 'data', ( block ) => {
-        blockCount++
+        byteCount += block.length
         assert.ok( block.address != null, 'block address missing' )
         assert.ok( block.position != null, 'block position missing' )
       })
@@ -76,7 +76,7 @@ describe( 'BlockMap.ReadStream', function() {
         assert.equal( this.blocksRead, blockMap.mappedBlockCount, 'blocksRead mismatch' )
         assert.equal( this.bytesRead, blockMap.mappedBlockCount * blockMap.blockSize, 'bytesRead mismatch' )
         assert.equal( this.rangesRead, blockMap.ranges.length, 'rangesRead mismatch' )
-        assert.equal( blockCount, blockMap.mappedBlockCount, 'actual blocks read mismatch' )
+        assert.equal( byteCount / blockMap.blockSize, blockMap.mappedBlockCount, 'actual blocks read mismatch' )
         assert.ok( fs.fstatSync( readStream.fd ) )
         fs.closeSync( readStream.fd )
         done()
@@ -88,14 +88,14 @@ describe( 'BlockMap.ReadStream', function() {
 
     var filename = path.join( __dirname, '/data/bmap.img' )
     var blockMap = BlockMap.create( require( './data/version-2.0' ) )
-    var blockCount = 0
+    var byteCount = 0
     var readStream = new BlockMap.ReadStream( filename, blockMap, {
       autoClose: false,
     })
 
     readStream
       .on( 'data', ( block ) => {
-        blockCount++
+        byteCount += block.length
         assert.ok( block.address != null, 'block address missing' )
         assert.ok( block.position != null, 'block position missing' )
       })
@@ -104,7 +104,7 @@ describe( 'BlockMap.ReadStream', function() {
         assert.equal( this.blocksRead, blockMap.mappedBlockCount, 'blocksRead mismatch' )
         assert.equal( this.bytesRead, blockMap.mappedBlockCount * blockMap.blockSize, 'bytesRead mismatch' )
         assert.equal( this.rangesRead, blockMap.ranges.length, 'rangesRead mismatch' )
-        assert.equal( blockCount, blockMap.mappedBlockCount, 'actual blocks read mismatch' )
+        assert.equal( byteCount / blockMap.blockSize, blockMap.mappedBlockCount, 'actual blocks read mismatch' )
         assert.ok( fs.fstatSync( readStream.fd ) )
         fs.closeSync( readStream.fd )
         done()
@@ -116,14 +116,14 @@ describe( 'BlockMap.ReadStream', function() {
 
     var filename = path.join( __dirname, '/data/padded-bmap.img' )
     var blockMap = BlockMap.create( require( './data/version-2.0' ) )
-    var blockCount = 0
+    var byteCount = 0
     var readStream = new BlockMap.ReadStream( filename, blockMap, {
       start: 4096,
     })
 
     readStream
       .on( 'data', ( block ) => {
-        blockCount++
+        byteCount += block.length
         assert.ok( block.address != null, 'block address missing' )
         assert.ok( block.position != null, 'block position missing' )
       })
@@ -132,7 +132,7 @@ describe( 'BlockMap.ReadStream', function() {
         assert.equal( this.blocksRead, blockMap.mappedBlockCount, 'blocksRead mismatch' )
         assert.equal( this.bytesRead, blockMap.mappedBlockCount * blockMap.blockSize, 'bytesRead mismatch' )
         assert.equal( this.rangesRead, blockMap.ranges.length, 'rangesRead mismatch' )
-        assert.equal( blockCount, blockMap.mappedBlockCount, 'actual blocks read mismatch' )
+        assert.equal( byteCount / blockMap.blockSize, blockMap.mappedBlockCount, 'actual blocks read mismatch' )
         done()
       })
 
@@ -142,23 +142,24 @@ describe( 'BlockMap.ReadStream', function() {
 
     var filename = path.join( __dirname, '/data/bmap.img' )
     var blockMap = BlockMap.create( require( './data/version-2.0' ) )
-    var blockCount = 0
+    var byteCount = 0
     var readStream = new BlockMap.ReadStream( filename, blockMap, {
-      end: blockMap.blockSize,
+      // This encompasses the first mapped range
+      end: blockMap.blockSize * 2,
     })
 
     readStream
       .on( 'data', ( block ) => {
-        blockCount++
+        byteCount += block.length
         assert.ok( block.address != null, 'block address missing' )
         assert.ok( block.position != null, 'block position missing' )
       })
       .once( 'error', done )
       .once( 'end', function() {
-        assert.equal( this.blocksRead, 1, 'blocksRead mismatch' )
-        assert.equal( this.bytesRead, blockMap.blockSize, 'bytesRead mismatch' )
+        assert.equal( this.blocksRead, 2, 'blocksRead mismatch' )
+        assert.equal( this.bytesRead, blockMap.blockSize * 2, 'bytesRead mismatch' )
         assert.equal( this.rangesRead, 1, 'rangesRead mismatch' )
-        assert.equal( blockCount, 1, 'actual blocks read mismatch' )
+        assert.equal( byteCount / blockMap.blockSize, 2, 'actual blocks read mismatch' )
         done()
       })
 
@@ -168,7 +169,7 @@ describe( 'BlockMap.ReadStream', function() {
 
     var filename = path.join( __dirname, '/data/padded-bmap.img' )
     var blockMap = BlockMap.create( require( './data/version-2.0' ) )
-    var blockCount = 0
+    var byteCount = 0
     var readStream = new BlockMap.ReadStream( filename, blockMap, {
       start: 4096,
       end: 4096 + blockMap.blockSize,
@@ -176,16 +177,16 @@ describe( 'BlockMap.ReadStream', function() {
 
     readStream
       .on( 'data', ( block ) => {
-        blockCount++
+        byteCount += block.length
         assert.ok( block.address != null, 'block address missing' )
         assert.ok( block.position != null, 'block position missing' )
       })
       .once( 'error', done )
       .once( 'end', function() {
-        assert.equal( this.blocksRead, 1, 'blocksRead mismatch' )
-        assert.equal( this.bytesRead, blockMap.blockSize, 'bytesRead mismatch' )
+        assert.equal( this.blocksRead, 2, 'blocksRead mismatch' )
+        assert.equal( this.bytesRead, blockMap.blockSize * 2, 'bytesRead mismatch' )
         assert.equal( this.rangesRead, 1, 'rangesRead mismatch' )
-        assert.equal( blockCount, 1, 'actual blocks read mismatch' )
+        assert.equal( byteCount / blockMap.blockSize, 2, 'actual blocks read mismatch' )
         done()
       })
 
@@ -200,7 +201,7 @@ describe( 'BlockMap.ReadStream', function() {
       new BlockMap.ReadStream( filename, blockMap, {
         start: -1,
       })
-    })
+    }, 'Start must not be negative' )
 
   })
 
@@ -213,7 +214,7 @@ describe( 'BlockMap.ReadStream', function() {
       new BlockMap.ReadStream( filename, blockMap, {
         end: -1,
       })
-    })
+    }, 'Start must be less or equal to end' )
 
   })
 
@@ -221,7 +222,7 @@ describe( 'BlockMap.ReadStream', function() {
 
     var filename = path.join( __dirname, '/data/bmap.img' )
     var blockMap = BlockMap.create( require( './data/version-2.0' ) )
-    var blockCount = 0
+    var byteCount = 0
     var readStream = new BlockMap.ReadStream( filename, blockMap, {
       end: 0,
     })
@@ -229,11 +230,11 @@ describe( 'BlockMap.ReadStream', function() {
     readStream
       .on( 'error', done )
       .on( 'end', () => {
-        assert.strictEqual( blockCount, 0 )
+        assert.strictEqual( byteCount, 0 )
         done()
       })
       .on( 'data', ( block ) => {
-        blockCount++
+        byteCount += block.length
       })
 
   })
@@ -256,7 +257,7 @@ describe( 'BlockMap.ReadStream', function() {
 
     var filename = path.join( __dirname, '/data/bmap.img' )
     var blockMap = BlockMap.create( require( './data/version-2.0' ) )
-    var blockCount = 0
+    var byteCount = 0
     var readStream = new BlockMap.ReadStream( filename, blockMap, {
       start: blockMap.blockSize,
       end: blockMap.blockSize,
@@ -265,11 +266,11 @@ describe( 'BlockMap.ReadStream', function() {
     readStream
       .on( 'error', done )
       .on( 'end', () => {
-        assert.strictEqual( blockCount, 0 )
+        assert.strictEqual( byteCount, 0 )
         done()
       })
       .on( 'data', ( block ) => {
-        blockCount++
+        byteCount += block.length
       })
 
   })
@@ -299,7 +300,7 @@ describe( 'BlockMap.ReadStream', function() {
 
     var filename = path.join( __dirname, '/data/bmap.img' )
     var blockMap = BlockMap.create( require( './data/version-2.0' ) )
-    var blockCount = 0
+    var byteCount = 0
     var readStream = new BlockMap.ReadStream( filename, blockMap, {
       end: fs.statSync( filename ).size + blockMap.blockSize,
     })
@@ -310,11 +311,11 @@ describe( 'BlockMap.ReadStream', function() {
         assert.equal( this.blocksRead, blockMap.mappedBlockCount, 'blocksRead mismatch' )
         assert.equal( this.bytesRead, blockMap.mappedBlockCount * blockMap.blockSize, 'bytesRead mismatch' )
         assert.equal( this.rangesRead, blockMap.ranges.length, 'rangesRead mismatch' )
-        assert.equal( blockCount, blockMap.mappedBlockCount, 'actual blocks read mismatch' )
+        assert.equal( byteCount / blockMap.blockSize, blockMap.mappedBlockCount, 'actual blocks read mismatch' )
         done()
       })
       .on( 'data', ( block ) => {
-        blockCount++
+        byteCount += block.length
       })
 
   })
@@ -352,8 +353,8 @@ describe( 'BlockMap.ReadStream', function() {
             // The calculated checksum
             assert.ok( error.checksum, 'missing checksum' )
             // The faulty range's data
-            assert.strictEqual( error.range.start, 119, 'incorrect range start' )
-            assert.strictEqual( error.range.end, 133, 'incorrect range end' )
+            assert.strictEqual( error.range.startLBA, 119, 'incorrect range start' )
+            assert.strictEqual( error.range.endLBA, 133, 'incorrect range end' )
             assert.ok( error.range.checksum, 'missing "faulty" checksum' )
             hadError = true
           })
