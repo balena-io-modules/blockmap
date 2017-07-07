@@ -15,6 +15,7 @@
   "dependencies": {
     "bloodline": "^1.0.0",
     "htmlparser2": "^3.9.2",
+    "nanobench": "^2.1.0",
     "xml": "^1.0.1"
   },
   "devDependencies": {
@@ -33,6 +34,7 @@
   },
   "scripts": {
     "test": "mocha",
+    "benchmark": "nanobench benchmark/*.js",
     "doc": "jsdoc2md 'lib/**/*.js' --separators --param-list-format list > doc/README.md"
   }
 }
