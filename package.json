@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "jsdoc-to-markdown": "^3.0.0",
-    "mocha": "^3.4.2",
+    "mocha": "^3.5.0",
     "nanobench": "^2.1.0"
   },
   "peerDependencies": {},
@@ -34,7 +34,7 @@
     "url": "https://github.com/resin-io-modules/blockmap/issues"
   },
   "scripts": {
-    "test": "mocha",
+    "test": "mocha test/*.js",
     "benchmark": "nanobench benchmark/*.js",
     "doc": "jsdoc2md 'lib/**/*.js' --separators --param-list-format list > doc/README.md"
   }
