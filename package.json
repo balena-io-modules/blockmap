@@ -16,12 +16,12 @@
     "bloodline": "^1.0.0",
     "debug": "^2.6.8",
     "htmlparser2": "^3.9.2",
-    "nanobench": "^2.1.0",
     "xml": "^1.0.1"
   },
   "devDependencies": {
     "jsdoc-to-markdown": "^3.0.0",
-    "mocha": "^3.4.2"
+    "mocha": "^3.4.2",
+    "nanobench": "^2.1.0"
   },
   "peerDependencies": {},
   "optionalDependencies": {},
