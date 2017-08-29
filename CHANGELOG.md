@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.0.1
+
+- **fix(package):** Fix `nanobench` not being a dev dependency
+- **chore(package):** Update mocha 3.4.2 -> 3.5.0
+
 ## 2.0.0
 
 - **refactor(filter-stream):** Optimize performance
