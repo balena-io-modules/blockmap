@@ -7,7 +7,7 @@ describe( 'BlockMap.FilterStream', function() {
 
   it( 'should only emit mapped blocks', function( done ) {
 
-    var filename = path.join( __dirname, '/data/bmap.img' )
+    var filename = path.join( __dirname, 'data', 'bmap.img' )
     var blockMap = BlockMap.create( require( './data/version-2.0' ) )
     var readStream = fs.createReadStream( filename )
     var transform = new BlockMap.FilterStream( blockMap )
@@ -32,10 +32,9 @@ describe( 'BlockMap.FilterStream', function() {
 
   })
 
-
   it( 'should only emit properly sized blocks', function( done ) {
 
-    var filename = path.join( __dirname, '/data/bmap.img' )
+    var filename = path.join( __dirname, 'data', 'bmap.img' )
     var blockMap = BlockMap.create( require( './data/version-2.0' ) )
     var readStream = fs.createReadStream( filename, { highWaterMark: 123 })
     var transform = new BlockMap.FilterStream( blockMap )
@@ -59,12 +58,45 @@ describe( 'BlockMap.FilterStream', function() {
 
   })
 
+  it( 'should position blocks correctly', function( done ) {
+
+    var filename = path.join( __dirname, 'data', 'bmap.img' )
+    var blockMap = BlockMap.create( require( './data/version-2.0' ) )
+    var readStream = fs.createReadStream( filename, { highWaterMark: 123 })
+    var transform = new BlockMap.FilterStream( blockMap )
+    var blockCount = 0
+    var firstBlock = true
+
+    readStream.pipe( transform )
+      .on( 'data', ( block ) => {
+        blockCount += block.length / blockMap.blockSize
+        assert.equal( block.length % blockMap.blockSize, 0, 'Invalid block size: ' + block.length )
+        assert.ok( block.address != null, 'block address missing' )
+        assert.ok( block.position != null, 'block position missing' )
+        if( firstBlock ) {
+          firstBlock = false
+        } else {
+          assert.ok( block.position > 0, 'block position is zero' )
+          assert.ok( block.address > 0, 'block address is zero' )
+        }
+      })
+      .once( 'error', done )
+      .once( 'end', function() {
+        assert.equal( this.blocksWritten, blockMap.mappedBlockCount, 'blocksWritten mismatch' )
+        assert.equal( this.bytesWritten, blockMap.mappedBlockCount * blockMap.blockSize, 'bytesWritten mismatch' )
+        assert.equal( this.rangesRead, blockMap.ranges.length, 'rangesRead mismatch' )
+        assert.equal( blockCount, blockMap.mappedBlockCount, 'actual blocks read mismatch' )
+        done()
+      })
+
+  })
+
   context( 'disabled verification', function() {
     BlockMap.versions.forEach( function( v ) {
       it( `v${v}: ignore invalid ranges`, function( done ) {
 
-        var filename = path.join( __dirname, '/data/bmap.img' )
-        var bmapFile = path.join( __dirname, `/data/invalid/range/multiple-${v}.bmap` )
+        var filename = path.join( __dirname, 'data', 'bmap.img' )
+        var bmapFile = path.join( __dirname, 'data', 'invalid', 'range', `multiple-${v}.bmap` )
         var blockMap = BlockMap.parse( fs.readFileSync( bmapFile, 'utf8' ) )
         var readStream = fs.createReadStream( filename )
         var transform = new BlockMap.FilterStream( blockMap, { verify: false })
@@ -86,8 +118,8 @@ describe( 'BlockMap.FilterStream', function() {
     BlockMap.versions.forEach( function( v ) {
       it( `v${v}: detect an invalid range`, function( done ) {
 
-        var filename = path.join( __dirname, '/data/bmap.img' )
-        var bmapFile = path.join( __dirname, `/data/invalid/range/version-${v}.bmap` )
+        var filename = path.join( __dirname, 'data', 'bmap.img' )
+        var bmapFile = path.join( __dirname, 'data', 'invalid', 'range', `version-${v}.bmap` )
         var blockMap = BlockMap.parse( fs.readFileSync( bmapFile, 'utf8' ) )
         var readStream = fs.createReadStream( filename )
         var transform = new BlockMap.FilterStream( blockMap )
@@ -120,8 +152,8 @@ describe( 'BlockMap.FilterStream', function() {
     BlockMap.versions.forEach( function( v ) {
       it( `v${v}: detect invalid ranges`, function( done ) {
 
-        var filename = path.join( __dirname, '/data/bmap.img' )
-        var bmapFile = path.join( __dirname, `/data/invalid/range/multiple-${v}.bmap` )
+        var filename = path.join( __dirname, 'data', 'bmap.img' )
+        var bmapFile = path.join( __dirname, 'data', 'invalid', 'range', `multiple-${v}.bmap` )
         var blockMap = BlockMap.parse( fs.readFileSync( bmapFile, 'utf8' ) )
         var readStream = fs.createReadStream( filename )
         var transform = new BlockMap.FilterStream( blockMap, { verify: true })

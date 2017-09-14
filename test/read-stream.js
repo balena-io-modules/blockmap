@@ -29,6 +29,36 @@ describe( 'BlockMap.ReadStream', function() {
 
   })
 
+  it( 'should position blocks correctly', function( done ) {
+
+    var filename = path.join( __dirname, '/data/bmap.img' )
+    var blockMap = BlockMap.create( require( './data/version-2.0' ) )
+    var readStream = new BlockMap.ReadStream( filename, blockMap )
+    var blockCount = 0
+    var firstBlock = true
+
+    readStream
+      .on( 'data', ( block ) => {
+        blockCount += block.length / blockMap.blockSize
+        assert.equal( block.length % blockMap.blockSize, 0, 'Invalid block size: ' + block.length )
+        assert.ok( block.address != null, 'block address missing' )
+        assert.ok( block.position != null, 'block position missing' )
+        if( firstBlock ) {
+          firstBlock = false
+        } else {
+          assert.ok( block.position > 0, 'block position is zero' )
+          assert.ok( block.address > 0, 'block address is zero' )
+        }
+      })
+      .once( 'error', done )
+      .once( 'end', function() {
+        assert.equal( this.rangesRead, blockMap.ranges.length, 'rangesRead mismatch' )
+        assert.equal( blockCount, blockMap.mappedBlockCount, 'actual blocks read mismatch' )
+        done()
+      })
+
+  })
+
   it( 'should ignore path when given a file descriptor', function( done ) {
 
     var filename = path.join( __dirname, '/data/bmap.img' )
