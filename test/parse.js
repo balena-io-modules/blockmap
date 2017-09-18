@@ -9,7 +9,7 @@ describe( 'BlockMap.parse()', function() {
     BlockMap.versions.forEach( function( v ) {
       it( 'parses v' + v, function() {
         var json = require( `./data/version-${v}` )
-        var xml = fs.readFileSync( path.join( __dirname, `/data/version-${v}.bmap` ), 'utf8' )
+        var xml = fs.readFileSync( path.join( __dirname, 'data', `version-${v}.bmap` ), 'utf8' )
         assert.deepEqual( json, BlockMap.parse( xml ) )
       })
     })
@@ -19,7 +19,7 @@ describe( 'BlockMap.parse()', function() {
     BlockMap.versions.forEach( function( v ) {
       it( 'parses v' + v, function() {
         var json = require( `./data/version-${v}` )
-        var xml = fs.readFileSync( path.join( __dirname, `/data/version-${v}.bmap` ) )
+        var xml = fs.readFileSync( path.join( __dirname, 'data', `version-${v}.bmap` ) )
         assert.deepEqual( json, BlockMap.parse( xml ) )
       })
     })
@@ -29,7 +29,7 @@ describe( 'BlockMap.parse()', function() {
     BlockMap.versions.forEach( function( v ) {
       it( 'parses v' + v, function() {
         var json = require( `./data/version-${v}` )
-        var xml = fs.readFileSync( path.join( __dirname, `/data/version-${v}.bmap` ) )
+        var xml = fs.readFileSync( path.join( __dirname, 'data', `version-${v}.bmap` ) )
         assert.deepEqual( json, BlockMap.parse( xml ) )
       })
     })
@@ -41,7 +41,7 @@ describe( 'BlockMap.parse()', function() {
     ;[ '1.3', '1.4', '2.0' ].forEach( function( v ) {
       it( `throws on invalid checksum for v${v}`, function() {
         var json = require( `./data/version-${v}` )
-        var xml = fs.readFileSync( path.join( __dirname, `/data/invalid/file-checksum/version-${v}.bmap` ) )
+        var xml = fs.readFileSync( path.join( __dirname, 'data', 'invalid', 'file-checksum', `version-${v}.bmap` ) )
         assert.throws( function() {
           BlockMap.parse( xml )
         }, /^Error: File checksum mismatch:/, `Version ${v}` )
@@ -52,7 +52,7 @@ describe( 'BlockMap.parse()', function() {
     ;[ '1.3', '1.4', '2.0' ].forEach( function( v ) {
       it( `does not throw with verification disabled for v${v}`, function() {
         var json = require( `./data/version-${v}` )
-        var xml = fs.readFileSync( path.join( __dirname, `/data/invalid/file-checksum/version-${v}.bmap` ) )
+        var xml = fs.readFileSync( path.join( __dirname, 'data', 'invalid', 'file-checksum', `version-${v}.bmap` ) )
         assert.deepEqual( json, BlockMap.parse( xml, { verify: false }), `Version ${v}` )
       })
     })
