@@ -7,7 +7,7 @@ describe( 'BlockMap.ReadStream', function() {
 
   it( 'should read only mapped blocks', function( done ) {
 
-    var filename = path.join( __dirname, '/data/bmap.img' )
+    var filename = path.join( __dirname, 'data', 'bmap.img' )
     var blockMap = BlockMap.create( require( './data/version-2.0' ) )
     var readStream = new BlockMap.ReadStream( filename, blockMap )
     var byteCount = 0
@@ -31,7 +31,7 @@ describe( 'BlockMap.ReadStream', function() {
 
   it( 'should position blocks correctly', function( done ) {
 
-    var filename = path.join( __dirname, '/data/bmap.img' )
+    var filename = path.join( __dirname, 'data', 'bmap.img' )
     var blockMap = BlockMap.create( require( './data/version-2.0' ) )
     var readStream = new BlockMap.ReadStream( filename, blockMap )
     var blockCount = 0
@@ -61,7 +61,7 @@ describe( 'BlockMap.ReadStream', function() {
 
   it( 'should ignore path when given a file descriptor', function( done ) {
 
-    var filename = path.join( __dirname, '/data/bmap.img' )
+    var filename = path.join( __dirname, 'data', 'bmap.img' )
     var blockMap = BlockMap.create( require( './data/version-2.0' ) )
     var fd = fs.openSync( filename, 'r' )
     var readStream = new BlockMap.ReadStream( null, blockMap, { fd: fd })
@@ -86,7 +86,7 @@ describe( 'BlockMap.ReadStream', function() {
 
   it( 'should not close the fd if autoClose = false', function( done ) {
 
-    var filename = path.join( __dirname, '/data/bmap.img' )
+    var filename = path.join( __dirname, 'data', 'bmap.img' )
     var blockMap = BlockMap.create( require( './data/version-2.0' ) )
     var fd = fs.openSync( filename, 'r' )
     var byteCount = 0
@@ -116,7 +116,7 @@ describe( 'BlockMap.ReadStream', function() {
 
   it( 'should not close if autoClose = false, and a filename was given', function( done ) {
 
-    var filename = path.join( __dirname, '/data/bmap.img' )
+    var filename = path.join( __dirname, 'data', 'bmap.img' )
     var blockMap = BlockMap.create( require( './data/version-2.0' ) )
     var byteCount = 0
     var readStream = new BlockMap.ReadStream( filename, blockMap, {
@@ -170,7 +170,7 @@ describe( 'BlockMap.ReadStream', function() {
 
   it( 'should stop reading at `end`, if specified', function( done ) {
 
-    var filename = path.join( __dirname, '/data/bmap.img' )
+    var filename = path.join( __dirname, 'data', 'bmap.img' )
     var blockMap = BlockMap.create( require( './data/version-2.0' ) )
     var byteCount = 0
     var readStream = new BlockMap.ReadStream( filename, blockMap, {
@@ -224,7 +224,7 @@ describe( 'BlockMap.ReadStream', function() {
 
   it( 'should throw if start is negative', function() {
 
-    var filename = path.join( __dirname, '/data/bmap.img' )
+    var filename = path.join( __dirname, 'data', 'bmap.img' )
     var blockMap = BlockMap.create( require( './data/version-2.0' ) )
 
     assert.throws( function() {
@@ -237,7 +237,7 @@ describe( 'BlockMap.ReadStream', function() {
 
   it( 'should throw if end is negative', function() {
 
-    var filename = path.join( __dirname, '/data/bmap.img' )
+    var filename = path.join( __dirname, 'data', 'bmap.img' )
     var blockMap = BlockMap.create( require( './data/version-2.0' ) )
 
     assert.throws( function() {
@@ -250,7 +250,7 @@ describe( 'BlockMap.ReadStream', function() {
 
   it( 'should not emit blocks if end is 0', function( done ) {
 
-    var filename = path.join( __dirname, '/data/bmap.img' )
+    var filename = path.join( __dirname, 'data', 'bmap.img' )
     var blockMap = BlockMap.create( require( './data/version-2.0' ) )
     var byteCount = 0
     var readStream = new BlockMap.ReadStream( filename, blockMap, {
@@ -271,7 +271,7 @@ describe( 'BlockMap.ReadStream', function() {
 
   it( 'should throw if start is greater than end', function() {
 
-    var filename = path.join( __dirname, '/data/bmap.img' )
+    var filename = path.join( __dirname, 'data', 'bmap.img' )
     var blockMap = BlockMap.create( require( './data/version-2.0' ) )
 
     assert.throws( function() {
@@ -285,7 +285,7 @@ describe( 'BlockMap.ReadStream', function() {
 
   it( 'should not emit blocks if start is equal to end', function( done ) {
 
-    var filename = path.join( __dirname, '/data/bmap.img' )
+    var filename = path.join( __dirname, 'data', 'bmap.img' )
     var blockMap = BlockMap.create( require( './data/version-2.0' ) )
     var byteCount = 0
     var readStream = new BlockMap.ReadStream( filename, blockMap, {
@@ -307,7 +307,7 @@ describe( 'BlockMap.ReadStream', function() {
 
   it( 'should emit an error if start goes beyond the file', function( done ) {
 
-    var filename = path.join( __dirname, '/data/bmap.img' )
+    var filename = path.join( __dirname, 'data', 'bmap.img' )
     var blockMap = BlockMap.create( require( './data/version-2.0' ) )
     var readStream = new BlockMap.ReadStream( filename, blockMap, {
       start: fs.statSync( filename ).size + blockMap.blockSize,
@@ -328,7 +328,7 @@ describe( 'BlockMap.ReadStream', function() {
 
   it( 'should ignore an end beyond the file', function( done ) {
 
-    var filename = path.join( __dirname, '/data/bmap.img' )
+    var filename = path.join( __dirname, 'data', 'bmap.img' )
     var blockMap = BlockMap.create( require( './data/version-2.0' ) )
     var byteCount = 0
     var readStream = new BlockMap.ReadStream( filename, blockMap, {
@@ -354,8 +354,8 @@ describe( 'BlockMap.ReadStream', function() {
     BlockMap.versions.forEach( function( v ) {
       it( `v${v}: ignore invalid ranges`, function( done ) {
 
-        var filename = path.join( __dirname, '/data/bmap.img' )
-        var bmapFile = path.join( __dirname, `/data/invalid/range/multiple-${v}.bmap` )
+        var filename = path.join( __dirname, 'data', 'bmap.img' )
+        var bmapFile = path.join( __dirname, 'data', 'invalid', 'range', `multiple-${v}.bmap` )
         var blockMap = BlockMap.parse( fs.readFileSync( bmapFile, 'utf8' ) )
         var readStream = new BlockMap.ReadStream( filename, blockMap, { verify: false })
 
@@ -371,8 +371,8 @@ describe( 'BlockMap.ReadStream', function() {
     BlockMap.versions.forEach( function( v ) {
       it( `v${v}: detect an invalid range`, function( done ) {
 
-        var filename = path.join( __dirname, '/data/bmap.img' )
-        var bmapFile = path.join( __dirname, `/data/invalid/range/version-${v}.bmap` )
+        var filename = path.join( __dirname, 'data', 'bmap.img' )
+        var bmapFile = path.join( __dirname, 'data', 'invalid', 'range', `version-${v}.bmap` )
         var blockMap = BlockMap.parse( fs.readFileSync( bmapFile, 'utf8' ) )
         var readStream = new BlockMap.ReadStream( filename, blockMap )
         var hadError = false
@@ -402,8 +402,8 @@ describe( 'BlockMap.ReadStream', function() {
     BlockMap.versions.forEach( function( v ) {
       it( `v${v}: detect invalid ranges`, function( done ) {
 
-        var filename = path.join( __dirname, '/data/bmap.img' )
-        var bmapFile = path.join( __dirname, `/data/invalid/range/multiple-${v}.bmap` )
+        var filename = path.join( __dirname, 'data', 'bmap.img' )
+        var bmapFile = path.join( __dirname, 'data', 'invalid', 'range', `multiple-${v}.bmap` )
         var blockMap = BlockMap.parse( fs.readFileSync( bmapFile, 'utf8' ) )
         var readStream = new BlockMap.ReadStream( filename, blockMap, { verify: true })
         var hadErrors = 0

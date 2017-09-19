@@ -6,8 +6,8 @@ var zlib = require( 'zlib' )
 
 before( 'decompress:bmap.img', function( done ) {
 
-  var source = path.join( __dirname, '/data/bmap.img.gz' )
-  var destination = path.join( __dirname, '/data/bmap.img' )
+  var source = path.join( __dirname, 'data', 'bmap.img.gz' )
+  var destination = path.join( __dirname, 'data', 'bmap.img' )
 
   fs.createReadStream( source )
     .pipe( zlib.createGunzip() )
@@ -18,8 +18,8 @@ before( 'decompress:bmap.img', function( done ) {
 
 before( 'decompress:padded-bmap.img', function( done ) {
 
-  var source = path.join( __dirname, '/data/padded-bmap.img.gz' )
-  var destination = path.join( __dirname, '/data/padded-bmap.img' )
+  var source = path.join( __dirname, 'data', 'padded-bmap.img.gz' )
+  var destination = path.join( __dirname, 'data', 'padded-bmap.img' )
 
   fs.createReadStream( source )
     .pipe( zlib.createGunzip() )
