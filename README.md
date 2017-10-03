@@ -1,4 +1,3 @@
-# Blockmap
 [![npm](https://img.shields.io/npm/v/blockmap.svg?style=flat-square)](https://npmjs.com/package/blockmap)
 [![npm license](https://img.shields.io/npm/l/blockmap.svg?style=flat-square)](https://npmjs.com/package/blockmap)
 [![npm downloads](https://img.shields.io/npm/dm/blockmap.svg?style=flat-square)](https://npmjs.com/package/blockmap)
