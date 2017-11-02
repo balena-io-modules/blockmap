@@ -214,3 +214,8 @@ blockReadStream.on( 'error', function( error ) {
   // ...
 })
 ```
+
+## References
+
+- [Tizen's block map format](https://source.tizen.org/documentation/reference/bmaptool/introduction)
+- [intel/bmap-tools](https://github.com/intel/bmap-tools)
