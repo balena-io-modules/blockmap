@@ -19,8 +19,8 @@
     "xml": "^1.0.1"
   },
   "devDependencies": {
-    "jsdoc-to-markdown": "^3.0.0",
-    "mocha": "^4.0.1",
+    "jsdoc-to-markdown": "^4.0.1",
+    "mocha": "^5.0.1",
     "nanobench": "^2.1.0"
   },
   "peerDependencies": {},
