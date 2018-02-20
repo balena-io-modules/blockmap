@@ -24,6 +24,7 @@ describe( 'BlockMap.FilterStream', function() {
       .once( 'error', done )
       .once( 'end', function() {
         assert.equal( this.blocksWritten, blockMap.mappedBlockCount, 'blocksWritten mismatch' )
+        assert.equal( this.bytesRead, blockMap.imageSize, 'bytesRead mismatch' )
         assert.equal( this.bytesWritten, blockMap.mappedBlockCount * blockMap.blockSize, 'bytesWritten mismatch' )
         assert.equal( this.rangesRead, blockMap.ranges.length, 'rangesRead mismatch' )
         assert.equal( blockCount, blockMap.mappedBlockCount, 'actual blocks read mismatch' )
@@ -50,6 +51,7 @@ describe( 'BlockMap.FilterStream', function() {
       .once( 'error', done )
       .once( 'end', function() {
         assert.equal( this.blocksWritten, blockMap.mappedBlockCount, 'blocksWritten mismatch' )
+        assert.equal( this.bytesRead, blockMap.imageSize, 'bytesRead mismatch' )
         assert.equal( this.bytesWritten, blockMap.mappedBlockCount * blockMap.blockSize, 'bytesWritten mismatch' )
         assert.equal( this.rangesRead, blockMap.ranges.length, 'rangesRead mismatch' )
         assert.equal( blockCount, blockMap.mappedBlockCount, 'actual blocks read mismatch' )
@@ -83,6 +85,7 @@ describe( 'BlockMap.FilterStream', function() {
       .once( 'error', done )
       .once( 'end', function() {
         assert.equal( this.blocksWritten, blockMap.mappedBlockCount, 'blocksWritten mismatch' )
+        assert.equal( this.bytesRead, blockMap.imageSize, 'bytesRead mismatch' )
         assert.equal( this.bytesWritten, blockMap.mappedBlockCount * blockMap.blockSize, 'bytesWritten mismatch' )
         assert.equal( this.rangesRead, blockMap.ranges.length, 'rangesRead mismatch' )
         assert.equal( blockCount, blockMap.mappedBlockCount, 'actual blocks read mismatch' )
