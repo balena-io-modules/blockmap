@@ -17,6 +17,10 @@
         * [.parse(value, [options])](#BlockMap+parse) ⇒ [<code>BlockMap</code>](#BlockMap)
         * [.toString()](#BlockMap+toString) ⇒ <code>String</code>
     * _static_
+        * [.Chunk](#BlockMap.Chunk)
+            * [new Chunk(buffer, position)](#new_BlockMap.Chunk_new)
+            * [.buffer](#BlockMap.Chunk+buffer) : <code>Buffer</code>
+            * [.position](#BlockMap.Chunk+position) : <code>Number</code>
         * [.FilterStream](#BlockMap.FilterStream)
             * [new FilterStream(blockMap, [options])](#new_BlockMap.FilterStream_new)
             * [.options](#BlockMap.FilterStream+options) : <code>Object</code>
@@ -31,6 +35,23 @@
             * [.ranges](#BlockMap.FilterStream+ranges) : <code>Array.&lt;Object&gt;</code>
             * [.currentRange](#BlockMap.FilterStream+currentRange) : <code>Object</code>
             * [._transformBlock(chunk, next)](#BlockMap.FilterStream+_transformBlock)
+        * [.Range](#BlockMap.Range)
+            * [new Range(start, end, [checksum])](#new_BlockMap.Range_new)
+            * _instance_
+                * [.start](#BlockMap.Range+start) : <code>Number</code>
+                * [.end](#BlockMap.Range+end) : <code>Number</code>
+                * [.checksum](#BlockMap.Range+checksum) : <code>String</code>
+            * _static_
+                * [.from(value)](#BlockMap.Range.from) ⇒ <code>Range</code>
+        * [.ReadRange](#BlockMap.ReadRange)
+            * [new ReadRange(range, blockSize)](#new_BlockMap.ReadRange_new)
+            * [.checksum](#BlockMap.ReadRange+checksum) : <code>String</code>
+            * [.start](#BlockMap.ReadRange+start) : <code>Number</code>
+            * [.end](#BlockMap.ReadRange+end) : <code>Number</code>
+            * [.length](#BlockMap.ReadRange+length) : <code>Number</code>
+            * [.startLBA](#BlockMap.ReadRange+startLBA) : <code>Number</code>
+            * [.endLBA](#BlockMap.ReadRange+endLBA) : <code>Number</code>
+            * [.offset](#BlockMap.ReadRange+offset) : <code>Number</code>
         * [.ReadStream](#BlockMap.ReadStream)
             * [new ReadStream(filename, blockMap, [options])](#new_BlockMap.ReadStream_new)
             * [.fd](#BlockMap.ReadStream+fd) : <code>Number</code>
@@ -38,8 +59,9 @@
             * [.flags](#BlockMap.ReadStream+flags) : <code>String</code>
             * [.blockMap](#BlockMap.ReadStream+blockMap) : [<code>BlockMap</code>](#BlockMap)
             * [.blockSize](#BlockMap.ReadStream+blockSize) : <code>Number</code>
+            * [.chunkSize](#BlockMap.ReadStream+chunkSize) : <code>Number</code>
             * [.verify](#BlockMap.ReadStream+verify) : <code>Boolean</code>
-            * [.currentRange](#BlockMap.ReadStream+currentRange) : <code>BlockMap.Range</code>
+            * [.currentRange](#BlockMap.ReadStream+currentRange) : [<code>Range</code>](#BlockMap.Range)
             * [.rangesRead](#BlockMap.ReadStream+rangesRead) : <code>Number</code>
             * [.blocksRead](#BlockMap.ReadStream+blocksRead) : <code>Number</code>
             * [.bytesRead](#BlockMap.ReadStream+bytesRead) : <code>Number</code>
@@ -175,6 +197,50 @@ Stringify the block map into .bmap format
 
 **Kind**: instance method of [<code>BlockMap</code>](#BlockMap)  
 **Returns**: <code>String</code> - xml  
+
+* * *
+
+<a name="BlockMap.Chunk"></a>
+
+### BlockMap.Chunk
+**Kind**: static class of [<code>BlockMap</code>](#BlockMap)  
+
+* [.Chunk](#BlockMap.Chunk)
+    * [new Chunk(buffer, position)](#new_BlockMap.Chunk_new)
+    * [.buffer](#BlockMap.Chunk+buffer) : <code>Buffer</code>
+    * [.position](#BlockMap.Chunk+position) : <code>Number</code>
+
+
+* * *
+
+<a name="new_BlockMap.Chunk_new"></a>
+
+#### new Chunk(buffer, position)
+Chunk
+
+**Params**
+
+- buffer <code>Buffer</code>
+- position <code>Number</code>
+
+
+* * *
+
+<a name="BlockMap.Chunk+buffer"></a>
+
+#### chunk.buffer : <code>Buffer</code>
+Chunk data buffer
+
+**Kind**: instance property of [<code>Chunk</code>](#BlockMap.Chunk)  
+
+* * *
+
+<a name="BlockMap.Chunk+position"></a>
+
+#### chunk.position : <code>Number</code>
+Chunk position
+
+**Kind**: instance property of [<code>Chunk</code>](#BlockMap.Chunk)  
 
 * * *
 
@@ -330,6 +396,171 @@ current range, if necessary
 
 * * *
 
+<a name="BlockMap.Range"></a>
+
+### BlockMap.Range
+**Kind**: static class of [<code>BlockMap</code>](#BlockMap)  
+
+* [.Range](#BlockMap.Range)
+    * [new Range(start, end, [checksum])](#new_BlockMap.Range_new)
+    * _instance_
+        * [.start](#BlockMap.Range+start) : <code>Number</code>
+        * [.end](#BlockMap.Range+end) : <code>Number</code>
+        * [.checksum](#BlockMap.Range+checksum) : <code>String</code>
+    * _static_
+        * [.from(value)](#BlockMap.Range.from) ⇒ <code>Range</code>
+
+
+* * *
+
+<a name="new_BlockMap.Range_new"></a>
+
+#### new Range(start, end, [checksum])
+Range
+
+**Params**
+
+- start <code>Number</code>
+- end <code>Number</code>
+- [checksum] <code>String</code>
+
+
+* * *
+
+<a name="BlockMap.Range+start"></a>
+
+#### range.start : <code>Number</code>
+Range start (LBA)
+
+**Kind**: instance property of [<code>Range</code>](#BlockMap.Range)  
+
+* * *
+
+<a name="BlockMap.Range+end"></a>
+
+#### range.end : <code>Number</code>
+Range end (inclusive, LBA)
+
+**Kind**: instance property of [<code>Range</code>](#BlockMap.Range)  
+
+* * *
+
+<a name="BlockMap.Range+checksum"></a>
+
+#### range.checksum : <code>String</code>
+Range checksum
+
+**Kind**: instance property of [<code>Range</code>](#BlockMap.Range)  
+
+* * *
+
+<a name="BlockMap.Range.from"></a>
+
+#### Range.from(value) ⇒ <code>Range</code>
+Create a BlockMap.Range from a given value
+
+**Kind**: static method of [<code>Range</code>](#BlockMap.Range)  
+**Params**
+
+- value <code>Object</code>
+
+
+* * *
+
+<a name="BlockMap.ReadRange"></a>
+
+### BlockMap.ReadRange
+**Kind**: static class of [<code>BlockMap</code>](#BlockMap)  
+
+* [.ReadRange](#BlockMap.ReadRange)
+    * [new ReadRange(range, blockSize)](#new_BlockMap.ReadRange_new)
+    * [.checksum](#BlockMap.ReadRange+checksum) : <code>String</code>
+    * [.start](#BlockMap.ReadRange+start) : <code>Number</code>
+    * [.end](#BlockMap.ReadRange+end) : <code>Number</code>
+    * [.length](#BlockMap.ReadRange+length) : <code>Number</code>
+    * [.startLBA](#BlockMap.ReadRange+startLBA) : <code>Number</code>
+    * [.endLBA](#BlockMap.ReadRange+endLBA) : <code>Number</code>
+    * [.offset](#BlockMap.ReadRange+offset) : <code>Number</code>
+
+
+* * *
+
+<a name="new_BlockMap.ReadRange_new"></a>
+
+#### new ReadRange(range, blockSize)
+ReadRange
+
+**Params**
+
+- range [<code>Range</code>](#BlockMap.Range)
+- blockSize <code>Number</code>
+
+
+* * *
+
+<a name="BlockMap.ReadRange+checksum"></a>
+
+#### readRange.checksum : <code>String</code>
+Range checksum
+
+**Kind**: instance property of [<code>ReadRange</code>](#BlockMap.ReadRange)  
+
+* * *
+
+<a name="BlockMap.ReadRange+start"></a>
+
+#### readRange.start : <code>Number</code>
+Range start offset in bytes
+
+**Kind**: instance property of [<code>ReadRange</code>](#BlockMap.ReadRange)  
+
+* * *
+
+<a name="BlockMap.ReadRange+end"></a>
+
+#### readRange.end : <code>Number</code>
+Range end offset in bytes
+
+**Kind**: instance property of [<code>ReadRange</code>](#BlockMap.ReadRange)  
+
+* * *
+
+<a name="BlockMap.ReadRange+length"></a>
+
+#### readRange.length : <code>Number</code>
+Range length in bytes
+
+**Kind**: instance property of [<code>ReadRange</code>](#BlockMap.ReadRange)  
+
+* * *
+
+<a name="BlockMap.ReadRange+startLBA"></a>
+
+#### readRange.startLBA : <code>Number</code>
+Range start LBA
+
+**Kind**: instance property of [<code>ReadRange</code>](#BlockMap.ReadRange)  
+
+* * *
+
+<a name="BlockMap.ReadRange+endLBA"></a>
+
+#### readRange.endLBA : <code>Number</code>
+Range end LBA
+
+**Kind**: instance property of [<code>ReadRange</code>](#BlockMap.ReadRange)  
+
+* * *
+
+<a name="BlockMap.ReadRange+offset"></a>
+
+#### readRange.offset : <code>Number</code>
+Byte offset within range
+
+**Kind**: instance property of [<code>ReadRange</code>](#BlockMap.ReadRange)  
+
+* * *
+
 <a name="BlockMap.ReadStream"></a>
 
 ### BlockMap.ReadStream
@@ -342,8 +573,9 @@ current range, if necessary
     * [.flags](#BlockMap.ReadStream+flags) : <code>String</code>
     * [.blockMap](#BlockMap.ReadStream+blockMap) : [<code>BlockMap</code>](#BlockMap)
     * [.blockSize](#BlockMap.ReadStream+blockSize) : <code>Number</code>
+    * [.chunkSize](#BlockMap.ReadStream+chunkSize) : <code>Number</code>
     * [.verify](#BlockMap.ReadStream+verify) : <code>Boolean</code>
-    * [.currentRange](#BlockMap.ReadStream+currentRange) : <code>BlockMap.Range</code>
+    * [.currentRange](#BlockMap.ReadStream+currentRange) : [<code>Range</code>](#BlockMap.Range)
     * [.rangesRead](#BlockMap.ReadStream+rangesRead) : <code>Number</code>
     * [.blocksRead](#BlockMap.ReadStream+blocksRead) : <code>Number</code>
     * [.bytesRead](#BlockMap.ReadStream+bytesRead) : <code>Number</code>
@@ -370,6 +602,7 @@ ReadStream
 - [options] <code>Object</code> - options
     - [.fd] <code>Number</code> <code> = </code> - file descriptor
     - [.flags] <code>String</code> <code> = &#x27;r&#x27;</code> - fs.open() flags
+    - [.chunkSize] <code>Boolean</code> <code> = 64K</code> - default chunk buffer size to read/emit
     - [.verify] <code>Boolean</code> <code> = true</code> - verify range checksums
     - [.autoClose] <code>Boolean</code> <code> = true</code> - close the fd on end
     - [.start] <code>Number</code> - byte offset in file to read from
@@ -423,6 +656,15 @@ Size of a mapped block in bytes
 
 * * *
 
+<a name="BlockMap.ReadStream+chunkSize"></a>
+
+#### readStream.chunkSize : <code>Number</code>
+...
+
+**Kind**: instance property of [<code>ReadStream</code>](#BlockMap.ReadStream)  
+
+* * *
+
 <a name="BlockMap.ReadStream+verify"></a>
 
 #### readStream.verify : <code>Boolean</code>
@@ -434,7 +676,7 @@ Whether or not to verify range checksums
 
 <a name="BlockMap.ReadStream+currentRange"></a>
 
-#### readStream.currentRange : <code>BlockMap.Range</code>
+#### readStream.currentRange : [<code>Range</code>](#BlockMap.Range)
 Range being currently processed
 
 **Kind**: instance property of [<code>ReadStream</code>](#BlockMap.ReadStream)  

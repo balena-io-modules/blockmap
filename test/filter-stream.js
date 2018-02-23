@@ -17,8 +17,6 @@ describe( 'BlockMap.FilterStream', function() {
       .on( 'data', ( block ) => {
         blockCount += block.length / blockMap.blockSize
         assert.equal( block.length % blockMap.blockSize, 0, 'Invalid block size: ' + block.length )
-        assert.ok( block.address != null, 'block address missing' )
-        assert.ok( Number.isInteger( block.address ), 'block address must be an integer' )
         assert.ok( block.position != null, 'block position missing' )
       })
       .once( 'error', done )
@@ -45,7 +43,6 @@ describe( 'BlockMap.FilterStream', function() {
       .on( 'data', ( block ) => {
         blockCount += block.length / blockMap.blockSize
         assert.equal( block.length % blockMap.blockSize, 0, 'Invalid block size: ' + block.length )
-        assert.ok( block.address != null, 'block address missing' )
         assert.ok( block.position != null, 'block position missing' )
       })
       .once( 'error', done )
@@ -73,13 +70,11 @@ describe( 'BlockMap.FilterStream', function() {
       .on( 'data', ( block ) => {
         blockCount += block.length / blockMap.blockSize
         assert.equal( block.length % blockMap.blockSize, 0, 'Invalid block size: ' + block.length )
-        assert.ok( block.address != null, 'block address missing' )
         assert.ok( block.position != null, 'block position missing' )
         if( firstBlock ) {
           firstBlock = false
         } else {
           assert.ok( block.position > 0, 'block position is zero' )
-          assert.ok( block.address > 0, 'block address is zero' )
         }
       })
       .once( 'error', done )
@@ -107,7 +102,6 @@ describe( 'BlockMap.FilterStream', function() {
         readStream.pipe( transform )
           .on( 'data', ( block ) => {
             assert.equal( block.length % blockMap.blockSize, 0, 'Invalid block size: ' + block.length )
-            assert.ok( block.address != null, 'block address missing' )
             assert.ok( block.position != null, 'block position missing' )
           })
           .on( 'error', done )
@@ -130,7 +124,6 @@ describe( 'BlockMap.FilterStream', function() {
         readStream.pipe( transform )
           .on( 'data', ( block ) => {
             assert.equal( block.length % blockMap.blockSize, 0, 'Invalid block size: ' + block.length )
-            assert.ok( block.address != null, 'block address missing' )
             assert.ok( block.position != null, 'block position missing' )
           })
           .on( 'error', function( error ) {
@@ -165,7 +158,6 @@ describe( 'BlockMap.FilterStream', function() {
         readStream.pipe( transform )
           .on( 'data', ( block ) => {
             assert.equal( block.length % blockMap.blockSize, 0, 'Invalid block size: ' + block.length )
-            assert.ok( block.address != null, 'block address missing' )
             assert.ok( block.position != null, 'block position missing' )
           })
           .on( 'error', function( error ) {

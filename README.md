@@ -86,8 +86,12 @@ Where `xml` would look like the following, given the block map from above:
 </bmap>
 ```
 
+---
+
 **NOTE:** Regardless of input version, `blockMap.toString()` will always
 create a `.bmap` in the format of the latest version (currently `2.0`).
+
+---
 
 ### Block Map Checksum Verification
 
@@ -102,16 +106,27 @@ var blockMap = BlockMap.parse( bmap, { verify: false })
 
 ```js
 // Disable range checksum verification:
-var blockReadStream = new BlockMap.ReadStream( '/path/to/resin-os.img', blockMap, {
+var blockReadStream = BlockMap.createReadStream( '/path/to/resin-os.img', blockMap, {
   verify: false,
 })
+```
+
+```js
 // Same for filter streams:
-var filterStream = new BlockMap.FilterStream( blockMap, {
+var filterStream = BlockMap.createFilterStream( blockMap, {
   verify: false,
 })
 ```
 
 ### Reading Mapped Blocks
+
+---
+
+**NOTE:** These examples just use `fs.writeSync()` in `.on('readable')` for brevity;
+of course this should be implemented properly in a writable stream, which the readable
+side (i.e. the `BlockMap.ReadStream` or `.FilterStream`) is piped to.
+
+---
 
 Use a parsed block map to read only mapped regions:
 
@@ -119,14 +134,14 @@ Use a parsed block map to read only mapped regions:
 var blockMap = BlockMap.parse( fs.readFileSync( '/path/to/resin-os.bmap' ) )
 var blockReadStream = new BlockMap.ReadStream( '/path/to/resin-os.img', blockMap )
 
-// The buffer will have two additional properties set;
-// 1) buffer.address – it's block address in respect to the .bmap's block size
-// 2) buffer.position – the block's offset (or address) in bytes
+// The chunk emitted will have two properties set;
+// 1) chunk.buffer – the data buffer
+// 2) chunk.position – the chunk's offset (or address) in bytes
 // Which can then be used to write only those blocks to the target:
 blockReadStream.on( 'readable', function() {
-  var buffer = null
-  while( buffer = this.read() ) {
-    fs.writeSync( fd, buffer, 0, buffer.length, buffer.position )
+  var chunk = null
+  while( chunk = this.read() ) {
+    fs.writeSync( fd, chunk.buffer, 0, chunk.buffer.length, chunk.position )
   }
 })
 
@@ -146,14 +161,14 @@ var blockMap = BlockMap.parse( fs.readFileSync( '/path/to/resin-os.bmap' ) )
 var readStream = fs.createReadStream( '/path/to/resin-os.img' )
 var filterStream = new BlockMap.FilterStream( blockMap )
 
-// The buffer will have two additional properties set;
-// 1) buffer.address – it's block address in respect to the .bmap's block size
-// 2) buffer.position – the block's offset (or address) in bytes
+// The chunk emitted will have two properties set;
+// 1) chunk.buffer – the data buffer
+// 2) chunk.position – the chunk's offset (or address) in bytes
 // Which can then be used to write only those blocks to the target:
 filterStream.on( 'readable', function() {
   var buffer = null
-  while( buffer = this.read() ) {
-    fs.writeSync( fd, buffer, 0, buffer.length, buffer.position )
+  while( chunk = this.read() ) {
+    fs.writeSync( fd, chunk.buffer, 0, chunk.buffer.length, chunk.position )
   }
 })
 
