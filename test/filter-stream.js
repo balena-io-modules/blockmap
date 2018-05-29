@@ -31,6 +31,27 @@ describe( 'BlockMap.FilterStream', function() {
 
   })
 
+  it( 'should calculate range checksums', function( done ) {
+
+    var filename = path.join( __dirname, 'data', 'bmap.img' )
+    var blockMap = BlockMap.create( require( './data/version-2.0' ) )
+    var checksumlessBlockMap = BlockMap.create( require( './data/version-2.0' ) )
+    checksumlessBlockMap.ranges.forEach((range) => {
+      delete range.checksum
+    })
+    var readStream = fs.createReadStream( filename )
+    var transform = new BlockMap.FilterStream( checksumlessBlockMap, { verify: false, generateChecksums: true } )
+
+    readStream.pipe( transform )
+      .on( 'data', () => {})
+      .once( 'error', done )
+      .once( 'end', function() {
+        assert.deepEqual( checksumlessBlockMap.ranges, blockMap.ranges, 'calculated checksums do not match the blockmap' )
+        done()
+      })
+
+  })
+
   it( 'should only emit properly sized blocks', function( done ) {
 
     var filename = path.join( __dirname, 'data', 'bmap.img' )
