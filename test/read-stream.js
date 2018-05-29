@@ -222,7 +222,7 @@ describe( 'BlockMap.ReadStream', function() {
       new BlockMap.ReadStream( filename, blockMap, {
         start: -1,
       })
-    }, 'Start must not be negative' )
+    })
 
   })
 
@@ -235,7 +235,7 @@ describe( 'BlockMap.ReadStream', function() {
       new BlockMap.ReadStream( filename, blockMap, {
         end: -1,
       })
-    }, 'Start must be less or equal to end' )
+    })
 
   })
 
