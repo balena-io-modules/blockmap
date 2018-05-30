@@ -27,6 +27,7 @@
             * [.blockMap](#BlockMap.FilterStream+blockMap) : [<code>BlockMap</code>](#BlockMap)
             * [.blockSize](#BlockMap.FilterStream+blockSize) : <code>Number</code>
             * [.rangesRead](#BlockMap.FilterStream+rangesRead) : <code>Number</code>
+            * [.rangesVerified](#BlockMap.FilterStream+rangesVerified) : <code>Number</code>
             * [.blocksRead](#BlockMap.FilterStream+blocksRead) : <code>Number</code>
             * [.bytesRead](#BlockMap.FilterStream+bytesRead) : <code>Number</code>
             * [.blocksWritten](#BlockMap.FilterStream+blocksWritten) : <code>Number</code>
@@ -45,6 +46,7 @@
                 * [.from(value)](#BlockMap.Range.from) ⇒ <code>Range</code>
         * [.ReadRange](#BlockMap.ReadRange)
             * [new ReadRange(range, blockSize)](#new_BlockMap.ReadRange_new)
+            * [.range](#BlockMap.ReadRange+range) : <code>Range</code>
             * [.checksum](#BlockMap.ReadRange+checksum) : <code>String</code>
             * [.start](#BlockMap.ReadRange+start) : <code>Number</code>
             * [.end](#BlockMap.ReadRange+end) : <code>Number</code>
@@ -63,11 +65,13 @@
             * [.verify](#BlockMap.ReadStream+verify) : <code>Boolean</code>
             * [.currentRange](#BlockMap.ReadStream+currentRange) : [<code>Range</code>](#BlockMap.Range)
             * [.rangesRead](#BlockMap.ReadStream+rangesRead) : <code>Number</code>
+            * [.rangesVerified](#BlockMap.ReadStream+rangesVerified) : <code>Number</code>
             * [.blocksRead](#BlockMap.ReadStream+blocksRead) : <code>Number</code>
             * [.bytesRead](#BlockMap.ReadStream+bytesRead) : <code>Number</code>
             * [.position](#BlockMap.ReadStream+position) : <code>Number</code>
             * [.start](#BlockMap.ReadStream+start) : <code>Number</code>
             * [.end](#BlockMap.ReadStream+end) : <code>Number</code>
+            * [.fs](#BlockMap.ReadStream+fs) : <code>Object</code>
             * [.closed](#BlockMap.ReadStream+closed) : <code>Boolean</code>
             * [.destroyed](#BlockMap.ReadStream+destroyed) : <code>Boolean</code>
             * [.close([callback])](#BlockMap.ReadStream+close)
@@ -255,6 +259,7 @@ Chunk position
     * [.blockMap](#BlockMap.FilterStream+blockMap) : [<code>BlockMap</code>](#BlockMap)
     * [.blockSize](#BlockMap.FilterStream+blockSize) : <code>Number</code>
     * [.rangesRead](#BlockMap.FilterStream+rangesRead) : <code>Number</code>
+    * [.rangesVerified](#BlockMap.FilterStream+rangesVerified) : <code>Number</code>
     * [.blocksRead](#BlockMap.FilterStream+blocksRead) : <code>Number</code>
     * [.bytesRead](#BlockMap.FilterStream+bytesRead) : <code>Number</code>
     * [.blocksWritten](#BlockMap.FilterStream+blocksWritten) : <code>Number</code>
@@ -277,6 +282,7 @@ FilterStream
 - blockMap [<code>BlockMap</code>](#BlockMap) - the block map
 - [options] <code>Object</code> - options
     - [.verify] <code>Boolean</code> <code> = true</code> - verify range checksums
+    - [.generateChecksums] <code>Boolean</code> <code> = false</code> - calculate range checksums and update blockmap
 
 
 * * *
@@ -312,6 +318,15 @@ Size of a mapped block in bytes
 
 #### filterStream.rangesRead : <code>Number</code>
 Number of block map ranges read
+
+**Kind**: instance property of [<code>FilterStream</code>](#BlockMap.FilterStream)  
+
+* * *
+
+<a name="BlockMap.FilterStream+rangesVerified"></a>
+
+#### filterStream.rangesVerified : <code>Number</code>
+Number of block map ranges verified
 
 **Kind**: instance property of [<code>FilterStream</code>](#BlockMap.FilterStream)  
 
@@ -474,6 +489,7 @@ Create a BlockMap.Range from a given value
 
 * [.ReadRange](#BlockMap.ReadRange)
     * [new ReadRange(range, blockSize)](#new_BlockMap.ReadRange_new)
+    * [.range](#BlockMap.ReadRange+range) : <code>Range</code>
     * [.checksum](#BlockMap.ReadRange+checksum) : <code>String</code>
     * [.start](#BlockMap.ReadRange+start) : <code>Number</code>
     * [.end](#BlockMap.ReadRange+end) : <code>Number</code>
@@ -495,6 +511,15 @@ ReadRange
 - range [<code>Range</code>](#BlockMap.Range)
 - blockSize <code>Number</code>
 
+
+* * *
+
+<a name="BlockMap.ReadRange+range"></a>
+
+#### readRange.range : <code>Range</code>
+Original Range object
+
+**Kind**: instance property of [<code>ReadRange</code>](#BlockMap.ReadRange)  
 
 * * *
 
@@ -577,11 +602,13 @@ Byte offset within range
     * [.verify](#BlockMap.ReadStream+verify) : <code>Boolean</code>
     * [.currentRange](#BlockMap.ReadStream+currentRange) : [<code>Range</code>](#BlockMap.Range)
     * [.rangesRead](#BlockMap.ReadStream+rangesRead) : <code>Number</code>
+    * [.rangesVerified](#BlockMap.ReadStream+rangesVerified) : <code>Number</code>
     * [.blocksRead](#BlockMap.ReadStream+blocksRead) : <code>Number</code>
     * [.bytesRead](#BlockMap.ReadStream+bytesRead) : <code>Number</code>
     * [.position](#BlockMap.ReadStream+position) : <code>Number</code>
     * [.start](#BlockMap.ReadStream+start) : <code>Number</code>
     * [.end](#BlockMap.ReadStream+end) : <code>Number</code>
+    * [.fs](#BlockMap.ReadStream+fs) : <code>Object</code>
     * [.closed](#BlockMap.ReadStream+closed) : <code>Boolean</code>
     * [.destroyed](#BlockMap.ReadStream+destroyed) : <code>Boolean</code>
     * [.close([callback])](#BlockMap.ReadStream+close)
@@ -607,6 +634,7 @@ ReadStream
     - [.autoClose] <code>Boolean</code> <code> = true</code> - close the fd on end
     - [.start] <code>Number</code> - byte offset in file to read from
     - [.end] <code>Number</code> - byte offset in file to stop at
+    - [.fs] <code>Number</code> - fs like object implementing open, close and read, defaults to node's fs
 
 
 * * *
@@ -692,6 +720,15 @@ Number of block map ranges read
 
 * * *
 
+<a name="BlockMap.ReadStream+rangesVerified"></a>
+
+#### readStream.rangesVerified : <code>Number</code>
+Number of block map ranges verified
+
+**Kind**: instance property of [<code>ReadStream</code>](#BlockMap.ReadStream)  
+
+* * *
+
 <a name="BlockMap.ReadStream+blocksRead"></a>
 
 #### readStream.blocksRead : <code>Number</code>
@@ -732,6 +769,15 @@ Position start offset in bytes
 
 #### readStream.end : <code>Number</code>
 End offset in bytes
+
+**Kind**: instance property of [<code>ReadStream</code>](#BlockMap.ReadStream)  
+
+* * *
+
+<a name="BlockMap.ReadStream+fs"></a>
+
+#### readStream.fs : <code>Object</code>
+fs like object implementing open, close and read
 
 **Kind**: instance property of [<code>ReadStream</code>](#BlockMap.ReadStream)  
 
