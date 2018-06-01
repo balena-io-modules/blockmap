@@ -22,7 +22,7 @@ describe( 'BlockMap.ReadStream', function() {
         assert.equal( this.blocksRead, blockMap.mappedBlockCount, 'blocksRead mismatch' )
         assert.equal( this.bytesRead, blockMap.mappedBlockCount * blockMap.blockSize, 'bytesRead mismatch' )
         assert.equal( this.rangesRead, blockMap.ranges.length, 'rangesRead mismatch' )
-        assert.equal( this.rangesVerified, this.rangesRead, 'rangesRead mismatch' )
+        assert.equal( this.rangesVerified, this.rangesRead, 'rangesVerified mismatch' )
         assert.equal( byteCount / blockMap.blockSize, blockMap.mappedBlockCount, 'actual blocks read mismatch' )
         done()
       })
