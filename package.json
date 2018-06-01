@@ -1,6 +1,6 @@
 {
   "name": "blockmap",
-  "version": "3.4.2",
+  "version": "3.4.3",
   "description": "Tizen's block map format",
   "license": "MIT",
   "author": "Jonas Hermsmeier <jhermsmeier@gmail.com> (https://jhermsmeier.de)",
@@ -20,8 +20,8 @@
   },
   "devDependencies": {
     "jsdoc-to-markdown": "^4.0.1",
-    "mocha": "^5.0.1",
-    "nanobench": "^2.1.0"
+    "mocha": "^5.2.0",
+    "nanobench": "^2.1.1"
   },
   "peerDependencies": {},
   "optionalDependencies": {},
