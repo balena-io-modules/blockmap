@@ -29,6 +29,30 @@ describe( 'BlockMap.ReadStream', function() {
 
   })
 
+  it( 'should read last range entirely even if it is larger than the chunk size', function( done ) {
+
+    var filename = path.join( __dirname, 'data', 'bmap.img' )
+    var blockMap = BlockMap.create( require( './data/version-2.0-large-last-range' ) )
+    var readStream = new BlockMap.ReadStream( filename, blockMap )
+    var byteCount = 0
+
+    readStream
+      .on( 'data', ( block ) => {
+        byteCount += block.length
+        assert.ok( block.position != null, 'block position missing' )
+      })
+      .once( 'error', done )
+      .once( 'end', function() {
+        assert.equal( this.blocksRead, blockMap.mappedBlockCount, 'blocksRead mismatch' )
+        assert.equal( this.bytesRead, blockMap.mappedBlockCount * blockMap.blockSize, 'bytesRead mismatch' )
+        assert.equal( this.rangesRead, blockMap.ranges.length, 'rangesRead mismatch' )
+        assert.equal( this.rangesVerified, this.rangesRead, 'rangesVerified mismatch' )
+        assert.equal( byteCount / blockMap.blockSize, blockMap.mappedBlockCount, 'actual blocks read mismatch' )
+        done()
+      })
+
+  })
+
   it( 'should generate range checksums', function( done ) {
 
     var filename = path.join( __dirname, 'data', 'bmap.img' )

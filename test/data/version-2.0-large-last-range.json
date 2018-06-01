@@ -1,0 +1,17 @@
+{
+  "version": "2.0",
+  "imageSize": 821752,
+  "blockSize": 4096,
+  "blockCount": 201,
+  "mappedBlockCount": 199,
+  "checksumType": "sha256",
+  "ranges": [{
+    "checksum": "9eaf19215d55d23de1be1fe4bed4a95bfe620a404352fd06e782738fff58e500",
+    "start": 0,
+    "end": 1
+  }, {
+    "checksum": "10dfd60b8079f706537a1c36ec3a03cbe77c457ae81b56e384af05f55e76157a",
+    "start": 3,
+    "end": 199
+  }]
+}
