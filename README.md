@@ -35,8 +35,8 @@ BlockMap {
   version: '2.0',
   imageSize: 821752,
   blockSize: 4096,
-  blockCount: 201,
-  mappedBlockCount: 117,
+  blocksCount: 201,
+  mappedBlocksCount: 117,
   checksum: '44e9d58de533d5eb94f8232cff22b2e6d71b15d369c2ac2af461c63164cce324',
   checksumType: 'sha256',
   ranges: [{

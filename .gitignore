@@ -2,3 +2,4 @@
 *.log
 *.img
 node_modules
+js

@@ -11,20 +11,24 @@
     "map",
     "blockmap"
   ],
-  "main": "lib/blockmap.js",
+  "files": "js/*",
+  "main": "js/index.js",
   "dependencies": {
-    "bloodline": "^1.0.0",
     "debug": "^3.1.0",
-    "htmlparser2": "^3.9.2",
-    "xml": "^1.0.1"
+    "xml-js": "^1.6.11"
   },
   "devDependencies": {
+    "@types/debug": "^4.1.2",
+    "@types/htmlparser2": "^3.7.31",
+    "@types/mocha": "^5.2.6",
+    "@types/node": "^6.14.4",
+    "@types/xml": "^1.0.3",
     "jsdoc-to-markdown": "^4.0.1",
-    "mocha": "^5.2.0",
-    "nanobench": "^2.1.1"
+    "mocha": "^6.0.2",
+    "resin-lint": "^3.0.1",
+    "ts-node": "^8.0.3",
+    "typescript": "^3.3.4000"
   },
-  "peerDependencies": {},
-  "optionalDependencies": {},
   "homepage": "https://github.com/resin-io-modules/blockmap",
   "repository": {
     "type": "git",
@@ -34,8 +38,12 @@
     "url": "https://github.com/resin-io-modules/blockmap/issues"
   },
   "scripts": {
-    "test": "mocha test/*.js",
-    "benchmark": "nanobench benchmark/*.js",
-    "doc": "jsdoc2md 'lib/**/*.js' --separators --param-list-format list > doc/README.md"
+    "build": "tsc",
+    "prettier": "prettier --config ./node_modules/resin-lint/config/.prettierrc --write \"lib/**/*.ts\" \"test/**/*.ts\" \"benchmark/**/*.ts\"",
+    "lint": "resin-lint --typescript benchmark lib test",
+    "test": "mocha -r ts-node/register test/*.ts",
+    "benchmark": "ts-node benchmark/blockmap.ts",
+    "doc": "jsdoc2md 'js/**/*.js' --separators --param-list-format list > doc/README.md",
+    "prepublishOnly": "npm run lint && npm run test && npm run benchmark && npm run build && npm run doc"
   }
 }

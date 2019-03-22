@@ -2,8 +2,8 @@
   "version": "1.4",
   "imageSize": 821752,
   "blockSize": 4096,
-  "blockCount": 201,
-  "mappedBlockCount": 117,
+  "blocksCount": 201,
+  "mappedBlocksCount": 117,
   "checksum": "4310fd457a88d307abeeb593a7888e1fa3cae0cfc01d905158967c904c5375e5",
   "checksumType": "sha256",
   "ranges": [{
