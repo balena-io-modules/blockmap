@@ -1,120 +1,340 @@
-## Classes
 
-<dl>
-<dt><a href="#BlockMap">BlockMap</a></dt>
-<dd><p>BlockMap</p>
-</dd>
-</dl>
+#  blockmap
+
+## Index
+
+### Classes
+
+* [BlockMap](classes/blockmap.md)
+* [Chunk](classes/chunk.md)
+* [FilterStream](classes/filterstream.md)
+* [Range](classes/range.md)
+* [ReadRange](classes/readrange.md)
+* [ReadRangeError](classes/readrangeerror.md)
+* [ReadStream](classes/readstream.md)
+
+### Interfaces
+
+* [BlockMapOptions](interfaces/blockmapoptions.md)
+* [BlockMapOptionsRange](interfaces/blockmapoptionsrange.md)
+
+### Type aliases
+
+* [ReadFunction](#readfunction)
+
+### Variables
+
+* [debug](#debug)
+
+### Functions
+
+* [close](#close)
+* [firstChild](#firstchild)
+* [firstChildThrow](#firstchildthrow)
+* [getAttribute](#getattribute)
+* [getAttributeThrow](#getattributethrow)
+* [getRanges](#getranges)
+* [getText](#gettext)
+* [maskChecksum](#maskchecksum)
+* [open](#open)
+* [parse](#parse)
+* [textContent](#textcontent)
+* [textContentThrow](#textcontentthrow)
+* [withOpenFile](#withopenfile)
+* [xmlTag](#xmltag)
+
+---
+
+## Type aliases
+
+<a id="readfunction"></a>
+
+###  ReadFunction
+
+**Ƭ ReadFunction**: *`function`*
+
+*Defined in [read-stream.ts:30](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/read-stream.ts#L30)*
+
+#### Type declaration
+▸(buffer: *`Buffer`*, offset: *`number`*, length: *`number`*, position: *`number`*): `Promise`<`object`>
+
+**Parameters:**
+
+| Name | Type |
+| ------ | ------ |
+| buffer | `Buffer` |
+| offset | `number` |
+| length | `number` |
+| position | `number` |
+
+**Returns:** `Promise`<`object`>
+
+___
+
+## Variables
+
+<a id="debug"></a>
+
+### `<Const>` debug
+
+**● debug**: *`Debugger`* =  debug$('blockmap:readstream')
+
+*Defined in [filter-stream.ts:26](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/filter-stream.ts#L26)*
+*Defined in [read-stream.ts:28](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/read-stream.ts#L28)*
+
+___
 
 ## Functions
 
-<dl>
-<dt><a href="#maskChecksum">maskChecksum()</a></dt>
-<dd><p>Zero out the file checksum field for checksum calculation</p>
-</dd>
-<dt><a href="#parse">parse()</a></dt>
-<dd><p>Parse a .bmap file</p>
-</dd>
-</dl>
+<a id="close"></a>
 
-<a name="BlockMap"></a>
+###  close
 
-## BlockMap
-BlockMap
+▸ **close**(fd: *`number`*): `Promise`<`void`>
 
-**Kind**: global class  
+*Defined in [utils.ts:32](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/utils.ts#L32)*
 
-* [BlockMap](#BlockMap)
-    * [new BlockMap([options])](#new_BlockMap_new)
-    * _instance_
-        * [.injectChecksum()](#BlockMap+injectChecksum)
-        * [.toString()](#BlockMap+toString)
-    * _static_
-        * [.versions](#BlockMap.versions)
-        * [.fromJSON()](#BlockMap.fromJSON)
-        * [.parse()](#BlockMap.parse)
+**Parameters:**
 
+| Name | Type |
+| ------ | ------ |
+| fd | `number` |
 
-* * *
+**Returns:** `Promise`<`void`>
 
-<a name="new_BlockMap_new"></a>
+___
+<a id="firstchild"></a>
 
-### new BlockMap([options])
-**Params**
+###  firstChild
 
-- [options] <code>Object</code>
-    - [.version] <code>String</code> <code> = &#x27;2.0&#x27;</code>
-    - [.imageSize] <code>Number</code> <code> = 0</code>
-    - [.blockSize] <code>Number</code> <code> = 4096</code>
-    - [.blocksCount] <code>Number</code> <code> = 0</code>
-    - [.mappedBlocksCount] <code>Number</code> <code> = 0</code>
-    - [.checksum] <code>String</code>
-    - [.checksumType] <code>String</code> <code> = &#x27;sha256&#x27;</code>
-    - [.ranges] <code>Array</code> <code> = []</code>
+▸ **firstChild**(element: *`Element`*, name: *`string`*): `Element` \| `undefined`
 
+*Defined in [parse.ts:23](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/parse.ts#L23)*
 
-* * *
+**Parameters:**
 
-<a name="BlockMap+injectChecksum"></a>
+| Name | Type |
+| ------ | ------ |
+| element | `Element` |
+| name | `string` |
 
-### blockMap.injectChecksum()
-Calculate the bmap file's checksum and inject it
+**Returns:** `Element` \| `undefined`
 
-**Kind**: instance method of [<code>BlockMap</code>](#BlockMap)  
+___
+<a id="firstchildthrow"></a>
 
-* * *
+###  firstChildThrow
 
-<a name="BlockMap+toString"></a>
+▸ **firstChildThrow**(element: *`Element`*, name: *`string`*): `Element`
 
-### blockMap.toString()
-Stringify a block map into .bmap format
+*Defined in [parse.ts:29](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/parse.ts#L29)*
 
-**Kind**: instance method of [<code>BlockMap</code>](#BlockMap)  
+**Parameters:**
 
-* * *
+| Name | Type |
+| ------ | ------ |
+| element | `Element` |
+| name | `string` |
 
-<a name="BlockMap.versions"></a>
+**Returns:** `Element`
 
-### BlockMap.versions
-Supported .bmap format versions
+___
+<a id="getattribute"></a>
 
-**Kind**: static property of [<code>BlockMap</code>](#BlockMap)  
+###  getAttribute
 
-* * *
+▸ **getAttribute**(element: *`Element`*, name: *`string`*): `string` \| `number` \| `undefined`
 
-<a name="BlockMap.fromJSON"></a>
+*Defined in [parse.ts:37](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/parse.ts#L37)*
 
-### BlockMap.fromJSON()
-Create a block map from its JSON representation
+**Parameters:**
 
-**Kind**: static method of [<code>BlockMap</code>](#BlockMap)  
+| Name | Type |
+| ------ | ------ |
+| element | `Element` |
+| name | `string` |
 
-* * *
+**Returns:** `string` \| `number` \| `undefined`
 
-<a name="BlockMap.parse"></a>
+___
+<a id="getattributethrow"></a>
 
-### BlockMap.parse()
-Parse a .bmap file
+###  getAttributeThrow
 
-**Kind**: static method of [<code>BlockMap</code>](#BlockMap)  
+▸ **getAttributeThrow**(element: *`Element`*, name: *`string`*): `string` \| `number`
 
-* * *
+*Defined in [parse.ts:46](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/parse.ts#L46)*
 
-<a name="maskChecksum"></a>
+**Parameters:**
 
-## maskChecksum()
+| Name | Type |
+| ------ | ------ |
+| element | `Element` |
+| name | `string` |
+
+**Returns:** `string` \| `number`
+
+___
+<a id="getranges"></a>
+
+###  getRanges
+
+▸ **getRanges**(element: *`Element`*): [BlockMapOptionsRange](interfaces/blockmapoptionsrange.md)[]
+
+*Defined in [parse.ts:78](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/parse.ts#L78)*
+
+**Parameters:**
+
+| Name | Type |
+| ------ | ------ |
+| element | `Element` |
+
+**Returns:** [BlockMapOptionsRange](interfaces/blockmapoptionsrange.md)[]
+
+___
+<a id="gettext"></a>
+
+###  getText
+
+▸ **getText**(element: *`Element` \| `Element`[]*): `string`
+
+*Defined in [parse.ts:54](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/parse.ts#L54)*
+
+**Parameters:**
+
+| Name | Type |
+| ------ | ------ |
+| element | `Element` \| `Element`[] |
+
+**Returns:** `string`
+
+___
+<a id="maskchecksum"></a>
+
+###  maskChecksum
+
+▸ **maskChecksum**(value: *`string`*): `string`
+
+*Defined in [parse.ts:109](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/parse.ts#L109)*
+
 Zero out the file checksum field for checksum calculation
 
-**Kind**: global function  
+**Parameters:**
 
-* * *
+| Name | Type |
+| ------ | ------ |
+| value | `string` |
 
-<a name="parse"></a>
+**Returns:** `string`
 
-## parse()
+___
+<a id="open"></a>
+
+###  open
+
+▸ **open**(filename: *`string`*): `Promise`<`number`>
+
+*Defined in [utils.ts:20](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/utils.ts#L20)*
+
+**Parameters:**
+
+| Name | Type |
+| ------ | ------ |
+| filename | `string` |
+
+**Returns:** `Promise`<`number`>
+
+___
+<a id="parse"></a>
+
+###  parse
+
+▸ **parse**(value: *`string` \| `Buffer`*, verify?: *`boolean`*): [BlockMapOptions](interfaces/blockmapoptions.md)
+
+*Defined in [parse.ts:120](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/parse.ts#L120)*
+
 Parse a .bmap file
 
-**Kind**: global function  
+**Parameters:**
 
-* * *
+| Name | Type | Default value |
+| ------ | ------ | ------ |
+| value | `string` \| `Buffer` | - |
+| `Default value` verify | `boolean` | true |
+
+**Returns:** [BlockMapOptions](interfaces/blockmapoptions.md)
+
+___
+<a id="textcontent"></a>
+
+###  textContent
+
+▸ **textContent**(element: *`Element`*, name: *`string`*): `string` \| `undefined`
+
+*Defined in [parse.ts:71](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/parse.ts#L71)*
+
+**Parameters:**
+
+| Name | Type |
+| ------ | ------ |
+| element | `Element` |
+| name | `string` |
+
+**Returns:** `string` \| `undefined`
+
+___
+<a id="textcontentthrow"></a>
+
+###  textContentThrow
+
+▸ **textContentThrow**(element: *`Element`*, name: *`string`*): `string`
+
+*Defined in [parse.ts:67](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/parse.ts#L67)*
+
+**Parameters:**
+
+| Name | Type |
+| ------ | ------ |
+| element | `Element` |
+| name | `string` |
+
+**Returns:** `string`
+
+___
+<a id="withopenfile"></a>
+
+###  withOpenFile
+
+▸ **withOpenFile**(filename: *`string`*, fn: *`function`*): `Promise`<`void`>
+
+*Defined in [utils.ts:44](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/utils.ts#L44)*
+
+**Parameters:**
+
+| Name | Type |
+| ------ | ------ |
+| filename | `string` |
+| fn | `function` |
+
+**Returns:** `Promise`<`void`>
+
+___
+<a id="xmltag"></a>
+
+###  xmlTag
+
+▸ **xmlTag**(tag: *`string`*, text: *`string`*): `string`
+
+*Defined in [blockmap.ts:24](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/blockmap.ts#L24)*
+
+**Parameters:**
+
+| Name | Type |
+| ------ | ------ |
+| tag | `string` |
+| text | `string` |
+
+**Returns:** `string`
+
+___
 

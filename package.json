@@ -23,19 +23,20 @@
     "@types/mocha": "^5.2.6",
     "@types/node": "^6.14.4",
     "@types/xml": "^1.0.3",
-    "jsdoc-to-markdown": "^4.0.1",
     "mocha": "^6.0.2",
     "resin-lint": "^3.0.1",
     "ts-node": "^8.0.3",
+    "typedoc": "^0.14.2",
+    "typedoc-plugin-markdown": "^1.1.27",
     "typescript": "^3.3.4000"
   },
-  "homepage": "https://github.com/resin-io-modules/blockmap",
+  "homepage": "https://github.com/balena-io-modules/blockmap",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/resin-io-modules/blockmap.git"
+    "url": "git+https://github.com/balena-io-modules/blockmap.git"
   },
   "bugs": {
-    "url": "https://github.com/resin-io-modules/blockmap/issues"
+    "url": "https://github.com/balena-io-modules/blockmap/issues"
   },
   "scripts": {
     "build": "tsc",
@@ -43,7 +44,7 @@
     "lint": "resin-lint --typescript benchmark lib test",
     "test": "mocha -r ts-node/register test/*.ts",
     "benchmark": "ts-node benchmark/blockmap.ts",
-    "doc": "jsdoc2md 'js/**/*.js' --separators --param-list-format list > doc/README.md",
+    "doc": "typedoc --readme none --theme markdown --mode file --out doc lib/index.ts",
     "prepublishOnly": "npm run lint && npm run test && npm run benchmark && npm run build && npm run doc"
   }
 }
