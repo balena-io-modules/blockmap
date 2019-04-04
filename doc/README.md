@@ -1,936 +1,340 @@
-<a name="BlockMap"></a>
-
-## BlockMap
-**Kind**: global class  
-
-* [BlockMap](#BlockMap)
-    * [new BlockMap([options])](#new_BlockMap_new)
-    * _instance_
-        * [.version](#BlockMap+version) : <code>String</code>
-        * [.imageSize](#BlockMap+imageSize) : <code>Number</code>
-        * [.blockSize](#BlockMap+blockSize) : <code>Number</code>
-        * [.blockCount](#BlockMap+blockCount) : <code>Number</code>
-        * [.mappedBlockCount](#BlockMap+mappedBlockCount) : <code>Number</code>
-        * [.checksum](#BlockMap+checksum) : <code>String</code>
-        * [.checksumType](#BlockMap+checksumType) : <code>Number</code>
-        * [.ranges](#BlockMap+ranges) : <code>Number</code>
-        * [.parse(value, [options])](#BlockMap+parse) ⇒ [<code>BlockMap</code>](#BlockMap)
-        * [.toString()](#BlockMap+toString) ⇒ <code>String</code>
-    * _static_
-        * [.Chunk](#BlockMap.Chunk)
-            * [new Chunk(buffer, position)](#new_BlockMap.Chunk_new)
-            * [.buffer](#BlockMap.Chunk+buffer) : <code>Buffer</code>
-            * [.position](#BlockMap.Chunk+position) : <code>Number</code>
-        * [.FilterStream](#BlockMap.FilterStream)
-            * [new FilterStream(blockMap, [options])](#new_BlockMap.FilterStream_new)
-            * [.options](#BlockMap.FilterStream+options) : <code>Object</code>
-            * [.blockMap](#BlockMap.FilterStream+blockMap) : [<code>BlockMap</code>](#BlockMap)
-            * [.blockSize](#BlockMap.FilterStream+blockSize) : <code>Number</code>
-            * [.rangesRead](#BlockMap.FilterStream+rangesRead) : <code>Number</code>
-            * [.rangesVerified](#BlockMap.FilterStream+rangesVerified) : <code>Number</code>
-            * [.blocksRead](#BlockMap.FilterStream+blocksRead) : <code>Number</code>
-            * [.bytesRead](#BlockMap.FilterStream+bytesRead) : <code>Number</code>
-            * [.blocksWritten](#BlockMap.FilterStream+blocksWritten) : <code>Number</code>
-            * [.bytesWritten](#BlockMap.FilterStream+bytesWritten) : <code>Number</code>
-            * [.position](#BlockMap.FilterStream+position) : <code>Number</code>
-            * [.ranges](#BlockMap.FilterStream+ranges) : <code>Array.&lt;Object&gt;</code>
-            * [.currentRange](#BlockMap.FilterStream+currentRange) : <code>Object</code>
-            * [._transformBlock(chunk, next)](#BlockMap.FilterStream+_transformBlock)
-        * [.Range](#BlockMap.Range)
-            * [new Range(start, end, [checksum])](#new_BlockMap.Range_new)
-            * _instance_
-                * [.start](#BlockMap.Range+start) : <code>Number</code>
-                * [.end](#BlockMap.Range+end) : <code>Number</code>
-                * [.checksum](#BlockMap.Range+checksum) : <code>String</code>
-            * _static_
-                * [.from(value)](#BlockMap.Range.from) ⇒ <code>Range</code>
-        * [.ReadRange](#BlockMap.ReadRange)
-            * [new ReadRange(range, blockSize)](#new_BlockMap.ReadRange_new)
-            * [.range](#BlockMap.ReadRange+range) : <code>Range</code>
-            * [.checksum](#BlockMap.ReadRange+checksum) : <code>String</code>
-            * [.start](#BlockMap.ReadRange+start) : <code>Number</code>
-            * [.end](#BlockMap.ReadRange+end) : <code>Number</code>
-            * [.length](#BlockMap.ReadRange+length) : <code>Number</code>
-            * [.startLBA](#BlockMap.ReadRange+startLBA) : <code>Number</code>
-            * [.endLBA](#BlockMap.ReadRange+endLBA) : <code>Number</code>
-            * [.offset](#BlockMap.ReadRange+offset) : <code>Number</code>
-        * [.ReadStream](#BlockMap.ReadStream)
-            * [new ReadStream(filename, blockMap, [options])](#new_BlockMap.ReadStream_new)
-            * [.fd](#BlockMap.ReadStream+fd) : <code>Number</code>
-            * [.path](#BlockMap.ReadStream+path) : <code>String</code>
-            * [.flags](#BlockMap.ReadStream+flags) : <code>String</code>
-            * [.blockMap](#BlockMap.ReadStream+blockMap) : [<code>BlockMap</code>](#BlockMap)
-            * [.blockSize](#BlockMap.ReadStream+blockSize) : <code>Number</code>
-            * [.chunkSize](#BlockMap.ReadStream+chunkSize) : <code>Number</code>
-            * [.verify](#BlockMap.ReadStream+verify) : <code>Boolean</code>
-            * [.currentRange](#BlockMap.ReadStream+currentRange) : [<code>Range</code>](#BlockMap.Range)
-            * [.rangesRead](#BlockMap.ReadStream+rangesRead) : <code>Number</code>
-            * [.rangesVerified](#BlockMap.ReadStream+rangesVerified) : <code>Number</code>
-            * [.blocksRead](#BlockMap.ReadStream+blocksRead) : <code>Number</code>
-            * [.bytesRead](#BlockMap.ReadStream+bytesRead) : <code>Number</code>
-            * [.position](#BlockMap.ReadStream+position) : <code>Number</code>
-            * [.start](#BlockMap.ReadStream+start) : <code>Number</code>
-            * [.end](#BlockMap.ReadStream+end) : <code>Number</code>
-            * [.fs](#BlockMap.ReadStream+fs) : <code>Object</code>
-            * [.closed](#BlockMap.ReadStream+closed) : <code>Boolean</code>
-            * [.destroyed](#BlockMap.ReadStream+destroyed) : <code>Boolean</code>
-            * [.close([callback])](#BlockMap.ReadStream+close)
-            * [.destroy()](#BlockMap.ReadStream+destroy)
-        * [.versions](#BlockMap.versions) : <code>Array</code>
-        * [.create([options])](#BlockMap.create) ⇒ [<code>BlockMap</code>](#BlockMap)
-        * [.fromJSON(data)](#BlockMap.fromJSON) ⇒ [<code>BlockMap</code>](#BlockMap)
-        * [.createReadStream(filename, blockMap, [options])](#BlockMap.createReadStream) ⇒ [<code>ReadStream</code>](#BlockMap.ReadStream)
-        * [.createFilterStream(blockMap, [options])](#BlockMap.createFilterStream) ⇒ [<code>FilterStream</code>](#BlockMap.FilterStream)
-        * [.parse(value, [blockMap], [options])](#BlockMap.parse) ⇒ [<code>BlockMap</code>](#BlockMap)
-        * [.stringify(blockMap)](#BlockMap.stringify) ⇒ <code>String</code>
-
-
-* * *
-
-<a name="new_BlockMap_new"></a>
-
-### new BlockMap([options])
-BlockMap
-
-**Params**
-
-- [options] <code>Object</code>
-    - [.version] <code>String</code> <code> = &#x27;2.0&#x27;</code>
-    - [.imageSize] <code>Number</code> <code> = 0</code>
-    - [.blockSize] <code>Number</code> <code> = 4096</code>
-    - [.blockCount] <code>Number</code> <code> = 0</code>
-    - [.mappedBlockCount] <code>Number</code> <code> = 0</code>
-    - [.checksum] <code>String</code>
-    - [.checksumType] <code>String</code> <code> = &#x27;sha256&#x27;</code>
-    - [.ranges] <code>Array</code> <code> = []</code>
 
+#  blockmap
 
-* * *
+## Index
 
-<a name="BlockMap+version"></a>
+### Classes
 
-### blockMap.version : <code>String</code>
-format version
+* [BlockMap](classes/blockmap.md)
+* [Chunk](classes/chunk.md)
+* [FilterStream](classes/filterstream.md)
+* [Range](classes/range.md)
+* [ReadRange](classes/readrange.md)
+* [ReadRangeError](classes/readrangeerror.md)
+* [ReadStream](classes/readstream.md)
 
-**Kind**: instance property of [<code>BlockMap</code>](#BlockMap)  
+### Interfaces
 
-* * *
+* [BlockMapOptions](interfaces/blockmapoptions.md)
+* [BlockMapOptionsRange](interfaces/blockmapoptionsrange.md)
 
-<a name="BlockMap+imageSize"></a>
+### Type aliases
 
-### blockMap.imageSize : <code>Number</code>
-size of the image in bytes
+* [ReadFunction](#readfunction)
 
-**Kind**: instance property of [<code>BlockMap</code>](#BlockMap)  
+### Variables
 
-* * *
+* [debug](#debug)
 
-<a name="BlockMap+blockSize"></a>
+### Functions
 
-### blockMap.blockSize : <code>Number</code>
-size of a block in bytes
+* [close](#close)
+* [firstChild](#firstchild)
+* [firstChildThrow](#firstchildthrow)
+* [getAttribute](#getattribute)
+* [getAttributeThrow](#getattributethrow)
+* [getRanges](#getranges)
+* [getText](#gettext)
+* [maskChecksum](#maskchecksum)
+* [open](#open)
+* [parse](#parse)
+* [textContent](#textcontent)
+* [textContentThrow](#textcontentthrow)
+* [withOpenFile](#withopenfile)
+* [xmlTag](#xmltag)
 
-**Kind**: instance property of [<code>BlockMap</code>](#BlockMap)  
+---
 
-* * *
+## Type aliases
 
-<a name="BlockMap+blockCount"></a>
+<a id="readfunction"></a>
 
-### blockMap.blockCount : <code>Number</code>
-total number of blocks in image
+###  ReadFunction
 
-**Kind**: instance property of [<code>BlockMap</code>](#BlockMap)  
+**Ƭ ReadFunction**: *`function`*
 
-* * *
+*Defined in [read-stream.ts:30](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/read-stream.ts#L30)*
 
-<a name="BlockMap+mappedBlockCount"></a>
+#### Type declaration
+▸(buffer: *`Buffer`*, offset: *`number`*, length: *`number`*, position: *`number`*): `Promise`<`object`>
 
-### blockMap.mappedBlockCount : <code>Number</code>
-number of mapped blocks
+**Parameters:**
 
-**Kind**: instance property of [<code>BlockMap</code>](#BlockMap)  
+| Name | Type |
+| ------ | ------ |
+| buffer | `Buffer` |
+| offset | `number` |
+| length | `number` |
+| position | `number` |
 
-* * *
+**Returns:** `Promise`<`object`>
 
-<a name="BlockMap+checksum"></a>
+___
 
-### blockMap.checksum : <code>String</code>
-bmap file checksum
+## Variables
 
-**Kind**: instance property of [<code>BlockMap</code>](#BlockMap)  
+<a id="debug"></a>
 
-* * *
+### `<Const>` debug
 
-<a name="BlockMap+checksumType"></a>
+**● debug**: *`Debugger`* =  debug$('blockmap:readstream')
 
-### blockMap.checksumType : <code>Number</code>
-checksum algorithm
+*Defined in [filter-stream.ts:26](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/filter-stream.ts#L26)*
+*Defined in [read-stream.ts:28](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/read-stream.ts#L28)*
 
-**Kind**: instance property of [<code>BlockMap</code>](#BlockMap)  
+___
 
-* * *
+## Functions
 
-<a name="BlockMap+ranges"></a>
+<a id="close"></a>
 
-### blockMap.ranges : <code>Number</code>
-block ranges
+###  close
 
-**Kind**: instance property of [<code>BlockMap</code>](#BlockMap)  
+▸ **close**(fd: *`number`*): `Promise`<`void`>
 
-* * *
+*Defined in [utils.ts:32](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/utils.ts#L32)*
 
-<a name="BlockMap+parse"></a>
+**Parameters:**
 
-### blockMap.parse(value, [options]) ⇒ [<code>BlockMap</code>](#BlockMap)
-Parse a .bmap formatted input
+| Name | Type |
+| ------ | ------ |
+| fd | `number` |
 
-**Kind**: instance method of [<code>BlockMap</code>](#BlockMap)  
-**Params**
+**Returns:** `Promise`<`void`>
 
-- value <code>String</code> | <code>Buffer</code>
-- [options] <code>Object</code> - options
-    - [.verify] <code>Boolean</code> <code> = true</code> - verify range checksums
+___
+<a id="firstchild"></a>
 
+###  firstChild
 
-* * *
+▸ **firstChild**(element: *`Element`*, name: *`string`*): `Element` \| `undefined`
 
-<a name="BlockMap+toString"></a>
+*Defined in [parse.ts:23](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/parse.ts#L23)*
 
-### blockMap.toString() ⇒ <code>String</code>
-Stringify the block map into .bmap format
+**Parameters:**
 
-**Kind**: instance method of [<code>BlockMap</code>](#BlockMap)  
-**Returns**: <code>String</code> - xml  
+| Name | Type |
+| ------ | ------ |
+| element | `Element` |
+| name | `string` |
 
-* * *
+**Returns:** `Element` \| `undefined`
 
-<a name="BlockMap.Chunk"></a>
+___
+<a id="firstchildthrow"></a>
 
-### BlockMap.Chunk
-**Kind**: static class of [<code>BlockMap</code>](#BlockMap)  
+###  firstChildThrow
 
-* [.Chunk](#BlockMap.Chunk)
-    * [new Chunk(buffer, position)](#new_BlockMap.Chunk_new)
-    * [.buffer](#BlockMap.Chunk+buffer) : <code>Buffer</code>
-    * [.position](#BlockMap.Chunk+position) : <code>Number</code>
+▸ **firstChildThrow**(element: *`Element`*, name: *`string`*): `Element`
 
+*Defined in [parse.ts:29](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/parse.ts#L29)*
 
-* * *
+**Parameters:**
 
-<a name="new_BlockMap.Chunk_new"></a>
+| Name | Type |
+| ------ | ------ |
+| element | `Element` |
+| name | `string` |
 
-#### new Chunk(buffer, position)
-Chunk
+**Returns:** `Element`
 
-**Params**
+___
+<a id="getattribute"></a>
 
-- buffer <code>Buffer</code>
-- position <code>Number</code>
+###  getAttribute
 
+▸ **getAttribute**(element: *`Element`*, name: *`string`*): `string` \| `number` \| `undefined`
 
-* * *
+*Defined in [parse.ts:37](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/parse.ts#L37)*
 
-<a name="BlockMap.Chunk+buffer"></a>
+**Parameters:**
 
-#### chunk.buffer : <code>Buffer</code>
-Chunk data buffer
+| Name | Type |
+| ------ | ------ |
+| element | `Element` |
+| name | `string` |
 
-**Kind**: instance property of [<code>Chunk</code>](#BlockMap.Chunk)  
+**Returns:** `string` \| `number` \| `undefined`
 
-* * *
+___
+<a id="getattributethrow"></a>
 
-<a name="BlockMap.Chunk+position"></a>
+###  getAttributeThrow
 
-#### chunk.position : <code>Number</code>
-Chunk position
+▸ **getAttributeThrow**(element: *`Element`*, name: *`string`*): `string` \| `number`
 
-**Kind**: instance property of [<code>Chunk</code>](#BlockMap.Chunk)  
+*Defined in [parse.ts:46](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/parse.ts#L46)*
 
-* * *
+**Parameters:**
 
-<a name="BlockMap.FilterStream"></a>
+| Name | Type |
+| ------ | ------ |
+| element | `Element` |
+| name | `string` |
 
-### BlockMap.FilterStream
-**Kind**: static class of [<code>BlockMap</code>](#BlockMap)  
+**Returns:** `string` \| `number`
 
-* [.FilterStream](#BlockMap.FilterStream)
-    * [new FilterStream(blockMap, [options])](#new_BlockMap.FilterStream_new)
-    * [.options](#BlockMap.FilterStream+options) : <code>Object</code>
-    * [.blockMap](#BlockMap.FilterStream+blockMap) : [<code>BlockMap</code>](#BlockMap)
-    * [.blockSize](#BlockMap.FilterStream+blockSize) : <code>Number</code>
-    * [.rangesRead](#BlockMap.FilterStream+rangesRead) : <code>Number</code>
-    * [.rangesVerified](#BlockMap.FilterStream+rangesVerified) : <code>Number</code>
-    * [.blocksRead](#BlockMap.FilterStream+blocksRead) : <code>Number</code>
-    * [.bytesRead](#BlockMap.FilterStream+bytesRead) : <code>Number</code>
-    * [.blocksWritten](#BlockMap.FilterStream+blocksWritten) : <code>Number</code>
-    * [.bytesWritten](#BlockMap.FilterStream+bytesWritten) : <code>Number</code>
-    * [.position](#BlockMap.FilterStream+position) : <code>Number</code>
-    * [.ranges](#BlockMap.FilterStream+ranges) : <code>Array.&lt;Object&gt;</code>
-    * [.currentRange](#BlockMap.FilterStream+currentRange) : <code>Object</code>
-    * [._transformBlock(chunk, next)](#BlockMap.FilterStream+_transformBlock)
+___
+<a id="getranges"></a>
 
+###  getRanges
 
-* * *
+▸ **getRanges**(element: *`Element`*): [BlockMapOptionsRange](interfaces/blockmapoptionsrange.md)[]
 
-<a name="new_BlockMap.FilterStream_new"></a>
+*Defined in [parse.ts:78](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/parse.ts#L78)*
 
-#### new FilterStream(blockMap, [options])
-FilterStream
+**Parameters:**
 
-**Params**
+| Name | Type |
+| ------ | ------ |
+| element | `Element` |
 
-- blockMap [<code>BlockMap</code>](#BlockMap) - the block map
-- [options] <code>Object</code> - options
-    - [.verify] <code>Boolean</code> <code> = true</code> - verify range checksums
-    - [.generateChecksums] <code>Boolean</code> <code> = false</code> - calculate range checksums and update blockmap
+**Returns:** [BlockMapOptionsRange](interfaces/blockmapoptionsrange.md)[]
 
+___
+<a id="gettext"></a>
 
-* * *
+###  getText
 
-<a name="BlockMap.FilterStream+options"></a>
+▸ **getText**(element: *`Element` \| `Element`[]*): `string`
 
-#### filterStream.options : <code>Object</code>
-options
+*Defined in [parse.ts:54](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/parse.ts#L54)*
 
-**Kind**: instance property of [<code>FilterStream</code>](#BlockMap.FilterStream)  
+**Parameters:**
 
-* * *
+| Name | Type |
+| ------ | ------ |
+| element | `Element` \| `Element`[] |
 
-<a name="BlockMap.FilterStream+blockMap"></a>
+**Returns:** `string`
 
-#### filterStream.blockMap : [<code>BlockMap</code>](#BlockMap)
-The block map
+___
+<a id="maskchecksum"></a>
 
-**Kind**: instance property of [<code>FilterStream</code>](#BlockMap.FilterStream)  
+###  maskChecksum
 
-* * *
+▸ **maskChecksum**(value: *`string`*): `string`
 
-<a name="BlockMap.FilterStream+blockSize"></a>
+*Defined in [parse.ts:109](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/parse.ts#L109)*
 
-#### filterStream.blockSize : <code>Number</code>
-Size of a mapped block in bytes
+Zero out the file checksum field for checksum calculation
 
-**Kind**: instance property of [<code>FilterStream</code>](#BlockMap.FilterStream)  
+**Parameters:**
 
-* * *
+| Name | Type |
+| ------ | ------ |
+| value | `string` |
 
-<a name="BlockMap.FilterStream+rangesRead"></a>
+**Returns:** `string`
 
-#### filterStream.rangesRead : <code>Number</code>
-Number of block map ranges read
+___
+<a id="open"></a>
 
-**Kind**: instance property of [<code>FilterStream</code>](#BlockMap.FilterStream)  
+###  open
 
-* * *
+▸ **open**(filename: *`string`*): `Promise`<`number`>
 
-<a name="BlockMap.FilterStream+rangesVerified"></a>
+*Defined in [utils.ts:20](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/utils.ts#L20)*
 
-#### filterStream.rangesVerified : <code>Number</code>
-Number of block map ranges verified
+**Parameters:**
 
-**Kind**: instance property of [<code>FilterStream</code>](#BlockMap.FilterStream)  
+| Name | Type |
+| ------ | ------ |
+| filename | `string` |
 
-* * *
+**Returns:** `Promise`<`number`>
 
-<a name="BlockMap.FilterStream+blocksRead"></a>
+___
+<a id="parse"></a>
 
-#### filterStream.blocksRead : <code>Number</code>
-Number of blocks read
+###  parse
 
-**Kind**: instance property of [<code>FilterStream</code>](#BlockMap.FilterStream)  
+▸ **parse**(value: *`string` \| `Buffer`*, verify?: *`boolean`*): [BlockMapOptions](interfaces/blockmapoptions.md)
 
-* * *
+*Defined in [parse.ts:120](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/parse.ts#L120)*
 
-<a name="BlockMap.FilterStream+bytesRead"></a>
-
-#### filterStream.bytesRead : <code>Number</code>
-Number of bytes read
-
-**Kind**: instance property of [<code>FilterStream</code>](#BlockMap.FilterStream)  
-
-* * *
-
-<a name="BlockMap.FilterStream+blocksWritten"></a>
-
-#### filterStream.blocksWritten : <code>Number</code>
-Number of bytes written
-
-**Kind**: instance property of [<code>FilterStream</code>](#BlockMap.FilterStream)  
-
-* * *
-
-<a name="BlockMap.FilterStream+bytesWritten"></a>
-
-#### filterStream.bytesWritten : <code>Number</code>
-Number of bytes written
-
-**Kind**: instance property of [<code>FilterStream</code>](#BlockMap.FilterStream)  
-
-* * *
-
-<a name="BlockMap.FilterStream+position"></a>
-
-#### filterStream.position : <code>Number</code>
-Current offset in bytes
-
-**Kind**: instance property of [<code>FilterStream</code>](#BlockMap.FilterStream)  
-
-* * *
-
-<a name="BlockMap.FilterStream+ranges"></a>
-
-#### filterStream.ranges : <code>Array.&lt;Object&gt;</code>
-Ranges
-
-**Kind**: instance property of [<code>FilterStream</code>](#BlockMap.FilterStream)  
-
-* * *
-
-<a name="BlockMap.FilterStream+currentRange"></a>
-
-#### filterStream.currentRange : <code>Object</code>
-Range being currently processed
-
-**Kind**: instance property of [<code>FilterStream</code>](#BlockMap.FilterStream)  
-
-* * *
-
-<a name="BlockMap.FilterStream+_transformBlock"></a>
-
-#### filterStream._transformBlock(chunk, next)
-Chunk a given input buffer into blocks
-matching the blockSize and advance the
-current range, if necessary
-
-**Kind**: instance method of [<code>FilterStream</code>](#BlockMap.FilterStream)  
-**Params**
-
-- chunk <code>Buffer</code>
-- next <code>function</code>
-
-
-* * *
-
-<a name="BlockMap.Range"></a>
-
-### BlockMap.Range
-**Kind**: static class of [<code>BlockMap</code>](#BlockMap)  
-
-* [.Range](#BlockMap.Range)
-    * [new Range(start, end, [checksum])](#new_BlockMap.Range_new)
-    * _instance_
-        * [.start](#BlockMap.Range+start) : <code>Number</code>
-        * [.end](#BlockMap.Range+end) : <code>Number</code>
-        * [.checksum](#BlockMap.Range+checksum) : <code>String</code>
-    * _static_
-        * [.from(value)](#BlockMap.Range.from) ⇒ <code>Range</code>
-
-
-* * *
-
-<a name="new_BlockMap.Range_new"></a>
-
-#### new Range(start, end, [checksum])
-Range
-
-**Params**
-
-- start <code>Number</code>
-- end <code>Number</code>
-- [checksum] <code>String</code>
-
-
-* * *
-
-<a name="BlockMap.Range+start"></a>
-
-#### range.start : <code>Number</code>
-Range start (LBA)
-
-**Kind**: instance property of [<code>Range</code>](#BlockMap.Range)  
-
-* * *
-
-<a name="BlockMap.Range+end"></a>
-
-#### range.end : <code>Number</code>
-Range end (inclusive, LBA)
-
-**Kind**: instance property of [<code>Range</code>](#BlockMap.Range)  
-
-* * *
-
-<a name="BlockMap.Range+checksum"></a>
-
-#### range.checksum : <code>String</code>
-Range checksum
-
-**Kind**: instance property of [<code>Range</code>](#BlockMap.Range)  
-
-* * *
-
-<a name="BlockMap.Range.from"></a>
-
-#### Range.from(value) ⇒ <code>Range</code>
-Create a BlockMap.Range from a given value
-
-**Kind**: static method of [<code>Range</code>](#BlockMap.Range)  
-**Params**
-
-- value <code>Object</code>
-
-
-* * *
-
-<a name="BlockMap.ReadRange"></a>
-
-### BlockMap.ReadRange
-**Kind**: static class of [<code>BlockMap</code>](#BlockMap)  
-
-* [.ReadRange](#BlockMap.ReadRange)
-    * [new ReadRange(range, blockSize)](#new_BlockMap.ReadRange_new)
-    * [.range](#BlockMap.ReadRange+range) : <code>Range</code>
-    * [.checksum](#BlockMap.ReadRange+checksum) : <code>String</code>
-    * [.start](#BlockMap.ReadRange+start) : <code>Number</code>
-    * [.end](#BlockMap.ReadRange+end) : <code>Number</code>
-    * [.length](#BlockMap.ReadRange+length) : <code>Number</code>
-    * [.startLBA](#BlockMap.ReadRange+startLBA) : <code>Number</code>
-    * [.endLBA](#BlockMap.ReadRange+endLBA) : <code>Number</code>
-    * [.offset](#BlockMap.ReadRange+offset) : <code>Number</code>
-
-
-* * *
-
-<a name="new_BlockMap.ReadRange_new"></a>
-
-#### new ReadRange(range, blockSize)
-ReadRange
-
-**Params**
-
-- range [<code>Range</code>](#BlockMap.Range)
-- blockSize <code>Number</code>
-
-
-* * *
-
-<a name="BlockMap.ReadRange+range"></a>
-
-#### readRange.range : <code>Range</code>
-Original Range object
-
-**Kind**: instance property of [<code>ReadRange</code>](#BlockMap.ReadRange)  
-
-* * *
-
-<a name="BlockMap.ReadRange+checksum"></a>
-
-#### readRange.checksum : <code>String</code>
-Range checksum
-
-**Kind**: instance property of [<code>ReadRange</code>](#BlockMap.ReadRange)  
-
-* * *
-
-<a name="BlockMap.ReadRange+start"></a>
-
-#### readRange.start : <code>Number</code>
-Range start offset in bytes
-
-**Kind**: instance property of [<code>ReadRange</code>](#BlockMap.ReadRange)  
-
-* * *
-
-<a name="BlockMap.ReadRange+end"></a>
-
-#### readRange.end : <code>Number</code>
-Range end offset in bytes
-
-**Kind**: instance property of [<code>ReadRange</code>](#BlockMap.ReadRange)  
-
-* * *
-
-<a name="BlockMap.ReadRange+length"></a>
-
-#### readRange.length : <code>Number</code>
-Range length in bytes
-
-**Kind**: instance property of [<code>ReadRange</code>](#BlockMap.ReadRange)  
-
-* * *
-
-<a name="BlockMap.ReadRange+startLBA"></a>
-
-#### readRange.startLBA : <code>Number</code>
-Range start LBA
-
-**Kind**: instance property of [<code>ReadRange</code>](#BlockMap.ReadRange)  
-
-* * *
-
-<a name="BlockMap.ReadRange+endLBA"></a>
-
-#### readRange.endLBA : <code>Number</code>
-Range end LBA
-
-**Kind**: instance property of [<code>ReadRange</code>](#BlockMap.ReadRange)  
-
-* * *
-
-<a name="BlockMap.ReadRange+offset"></a>
-
-#### readRange.offset : <code>Number</code>
-Byte offset within range
-
-**Kind**: instance property of [<code>ReadRange</code>](#BlockMap.ReadRange)  
-
-* * *
-
-<a name="BlockMap.ReadStream"></a>
-
-### BlockMap.ReadStream
-**Kind**: static class of [<code>BlockMap</code>](#BlockMap)  
-
-* [.ReadStream](#BlockMap.ReadStream)
-    * [new ReadStream(filename, blockMap, [options])](#new_BlockMap.ReadStream_new)
-    * [.fd](#BlockMap.ReadStream+fd) : <code>Number</code>
-    * [.path](#BlockMap.ReadStream+path) : <code>String</code>
-    * [.flags](#BlockMap.ReadStream+flags) : <code>String</code>
-    * [.blockMap](#BlockMap.ReadStream+blockMap) : [<code>BlockMap</code>](#BlockMap)
-    * [.blockSize](#BlockMap.ReadStream+blockSize) : <code>Number</code>
-    * [.chunkSize](#BlockMap.ReadStream+chunkSize) : <code>Number</code>
-    * [.verify](#BlockMap.ReadStream+verify) : <code>Boolean</code>
-    * [.currentRange](#BlockMap.ReadStream+currentRange) : [<code>Range</code>](#BlockMap.Range)
-    * [.rangesRead](#BlockMap.ReadStream+rangesRead) : <code>Number</code>
-    * [.rangesVerified](#BlockMap.ReadStream+rangesVerified) : <code>Number</code>
-    * [.blocksRead](#BlockMap.ReadStream+blocksRead) : <code>Number</code>
-    * [.bytesRead](#BlockMap.ReadStream+bytesRead) : <code>Number</code>
-    * [.position](#BlockMap.ReadStream+position) : <code>Number</code>
-    * [.start](#BlockMap.ReadStream+start) : <code>Number</code>
-    * [.end](#BlockMap.ReadStream+end) : <code>Number</code>
-    * [.fs](#BlockMap.ReadStream+fs) : <code>Object</code>
-    * [.closed](#BlockMap.ReadStream+closed) : <code>Boolean</code>
-    * [.destroyed](#BlockMap.ReadStream+destroyed) : <code>Boolean</code>
-    * [.close([callback])](#BlockMap.ReadStream+close)
-    * [.destroy()](#BlockMap.ReadStream+destroy)
-
-
-* * *
-
-<a name="new_BlockMap.ReadStream_new"></a>
-
-#### new ReadStream(filename, blockMap, [options])
-ReadStream
-
-**Params**
-
-- filename <code>String</code> - image path
-- blockMap [<code>BlockMap</code>](#BlockMap) - image's blockmap
-- [options] <code>Object</code> - options
-    - [.fd] <code>Number</code> <code> = </code> - file descriptor
-    - [.flags] <code>String</code> <code> = &#x27;r&#x27;</code> - fs.open() flags
-    - [.chunkSize] <code>Boolean</code> <code> = 64K</code> - default chunk buffer size to read/emit
-    - [.verify] <code>Boolean</code> <code> = true</code> - verify range checksums
-    - [.autoClose] <code>Boolean</code> <code> = true</code> - close the fd on end
-    - [.start] <code>Number</code> - byte offset in file to read from
-    - [.end] <code>Number</code> - byte offset in file to stop at
-    - [.fs] <code>Number</code> - fs like object implementing open, close and read, defaults to node's fs
-
-
-* * *
-
-<a name="BlockMap.ReadStream+fd"></a>
-
-#### readStream.fd : <code>Number</code>
-File descriptor
-
-**Kind**: instance property of [<code>ReadStream</code>](#BlockMap.ReadStream)  
-
-* * *
-
-<a name="BlockMap.ReadStream+path"></a>
-
-#### readStream.path : <code>String</code>
-File path
-
-**Kind**: instance property of [<code>ReadStream</code>](#BlockMap.ReadStream)  
-
-* * *
-
-<a name="BlockMap.ReadStream+flags"></a>
-
-#### readStream.flags : <code>String</code>
-File open flags
-
-**Kind**: instance property of [<code>ReadStream</code>](#BlockMap.ReadStream)  
-
-* * *
-
-<a name="BlockMap.ReadStream+blockMap"></a>
-
-#### readStream.blockMap : [<code>BlockMap</code>](#BlockMap)
-The block map
-
-**Kind**: instance property of [<code>ReadStream</code>](#BlockMap.ReadStream)  
-
-* * *
-
-<a name="BlockMap.ReadStream+blockSize"></a>
-
-#### readStream.blockSize : <code>Number</code>
-Size of a mapped block in bytes
-
-**Kind**: instance property of [<code>ReadStream</code>](#BlockMap.ReadStream)  
-
-* * *
-
-<a name="BlockMap.ReadStream+chunkSize"></a>
-
-#### readStream.chunkSize : <code>Number</code>
-...
-
-**Kind**: instance property of [<code>ReadStream</code>](#BlockMap.ReadStream)  
-
-* * *
-
-<a name="BlockMap.ReadStream+verify"></a>
-
-#### readStream.verify : <code>Boolean</code>
-Whether or not to verify range checksums
-
-**Kind**: instance property of [<code>ReadStream</code>](#BlockMap.ReadStream)  
-
-* * *
-
-<a name="BlockMap.ReadStream+currentRange"></a>
-
-#### readStream.currentRange : [<code>Range</code>](#BlockMap.Range)
-Range being currently processed
-
-**Kind**: instance property of [<code>ReadStream</code>](#BlockMap.ReadStream)  
-
-* * *
-
-<a name="BlockMap.ReadStream+rangesRead"></a>
-
-#### readStream.rangesRead : <code>Number</code>
-Number of block map ranges read
-
-**Kind**: instance property of [<code>ReadStream</code>](#BlockMap.ReadStream)  
-
-* * *
-
-<a name="BlockMap.ReadStream+rangesVerified"></a>
-
-#### readStream.rangesVerified : <code>Number</code>
-Number of block map ranges verified
-
-**Kind**: instance property of [<code>ReadStream</code>](#BlockMap.ReadStream)  
-
-* * *
-
-<a name="BlockMap.ReadStream+blocksRead"></a>
-
-#### readStream.blocksRead : <code>Number</code>
-Number of blocks read
-
-**Kind**: instance property of [<code>ReadStream</code>](#BlockMap.ReadStream)  
-
-* * *
-
-<a name="BlockMap.ReadStream+bytesRead"></a>
-
-#### readStream.bytesRead : <code>Number</code>
-Number of bytes read
-
-**Kind**: instance property of [<code>ReadStream</code>](#BlockMap.ReadStream)  
-
-* * *
-
-<a name="BlockMap.ReadStream+position"></a>
-
-#### readStream.position : <code>Number</code>
-Current offset in bytes
-
-**Kind**: instance property of [<code>ReadStream</code>](#BlockMap.ReadStream)  
-
-* * *
-
-<a name="BlockMap.ReadStream+start"></a>
-
-#### readStream.start : <code>Number</code>
-Position start offset in bytes
-
-**Kind**: instance property of [<code>ReadStream</code>](#BlockMap.ReadStream)  
-
-* * *
-
-<a name="BlockMap.ReadStream+end"></a>
-
-#### readStream.end : <code>Number</code>
-End offset in bytes
-
-**Kind**: instance property of [<code>ReadStream</code>](#BlockMap.ReadStream)  
-
-* * *
-
-<a name="BlockMap.ReadStream+fs"></a>
-
-#### readStream.fs : <code>Object</code>
-fs like object implementing open, close and read
-
-**Kind**: instance property of [<code>ReadStream</code>](#BlockMap.ReadStream)  
-
-* * *
-
-<a name="BlockMap.ReadStream+closed"></a>
-
-#### readStream.closed : <code>Boolean</code>
-Whether the stream has been closed
-
-**Kind**: instance property of [<code>ReadStream</code>](#BlockMap.ReadStream)  
-
-* * *
-
-<a name="BlockMap.ReadStream+destroyed"></a>
-
-#### readStream.destroyed : <code>Boolean</code>
-Whether the stream has been destroyed
-
-**Kind**: instance property of [<code>ReadStream</code>](#BlockMap.ReadStream)  
-
-* * *
-
-<a name="BlockMap.ReadStream+close"></a>
-
-#### readStream.close([callback])
-Close the stream, and the underlying file handle
-
-**Kind**: instance method of [<code>ReadStream</code>](#BlockMap.ReadStream)  
-**Params**
-
-- [callback] <code>function</code> - callback(error)
-
-
-* * *
-
-<a name="BlockMap.ReadStream+destroy"></a>
-
-#### readStream.destroy()
-Destroy the stream, release any internal resources
-
-**Kind**: instance method of [<code>ReadStream</code>](#BlockMap.ReadStream)  
-
-* * *
-
-<a name="BlockMap.versions"></a>
-
-### BlockMap.versions : <code>Array</code>
-Supported .bmap format versions
-
-**Kind**: static constant of [<code>BlockMap</code>](#BlockMap)  
-
-* * *
-
-<a name="BlockMap.create"></a>
-
-### BlockMap.create([options]) ⇒ [<code>BlockMap</code>](#BlockMap)
-Create a new block map
-
-**Kind**: static method of [<code>BlockMap</code>](#BlockMap)  
-**Params**
-
-- [options] <code>Object</code>
-    - [.version] <code>String</code> <code> = &#x27;2.0&#x27;</code>
-    - [.imageSize] <code>Number</code> <code> = 0</code>
-    - [.blockSize] <code>Number</code> <code> = 4096</code>
-    - [.blockCount] <code>Number</code> <code> = 0</code>
-    - [.mappedBlockCount] <code>Number</code> <code> = 0</code>
-    - [.checksum] <code>String</code>
-    - [.checksumType] <code>String</code> <code> = &#x27;sha256&#x27;</code>
-    - [.ranges] <code>Array</code> <code> = []</code>
-
-
-* * *
-
-<a name="BlockMap.fromJSON"></a>
-
-### BlockMap.fromJSON(data) ⇒ [<code>BlockMap</code>](#BlockMap)
-Create a block map from it's JSON representation
-
-**Kind**: static method of [<code>BlockMap</code>](#BlockMap)  
-**Params**
-
-- data <code>String</code> | <code>Object</code>
-
-
-* * *
-
-<a name="BlockMap.createReadStream"></a>
-
-### BlockMap.createReadStream(filename, blockMap, [options]) ⇒ [<code>ReadStream</code>](#BlockMap.ReadStream)
-Create a ReadStream for an image with a block map
-
-**Kind**: static method of [<code>BlockMap</code>](#BlockMap)  
-**Returns**: [<code>ReadStream</code>](#BlockMap.ReadStream) - stream  
-**Params**
-
-- filename <code>String</code>
-- blockMap [<code>BlockMap</code>](#BlockMap) - image's blockmap
-- [options] <code>Object</code> - options
-    - [.fd] <code>Number</code> <code> = </code> - file descriptor
-    - [.flags] <code>String</code> <code> = &#x27;r&#x27;</code> - fs.open() flags
-    - [.verify] <code>Boolean</code> <code> = true</code> - verify range checksums
-    - [.autoClose] <code>Boolean</code> <code> = true</code> - close the fd on end
-    - [.start] <code>Number</code> - byte offset in file to read from
-    - [.end] <code>Number</code> - byte offset in file to stop at
-
-
-* * *
-
-<a name="BlockMap.createFilterStream"></a>
-
-### BlockMap.createFilterStream(blockMap, [options]) ⇒ [<code>FilterStream</code>](#BlockMap.FilterStream)
-Create a FilterStream with a given block map
-
-**Kind**: static method of [<code>BlockMap</code>](#BlockMap)  
-**Returns**: [<code>FilterStream</code>](#BlockMap.FilterStream) - stream  
-**Params**
-
-- blockMap [<code>BlockMap</code>](#BlockMap)
-- [options] <code>Object</code>
-    - [.verify] <code>Boolean</code> <code> = true</code> - verify range checksums
-
-
-* * *
-
-<a name="BlockMap.parse"></a>
-
-### BlockMap.parse(value, [blockMap], [options]) ⇒ [<code>BlockMap</code>](#BlockMap)
 Parse a .bmap file
 
-**Kind**: static method of [<code>BlockMap</code>](#BlockMap)  
-**Params**
+**Parameters:**
 
-- value <code>String</code> | <code>Buffer</code> - input
-- [blockMap] [<code>BlockMap</code>](#BlockMap) - BlockMap instance to populate
-- [options] <code>Object</code> - options
-    - [.verify] <code>Boolean</code> - verify range checksums
+| Name | Type | Default value |
+| ------ | ------ | ------ |
+| value | `string` \| `Buffer` | - |
+| `Default value` verify | `boolean` | true |
 
+**Returns:** [BlockMapOptions](interfaces/blockmapoptions.md)
 
-* * *
+___
+<a id="textcontent"></a>
 
-<a name="BlockMap.stringify"></a>
+###  textContent
 
-### BlockMap.stringify(blockMap) ⇒ <code>String</code>
-Stringify a block map into .bmap format
+▸ **textContent**(element: *`Element`*, name: *`string`*): `string` \| `undefined`
 
-**Kind**: static method of [<code>BlockMap</code>](#BlockMap)  
-**Returns**: <code>String</code> - xml  
-**Params**
+*Defined in [parse.ts:71](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/parse.ts#L71)*
 
-- blockMap [<code>BlockMap</code>](#BlockMap) - BlockMap instance
+**Parameters:**
 
+| Name | Type |
+| ------ | ------ |
+| element | `Element` |
+| name | `string` |
 
-* * *
+**Returns:** `string` \| `undefined`
+
+___
+<a id="textcontentthrow"></a>
+
+###  textContentThrow
+
+▸ **textContentThrow**(element: *`Element`*, name: *`string`*): `string`
+
+*Defined in [parse.ts:67](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/parse.ts#L67)*
+
+**Parameters:**
+
+| Name | Type |
+| ------ | ------ |
+| element | `Element` |
+| name | `string` |
+
+**Returns:** `string`
+
+___
+<a id="withopenfile"></a>
+
+###  withOpenFile
+
+▸ **withOpenFile**(filename: *`string`*, fn: *`function`*): `Promise`<`void`>
+
+*Defined in [utils.ts:44](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/utils.ts#L44)*
+
+**Parameters:**
+
+| Name | Type |
+| ------ | ------ |
+| filename | `string` |
+| fn | `function` |
+
+**Returns:** `Promise`<`void`>
+
+___
+<a id="xmltag"></a>
+
+###  xmlTag
+
+▸ **xmlTag**(tag: *`string`*, text: *`string`*): `string`
+
+*Defined in [blockmap.ts:24](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/blockmap.ts#L24)*
+
+**Parameters:**
+
+| Name | Type |
+| ------ | ------ |
+| tag | `string` |
+| text | `string` |
+
+**Returns:** `string`
+
+___
 
