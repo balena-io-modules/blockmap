@@ -1,6 +1,6 @@
 {
   "name": "blockmap",
-  "version": "3.4.3",
+  "version": "4.0.0",
   "description": "Tizen's block map format",
   "license": "MIT",
   "author": "Jonas Hermsmeier <jhermsmeier@gmail.com> (https://jhermsmeier.de)",
