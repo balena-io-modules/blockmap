@@ -251,7 +251,7 @@ export class FilterStream extends Transform {
 	 * Flush out any unprocessed chunks from
 	 * the internal buffer once the stream is being ended
 	 */
-	protected _flush(done: () => void) {
+	public _flush(done: () => void) {
 		if (this._bytes) {
 			const chunk = Buffer.concat(this._chunks, this._bytes);
 			this._chunks = [];
