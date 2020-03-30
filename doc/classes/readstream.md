@@ -82,7 +82,7 @@
 
 *Overrides Readable.__constructor*
 
-*Defined in [read-stream.ts:54](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/read-stream.ts#L54)*
+*Defined in [read-stream.ts:54](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L54)*
 
 **Parameters:**
 
@@ -108,9 +108,7 @@ ___
 
 **● _hash**: *`Hash`*
 
-*Defined in [read-stream.ts:51](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/read-stream.ts#L51)*
-
-Hash stream to calculate range checksums
+*Defined in [read-stream.ts:51](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L51)*
 
 ___
 <a id="blockmap"></a>
@@ -119,7 +117,7 @@ ___
 
 **● blockMap**: *[BlockMap](blockmap.md)*
 
-*Defined in [read-stream.ts:58](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/read-stream.ts#L58)*
+*Defined in [read-stream.ts:58](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L58)*
 
 ___
 <a id="blocksread"></a>
@@ -128,9 +126,7 @@ ___
 
 **● blocksRead**: *`number`* = 0
 
-*Defined in [read-stream.ts:45](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/read-stream.ts#L45)*
-
-Number of blocks read
+*Defined in [read-stream.ts:45](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L45)*
 
 ___
 <a id="bytesread"></a>
@@ -139,9 +135,7 @@ ___
 
 **● bytesRead**: *`number`* = 0
 
-*Defined in [read-stream.ts:47](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/read-stream.ts#L47)*
-
-Number of bytes read
+*Defined in [read-stream.ts:47](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L47)*
 
 ___
 <a id="chunksize"></a>
@@ -150,7 +144,7 @@ ___
 
 **● chunkSize**: *`number`*
 
-*Defined in [read-stream.ts:63](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/read-stream.ts#L63)*
+*Defined in [read-stream.ts:63](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L63)*
 
 ___
 <a id="currentrange"></a>
@@ -159,9 +153,7 @@ ___
 
 **● currentRange**: *[ReadRange](readrange.md)*
 
-*Defined in [read-stream.ts:39](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/read-stream.ts#L39)*
-
-Range being currently processed
+*Defined in [read-stream.ts:39](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L39)*
 
 ___
 <a id="end"></a>
@@ -170,7 +162,7 @@ ___
 
 **● end**: *`number`*
 
-*Defined in [read-stream.ts:62](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/read-stream.ts#L62)*
+*Defined in [read-stream.ts:62](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L62)*
 
 ___
 <a id="generatechecksums"></a>
@@ -179,7 +171,7 @@ ___
 
 **● generateChecksums**: *`boolean`*
 
-*Defined in [read-stream.ts:60](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/read-stream.ts#L60)*
+*Defined in [read-stream.ts:60](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L60)*
 
 ___
 <a id="position"></a>
@@ -188,9 +180,7 @@ ___
 
 **● position**: *`number`* = 0
 
-*Defined in [read-stream.ts:49](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/read-stream.ts#L49)*
-
-Current offset in bytes
+*Defined in [read-stream.ts:49](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L49)*
 
 ___
 <a id="ranges"></a>
@@ -199,9 +189,7 @@ ___
 
 **● ranges**: *[ReadRange](readrange.md)[]*
 
-*Defined in [read-stream.ts:53](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/read-stream.ts#L53)*
-
-Ranges to be read from the image
+*Defined in [read-stream.ts:53](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L53)*
 
 ___
 <a id="rangesread"></a>
@@ -210,9 +198,7 @@ ___
 
 **● rangesRead**: *`number`* = 0
 
-*Defined in [read-stream.ts:41](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/read-stream.ts#L41)*
-
-Number of block map ranges read
+*Defined in [read-stream.ts:41](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L41)*
 
 ___
 <a id="rangesverified"></a>
@@ -221,9 +207,7 @@ ___
 
 **● rangesVerified**: *`number`* = 0
 
-*Defined in [read-stream.ts:43](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/read-stream.ts#L43)*
-
-Number of block map ranges verified
+*Defined in [read-stream.ts:43](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L43)*
 
 ___
 <a id="readfn"></a>
@@ -232,7 +216,7 @@ ___
 
 **● readFn**: *[ReadFunction](../#readfunction)*
 
-*Defined in [read-stream.ts:54](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/read-stream.ts#L54)*
+*Defined in [read-stream.ts:54](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L54)*
 
 ___
 <a id="readable"></a>
@@ -243,7 +227,7 @@ ___
 
 *Inherited from Readable.readable*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3718*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3688*
 
 ___
 <a id="start"></a>
@@ -252,7 +236,7 @@ ___
 
 **● start**: *`number`*
 
-*Defined in [read-stream.ts:61](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/read-stream.ts#L61)*
+*Defined in [read-stream.ts:61](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L61)*
 
 ___
 <a id="verify"></a>
@@ -261,7 +245,7 @@ ___
 
 **● verify**: *`boolean`*
 
-*Defined in [read-stream.ts:59](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/read-stream.ts#L59)*
+*Defined in [read-stream.ts:59](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L59)*
 
 ___
 <a id="defaultmaxlisteners"></a>
@@ -272,7 +256,7 @@ ___
 
 *Inherited from EventEmitter.defaultMaxListeners*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:715*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:681*
 
 ___
 
@@ -284,11 +268,7 @@ ___
 
 ▸ **_advanceRange**(): `Promise`<`void`>
 
-*Defined in [read-stream.ts:217](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/read-stream.ts#L217)*
-
-Advance to next the Range if there is one then read a block; else end the stream;
-
-*__see__*: [https://nodejs.org/api/stream.html#stream\_implementing\_a\_readable\_stream](https://nodejs.org/api/stream.html#stream_implementing_a_readable_stream)
+*Defined in [read-stream.ts:215](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L215)*
 
 **Returns:** `Promise`<`void`>
 
@@ -299,9 +279,7 @@ ___
 
 ▸ **_prepareRanges**(): [ReadRange](readrange.md)[]
 
-*Defined in [read-stream.ts:118](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/read-stream.ts#L118)*
-
-Preprocess the `blockMap`'s ranges into byte-ranges with respect to the `start` offset, and an `offset` for tracking chunked range reading
+*Defined in [read-stream.ts:118](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L118)*
 
 **Returns:** [ReadRange](readrange.md)[]
 
@@ -314,11 +292,7 @@ ___
 
 *Overrides Readable._read*
 
-*Defined in [read-stream.ts:233](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/read-stream.ts#L233)*
-
-Initiate a new read, advancing the range if necessary, and verifying checksums, if enabled
-
-*__see__*: [https://nodejs.org/api/stream.html#stream\_implementing\_a\_readable\_stream](https://nodejs.org/api/stream.html#stream_implementing_a_readable_stream)
+*Defined in [read-stream.ts:231](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L231)*
 
 **Returns:** `Promise`<`void`>
 
@@ -329,9 +303,7 @@ ___
 
 ▸ **_readBlock**(): `Promise`<`void`>
 
-*Defined in [read-stream.ts:169](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/read-stream.ts#L169)*
-
-Read the current range (or a chunk thereof), update state and emit the read block
+*Defined in [read-stream.ts:167](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L167)*
 
 **Returns:** `Promise`<`void`>
 
@@ -342,9 +314,7 @@ ___
 
 ▸ **_verifyRange**(): `void`
 
-*Defined in [read-stream.ts:140](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/read-stream.ts#L140)*
-
-Verify a fully read range's checksum against the range's checksum from the blockmap
+*Defined in [read-stream.ts:140](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L140)*
 
 **Returns:** `void`
 
@@ -369,15 +339,7 @@ ___
 
 *Overrides EventEmitter.addListener*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3741*
-
-Event emitter The defined events on documents including:
-
-1.  close
-2.  data
-3.  end
-4.  readable
-5.  error
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3711*
 
 **Parameters:**
 
@@ -392,7 +354,7 @@ Event emitter The defined events on documents including:
 
 *Overrides EventEmitter.addListener*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3742*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3712*
 
 **Parameters:**
 
@@ -407,7 +369,7 @@ Event emitter The defined events on documents including:
 
 *Overrides EventEmitter.addListener*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3743*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3713*
 
 **Parameters:**
 
@@ -422,7 +384,7 @@ Event emitter The defined events on documents including:
 
 *Overrides EventEmitter.addListener*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3744*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3714*
 
 **Parameters:**
 
@@ -437,7 +399,7 @@ Event emitter The defined events on documents including:
 
 *Overrides EventEmitter.addListener*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3745*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3715*
 
 **Parameters:**
 
@@ -452,7 +414,7 @@ Event emitter The defined events on documents including:
 
 *Overrides EventEmitter.addListener*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3746*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3716*
 
 **Parameters:**
 
@@ -468,7 +430,7 @@ ___
 
 ###  emit
 
-▸ **emit**(event: *`string` \| `symbol`*, ...args: *`any`[]*): `boolean`
+▸ **emit**(event: *`string` \| `symbol`*, args: *`any`[]*): `boolean`
 
 ▸ **emit**(event: *"close"*): `boolean`
 
@@ -484,7 +446,7 @@ ___
 
 *Overrides EventEmitter.emit*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3748*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3718*
 
 **Parameters:**
 
@@ -499,7 +461,7 @@ ___
 
 *Overrides EventEmitter.emit*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3749*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3719*
 
 **Parameters:**
 
@@ -513,7 +475,7 @@ ___
 
 *Overrides EventEmitter.emit*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3750*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3720*
 
 **Parameters:**
 
@@ -528,7 +490,7 @@ ___
 
 *Overrides EventEmitter.emit*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3751*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3721*
 
 **Parameters:**
 
@@ -542,7 +504,7 @@ ___
 
 *Overrides EventEmitter.emit*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3752*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3722*
 
 **Parameters:**
 
@@ -556,7 +518,7 @@ ___
 
 *Overrides EventEmitter.emit*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3753*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3723*
 
 **Parameters:**
 
@@ -578,7 +540,7 @@ ___
 
 *Overrides EventEmitter.eventNames*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:728*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:694*
 
 **Returns:** (`string` \| `symbol`)[]
 
@@ -593,7 +555,7 @@ ___
 
 *Overrides EventEmitter.getMaxListeners*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:725*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:691*
 
 **Returns:** `number`
 
@@ -606,7 +568,7 @@ ___
 
 *Inherited from Readable.isPaused*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3725*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3695*
 
 **Returns:** `boolean`
 
@@ -621,7 +583,7 @@ ___
 
 *Overrides EventEmitter.listenerCount*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:729*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:695*
 
 **Parameters:**
 
@@ -642,7 +604,7 @@ ___
 
 *Overrides EventEmitter.listeners*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:726*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:692*
 
 **Parameters:**
 
@@ -673,7 +635,7 @@ ___
 
 *Overrides EventEmitter.on*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3755*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3725*
 
 **Parameters:**
 
@@ -688,7 +650,7 @@ ___
 
 *Overrides EventEmitter.on*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3756*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3726*
 
 **Parameters:**
 
@@ -703,7 +665,7 @@ ___
 
 *Overrides EventEmitter.on*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3757*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3727*
 
 **Parameters:**
 
@@ -718,7 +680,7 @@ ___
 
 *Overrides EventEmitter.on*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3758*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3728*
 
 **Parameters:**
 
@@ -733,7 +695,7 @@ ___
 
 *Overrides EventEmitter.on*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3759*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3729*
 
 **Parameters:**
 
@@ -748,7 +710,7 @@ ___
 
 *Overrides EventEmitter.on*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3760*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3730*
 
 **Parameters:**
 
@@ -780,7 +742,7 @@ ___
 
 *Overrides EventEmitter.once*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3762*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3732*
 
 **Parameters:**
 
@@ -795,7 +757,7 @@ ___
 
 *Overrides EventEmitter.once*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3763*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3733*
 
 **Parameters:**
 
@@ -810,7 +772,7 @@ ___
 
 *Overrides EventEmitter.once*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3764*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3734*
 
 **Parameters:**
 
@@ -825,7 +787,7 @@ ___
 
 *Overrides EventEmitter.once*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3765*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3735*
 
 **Parameters:**
 
@@ -840,7 +802,7 @@ ___
 
 *Overrides EventEmitter.once*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3766*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3736*
 
 **Parameters:**
 
@@ -855,7 +817,7 @@ ___
 
 *Overrides EventEmitter.once*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3767*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3737*
 
 **Parameters:**
 
@@ -875,7 +837,7 @@ ___
 
 *Inherited from Readable.pause*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3723*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3693*
 
 **Returns:** `this`
 
@@ -884,13 +846,13 @@ ___
 
 ###  pipe
 
-▸ **pipe**<`T`>(destination: *`T`*, options?: *`undefined` \| `object`*): `T`
+▸ **pipe**<`T`>(destination: *`T`*, options: *`undefined` \| `object`*): `T`
 
 *Inherited from Readable.pipe*
 
 *Overrides internal.pipe*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3726*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3696*
 
 **Type parameters:**
 
@@ -925,7 +887,7 @@ ___
 
 *Overrides EventEmitter.prependListener*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3769*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3739*
 
 **Parameters:**
 
@@ -940,7 +902,7 @@ ___
 
 *Overrides EventEmitter.prependListener*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3770*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3740*
 
 **Parameters:**
 
@@ -955,7 +917,7 @@ ___
 
 *Overrides EventEmitter.prependListener*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3771*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3741*
 
 **Parameters:**
 
@@ -970,7 +932,7 @@ ___
 
 *Overrides EventEmitter.prependListener*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3772*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3742*
 
 **Parameters:**
 
@@ -985,7 +947,7 @@ ___
 
 *Overrides EventEmitter.prependListener*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3773*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3743*
 
 **Parameters:**
 
@@ -1000,7 +962,7 @@ ___
 
 *Overrides EventEmitter.prependListener*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3774*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3744*
 
 **Parameters:**
 
@@ -1032,7 +994,7 @@ ___
 
 *Overrides EventEmitter.prependOnceListener*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3776*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3746*
 
 **Parameters:**
 
@@ -1047,7 +1009,7 @@ ___
 
 *Overrides EventEmitter.prependOnceListener*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3777*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3747*
 
 **Parameters:**
 
@@ -1062,7 +1024,7 @@ ___
 
 *Overrides EventEmitter.prependOnceListener*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3778*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3748*
 
 **Parameters:**
 
@@ -1077,7 +1039,7 @@ ___
 
 *Overrides EventEmitter.prependOnceListener*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3779*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3749*
 
 **Parameters:**
 
@@ -1092,7 +1054,7 @@ ___
 
 *Overrides EventEmitter.prependOnceListener*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3780*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3750*
 
 **Parameters:**
 
@@ -1107,7 +1069,7 @@ ___
 
 *Overrides EventEmitter.prependOnceListener*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3781*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3751*
 
 **Parameters:**
 
@@ -1123,11 +1085,11 @@ ___
 
 ###  push
 
-▸ **push**(chunk: *`any`*, encoding?: *`undefined` \| `string`*): `boolean`
+▸ **push**(chunk: *`any`*, encoding: *`undefined` \| `string`*): `boolean`
 
 *Inherited from Readable.push*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3730*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3700*
 
 **Parameters:**
 
@@ -1143,11 +1105,11 @@ ___
 
 ###  read
 
-▸ **read**(size?: *`undefined` \| `number`*): `any`
+▸ **read**(size: *`undefined` \| `number`*): `any`
 
 *Inherited from Readable.read*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3721*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3691*
 
 **Parameters:**
 
@@ -1162,13 +1124,13 @@ ___
 
 ###  removeAllListeners
 
-▸ **removeAllListeners**(event?: *`string` \| `symbol`*): `this`
+▸ **removeAllListeners**(event: *`string` \| `symbol`*): `this`
 
 *Inherited from EventEmitter.removeAllListeners*
 
 *Overrides EventEmitter.removeAllListeners*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:723*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:689*
 
 **Parameters:**
 
@@ -1199,7 +1161,7 @@ ___
 
 *Overrides EventEmitter.removeListener*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3783*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3753*
 
 **Parameters:**
 
@@ -1214,7 +1176,7 @@ ___
 
 *Overrides EventEmitter.removeListener*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3784*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3754*
 
 **Parameters:**
 
@@ -1229,7 +1191,7 @@ ___
 
 *Overrides EventEmitter.removeListener*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3785*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3755*
 
 **Parameters:**
 
@@ -1244,7 +1206,7 @@ ___
 
 *Overrides EventEmitter.removeListener*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3786*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3756*
 
 **Parameters:**
 
@@ -1259,7 +1221,7 @@ ___
 
 *Overrides EventEmitter.removeListener*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3787*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3757*
 
 **Parameters:**
 
@@ -1274,7 +1236,7 @@ ___
 
 *Overrides EventEmitter.removeListener*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3788*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3758*
 
 **Parameters:**
 
@@ -1294,7 +1256,7 @@ ___
 
 *Inherited from Readable.resume*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3724*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3694*
 
 **Returns:** `this`
 
@@ -1307,7 +1269,7 @@ ___
 
 *Inherited from Readable.setEncoding*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3722*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3692*
 
 **Parameters:**
 
@@ -1328,7 +1290,7 @@ ___
 
 *Overrides EventEmitter.setMaxListeners*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:724*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:690*
 
 **Parameters:**
 
@@ -1343,11 +1305,11 @@ ___
 
 ###  unpipe
 
-▸ **unpipe**<`T`>(destination?: *[T]()*): `void`
+▸ **unpipe**<`T`>(destination: *[T]()*): `void`
 
 *Inherited from Readable.unpipe*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3727*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3697*
 
 **Type parameters:**
 
@@ -1369,7 +1331,7 @@ ___
 
 *Inherited from Readable.unshift*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3728*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3698*
 
 **Parameters:**
 
@@ -1388,7 +1350,7 @@ ___
 
 *Inherited from Readable.wrap*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:3729*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3699*
 
 **Parameters:**
 
@@ -1407,7 +1369,7 @@ ___
 
 *Inherited from EventEmitter.listenerCount*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/index.d.ts:714*
+*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:680*
 
 **Parameters:**
 

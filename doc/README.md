@@ -53,7 +53,7 @@
 
 **Ƭ ReadFunction**: *`function`*
 
-*Defined in [read-stream.ts:30](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/read-stream.ts#L30)*
+*Defined in [read-stream.ts:30](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L30)*
 
 #### Type declaration
 ▸(buffer: *`Buffer`*, offset: *`number`*, length: *`number`*, position: *`number`*): `Promise`<`object`>
@@ -79,8 +79,8 @@ ___
 
 **● debug**: *`Debugger`* =  debug$('blockmap:readstream')
 
-*Defined in [filter-stream.ts:26](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/filter-stream.ts#L26)*
-*Defined in [read-stream.ts:28](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/read-stream.ts#L28)*
+*Defined in [filter-stream.ts:26](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/filter-stream.ts#L26)*
+*Defined in [read-stream.ts:28](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L28)*
 
 ___
 
@@ -92,7 +92,7 @@ ___
 
 ▸ **close**(fd: *`number`*): `Promise`<`void`>
 
-*Defined in [utils.ts:32](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/utils.ts#L32)*
+*Defined in [utils.ts:32](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/utils.ts#L32)*
 
 **Parameters:**
 
@@ -109,7 +109,7 @@ ___
 
 ▸ **firstChild**(element: *`Element`*, name: *`string`*): `Element` \| `undefined`
 
-*Defined in [parse.ts:23](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/parse.ts#L23)*
+*Defined in [parse.ts:23](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/parse.ts#L23)*
 
 **Parameters:**
 
@@ -127,7 +127,7 @@ ___
 
 ▸ **firstChildThrow**(element: *`Element`*, name: *`string`*): `Element`
 
-*Defined in [parse.ts:29](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/parse.ts#L29)*
+*Defined in [parse.ts:29](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/parse.ts#L29)*
 
 **Parameters:**
 
@@ -145,7 +145,7 @@ ___
 
 ▸ **getAttribute**(element: *`Element`*, name: *`string`*): `string` \| `number` \| `undefined`
 
-*Defined in [parse.ts:37](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/parse.ts#L37)*
+*Defined in [parse.ts:37](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/parse.ts#L37)*
 
 **Parameters:**
 
@@ -163,7 +163,7 @@ ___
 
 ▸ **getAttributeThrow**(element: *`Element`*, name: *`string`*): `string` \| `number`
 
-*Defined in [parse.ts:46](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/parse.ts#L46)*
+*Defined in [parse.ts:46](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/parse.ts#L46)*
 
 **Parameters:**
 
@@ -181,7 +181,7 @@ ___
 
 ▸ **getRanges**(element: *`Element`*): [BlockMapOptionsRange](interfaces/blockmapoptionsrange.md)[]
 
-*Defined in [parse.ts:78](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/parse.ts#L78)*
+*Defined in [parse.ts:78](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/parse.ts#L78)*
 
 **Parameters:**
 
@@ -198,7 +198,7 @@ ___
 
 ▸ **getText**(element: *`Element` \| `Element`[]*): `string`
 
-*Defined in [parse.ts:54](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/parse.ts#L54)*
+*Defined in [parse.ts:54](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/parse.ts#L54)*
 
 **Parameters:**
 
@@ -215,9 +215,7 @@ ___
 
 ▸ **maskChecksum**(value: *`string`*): `string`
 
-*Defined in [parse.ts:109](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/parse.ts#L109)*
-
-Zero out the file checksum field for checksum calculation
+*Defined in [parse.ts:109](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/parse.ts#L109)*
 
 **Parameters:**
 
@@ -234,7 +232,7 @@ ___
 
 ▸ **open**(filename: *`string`*): `Promise`<`number`>
 
-*Defined in [utils.ts:20](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/utils.ts#L20)*
+*Defined in [utils.ts:20](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/utils.ts#L20)*
 
 **Parameters:**
 
@@ -251,9 +249,7 @@ ___
 
 ▸ **parse**(value: *`string` \| `Buffer`*, verify?: *`boolean`*): [BlockMapOptions](interfaces/blockmapoptions.md)
 
-*Defined in [parse.ts:120](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/parse.ts#L120)*
-
-Parse a .bmap file
+*Defined in [parse.ts:120](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/parse.ts#L120)*
 
 **Parameters:**
 
@@ -271,7 +267,7 @@ ___
 
 ▸ **textContent**(element: *`Element`*, name: *`string`*): `string` \| `undefined`
 
-*Defined in [parse.ts:71](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/parse.ts#L71)*
+*Defined in [parse.ts:71](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/parse.ts#L71)*
 
 **Parameters:**
 
@@ -289,7 +285,7 @@ ___
 
 ▸ **textContentThrow**(element: *`Element`*, name: *`string`*): `string`
 
-*Defined in [parse.ts:67](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/parse.ts#L67)*
+*Defined in [parse.ts:67](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/parse.ts#L67)*
 
 **Parameters:**
 
@@ -307,7 +303,7 @@ ___
 
 ▸ **withOpenFile**(filename: *`string`*, fn: *`function`*): `Promise`<`void`>
 
-*Defined in [utils.ts:44](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/utils.ts#L44)*
+*Defined in [utils.ts:44](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/utils.ts#L44)*
 
 **Parameters:**
 
@@ -325,7 +321,7 @@ ___
 
 ▸ **xmlTag**(tag: *`string`*, text: *`string`*): `string`
 
-*Defined in [blockmap.ts:24](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/blockmap.ts#L24)*
+*Defined in [blockmap.ts:24](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/blockmap.ts#L24)*
 
 **Parameters:**
 

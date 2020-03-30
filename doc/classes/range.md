@@ -34,9 +34,9 @@
 
 ###  constructor
 
-⊕ **new Range**(start?: *`number`*, end?: *`number`*, checksum?: *`undefined` \| `string`*): [Range](range.md)
+⊕ **new Range**(start?: *`number`*, end?: *`number`*, checksum: *`undefined` \| `string`*): [Range](range.md)
 
-*Defined in [range.ts:20](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/range.ts#L20)*
+*Defined in [range.ts:20](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/range.ts#L20)*
 
 **Parameters:**
 
@@ -58,7 +58,7 @@ ___
 
 **● checksum**: *`undefined` \| `string`*
 
-*Defined in [range.ts:21](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/range.ts#L21)*
+*Defined in [range.ts:21](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/range.ts#L21)*
 
 ___
 <a id="end"></a>
@@ -67,7 +67,7 @@ ___
 
 **● end**: *`number`*
 
-*Defined in [range.ts:21](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/range.ts#L21)*
+*Defined in [range.ts:21](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/range.ts#L21)*
 
 ___
 <a id="start"></a>
@@ -76,7 +76,7 @@ ___
 
 **● start**: *`number`*
 
-*Defined in [range.ts:21](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/range.ts#L21)*
+*Defined in [range.ts:21](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/range.ts#L21)*
 
 ___
 
@@ -86,23 +86,10 @@ ___
 
 ###  length
 
-**get length**(): `number`
+**length**: 
 
-**set length**(value: *`number`*): `void`
-
-*Defined in [range.ts:32](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/range.ts#L32)*
-
-**Returns:** `number`
-
-*Defined in [range.ts:38](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/range.ts#L38)*
-
-**Parameters:**
-
-| Name | Type |
-| ------ | ------ |
-| value | `number` |
-
-**Returns:** `void`
+*Defined in [range.ts:32](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/range.ts#L32)*
+*Defined in [range.ts:38](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/range.ts#L38)*
 
 ___
 
@@ -114,9 +101,7 @@ ___
 
 ▸ **from**(value: *[BlockMapOptionsRange](../interfaces/blockmapoptionsrange.md)*): [Range](range.md)
 
-*Defined in [range.ts:28](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/range.ts#L28)*
-
-Create a BlockMap.Range from a given value
+*Defined in [range.ts:28](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/range.ts#L28)*
 
 **Parameters:**
 
