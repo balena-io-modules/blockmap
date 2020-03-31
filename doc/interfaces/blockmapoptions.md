@@ -29,9 +29,7 @@
 
 **● blockSize**: *`undefined` \| `number`*
 
-*Defined in [blockmap.ts:40](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/blockmap.ts#L40)*
-
-*__type__*: {Number} size of a block in bytes
+*Defined in [blockmap.ts:40](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/blockmap.ts#L40)*
 
 ___
 <a id="blockscount"></a>
@@ -40,9 +38,7 @@ ___
 
 **● blocksCount**: *`undefined` \| `number`*
 
-*Defined in [blockmap.ts:42](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/blockmap.ts#L42)*
-
-*__type__*: {Number} total number of blocks in image
+*Defined in [blockmap.ts:42](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/blockmap.ts#L42)*
 
 ___
 <a id="checksum"></a>
@@ -51,9 +47,7 @@ ___
 
 **● checksum**: *`undefined` \| `string`*
 
-*Defined in [blockmap.ts:46](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/blockmap.ts#L46)*
-
-*__type__*: {String} bmap file checksum
+*Defined in [blockmap.ts:46](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/blockmap.ts#L46)*
 
 ___
 <a id="checksumtype"></a>
@@ -62,9 +56,7 @@ ___
 
 **● checksumType**: *`undefined` \| `string`*
 
-*Defined in [blockmap.ts:48](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/blockmap.ts#L48)*
-
-*__type__*: {Number} checksum algorithm
+*Defined in [blockmap.ts:48](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/blockmap.ts#L48)*
 
 ___
 <a id="imagesize"></a>
@@ -73,9 +65,7 @@ ___
 
 **● imageSize**: *`undefined` \| `number`*
 
-*Defined in [blockmap.ts:38](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/blockmap.ts#L38)*
-
-*__type__*: {Number} size of the image in bytes
+*Defined in [blockmap.ts:38](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/blockmap.ts#L38)*
 
 ___
 <a id="mappedblockscount"></a>
@@ -84,9 +74,7 @@ ___
 
 **● mappedBlocksCount**: *`undefined` \| `number`*
 
-*Defined in [blockmap.ts:44](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/blockmap.ts#L44)*
-
-*__type__*: {Number} number of mapped blocks
+*Defined in [blockmap.ts:44](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/blockmap.ts#L44)*
 
 ___
 <a id="ranges"></a>
@@ -95,9 +83,7 @@ ___
 
 **● ranges**: *[BlockMapOptionsRange](blockmapoptionsrange.md)[]*
 
-*Defined in [blockmap.ts:50](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/blockmap.ts#L50)*
-
-*__type__*: {Number} block ranges
+*Defined in [blockmap.ts:50](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/blockmap.ts#L50)*
 
 ___
 <a id="version"></a>
@@ -106,9 +92,7 @@ ___
 
 **● version**: *`undefined` \| `string`*
 
-*Defined in [blockmap.ts:36](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/blockmap.ts#L36)*
-
-*__type__*: {String} format version
+*Defined in [blockmap.ts:36](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/blockmap.ts#L36)*
 
 ___
 

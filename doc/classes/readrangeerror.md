@@ -31,9 +31,9 @@
 
 ###  constructor
 
-⊕ **new ReadRangeError**(message: *`string`*, range: *[ReadRange](readrange.md)*, checksum?: *`undefined` \| `string`*): [ReadRangeError](readrangeerror.md)
+⊕ **new ReadRangeError**(message: *`string`*, range: *[ReadRange](readrange.md)*, checksum: *`undefined` \| `string`*): [ReadRangeError](readrangeerror.md)
 
-*Defined in [read-range.ts:46](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/read-range.ts#L46)*
+*Defined in [read-range.ts:46](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-range.ts#L46)*
 
 **Parameters:**
 
@@ -55,7 +55,7 @@ ___
 
 **● checksum**: *`undefined` \| `string`*
 
-*Defined in [read-range.ts:50](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/read-range.ts#L50)*
+*Defined in [read-range.ts:50](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-range.ts#L50)*
 
 ___
 <a id="message"></a>
@@ -86,7 +86,7 @@ ___
 
 **● range**: *[ReadRange](readrange.md)*
 
-*Defined in [read-range.ts:49](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/read-range.ts#L49)*
+*Defined in [read-range.ts:49](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-range.ts#L49)*
 
 ___
 <a id="stack"></a>

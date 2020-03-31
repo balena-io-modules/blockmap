@@ -33,7 +33,7 @@
 
 ⊕ **new ReadRange**(range: *[Range](range.md)*, blockSize: *`number`*): [ReadRange](readrange.md)
 
-*Defined in [read-range.ts:34](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/read-range.ts#L34)*
+*Defined in [read-range.ts:34](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-range.ts#L34)*
 
 **Parameters:**
 
@@ -54,9 +54,7 @@ ___
 
 **● checksum**: *`undefined` \| `string`*
 
-*Defined in [read-range.ts:22](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/read-range.ts#L22)*
-
-*__type__*: {String} Range checksum
+*Defined in [read-range.ts:22](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-range.ts#L22)*
 
 ___
 <a id="end"></a>
@@ -65,9 +63,7 @@ ___
 
 **● end**: *`number`*
 
-*Defined in [read-range.ts:26](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/read-range.ts#L26)*
-
-Range end offset in bytes
+*Defined in [read-range.ts:26](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-range.ts#L26)*
 
 ___
 <a id="endlba"></a>
@@ -76,9 +72,7 @@ ___
 
 **● endLBA**: *`number`*
 
-*Defined in [read-range.ts:32](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/read-range.ts#L32)*
-
-Range end LBA
+*Defined in [read-range.ts:32](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-range.ts#L32)*
 
 ___
 <a id="length"></a>
@@ -87,9 +81,7 @@ ___
 
 **● length**: *`number`*
 
-*Defined in [read-range.ts:28](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/read-range.ts#L28)*
-
-Range length in bytes
+*Defined in [read-range.ts:28](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-range.ts#L28)*
 
 ___
 <a id="offset"></a>
@@ -98,9 +90,7 @@ ___
 
 **● offset**: *`number`* = 0
 
-*Defined in [read-range.ts:34](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/read-range.ts#L34)*
-
-Byte offset within range
+*Defined in [read-range.ts:34](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-range.ts#L34)*
 
 ___
 <a id="range"></a>
@@ -109,7 +99,7 @@ ___
 
 **● range**: *[Range](range.md)*
 
-*Defined in [read-range.ts:36](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/read-range.ts#L36)*
+*Defined in [read-range.ts:36](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-range.ts#L36)*
 
 ___
 <a id="start"></a>
@@ -118,9 +108,7 @@ ___
 
 **● start**: *`number`*
 
-*Defined in [read-range.ts:24](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/read-range.ts#L24)*
-
-Range start offset in bytes
+*Defined in [read-range.ts:24](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-range.ts#L24)*
 
 ___
 <a id="startlba"></a>
@@ -129,9 +117,7 @@ ___
 
 **● startLBA**: *`number`*
 
-*Defined in [read-range.ts:30](https://github.com/balena-io-modules/blockmap/blob/cb9fb56/lib/read-range.ts#L30)*
-
-Range start LBA
+*Defined in [read-range.ts:30](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-range.ts#L30)*
 
 ___
 

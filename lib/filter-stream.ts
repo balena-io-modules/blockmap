@@ -96,9 +96,7 @@ export class FilterStream extends Transform {
 		this._hash = createHash(this.blockMap.checksumType);
 		if (this.verify && this.currentRange.checksum !== digest) {
 			const error = new ReadRangeError(
-				`Invalid checksum for range [${this.currentRange.startLBA},${
-					this.currentRange.endLBA
-				}], bytes ${this.currentRange.start}-${this.currentRange.end}`,
+				`Invalid checksum for range [${this.currentRange.startLBA},${this.currentRange.endLBA}], bytes ${this.currentRange.start}-${this.currentRange.end}`,
 				this.currentRange,
 				digest,
 			);
@@ -251,7 +249,7 @@ export class FilterStream extends Transform {
 	 * Flush out any unprocessed chunks from
 	 * the internal buffer once the stream is being ended
 	 */
-	protected _flush(done: () => void) {
+	public _flush(done: () => void) {
 		if (this._bytes) {
 			const chunk = Buffer.concat(this._chunks, this._bytes);
 			this._chunks = [];
