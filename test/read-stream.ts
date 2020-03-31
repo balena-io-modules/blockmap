@@ -382,7 +382,7 @@ describe('BlockMap.ReadStream', () => {
 	it('should throw if start is negative', () => {
 		const blockMap = new BlockMap(require('./data/version-2.0'));
 		assert.throws(() => {
-			// tslint:disable-next-line:no-unused-expression
+			// tslint:disable-next-line:no-unused-expression-chai
 			new ReadStream(0, blockMap, true, false, -1);
 		});
 	});
@@ -390,7 +390,7 @@ describe('BlockMap.ReadStream', () => {
 	it('should throw if end is negative', () => {
 		const blockMap = new BlockMap(require('./data/version-2.0'));
 		assert.throws(() => {
-			// tslint:disable-next-line:no-unused-expression
+			// tslint:disable-next-line:no-unused-expression-chai
 			new ReadStream(0, blockMap, true, false, 0, -1);
 		});
 	});
@@ -419,7 +419,7 @@ describe('BlockMap.ReadStream', () => {
 	it('should throw if start is greater than end', () => {
 		const blockMap = new BlockMap(require('./data/version-2.0'));
 		assert.throws(() => {
-			// tslint:disable-next-line:no-unused-expression
+			// tslint:disable-next-line:no-unused-expression-chai
 			new ReadStream(0, blockMap, true, false, blockMap.blockSize, 0);
 		});
 	});

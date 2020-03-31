@@ -96,9 +96,7 @@ export class FilterStream extends Transform {
 		this._hash = createHash(this.blockMap.checksumType);
 		if (this.verify && this.currentRange.checksum !== digest) {
 			const error = new ReadRangeError(
-				`Invalid checksum for range [${this.currentRange.startLBA},${
-					this.currentRange.endLBA
-				}], bytes ${this.currentRange.start}-${this.currentRange.end}`,
+				`Invalid checksum for range [${this.currentRange.startLBA},${this.currentRange.endLBA}], bytes ${this.currentRange.start}-${this.currentRange.end}`,
 				this.currentRange,
 				digest,
 			);
