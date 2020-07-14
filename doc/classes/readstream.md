@@ -1,16 +1,16 @@
-[blockmap](../README.md) > [ReadStream](../classes/readstream.md)
+[blockmap](../README.md) › [ReadStream](readstream.md)
 
 # Class: ReadStream
 
 ## Hierarchy
 
- `Readable`
+* Readable
 
-**↳ ReadStream**
+  ↳ **ReadStream**
 
 ## Implements
 
-* `ReadableStream`
+* ReadableStream
 
 ## Index
 
@@ -20,31 +20,31 @@
 
 ### Properties
 
-* [_hash](readstream.md#_hash)
-* [blockMap](readstream.md#blockmap)
+* [_hash](readstream.md#private-optional-_hash)
+* [blockMap](readstream.md#readonly-blockmap)
 * [blocksRead](readstream.md#blocksread)
 * [bytesRead](readstream.md#bytesread)
-* [chunkSize](readstream.md#chunksize)
-* [currentRange](readstream.md#currentrange)
-* [end](readstream.md#end)
-* [generateChecksums](readstream.md#generatechecksums)
+* [chunkSize](readstream.md#readonly-chunksize)
+* [currentRange](readstream.md#optional-currentrange)
+* [end](readstream.md#readonly-end)
+* [generateChecksums](readstream.md#readonly-generatechecksums)
 * [position](readstream.md#position)
 * [ranges](readstream.md#ranges)
 * [rangesRead](readstream.md#rangesread)
 * [rangesVerified](readstream.md#rangesverified)
-* [readFn](readstream.md#readfn)
+* [readFn](readstream.md#private-readfn)
 * [readable](readstream.md#readable)
-* [start](readstream.md#start)
-* [verify](readstream.md#verify)
-* [defaultMaxListeners](readstream.md#defaultmaxlisteners)
+* [start](readstream.md#readonly-start)
+* [verify](readstream.md#readonly-verify)
+* [defaultMaxListeners](readstream.md#static-defaultmaxlisteners)
 
 ### Methods
 
-* [_advanceRange](readstream.md#_advancerange)
-* [_prepareRanges](readstream.md#_prepareranges)
+* [_advanceRange](readstream.md#private-_advancerange)
+* [_prepareRanges](readstream.md#private-_prepareranges)
 * [_read](readstream.md#_read)
-* [_readBlock](readstream.md#_readblock)
-* [_verifyRange](readstream.md#_verifyrange)
+* [_readBlock](readstream.md#private-_readblock)
+* [_verifyRange](readstream.md#private-_verifyrange)
 * [addListener](readstream.md#addlistener)
 * [emit](readstream.md#emit)
 * [eventNames](readstream.md#eventnames)
@@ -68,1317 +68,1394 @@
 * [unpipe](readstream.md#unpipe)
 * [unshift](readstream.md#unshift)
 * [wrap](readstream.md#wrap)
-* [listenerCount](readstream.md#listenercount-1)
-
----
+* [listenerCount](readstream.md#static-listenercount)
 
 ## Constructors
 
-<a id="constructor"></a>
-
 ###  constructor
 
-⊕ **new ReadStream**(fdOrReadFn: *`number` \| [ReadFunction](../#readfunction)*, blockMap: *[BlockMap](blockmap.md)*, verify?: *`boolean`*, generateChecksums?: *`boolean`*, start?: *`number`*, end?: *`number`*, chunkSize?: *`number`*): [ReadStream](readstream.md)
+\+ **new ReadStream**(`fdOrReadFn`: number | [ReadFunction](../README.md#readfunction), `blockMap`: [BlockMap](blockmap.md), `verify`: boolean, `generateChecksums`: boolean, `start`: number, `end`: number, `chunkSize`: number): *[ReadStream](readstream.md)*
 
-*Overrides Readable.__constructor*
+*Overrides void*
 
-*Defined in [read-stream.ts:54](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L54)*
+*Defined in [lib/read-stream.ts:54](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-stream.ts#L54)*
 
 **Parameters:**
 
-| Name | Type | Default value |
-| ------ | ------ | ------ |
-| fdOrReadFn | `number` \| [ReadFunction](../#readfunction) | - |
-| blockMap | [BlockMap](blockmap.md) | - |
-| `Default value` verify | `boolean` | true |
-| `Default value` generateChecksums | `boolean` | false |
-| `Default value` start | `number` | 0 |
-| `Default value` end | `number` |  Infinity |
-| `Default value` chunkSize | `number` |  64 * 1024 |
+Name | Type | Default |
+------ | ------ | ------ |
+`fdOrReadFn` | number &#124; [ReadFunction](../README.md#readfunction) | - |
+`blockMap` | [BlockMap](blockmap.md) | - |
+`verify` | boolean | true |
+`generateChecksums` | boolean | false |
+`start` | number | 0 |
+`end` | number | Infinity |
+`chunkSize` | number | 64 * 1024 |
 
-**Returns:** [ReadStream](readstream.md)
-
-___
+**Returns:** *[ReadStream](readstream.md)*
 
 ## Properties
 
-<a id="_hash"></a>
+### `Private` `Optional` _hash
 
-### `<Private>``<Optional>` _hash
+• **_hash**? : *Hash*
 
-**● _hash**: *`Hash`*
+*Defined in [lib/read-stream.ts:51](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-stream.ts#L51)*
 
-*Defined in [read-stream.ts:51](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L51)*
-
-___
-<a id="blockmap"></a>
-
-###  blockMap
-
-**● blockMap**: *[BlockMap](blockmap.md)*
-
-*Defined in [read-stream.ts:58](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L58)*
+Hash stream to calculate range checksums
 
 ___
-<a id="blocksread"></a>
+
+### `Readonly` blockMap
+
+• **blockMap**: *[BlockMap](blockmap.md)*
+
+*Defined in [lib/read-stream.ts:58](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-stream.ts#L58)*
+
+___
 
 ###  blocksRead
 
-**● blocksRead**: *`number`* = 0
+• **blocksRead**: *number* = 0
 
-*Defined in [read-stream.ts:45](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L45)*
+*Defined in [lib/read-stream.ts:45](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-stream.ts#L45)*
+
+Number of blocks read
 
 ___
-<a id="bytesread"></a>
 
 ###  bytesRead
 
-**● bytesRead**: *`number`* = 0
+• **bytesRead**: *number* = 0
 
-*Defined in [read-stream.ts:47](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L47)*
+*Defined in [lib/read-stream.ts:47](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-stream.ts#L47)*
 
-___
-<a id="chunksize"></a>
-
-###  chunkSize
-
-**● chunkSize**: *`number`*
-
-*Defined in [read-stream.ts:63](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L63)*
+Number of bytes read
 
 ___
-<a id="currentrange"></a>
 
-### `<Optional>` currentRange
+### `Readonly` chunkSize
 
-**● currentRange**: *[ReadRange](readrange.md)*
+• **chunkSize**: *number*
 
-*Defined in [read-stream.ts:39](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L39)*
-
-___
-<a id="end"></a>
-
-###  end
-
-**● end**: *`number`*
-
-*Defined in [read-stream.ts:62](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L62)*
+*Defined in [lib/read-stream.ts:63](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-stream.ts#L63)*
 
 ___
-<a id="generatechecksums"></a>
 
-###  generateChecksums
+### `Optional` currentRange
 
-**● generateChecksums**: *`boolean`*
+• **currentRange**? : *[ReadRange](readrange.md)*
 
-*Defined in [read-stream.ts:60](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L60)*
+*Defined in [lib/read-stream.ts:39](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-stream.ts#L39)*
+
+Range being currently processed
 
 ___
-<a id="position"></a>
+
+### `Readonly` end
+
+• **end**: *number*
+
+*Defined in [lib/read-stream.ts:62](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-stream.ts#L62)*
+
+___
+
+### `Readonly` generateChecksums
+
+• **generateChecksums**: *boolean*
+
+*Defined in [lib/read-stream.ts:60](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-stream.ts#L60)*
+
+___
 
 ###  position
 
-**● position**: *`number`* = 0
+• **position**: *number* = 0
 
-*Defined in [read-stream.ts:49](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L49)*
+*Defined in [lib/read-stream.ts:49](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-stream.ts#L49)*
+
+Current offset in bytes
 
 ___
-<a id="ranges"></a>
 
 ###  ranges
 
-**● ranges**: *[ReadRange](readrange.md)[]*
+• **ranges**: *[ReadRange](readrange.md)[]*
 
-*Defined in [read-stream.ts:53](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L53)*
+*Defined in [lib/read-stream.ts:53](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-stream.ts#L53)*
+
+Ranges to be read from the image
 
 ___
-<a id="rangesread"></a>
 
 ###  rangesRead
 
-**● rangesRead**: *`number`* = 0
+• **rangesRead**: *number* = 0
 
-*Defined in [read-stream.ts:41](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L41)*
+*Defined in [lib/read-stream.ts:41](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-stream.ts#L41)*
+
+Number of block map ranges read
 
 ___
-<a id="rangesverified"></a>
 
 ###  rangesVerified
 
-**● rangesVerified**: *`number`* = 0
+• **rangesVerified**: *number* = 0
 
-*Defined in [read-stream.ts:43](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L43)*
+*Defined in [lib/read-stream.ts:43](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-stream.ts#L43)*
 
-___
-<a id="readfn"></a>
-
-### `<Private>` readFn
-
-**● readFn**: *[ReadFunction](../#readfunction)*
-
-*Defined in [read-stream.ts:54](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L54)*
+Number of block map ranges verified
 
 ___
-<a id="readable"></a>
+
+### `Private` readFn
+
+• **readFn**: *[ReadFunction](../README.md#readfunction)*
+
+*Defined in [lib/read-stream.ts:54](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-stream.ts#L54)*
+
+___
 
 ###  readable
 
-**● readable**: *`boolean`*
+• **readable**: *boolean*
 
-*Inherited from Readable.readable*
+*Inherited from [FilterStream](filterstream.md).[readable](filterstream.md#readable)*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3688*
-
-___
-<a id="start"></a>
-
-###  start
-
-**● start**: *`number`*
-
-*Defined in [read-stream.ts:61](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L61)*
+Defined in node_modules/@types/node/base.d.ts:3688
 
 ___
-<a id="verify"></a>
 
-###  verify
+### `Readonly` start
 
-**● verify**: *`boolean`*
+• **start**: *number*
 
-*Defined in [read-stream.ts:59](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L59)*
-
-___
-<a id="defaultmaxlisteners"></a>
-
-### `<Static>` defaultMaxListeners
-
-**● defaultMaxListeners**: *`number`*
-
-*Inherited from EventEmitter.defaultMaxListeners*
-
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:681*
+*Defined in [lib/read-stream.ts:61](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-stream.ts#L61)*
 
 ___
+
+### `Readonly` verify
+
+• **verify**: *boolean*
+
+*Defined in [lib/read-stream.ts:59](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-stream.ts#L59)*
+
+___
+
+### `Static` defaultMaxListeners
+
+▪ **defaultMaxListeners**: *number*
+
+*Inherited from [FilterStream](filterstream.md).[defaultMaxListeners](filterstream.md#static-defaultmaxlisteners)*
+
+Defined in node_modules/@types/node/base.d.ts:681
 
 ## Methods
 
-<a id="_advancerange"></a>
+### `Private` _advanceRange
 
-### `<Private>` _advanceRange
+▸ **_advanceRange**(): *Promise‹void›*
 
-▸ **_advanceRange**(): `Promise`<`void`>
+*Defined in [lib/read-stream.ts:215](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-stream.ts#L215)*
 
-*Defined in [read-stream.ts:215](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L215)*
+Advance to next the Range if there is one then read a block;
+else end the stream;
 
-**Returns:** `Promise`<`void`>
+**`see`** https://nodejs.org/api/stream.html#stream_implementing_a_readable_stream
 
-___
-<a id="_prepareranges"></a>
-
-### `<Private>` _prepareRanges
-
-▸ **_prepareRanges**(): [ReadRange](readrange.md)[]
-
-*Defined in [read-stream.ts:118](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L118)*
-
-**Returns:** [ReadRange](readrange.md)[]
+**Returns:** *Promise‹void›*
 
 ___
-<a id="_read"></a>
+
+### `Private` _prepareRanges
+
+▸ **_prepareRanges**(): *[ReadRange](readrange.md)[]*
+
+*Defined in [lib/read-stream.ts:118](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-stream.ts#L118)*
+
+Preprocess the `blockMap`'s ranges into byte-ranges
+with respect to the `start` offset, and an `offset`
+for tracking chunked range reading
+
+**Returns:** *[ReadRange](readrange.md)[]*
+
+___
 
 ###  _read
 
-▸ **_read**(): `Promise`<`void`>
+▸ **_read**(): *Promise‹void›*
 
-*Overrides Readable._read*
+*Overrides [FilterStream](filterstream.md).[_read](filterstream.md#_read)*
 
-*Defined in [read-stream.ts:231](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L231)*
+*Defined in [lib/read-stream.ts:231](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-stream.ts#L231)*
 
-**Returns:** `Promise`<`void`>
+Initiate a new read, advancing the range if necessary,
+and verifying checksums, if enabled
 
-___
-<a id="_readblock"></a>
+**`see`** https://nodejs.org/api/stream.html#stream_implementing_a_readable_stream
 
-### `<Private>` _readBlock
-
-▸ **_readBlock**(): `Promise`<`void`>
-
-*Defined in [read-stream.ts:167](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L167)*
-
-**Returns:** `Promise`<`void`>
+**Returns:** *Promise‹void›*
 
 ___
-<a id="_verifyrange"></a>
 
-### `<Private>` _verifyRange
+### `Private` _readBlock
 
-▸ **_verifyRange**(): `void`
+▸ **_readBlock**(): *Promise‹void›*
 
-*Defined in [read-stream.ts:140](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-stream.ts#L140)*
+*Defined in [lib/read-stream.ts:167](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-stream.ts#L167)*
 
-**Returns:** `void`
+Read the current range (or a chunk thereof),
+update state and emit the read block
+
+**Returns:** *Promise‹void›*
 
 ___
-<a id="addlistener"></a>
+
+### `Private` _verifyRange
+
+▸ **_verifyRange**(): *void*
+
+*Defined in [lib/read-stream.ts:140](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-stream.ts#L140)*
+
+Verify a fully read range's checksum against
+the range's checksum from the blockmap
+
+**Returns:** *void*
+
+___
 
 ###  addListener
 
-▸ **addListener**(event: *`string`*, listener: *`Function`*): `this`
+▸ **addListener**(`event`: string, `listener`: Function): *this*
 
-▸ **addListener**(event: *"close"*, listener: *`function`*): `this`
+*Inherited from [FilterStream](filterstream.md).[addListener](filterstream.md#addlistener)*
 
-▸ **addListener**(event: *"data"*, listener: *`function`*): `this`
+*Overrides void*
 
-▸ **addListener**(event: *"end"*, listener: *`function`*): `this`
+Defined in node_modules/@types/node/base.d.ts:3711
 
-▸ **addListener**(event: *"readable"*, listener: *`function`*): `this`
-
-▸ **addListener**(event: *"error"*, listener: *`function`*): `this`
-
-*Inherited from Readable.addListener*
-
-*Overrides EventEmitter.addListener*
-
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3711*
+Event emitter
+The defined events on documents including:
+  1. close
+  2. data
+  3. end
+  4. readable
+  5. error
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| event | `string` |
-| listener | `Function` |
+Name | Type |
+------ | ------ |
+`event` | string |
+`listener` | Function |
 
-**Returns:** `this`
+**Returns:** *this*
 
-*Inherited from Readable.addListener*
+▸ **addListener**(`event`: "close", `listener`: function): *this*
 
-*Overrides EventEmitter.addListener*
+*Inherited from [FilterStream](filterstream.md).[addListener](filterstream.md#addlistener)*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3712*
+*Overrides void*
 
-**Parameters:**
-
-| Name | Type |
-| ------ | ------ |
-| event | "close" |
-| listener | `function` |
-
-**Returns:** `this`
-
-*Inherited from Readable.addListener*
-
-*Overrides EventEmitter.addListener*
-
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3713*
+Defined in node_modules/@types/node/base.d.ts:3712
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| event | "data" |
-| listener | `function` |
+▪ **event**: *"close"*
 
-**Returns:** `this`
+▪ **listener**: *function*
 
-*Inherited from Readable.addListener*
+▸ (): *void*
 
-*Overrides EventEmitter.addListener*
+**Returns:** *this*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3714*
+▸ **addListener**(`event`: "data", `listener`: function): *this*
 
-**Parameters:**
+*Inherited from [FilterStream](filterstream.md).[addListener](filterstream.md#addlistener)*
 
-| Name | Type |
-| ------ | ------ |
-| event | "end" |
-| listener | `function` |
+*Overrides void*
 
-**Returns:** `this`
-
-*Inherited from Readable.addListener*
-
-*Overrides EventEmitter.addListener*
-
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3715*
+Defined in node_modules/@types/node/base.d.ts:3713
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| event | "readable" |
-| listener | `function` |
+▪ **event**: *"data"*
 
-**Returns:** `this`
+▪ **listener**: *function*
 
-*Inherited from Readable.addListener*
-
-*Overrides EventEmitter.addListener*
-
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3716*
+▸ (`chunk`: Buffer | string): *void*
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| event | "error" |
-| listener | `function` |
+Name | Type |
+------ | ------ |
+`chunk` | Buffer &#124; string |
 
-**Returns:** `this`
+**Returns:** *this*
+
+▸ **addListener**(`event`: "end", `listener`: function): *this*
+
+*Inherited from [FilterStream](filterstream.md).[addListener](filterstream.md#addlistener)*
+
+*Overrides void*
+
+Defined in node_modules/@types/node/base.d.ts:3714
+
+**Parameters:**
+
+▪ **event**: *"end"*
+
+▪ **listener**: *function*
+
+▸ (): *void*
+
+**Returns:** *this*
+
+▸ **addListener**(`event`: "readable", `listener`: function): *this*
+
+*Inherited from [FilterStream](filterstream.md).[addListener](filterstream.md#addlistener)*
+
+*Overrides void*
+
+Defined in node_modules/@types/node/base.d.ts:3715
+
+**Parameters:**
+
+▪ **event**: *"readable"*
+
+▪ **listener**: *function*
+
+▸ (): *void*
+
+**Returns:** *this*
+
+▸ **addListener**(`event`: "error", `listener`: function): *this*
+
+*Inherited from [FilterStream](filterstream.md).[addListener](filterstream.md#addlistener)*
+
+*Overrides void*
+
+Defined in node_modules/@types/node/base.d.ts:3716
+
+**Parameters:**
+
+▪ **event**: *"error"*
+
+▪ **listener**: *function*
+
+▸ (`err`: [Error](readrangeerror.md#static-error)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`err` | [Error](readrangeerror.md#static-error) |
+
+**Returns:** *this*
 
 ___
-<a id="emit"></a>
 
 ###  emit
 
-▸ **emit**(event: *`string` \| `symbol`*, args: *`any`[]*): `boolean`
+▸ **emit**(`event`: string | symbol, ...`args`: any[]): *boolean*
 
-▸ **emit**(event: *"close"*): `boolean`
+*Inherited from [FilterStream](filterstream.md).[emit](filterstream.md#emit)*
 
-▸ **emit**(event: *"data"*, chunk: *`Buffer` \| `string`*): `boolean`
+*Overrides void*
 
-▸ **emit**(event: *"end"*): `boolean`
-
-▸ **emit**(event: *"readable"*): `boolean`
-
-▸ **emit**(event: *"error"*, err: *`Error`*): `boolean`
-
-*Inherited from Readable.emit*
-
-*Overrides EventEmitter.emit*
-
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3718*
+Defined in node_modules/@types/node/base.d.ts:3718
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| event | `string` \| `symbol` |
-| `Rest` args | `any`[] |
+Name | Type |
+------ | ------ |
+`event` | string &#124; symbol |
+`...args` | any[] |
 
-**Returns:** `boolean`
+**Returns:** *boolean*
 
-*Inherited from Readable.emit*
+▸ **emit**(`event`: "close"): *boolean*
 
-*Overrides EventEmitter.emit*
+*Inherited from [FilterStream](filterstream.md).[emit](filterstream.md#emit)*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3719*
+*Overrides void*
 
-**Parameters:**
-
-| Name | Type |
-| ------ | ------ |
-| event | "close" |
-
-**Returns:** `boolean`
-
-*Inherited from Readable.emit*
-
-*Overrides EventEmitter.emit*
-
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3720*
+Defined in node_modules/@types/node/base.d.ts:3719
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| event | "data" |
-| chunk | `Buffer` \| `string` |
+Name | Type |
+------ | ------ |
+`event` | "close" |
 
-**Returns:** `boolean`
+**Returns:** *boolean*
 
-*Inherited from Readable.emit*
+▸ **emit**(`event`: "data", `chunk`: Buffer | string): *boolean*
 
-*Overrides EventEmitter.emit*
+*Inherited from [FilterStream](filterstream.md).[emit](filterstream.md#emit)*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3721*
+*Overrides void*
 
-**Parameters:**
-
-| Name | Type |
-| ------ | ------ |
-| event | "end" |
-
-**Returns:** `boolean`
-
-*Inherited from Readable.emit*
-
-*Overrides EventEmitter.emit*
-
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3722*
+Defined in node_modules/@types/node/base.d.ts:3720
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| event | "readable" |
+Name | Type |
+------ | ------ |
+`event` | "data" |
+`chunk` | Buffer &#124; string |
 
-**Returns:** `boolean`
+**Returns:** *boolean*
 
-*Inherited from Readable.emit*
+▸ **emit**(`event`: "end"): *boolean*
 
-*Overrides EventEmitter.emit*
+*Inherited from [FilterStream](filterstream.md).[emit](filterstream.md#emit)*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3723*
+*Overrides void*
+
+Defined in node_modules/@types/node/base.d.ts:3721
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| event | "error" |
-| err | `Error` |
+Name | Type |
+------ | ------ |
+`event` | "end" |
 
-**Returns:** `boolean`
+**Returns:** *boolean*
+
+▸ **emit**(`event`: "readable"): *boolean*
+
+*Inherited from [FilterStream](filterstream.md).[emit](filterstream.md#emit)*
+
+*Overrides void*
+
+Defined in node_modules/@types/node/base.d.ts:3722
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`event` | "readable" |
+
+**Returns:** *boolean*
+
+▸ **emit**(`event`: "error", `err`: [Error](readrangeerror.md#static-error)): *boolean*
+
+*Inherited from [FilterStream](filterstream.md).[emit](filterstream.md#emit)*
+
+*Overrides void*
+
+Defined in node_modules/@types/node/base.d.ts:3723
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`event` | "error" |
+`err` | [Error](readrangeerror.md#static-error) |
+
+**Returns:** *boolean*
 
 ___
-<a id="eventnames"></a>
 
 ###  eventNames
 
-▸ **eventNames**(): (`string` \| `symbol`)[]
+▸ **eventNames**(): *string | symbol[]*
 
-*Inherited from EventEmitter.eventNames*
+*Inherited from [FilterStream](filterstream.md).[eventNames](filterstream.md#eventnames)*
 
-*Overrides EventEmitter.eventNames*
+Defined in node_modules/@types/node/base.d.ts:694
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:694*
-
-**Returns:** (`string` \| `symbol`)[]
+**Returns:** *string | symbol[]*
 
 ___
-<a id="getmaxlisteners"></a>
 
 ###  getMaxListeners
 
-▸ **getMaxListeners**(): `number`
+▸ **getMaxListeners**(): *number*
 
-*Inherited from EventEmitter.getMaxListeners*
+*Inherited from [FilterStream](filterstream.md).[getMaxListeners](filterstream.md#getmaxlisteners)*
 
-*Overrides EventEmitter.getMaxListeners*
+Defined in node_modules/@types/node/base.d.ts:691
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:691*
-
-**Returns:** `number`
+**Returns:** *number*
 
 ___
-<a id="ispaused"></a>
 
 ###  isPaused
 
-▸ **isPaused**(): `boolean`
+▸ **isPaused**(): *boolean*
 
-*Inherited from Readable.isPaused*
+*Inherited from [FilterStream](filterstream.md).[isPaused](filterstream.md#ispaused)*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3695*
+Defined in node_modules/@types/node/base.d.ts:3695
 
-**Returns:** `boolean`
+**Returns:** *boolean*
 
 ___
-<a id="listenercount"></a>
 
 ###  listenerCount
 
-▸ **listenerCount**(type: *`string` \| `symbol`*): `number`
+▸ **listenerCount**(`type`: string | symbol): *number*
 
-*Inherited from EventEmitter.listenerCount*
+*Inherited from [FilterStream](filterstream.md).[listenerCount](filterstream.md#static-listenercount)*
 
-*Overrides EventEmitter.listenerCount*
-
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:695*
+Defined in node_modules/@types/node/base.d.ts:695
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| type | `string` \| `symbol` |
+Name | Type |
+------ | ------ |
+`type` | string &#124; symbol |
 
-**Returns:** `number`
+**Returns:** *number*
 
 ___
-<a id="listeners"></a>
 
 ###  listeners
 
-▸ **listeners**(event: *`string` \| `symbol`*): `Function`[]
+▸ **listeners**(`event`: string | symbol): *Function[]*
 
-*Inherited from EventEmitter.listeners*
+*Inherited from [FilterStream](filterstream.md).[listeners](filterstream.md#listeners)*
 
-*Overrides EventEmitter.listeners*
-
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:692*
+Defined in node_modules/@types/node/base.d.ts:692
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| event | `string` \| `symbol` |
+Name | Type |
+------ | ------ |
+`event` | string &#124; symbol |
 
-**Returns:** `Function`[]
+**Returns:** *Function[]*
 
 ___
-<a id="on"></a>
 
 ###  on
 
-▸ **on**(event: *`string`*, listener: *`Function`*): `this`
+▸ **on**(`event`: string, `listener`: Function): *this*
 
-▸ **on**(event: *"close"*, listener: *`function`*): `this`
+*Inherited from [FilterStream](filterstream.md).[on](filterstream.md#on)*
 
-▸ **on**(event: *"data"*, listener: *`function`*): `this`
+*Overrides void*
 
-▸ **on**(event: *"end"*, listener: *`function`*): `this`
-
-▸ **on**(event: *"readable"*, listener: *`function`*): `this`
-
-▸ **on**(event: *"error"*, listener: *`function`*): `this`
-
-*Inherited from Readable.on*
-
-*Overrides EventEmitter.on*
-
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3725*
+Defined in node_modules/@types/node/base.d.ts:3725
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| event | `string` |
-| listener | `Function` |
+Name | Type |
+------ | ------ |
+`event` | string |
+`listener` | Function |
 
-**Returns:** `this`
+**Returns:** *this*
 
-*Inherited from Readable.on*
+▸ **on**(`event`: "close", `listener`: function): *this*
 
-*Overrides EventEmitter.on*
+*Inherited from [FilterStream](filterstream.md).[on](filterstream.md#on)*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3726*
+*Overrides void*
 
-**Parameters:**
-
-| Name | Type |
-| ------ | ------ |
-| event | "close" |
-| listener | `function` |
-
-**Returns:** `this`
-
-*Inherited from Readable.on*
-
-*Overrides EventEmitter.on*
-
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3727*
+Defined in node_modules/@types/node/base.d.ts:3726
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| event | "data" |
-| listener | `function` |
+▪ **event**: *"close"*
 
-**Returns:** `this`
+▪ **listener**: *function*
 
-*Inherited from Readable.on*
+▸ (): *void*
 
-*Overrides EventEmitter.on*
+**Returns:** *this*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3728*
+▸ **on**(`event`: "data", `listener`: function): *this*
 
-**Parameters:**
+*Inherited from [FilterStream](filterstream.md).[on](filterstream.md#on)*
 
-| Name | Type |
-| ------ | ------ |
-| event | "end" |
-| listener | `function` |
+*Overrides void*
 
-**Returns:** `this`
-
-*Inherited from Readable.on*
-
-*Overrides EventEmitter.on*
-
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3729*
+Defined in node_modules/@types/node/base.d.ts:3727
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| event | "readable" |
-| listener | `function` |
+▪ **event**: *"data"*
 
-**Returns:** `this`
+▪ **listener**: *function*
 
-*Inherited from Readable.on*
-
-*Overrides EventEmitter.on*
-
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3730*
+▸ (`chunk`: Buffer | string): *void*
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| event | "error" |
-| listener | `function` |
+Name | Type |
+------ | ------ |
+`chunk` | Buffer &#124; string |
 
-**Returns:** `this`
+**Returns:** *this*
+
+▸ **on**(`event`: "end", `listener`: function): *this*
+
+*Inherited from [FilterStream](filterstream.md).[on](filterstream.md#on)*
+
+*Overrides void*
+
+Defined in node_modules/@types/node/base.d.ts:3728
+
+**Parameters:**
+
+▪ **event**: *"end"*
+
+▪ **listener**: *function*
+
+▸ (): *void*
+
+**Returns:** *this*
+
+▸ **on**(`event`: "readable", `listener`: function): *this*
+
+*Inherited from [FilterStream](filterstream.md).[on](filterstream.md#on)*
+
+*Overrides void*
+
+Defined in node_modules/@types/node/base.d.ts:3729
+
+**Parameters:**
+
+▪ **event**: *"readable"*
+
+▪ **listener**: *function*
+
+▸ (): *void*
+
+**Returns:** *this*
+
+▸ **on**(`event`: "error", `listener`: function): *this*
+
+*Inherited from [FilterStream](filterstream.md).[on](filterstream.md#on)*
+
+*Overrides void*
+
+Defined in node_modules/@types/node/base.d.ts:3730
+
+**Parameters:**
+
+▪ **event**: *"error"*
+
+▪ **listener**: *function*
+
+▸ (`err`: [Error](readrangeerror.md#static-error)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`err` | [Error](readrangeerror.md#static-error) |
+
+**Returns:** *this*
 
 ___
-<a id="once"></a>
 
 ###  once
 
-▸ **once**(event: *`string`*, listener: *`Function`*): `this`
+▸ **once**(`event`: string, `listener`: Function): *this*
 
-▸ **once**(event: *"close"*, listener: *`function`*): `this`
+*Inherited from [FilterStream](filterstream.md).[once](filterstream.md#once)*
 
-▸ **once**(event: *"data"*, listener: *`function`*): `this`
+*Overrides void*
 
-▸ **once**(event: *"end"*, listener: *`function`*): `this`
-
-▸ **once**(event: *"readable"*, listener: *`function`*): `this`
-
-▸ **once**(event: *"error"*, listener: *`function`*): `this`
-
-*Inherited from Readable.once*
-
-*Overrides EventEmitter.once*
-
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3732*
+Defined in node_modules/@types/node/base.d.ts:3732
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| event | `string` |
-| listener | `Function` |
+Name | Type |
+------ | ------ |
+`event` | string |
+`listener` | Function |
 
-**Returns:** `this`
+**Returns:** *this*
 
-*Inherited from Readable.once*
+▸ **once**(`event`: "close", `listener`: function): *this*
 
-*Overrides EventEmitter.once*
+*Inherited from [FilterStream](filterstream.md).[once](filterstream.md#once)*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3733*
+*Overrides void*
 
-**Parameters:**
-
-| Name | Type |
-| ------ | ------ |
-| event | "close" |
-| listener | `function` |
-
-**Returns:** `this`
-
-*Inherited from Readable.once*
-
-*Overrides EventEmitter.once*
-
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3734*
+Defined in node_modules/@types/node/base.d.ts:3733
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| event | "data" |
-| listener | `function` |
+▪ **event**: *"close"*
 
-**Returns:** `this`
+▪ **listener**: *function*
 
-*Inherited from Readable.once*
+▸ (): *void*
 
-*Overrides EventEmitter.once*
+**Returns:** *this*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3735*
+▸ **once**(`event`: "data", `listener`: function): *this*
 
-**Parameters:**
+*Inherited from [FilterStream](filterstream.md).[once](filterstream.md#once)*
 
-| Name | Type |
-| ------ | ------ |
-| event | "end" |
-| listener | `function` |
+*Overrides void*
 
-**Returns:** `this`
-
-*Inherited from Readable.once*
-
-*Overrides EventEmitter.once*
-
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3736*
+Defined in node_modules/@types/node/base.d.ts:3734
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| event | "readable" |
-| listener | `function` |
+▪ **event**: *"data"*
 
-**Returns:** `this`
+▪ **listener**: *function*
 
-*Inherited from Readable.once*
-
-*Overrides EventEmitter.once*
-
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3737*
+▸ (`chunk`: Buffer | string): *void*
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| event | "error" |
-| listener | `function` |
+Name | Type |
+------ | ------ |
+`chunk` | Buffer &#124; string |
 
-**Returns:** `this`
+**Returns:** *this*
+
+▸ **once**(`event`: "end", `listener`: function): *this*
+
+*Inherited from [FilterStream](filterstream.md).[once](filterstream.md#once)*
+
+*Overrides void*
+
+Defined in node_modules/@types/node/base.d.ts:3735
+
+**Parameters:**
+
+▪ **event**: *"end"*
+
+▪ **listener**: *function*
+
+▸ (): *void*
+
+**Returns:** *this*
+
+▸ **once**(`event`: "readable", `listener`: function): *this*
+
+*Inherited from [FilterStream](filterstream.md).[once](filterstream.md#once)*
+
+*Overrides void*
+
+Defined in node_modules/@types/node/base.d.ts:3736
+
+**Parameters:**
+
+▪ **event**: *"readable"*
+
+▪ **listener**: *function*
+
+▸ (): *void*
+
+**Returns:** *this*
+
+▸ **once**(`event`: "error", `listener`: function): *this*
+
+*Inherited from [FilterStream](filterstream.md).[once](filterstream.md#once)*
+
+*Overrides void*
+
+Defined in node_modules/@types/node/base.d.ts:3737
+
+**Parameters:**
+
+▪ **event**: *"error"*
+
+▪ **listener**: *function*
+
+▸ (`err`: [Error](readrangeerror.md#static-error)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`err` | [Error](readrangeerror.md#static-error) |
+
+**Returns:** *this*
 
 ___
-<a id="pause"></a>
 
 ###  pause
 
-▸ **pause**(): `this`
+▸ **pause**(): *this*
 
-*Inherited from Readable.pause*
+*Inherited from [FilterStream](filterstream.md).[pause](filterstream.md#pause)*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3693*
+Defined in node_modules/@types/node/base.d.ts:3693
 
-**Returns:** `this`
+**Returns:** *this*
 
 ___
-<a id="pipe"></a>
 
 ###  pipe
 
-▸ **pipe**<`T`>(destination: *`T`*, options: *`undefined` \| `object`*): `T`
+▸ **pipe**‹**T**›(`destination`: T, `options?`: undefined | object): *T*
 
-*Inherited from Readable.pipe*
+*Inherited from [FilterStream](filterstream.md).[pipe](filterstream.md#pipe)*
 
-*Overrides internal.pipe*
+*Overrides void*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3696*
+Defined in node_modules/@types/node/base.d.ts:3696
 
 **Type parameters:**
 
-#### T :  `WritableStream`
+▪ **T**: *WritableStream*
+
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| destination | `T` |
-| `Optional` options | `undefined` \| `object` |
+Name | Type |
+------ | ------ |
+`destination` | T |
+`options?` | undefined &#124; object |
 
-**Returns:** `T`
+**Returns:** *T*
 
 ___
-<a id="prependlistener"></a>
 
 ###  prependListener
 
-▸ **prependListener**(event: *`string`*, listener: *`Function`*): `this`
+▸ **prependListener**(`event`: string, `listener`: Function): *this*
 
-▸ **prependListener**(event: *"close"*, listener: *`function`*): `this`
+*Inherited from [FilterStream](filterstream.md).[prependListener](filterstream.md#prependlistener)*
 
-▸ **prependListener**(event: *"data"*, listener: *`function`*): `this`
+*Overrides void*
 
-▸ **prependListener**(event: *"end"*, listener: *`function`*): `this`
-
-▸ **prependListener**(event: *"readable"*, listener: *`function`*): `this`
-
-▸ **prependListener**(event: *"error"*, listener: *`function`*): `this`
-
-*Inherited from Readable.prependListener*
-
-*Overrides EventEmitter.prependListener*
-
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3739*
+Defined in node_modules/@types/node/base.d.ts:3739
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| event | `string` |
-| listener | `Function` |
+Name | Type |
+------ | ------ |
+`event` | string |
+`listener` | Function |
 
-**Returns:** `this`
+**Returns:** *this*
 
-*Inherited from Readable.prependListener*
+▸ **prependListener**(`event`: "close", `listener`: function): *this*
 
-*Overrides EventEmitter.prependListener*
+*Inherited from [FilterStream](filterstream.md).[prependListener](filterstream.md#prependlistener)*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3740*
+*Overrides void*
 
-**Parameters:**
-
-| Name | Type |
-| ------ | ------ |
-| event | "close" |
-| listener | `function` |
-
-**Returns:** `this`
-
-*Inherited from Readable.prependListener*
-
-*Overrides EventEmitter.prependListener*
-
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3741*
+Defined in node_modules/@types/node/base.d.ts:3740
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| event | "data" |
-| listener | `function` |
+▪ **event**: *"close"*
 
-**Returns:** `this`
+▪ **listener**: *function*
 
-*Inherited from Readable.prependListener*
+▸ (): *void*
 
-*Overrides EventEmitter.prependListener*
+**Returns:** *this*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3742*
+▸ **prependListener**(`event`: "data", `listener`: function): *this*
 
-**Parameters:**
+*Inherited from [FilterStream](filterstream.md).[prependListener](filterstream.md#prependlistener)*
 
-| Name | Type |
-| ------ | ------ |
-| event | "end" |
-| listener | `function` |
+*Overrides void*
 
-**Returns:** `this`
-
-*Inherited from Readable.prependListener*
-
-*Overrides EventEmitter.prependListener*
-
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3743*
+Defined in node_modules/@types/node/base.d.ts:3741
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| event | "readable" |
-| listener | `function` |
+▪ **event**: *"data"*
 
-**Returns:** `this`
+▪ **listener**: *function*
 
-*Inherited from Readable.prependListener*
-
-*Overrides EventEmitter.prependListener*
-
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3744*
+▸ (`chunk`: Buffer | string): *void*
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| event | "error" |
-| listener | `function` |
+Name | Type |
+------ | ------ |
+`chunk` | Buffer &#124; string |
 
-**Returns:** `this`
+**Returns:** *this*
+
+▸ **prependListener**(`event`: "end", `listener`: function): *this*
+
+*Inherited from [FilterStream](filterstream.md).[prependListener](filterstream.md#prependlistener)*
+
+*Overrides void*
+
+Defined in node_modules/@types/node/base.d.ts:3742
+
+**Parameters:**
+
+▪ **event**: *"end"*
+
+▪ **listener**: *function*
+
+▸ (): *void*
+
+**Returns:** *this*
+
+▸ **prependListener**(`event`: "readable", `listener`: function): *this*
+
+*Inherited from [FilterStream](filterstream.md).[prependListener](filterstream.md#prependlistener)*
+
+*Overrides void*
+
+Defined in node_modules/@types/node/base.d.ts:3743
+
+**Parameters:**
+
+▪ **event**: *"readable"*
+
+▪ **listener**: *function*
+
+▸ (): *void*
+
+**Returns:** *this*
+
+▸ **prependListener**(`event`: "error", `listener`: function): *this*
+
+*Inherited from [FilterStream](filterstream.md).[prependListener](filterstream.md#prependlistener)*
+
+*Overrides void*
+
+Defined in node_modules/@types/node/base.d.ts:3744
+
+**Parameters:**
+
+▪ **event**: *"error"*
+
+▪ **listener**: *function*
+
+▸ (`err`: [Error](readrangeerror.md#static-error)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`err` | [Error](readrangeerror.md#static-error) |
+
+**Returns:** *this*
 
 ___
-<a id="prependoncelistener"></a>
 
 ###  prependOnceListener
 
-▸ **prependOnceListener**(event: *`string`*, listener: *`Function`*): `this`
+▸ **prependOnceListener**(`event`: string, `listener`: Function): *this*
 
-▸ **prependOnceListener**(event: *"close"*, listener: *`function`*): `this`
+*Inherited from [FilterStream](filterstream.md).[prependOnceListener](filterstream.md#prependoncelistener)*
 
-▸ **prependOnceListener**(event: *"data"*, listener: *`function`*): `this`
+*Overrides void*
 
-▸ **prependOnceListener**(event: *"end"*, listener: *`function`*): `this`
-
-▸ **prependOnceListener**(event: *"readable"*, listener: *`function`*): `this`
-
-▸ **prependOnceListener**(event: *"error"*, listener: *`function`*): `this`
-
-*Inherited from Readable.prependOnceListener*
-
-*Overrides EventEmitter.prependOnceListener*
-
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3746*
+Defined in node_modules/@types/node/base.d.ts:3746
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| event | `string` |
-| listener | `Function` |
+Name | Type |
+------ | ------ |
+`event` | string |
+`listener` | Function |
 
-**Returns:** `this`
+**Returns:** *this*
 
-*Inherited from Readable.prependOnceListener*
+▸ **prependOnceListener**(`event`: "close", `listener`: function): *this*
 
-*Overrides EventEmitter.prependOnceListener*
+*Inherited from [FilterStream](filterstream.md).[prependOnceListener](filterstream.md#prependoncelistener)*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3747*
+*Overrides void*
 
-**Parameters:**
-
-| Name | Type |
-| ------ | ------ |
-| event | "close" |
-| listener | `function` |
-
-**Returns:** `this`
-
-*Inherited from Readable.prependOnceListener*
-
-*Overrides EventEmitter.prependOnceListener*
-
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3748*
+Defined in node_modules/@types/node/base.d.ts:3747
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| event | "data" |
-| listener | `function` |
+▪ **event**: *"close"*
 
-**Returns:** `this`
+▪ **listener**: *function*
 
-*Inherited from Readable.prependOnceListener*
+▸ (): *void*
 
-*Overrides EventEmitter.prependOnceListener*
+**Returns:** *this*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3749*
+▸ **prependOnceListener**(`event`: "data", `listener`: function): *this*
 
-**Parameters:**
+*Inherited from [FilterStream](filterstream.md).[prependOnceListener](filterstream.md#prependoncelistener)*
 
-| Name | Type |
-| ------ | ------ |
-| event | "end" |
-| listener | `function` |
+*Overrides void*
 
-**Returns:** `this`
-
-*Inherited from Readable.prependOnceListener*
-
-*Overrides EventEmitter.prependOnceListener*
-
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3750*
+Defined in node_modules/@types/node/base.d.ts:3748
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| event | "readable" |
-| listener | `function` |
+▪ **event**: *"data"*
 
-**Returns:** `this`
+▪ **listener**: *function*
 
-*Inherited from Readable.prependOnceListener*
-
-*Overrides EventEmitter.prependOnceListener*
-
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3751*
+▸ (`chunk`: Buffer | string): *void*
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| event | "error" |
-| listener | `function` |
+Name | Type |
+------ | ------ |
+`chunk` | Buffer &#124; string |
 
-**Returns:** `this`
+**Returns:** *this*
+
+▸ **prependOnceListener**(`event`: "end", `listener`: function): *this*
+
+*Inherited from [FilterStream](filterstream.md).[prependOnceListener](filterstream.md#prependoncelistener)*
+
+*Overrides void*
+
+Defined in node_modules/@types/node/base.d.ts:3749
+
+**Parameters:**
+
+▪ **event**: *"end"*
+
+▪ **listener**: *function*
+
+▸ (): *void*
+
+**Returns:** *this*
+
+▸ **prependOnceListener**(`event`: "readable", `listener`: function): *this*
+
+*Inherited from [FilterStream](filterstream.md).[prependOnceListener](filterstream.md#prependoncelistener)*
+
+*Overrides void*
+
+Defined in node_modules/@types/node/base.d.ts:3750
+
+**Parameters:**
+
+▪ **event**: *"readable"*
+
+▪ **listener**: *function*
+
+▸ (): *void*
+
+**Returns:** *this*
+
+▸ **prependOnceListener**(`event`: "error", `listener`: function): *this*
+
+*Inherited from [FilterStream](filterstream.md).[prependOnceListener](filterstream.md#prependoncelistener)*
+
+*Overrides void*
+
+Defined in node_modules/@types/node/base.d.ts:3751
+
+**Parameters:**
+
+▪ **event**: *"error"*
+
+▪ **listener**: *function*
+
+▸ (`err`: [Error](readrangeerror.md#static-error)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`err` | [Error](readrangeerror.md#static-error) |
+
+**Returns:** *this*
 
 ___
-<a id="push"></a>
 
 ###  push
 
-▸ **push**(chunk: *`any`*, encoding: *`undefined` \| `string`*): `boolean`
+▸ **push**(`chunk`: any, `encoding?`: undefined | string): *boolean*
 
-*Inherited from Readable.push*
+*Inherited from [FilterStream](filterstream.md).[push](filterstream.md#push)*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3700*
+Defined in node_modules/@types/node/base.d.ts:3700
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| chunk | `any` |
-| `Optional` encoding | `undefined` \| `string` |
+Name | Type |
+------ | ------ |
+`chunk` | any |
+`encoding?` | undefined &#124; string |
 
-**Returns:** `boolean`
+**Returns:** *boolean*
 
 ___
-<a id="read"></a>
 
 ###  read
 
-▸ **read**(size: *`undefined` \| `number`*): `any`
+▸ **read**(`size?`: undefined | number): *any*
 
-*Inherited from Readable.read*
+*Inherited from [FilterStream](filterstream.md).[read](filterstream.md#read)*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3691*
+Defined in node_modules/@types/node/base.d.ts:3691
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| `Optional` size | `undefined` \| `number` |
+Name | Type |
+------ | ------ |
+`size?` | undefined &#124; number |
 
-**Returns:** `any`
+**Returns:** *any*
 
 ___
-<a id="removealllisteners"></a>
 
 ###  removeAllListeners
 
-▸ **removeAllListeners**(event: *`string` \| `symbol`*): `this`
+▸ **removeAllListeners**(`event?`: string | symbol): *this*
 
-*Inherited from EventEmitter.removeAllListeners*
+*Inherited from [FilterStream](filterstream.md).[removeAllListeners](filterstream.md#removealllisteners)*
 
-*Overrides EventEmitter.removeAllListeners*
-
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:689*
+Defined in node_modules/@types/node/base.d.ts:689
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| `Optional` event | `string` \| `symbol` |
+Name | Type |
+------ | ------ |
+`event?` | string &#124; symbol |
 
-**Returns:** `this`
+**Returns:** *this*
 
 ___
-<a id="removelistener"></a>
 
 ###  removeListener
 
-▸ **removeListener**(event: *`string`*, listener: *`Function`*): `this`
+▸ **removeListener**(`event`: string, `listener`: Function): *this*
 
-▸ **removeListener**(event: *"close"*, listener: *`function`*): `this`
+*Inherited from [FilterStream](filterstream.md).[removeListener](filterstream.md#removelistener)*
 
-▸ **removeListener**(event: *"data"*, listener: *`function`*): `this`
+*Overrides void*
 
-▸ **removeListener**(event: *"end"*, listener: *`function`*): `this`
-
-▸ **removeListener**(event: *"readable"*, listener: *`function`*): `this`
-
-▸ **removeListener**(event: *"error"*, listener: *`function`*): `this`
-
-*Inherited from Readable.removeListener*
-
-*Overrides EventEmitter.removeListener*
-
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3753*
+Defined in node_modules/@types/node/base.d.ts:3753
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| event | `string` |
-| listener | `Function` |
+Name | Type |
+------ | ------ |
+`event` | string |
+`listener` | Function |
 
-**Returns:** `this`
+**Returns:** *this*
 
-*Inherited from Readable.removeListener*
+▸ **removeListener**(`event`: "close", `listener`: function): *this*
 
-*Overrides EventEmitter.removeListener*
+*Inherited from [FilterStream](filterstream.md).[removeListener](filterstream.md#removelistener)*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3754*
+*Overrides void*
 
-**Parameters:**
-
-| Name | Type |
-| ------ | ------ |
-| event | "close" |
-| listener | `function` |
-
-**Returns:** `this`
-
-*Inherited from Readable.removeListener*
-
-*Overrides EventEmitter.removeListener*
-
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3755*
+Defined in node_modules/@types/node/base.d.ts:3754
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| event | "data" |
-| listener | `function` |
+▪ **event**: *"close"*
 
-**Returns:** `this`
+▪ **listener**: *function*
 
-*Inherited from Readable.removeListener*
+▸ (): *void*
 
-*Overrides EventEmitter.removeListener*
+**Returns:** *this*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3756*
+▸ **removeListener**(`event`: "data", `listener`: function): *this*
 
-**Parameters:**
+*Inherited from [FilterStream](filterstream.md).[removeListener](filterstream.md#removelistener)*
 
-| Name | Type |
-| ------ | ------ |
-| event | "end" |
-| listener | `function` |
+*Overrides void*
 
-**Returns:** `this`
-
-*Inherited from Readable.removeListener*
-
-*Overrides EventEmitter.removeListener*
-
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3757*
+Defined in node_modules/@types/node/base.d.ts:3755
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| event | "readable" |
-| listener | `function` |
+▪ **event**: *"data"*
 
-**Returns:** `this`
+▪ **listener**: *function*
 
-*Inherited from Readable.removeListener*
-
-*Overrides EventEmitter.removeListener*
-
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3758*
+▸ (`chunk`: Buffer | string): *void*
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| event | "error" |
-| listener | `function` |
+Name | Type |
+------ | ------ |
+`chunk` | Buffer &#124; string |
 
-**Returns:** `this`
+**Returns:** *this*
+
+▸ **removeListener**(`event`: "end", `listener`: function): *this*
+
+*Inherited from [FilterStream](filterstream.md).[removeListener](filterstream.md#removelistener)*
+
+*Overrides void*
+
+Defined in node_modules/@types/node/base.d.ts:3756
+
+**Parameters:**
+
+▪ **event**: *"end"*
+
+▪ **listener**: *function*
+
+▸ (): *void*
+
+**Returns:** *this*
+
+▸ **removeListener**(`event`: "readable", `listener`: function): *this*
+
+*Inherited from [FilterStream](filterstream.md).[removeListener](filterstream.md#removelistener)*
+
+*Overrides void*
+
+Defined in node_modules/@types/node/base.d.ts:3757
+
+**Parameters:**
+
+▪ **event**: *"readable"*
+
+▪ **listener**: *function*
+
+▸ (): *void*
+
+**Returns:** *this*
+
+▸ **removeListener**(`event`: "error", `listener`: function): *this*
+
+*Inherited from [FilterStream](filterstream.md).[removeListener](filterstream.md#removelistener)*
+
+*Overrides void*
+
+Defined in node_modules/@types/node/base.d.ts:3758
+
+**Parameters:**
+
+▪ **event**: *"error"*
+
+▪ **listener**: *function*
+
+▸ (`err`: [Error](readrangeerror.md#static-error)): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`err` | [Error](readrangeerror.md#static-error) |
+
+**Returns:** *this*
 
 ___
-<a id="resume"></a>
 
 ###  resume
 
-▸ **resume**(): `this`
+▸ **resume**(): *this*
 
-*Inherited from Readable.resume*
+*Inherited from [FilterStream](filterstream.md).[resume](filterstream.md#resume)*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3694*
+Defined in node_modules/@types/node/base.d.ts:3694
 
-**Returns:** `this`
+**Returns:** *this*
 
 ___
-<a id="setencoding"></a>
 
 ###  setEncoding
 
-▸ **setEncoding**(encoding: *`string`*): `void`
+▸ **setEncoding**(`encoding`: string): *void*
 
-*Inherited from Readable.setEncoding*
+*Inherited from [FilterStream](filterstream.md).[setEncoding](filterstream.md#setencoding)*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3692*
+Defined in node_modules/@types/node/base.d.ts:3692
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| encoding | `string` |
+Name | Type |
+------ | ------ |
+`encoding` | string |
 
-**Returns:** `void`
+**Returns:** *void*
 
 ___
-<a id="setmaxlisteners"></a>
 
 ###  setMaxListeners
 
-▸ **setMaxListeners**(n: *`number`*): `this`
+▸ **setMaxListeners**(`n`: number): *this*
 
-*Inherited from EventEmitter.setMaxListeners*
+*Inherited from [FilterStream](filterstream.md).[setMaxListeners](filterstream.md#setmaxlisteners)*
 
-*Overrides EventEmitter.setMaxListeners*
-
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:690*
+Defined in node_modules/@types/node/base.d.ts:690
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| n | `number` |
+Name | Type |
+------ | ------ |
+`n` | number |
 
-**Returns:** `this`
+**Returns:** *this*
 
 ___
-<a id="unpipe"></a>
 
 ###  unpipe
 
-▸ **unpipe**<`T`>(destination: *[T]()*): `void`
+▸ **unpipe**‹**T**›(`destination?`: T): *void*
 
-*Inherited from Readable.unpipe*
+*Inherited from [FilterStream](filterstream.md).[unpipe](filterstream.md#unpipe)*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3697*
+Defined in node_modules/@types/node/base.d.ts:3697
 
 **Type parameters:**
 
-#### T :  `WritableStream`
+▪ **T**: *WritableStream*
+
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| `Optional` destination | [T]() |
+Name | Type |
+------ | ------ |
+`destination?` | T |
 
-**Returns:** `void`
+**Returns:** *void*
 
 ___
-<a id="unshift"></a>
 
 ###  unshift
 
-▸ **unshift**(chunk: *`any`*): `void`
+▸ **unshift**(`chunk`: any): *void*
 
-*Inherited from Readable.unshift*
+*Inherited from [FilterStream](filterstream.md).[unshift](filterstream.md#unshift)*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3698*
+Defined in node_modules/@types/node/base.d.ts:3698
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| chunk | `any` |
+Name | Type |
+------ | ------ |
+`chunk` | any |
 
-**Returns:** `void`
+**Returns:** *void*
 
 ___
-<a id="wrap"></a>
 
 ###  wrap
 
-▸ **wrap**(oldStream: *`ReadableStream`*): `Readable`
+▸ **wrap**(`oldStream`: ReadableStream): *Readable*
 
-*Inherited from Readable.wrap*
+*Inherited from [FilterStream](filterstream.md).[wrap](filterstream.md#wrap)*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:3699*
-
-**Parameters:**
-
-| Name | Type |
-| ------ | ------ |
-| oldStream | `ReadableStream` |
-
-**Returns:** `Readable`
-
-___
-<a id="listenercount-1"></a>
-
-### `<Static>` listenerCount
-
-▸ **listenerCount**(emitter: *`EventEmitter`*, event: *`string` \| `symbol`*): `number`
-
-*Inherited from EventEmitter.listenerCount*
-
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/@types/node/base.d.ts:680*
+Defined in node_modules/@types/node/base.d.ts:3699
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| emitter | `EventEmitter` |
-| event | `string` \| `symbol` |
+Name | Type |
+------ | ------ |
+`oldStream` | ReadableStream |
 
-**Returns:** `number`
+**Returns:** *Readable*
 
 ___
 
+### `Static` listenerCount
+
+▸ **listenerCount**(`emitter`: EventEmitter, `event`: string | symbol): *number*
+
+*Inherited from [FilterStream](filterstream.md).[listenerCount](filterstream.md#static-listenercount)*
+
+Defined in node_modules/@types/node/base.d.ts:680
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`emitter` | EventEmitter |
+`event` | string &#124; symbol |
+
+**Returns:** *number*

@@ -80,9 +80,7 @@ export class BlockMap {
 		const checksum = this.checksum || '';
 		const zerofill = xmlTag('BmapFileChecksum', checksum.replace(/./g, '0'));
 		const value = bmap.replace(xmlTag('BmapFileChecksum', checksum), zerofill);
-		const digest = createHash(this.checksumType)
-			.update(value)
-			.digest('hex');
+		const digest = createHash(this.checksumType).update(value).digest('hex');
 		return value.replace(zerofill, xmlTag('BmapFileChecksum', digest));
 	}
 
@@ -94,7 +92,7 @@ export class BlockMap {
 
 	/** Stringify a block map into .bmap format */
 	public toString(): string {
-		const ranges2 = this.ranges.map(range => {
+		const ranges2 = this.ranges.map((range) => {
 			const blockRange =
 				range.start !== range.end ? range.start + '-' + range.end : range.start;
 			return {

@@ -75,7 +75,7 @@ export class FilterStream extends Transform {
 	 * for tracking chunked range reading
 	 */
 	private _getByteRangesFromBlockMap() {
-		return this.blockMap.ranges.map(range => {
+		return this.blockMap.ranges.map((range) => {
 			return new ReadRange(range, this.blockMap.blockSize);
 		});
 	}

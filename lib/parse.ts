@@ -83,9 +83,7 @@ function getRanges(element: Element): BlockMapOptionsRange[] {
 			node.name !== undefined &&
 			node.name.toLowerCase() === 'range'
 		) {
-			const [start, end] = getText(node)
-				.trim()
-				.split('-');
+			const [start, end] = getText(node).trim().split('-');
 			const checksum =
 				getAttribute(node, 'sha1') || getAttribute(node, 'chksum');
 			if (checksum === undefined) {
@@ -144,9 +142,7 @@ export function parse(value: string | Buffer, verify = true): BlockMapOptions {
 
 	if (verify && checksum !== undefined) {
 		const file = maskChecksum(value);
-		const digest = createHash(checksumType)
-			.update(file)
-			.digest('hex');
+		const digest = createHash(checksumType).update(file).digest('hex');
 		if (checksum !== digest) {
 			throw new Error(`File checksum mismatch: ${checksum} != ${digest}`);
 		}

@@ -1,10 +1,10 @@
-[blockmap](../README.md) > [Range](../classes/range.md)
+[blockmap](../README.md) › [Range](range.md)
 
 # Class: Range
 
 ## Hierarchy
 
-**Range**
+* **Range**
 
 ## Index
 
@@ -14,7 +14,7 @@
 
 ### Properties
 
-* [checksum](range.md#checksum)
+* [checksum](range.md#optional-checksum)
 * [end](range.md#end)
 * [start](range.md#start)
 
@@ -24,92 +24,86 @@
 
 ### Methods
 
-* [from](range.md#from)
-
----
+* [from](range.md#static-from)
 
 ## Constructors
 
-<a id="constructor"></a>
-
 ###  constructor
 
-⊕ **new Range**(start?: *`number`*, end?: *`number`*, checksum: *`undefined` \| `string`*): [Range](range.md)
+\+ **new Range**(`start`: number, `end`: number, `checksum?`: undefined | string): *[Range](range.md)*
 
-*Defined in [range.ts:20](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/range.ts#L20)*
+*Defined in [lib/range.ts:20](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/range.ts#L20)*
 
 **Parameters:**
 
-| Name | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` start | `number` | 0 |
-| `Default value` end | `number` | 0 |
-| `Optional` checksum | `undefined` \| `string` | - |
+Name | Type | Default |
+------ | ------ | ------ |
+`start` | number | 0 |
+`end` | number | 0 |
+`checksum?` | undefined &#124; string | - |
 
-**Returns:** [Range](range.md)
-
-___
+**Returns:** *[Range](range.md)*
 
 ## Properties
 
-<a id="checksum"></a>
+### `Optional` checksum
 
-### `<Optional>` checksum
+• **checksum**? : *undefined | string*
 
-**● checksum**: *`undefined` \| `string`*
-
-*Defined in [range.ts:21](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/range.ts#L21)*
+*Defined in [lib/range.ts:21](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/range.ts#L21)*
 
 ___
-<a id="end"></a>
 
 ###  end
 
-**● end**: *`number`*
+• **end**: *number*
 
-*Defined in [range.ts:21](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/range.ts#L21)*
+*Defined in [lib/range.ts:21](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/range.ts#L21)*
 
 ___
-<a id="start"></a>
 
 ###  start
 
-**● start**: *`number`*
+• **start**: *number*
 
-*Defined in [range.ts:21](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/range.ts#L21)*
-
-___
+*Defined in [lib/range.ts:21](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/range.ts#L21)*
 
 ## Accessors
 
-<a id="length"></a>
-
 ###  length
 
-**length**: 
+• **get length**(): *number*
 
-*Defined in [range.ts:32](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/range.ts#L32)*
-*Defined in [range.ts:38](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/range.ts#L38)*
+*Defined in [lib/range.ts:32](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/range.ts#L32)*
 
-___
+**Returns:** *number*
 
-## Methods
+• **set length**(`value`: number): *void*
 
-<a id="from"></a>
-
-### `<Static>` from
-
-▸ **from**(value: *[BlockMapOptionsRange](../interfaces/blockmapoptionsrange.md)*): [Range](range.md)
-
-*Defined in [range.ts:28](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/range.ts#L28)*
+*Defined in [lib/range.ts:38](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/range.ts#L38)*
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| value | [BlockMapOptionsRange](../interfaces/blockmapoptionsrange.md) |
+Name | Type |
+------ | ------ |
+`value` | number |
 
-**Returns:** [Range](range.md)
+**Returns:** *void*
 
-___
+## Methods
 
+### `Static` from
+
+▸ **from**(`value`: [BlockMapOptionsRange](../interfaces/blockmapoptionsrange.md)): *[Range](range.md)*
+
+*Defined in [lib/range.ts:28](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/range.ts#L28)*
+
+Create a BlockMap.Range from a given value
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`value` | [BlockMapOptionsRange](../interfaces/blockmapoptionsrange.md) |
+
+**Returns:** *[Range](range.md)*

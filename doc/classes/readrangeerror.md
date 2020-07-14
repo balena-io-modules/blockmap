@@ -1,12 +1,12 @@
-[blockmap](../README.md) > [ReadRangeError](../classes/readrangeerror.md)
+[blockmap](../README.md) › [ReadRangeError](readrangeerror.md)
 
 # Class: ReadRangeError
 
 ## Hierarchy
 
- `Error`
+* [Error](readrangeerror.md#static-error)
 
-**↳ ReadRangeError**
+  ↳ **ReadRangeError**
 
 ## Index
 
@@ -16,99 +16,83 @@
 
 ### Properties
 
-* [checksum](readrangeerror.md#checksum)
+* [checksum](readrangeerror.md#optional-checksum)
 * [message](readrangeerror.md#message)
 * [name](readrangeerror.md#name)
-* [range](readrangeerror.md#range)
-* [stack](readrangeerror.md#stack)
-* [Error](readrangeerror.md#error)
-
----
+* [range](readrangeerror.md#readonly-range)
+* [stack](readrangeerror.md#optional-stack)
+* [Error](readrangeerror.md#static-error)
 
 ## Constructors
 
-<a id="constructor"></a>
-
 ###  constructor
 
-⊕ **new ReadRangeError**(message: *`string`*, range: *[ReadRange](readrange.md)*, checksum: *`undefined` \| `string`*): [ReadRangeError](readrangeerror.md)
+\+ **new ReadRangeError**(`message`: string, `range`: [ReadRange](readrange.md), `checksum?`: undefined | string): *[ReadRangeError](readrangeerror.md)*
 
-*Defined in [read-range.ts:46](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-range.ts#L46)*
+*Defined in [lib/read-range.ts:46](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-range.ts#L46)*
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| message | `string` |
-| range | [ReadRange](readrange.md) |
-| `Optional` checksum | `undefined` \| `string` |
+Name | Type |
+------ | ------ |
+`message` | string |
+`range` | [ReadRange](readrange.md) |
+`checksum?` | undefined &#124; string |
 
-**Returns:** [ReadRangeError](readrangeerror.md)
-
-___
+**Returns:** *[ReadRangeError](readrangeerror.md)*
 
 ## Properties
 
-<a id="checksum"></a>
+### `Optional` checksum
 
-### `<Optional>` checksum
+• **checksum**? : *undefined | string*
 
-**● checksum**: *`undefined` \| `string`*
-
-*Defined in [read-range.ts:50](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-range.ts#L50)*
+*Defined in [lib/read-range.ts:50](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-range.ts#L50)*
 
 ___
-<a id="message"></a>
 
 ###  message
 
-**● message**: *`string`*
+• **message**: *string*
 
-*Inherited from Error.message*
+*Inherited from [ReadRangeError](readrangeerror.md).[message](readrangeerror.md#message)*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/typedoc/node_modules/typescript/lib/lib.es5.d.ts:964*
+Defined in node_modules/typescript/lib/lib.es5.d.ts:974
 
 ___
-<a id="name"></a>
 
 ###  name
 
-**● name**: *`string`*
+• **name**: *string*
 
-*Inherited from Error.name*
+*Inherited from [ReadRangeError](readrangeerror.md).[name](readrangeerror.md#name)*
 
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/typedoc/node_modules/typescript/lib/lib.es5.d.ts:963*
-
-___
-<a id="range"></a>
-
-###  range
-
-**● range**: *[ReadRange](readrange.md)*
-
-*Defined in [read-range.ts:49](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/read-range.ts#L49)*
-
-___
-<a id="stack"></a>
-
-### `<Optional>` stack
-
-**● stack**: *`undefined` \| `string`*
-
-*Inherited from Error.stack*
-
-*Overrides Error.stack*
-
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/typedoc/node_modules/typescript/lib/lib.es5.d.ts:965*
-
-___
-<a id="error"></a>
-
-### `<Static>` Error
-
-**● Error**: *`ErrorConstructor`*
-
-*Defined in /home/alexis/dev/resin.io/blockmap/node_modules/typedoc/node_modules/typescript/lib/lib.es5.d.ts:974*
+Defined in node_modules/typescript/lib/lib.es5.d.ts:973
 
 ___
 
+### `Readonly` range
+
+• **range**: *[ReadRange](readrange.md)*
+
+*Defined in [lib/read-range.ts:49](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-range.ts#L49)*
+
+___
+
+### `Optional` stack
+
+• **stack**? : *undefined | string*
+
+*Inherited from [ReadRangeError](readrangeerror.md).[stack](readrangeerror.md#optional-stack)*
+
+*Overrides [ReadRangeError](readrangeerror.md).[stack](readrangeerror.md#optional-stack)*
+
+Defined in node_modules/typescript/lib/lib.es5.d.ts:975
+
+___
+
+### `Static` Error
+
+▪ **Error**: *ErrorConstructor*
+
+Defined in node_modules/typescript/lib/lib.es5.d.ts:984

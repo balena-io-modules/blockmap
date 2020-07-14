@@ -26,7 +26,7 @@ before('decompress:bmap.img', async () => {
 	const source = join(__dirname, 'data', 'bmap.img.gz');
 	const destination = join(__dirname, 'data', 'bmap.img');
 
-	await new Promise(resolve => {
+	await new Promise((resolve) => {
 		createReadStream(source)
 			.pipe(createGunzip())
 			.pipe(createWriteStream(destination))
@@ -38,7 +38,7 @@ before('decompress:padded-bmap.img', async () => {
 	const source = join(__dirname, 'data', 'padded-bmap.img.gz');
 	const destination = join(__dirname, 'data', 'padded-bmap.img');
 
-	await new Promise(resolve => {
+	await new Promise((resolve) => {
 		createReadStream(source)
 			.pipe(createGunzip())
 			.pipe(createWriteStream(destination))
@@ -48,7 +48,7 @@ before('decompress:padded-bmap.img', async () => {
 
 describe('BlockMap.fromJSON()', () => {
 	context('compatibility', () => {
-		BlockMap.versions.forEach(v => {
+		BlockMap.versions.forEach((v) => {
 			it('inits from v' + v + ' JSON data', () => {
 				const filename = `./data/version-${v}`;
 				const data = require(filename);
@@ -61,7 +61,7 @@ describe('BlockMap.fromJSON()', () => {
 
 describe('BlockMap constructor', () => {
 	context('compatibility', () => {
-		BlockMap.versions.forEach(v => {
+		BlockMap.versions.forEach((v) => {
 			it('inits from v' + v + ' JSON data', () => {
 				const filename = `./data/version-${v}`;
 				const data = require(filename);

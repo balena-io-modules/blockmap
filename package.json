@@ -14,21 +14,22 @@
   "files": "js/*",
   "main": "js/index.js",
   "dependencies": {
-    "debug": "^3.1.0",
+    "debug": "^4.1.1",
+    "tslib": "^2.0.0",
     "xml-js": "^1.6.11"
   },
   "devDependencies": {
-    "@types/debug": "^4.1.2",
-    "@types/htmlparser2": "^3.7.31",
-    "@types/mocha": "^5.2.6",
-    "@types/node": "^6.14.4",
-    "@types/xml": "^1.0.3",
-    "mocha": "^6.0.2",
-    "resin-lint": "^3.3.1",
-    "ts-node": "^8.0.3",
-    "typedoc": "^0.14.2",
-    "typedoc-plugin-markdown": "^1.1.27",
-    "typescript": "^3.3.4000"
+    "@balena/lint": "^5.1.0",
+    "@types/debug": "^4.1.5",
+    "@types/htmlparser2": "^3.10.1",
+    "@types/mocha": "^8.0.0",
+    "@types/node": "^6.14.10",
+    "@types/xml": "^1.0.5",
+    "mocha": "^8.0.1",
+    "ts-node": "^8.10.2",
+    "typedoc": "^0.17.8",
+    "typedoc-plugin-markdown": "^2.3.1",
+    "typescript": "^3.9.6"
   },
   "homepage": "https://github.com/balena-io-modules/blockmap",
   "repository": {
@@ -40,8 +41,8 @@
   },
   "scripts": {
     "build": "tsc",
-    "prettier": "resin-lint --typescript --fix benchmark lib test",
-    "lint": "resin-lint --typescript benchmark lib test",
+    "prettier": "balena-lint --typescript --fix benchmark lib test",
+    "lint": "balena-lint --typescript benchmark lib test",
     "test": "mocha -r ts-node/register test/*.ts",
     "benchmark": "ts-node benchmark/blockmap.ts",
     "doc": "typedoc --readme none --theme markdown --mode file --out doc lib/index.ts",

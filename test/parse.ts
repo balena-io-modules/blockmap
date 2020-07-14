@@ -23,7 +23,7 @@ import { BlockMap } from '../lib';
 
 describe('BlockMap.parse()', () => {
 	context('compatibility', () => {
-		BlockMap.versions.forEach(v => {
+		BlockMap.versions.forEach((v) => {
 			it('parses v' + v, () => {
 				const json = require(`./data/version-${v}`);
 				const xml = readFileSync(
@@ -36,7 +36,7 @@ describe('BlockMap.parse()', () => {
 	});
 
 	context('when input is a string', () => {
-		BlockMap.versions.forEach(v => {
+		BlockMap.versions.forEach((v) => {
 			it('parses v' + v, () => {
 				const json = require(`./data/version-${v}`);
 				const xml = readFileSync(join(__dirname, 'data', `version-${v}.bmap`));
@@ -46,7 +46,7 @@ describe('BlockMap.parse()', () => {
 	});
 
 	context('when input is a buffer', () => {
-		BlockMap.versions.forEach(v => {
+		BlockMap.versions.forEach((v) => {
 			it('parses v' + v, () => {
 				const json = require(`./data/version-${v}`);
 				const xml = readFileSync(join(__dirname, 'data', `version-${v}.bmap`));
@@ -57,7 +57,7 @@ describe('BlockMap.parse()', () => {
 
 	context('when file checksum is invalid', () => {
 		// NOTE: Version 1.2 has no support for file checksums
-		['1.3', '1.4', '2.0'].forEach(v => {
+		['1.3', '1.4', '2.0'].forEach((v) => {
 			it(`throws on invalid checksum for v${v}`, () => {
 				const xml = readFileSync(
 					join(
@@ -79,7 +79,7 @@ describe('BlockMap.parse()', () => {
 		});
 
 		// NOTE: Version 1.2 has no support for file checksums
-		['1.3', '1.4', '2.0'].forEach(v => {
+		['1.3', '1.4', '2.0'].forEach((v) => {
 			it(`does not throw with verification disabled for v${v}`, () => {
 				const json = require(`./data/version-${v}`);
 				const xml = readFileSync(
