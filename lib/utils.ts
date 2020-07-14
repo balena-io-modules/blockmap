@@ -31,7 +31,7 @@ function open(filename: string): Promise<number> {
 
 function close(fd: number): Promise<void> {
 	return new Promise((resolve, reject) => {
-		fs.close(fd, (error?: Error) => {
+		fs.close(fd, (error?: Error | null) => {
 			if (error) {
 				reject(error);
 			} else {
