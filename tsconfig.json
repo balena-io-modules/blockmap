@@ -8,6 +8,7 @@
 		"target": "es6",
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
+		"importHelpers": true,
 		"lib": ["es7"]
 	},
 	"include": [
