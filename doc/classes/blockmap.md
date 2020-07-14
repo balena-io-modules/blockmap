@@ -1,10 +1,10 @@
-[blockmap](../README.md) > [BlockMap](../classes/blockmap.md)
+[blockmap](../README.md) › [BlockMap](blockmap.md)
 
 # Class: BlockMap
 
 ## Hierarchy
 
-**BlockMap**
+* **BlockMap**
 
 ## Index
 
@@ -16,190 +16,174 @@
 
 * [blockSize](blockmap.md#blocksize)
 * [blocksCount](blockmap.md#blockscount)
-* [checksum](blockmap.md#checksum)
+* [checksum](blockmap.md#optional-checksum)
 * [checksumType](blockmap.md#checksumtype)
 * [imageSize](blockmap.md#imagesize)
 * [mappedBlocksCount](blockmap.md#mappedblockscount)
 * [ranges](blockmap.md#ranges)
-* [version](blockmap.md#version)
-* [versions](blockmap.md#versions)
+* [version](blockmap.md#optional-version)
+* [versions](blockmap.md#static-versions)
 
 ### Methods
 
-* [injectChecksum](blockmap.md#injectchecksum)
+* [injectChecksum](blockmap.md#private-injectchecksum)
 * [toString](blockmap.md#tostring)
-* [fromJSON](blockmap.md#fromjson)
-* [parse](blockmap.md#parse)
-
----
+* [fromJSON](blockmap.md#static-fromjson)
+* [parse](blockmap.md#static-parse)
 
 ## Constructors
 
-<a id="constructor"></a>
-
 ###  constructor
 
-⊕ **new BlockMap**(options?: *[BlockMapOptions](../interfaces/blockmapoptions.md)*): [BlockMap](blockmap.md)
+\+ **new BlockMap**(`options`: [BlockMapOptions](../interfaces/blockmapoptions.md)): *[BlockMap](blockmap.md)*
 
-*Defined in [blockmap.ts:63](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/blockmap.ts#L63)*
+*Defined in [lib/blockmap.ts:63](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/blockmap.ts#L63)*
 
 **Parameters:**
 
-| Name | Type | Default value |
-| ------ | ------ | ------ |
-| `Default value` options | [BlockMapOptions](../interfaces/blockmapoptions.md) |  {} |
+Name | Type | Default |
+------ | ------ | ------ |
+`options` | [BlockMapOptions](../interfaces/blockmapoptions.md) | {} |
 
-**Returns:** [BlockMap](blockmap.md)
-
-___
+**Returns:** *[BlockMap](blockmap.md)*
 
 ## Properties
 
-<a id="blocksize"></a>
-
 ###  blockSize
 
-**● blockSize**: *`number`*
+• **blockSize**: *number*
 
-*Defined in [blockmap.ts:58](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/blockmap.ts#L58)*
+*Defined in [lib/blockmap.ts:58](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/blockmap.ts#L58)*
 
 ___
-<a id="blockscount"></a>
 
 ###  blocksCount
 
-**● blocksCount**: *`number`*
+• **blocksCount**: *number*
 
-*Defined in [blockmap.ts:59](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/blockmap.ts#L59)*
-
-___
-<a id="checksum"></a>
-
-### `<Optional>` checksum
-
-**● checksum**: *`undefined` \| `string`*
-
-*Defined in [blockmap.ts:61](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/blockmap.ts#L61)*
+*Defined in [lib/blockmap.ts:59](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/blockmap.ts#L59)*
 
 ___
-<a id="checksumtype"></a>
+
+### `Optional` checksum
+
+• **checksum**? : *undefined | string*
+
+*Defined in [lib/blockmap.ts:61](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/blockmap.ts#L61)*
+
+___
 
 ###  checksumType
 
-**● checksumType**: *`string`*
+• **checksumType**: *string*
 
-*Defined in [blockmap.ts:62](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/blockmap.ts#L62)*
+*Defined in [lib/blockmap.ts:62](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/blockmap.ts#L62)*
 
 ___
-<a id="imagesize"></a>
 
 ###  imageSize
 
-**● imageSize**: *`number`*
+• **imageSize**: *number*
 
-*Defined in [blockmap.ts:57](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/blockmap.ts#L57)*
+*Defined in [lib/blockmap.ts:57](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/blockmap.ts#L57)*
 
 ___
-<a id="mappedblockscount"></a>
 
 ###  mappedBlocksCount
 
-**● mappedBlocksCount**: *`number`*
+• **mappedBlocksCount**: *number*
 
-*Defined in [blockmap.ts:60](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/blockmap.ts#L60)*
+*Defined in [lib/blockmap.ts:60](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/blockmap.ts#L60)*
 
 ___
-<a id="ranges"></a>
 
 ###  ranges
 
-**● ranges**: *[Range](range.md)[]*
+• **ranges**: *[Range](range.md)[]*
 
-*Defined in [blockmap.ts:63](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/blockmap.ts#L63)*
-
-___
-<a id="version"></a>
-
-### `<Optional>` version
-
-**● version**: *`undefined` \| `string`*
-
-*Defined in [blockmap.ts:56](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/blockmap.ts#L56)*
+*Defined in [lib/blockmap.ts:63](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/blockmap.ts#L63)*
 
 ___
-<a id="versions"></a>
 
-### `<Static>` versions
+### `Optional` version
 
-**● versions**: *`string`[]* =  ['1.2', '1.3', '1.4', '2.0']
+• **version**? : *undefined | string*
 
-*Defined in [blockmap.ts:55](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/blockmap.ts#L55)*
+*Defined in [lib/blockmap.ts:56](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/blockmap.ts#L56)*
 
 ___
+
+### `Static` versions
+
+▪ **versions**: *string[]* = ['1.2', '1.3', '1.4', '2.0']
+
+*Defined in [lib/blockmap.ts:55](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/blockmap.ts#L55)*
+
+Supported .bmap format versions
 
 ## Methods
 
-<a id="injectchecksum"></a>
+### `Private` injectChecksum
 
-### `<Private>` injectChecksum
+▸ **injectChecksum**(`bmap`: string): *string*
 
-▸ **injectChecksum**(bmap: *`string`*): `string`
+*Defined in [lib/blockmap.ts:79](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/blockmap.ts#L79)*
 
-*Defined in [blockmap.ts:79](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/blockmap.ts#L79)*
+Calculate the bmap file's checksum and inject it
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| bmap | `string` |
+Name | Type |
+------ | ------ |
+`bmap` | string |
 
-**Returns:** `string`
+**Returns:** *string*
 
 ___
-<a id="tostring"></a>
 
 ###  toString
 
-▸ **toString**(): `string`
+▸ **toString**(): *string*
 
-*Defined in [blockmap.ts:96](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/blockmap.ts#L96)*
+*Defined in [lib/blockmap.ts:94](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/blockmap.ts#L94)*
 
-**Returns:** `string`
+Stringify a block map into .bmap format
+
+**Returns:** *string*
 
 ___
-<a id="fromjson"></a>
 
-### `<Static>` fromJSON
+### `Static` fromJSON
 
-▸ **fromJSON**(data: *`string` \| `unknown`*): [BlockMap](blockmap.md)
+▸ **fromJSON**(`data`: string | unknown): *[BlockMap](blockmap.md)‹›*
 
-*Defined in [blockmap.ts:90](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/blockmap.ts#L90)*
+*Defined in [lib/blockmap.ts:88](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/blockmap.ts#L88)*
+
+Create a block map from its JSON representation
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| data | `string` \| `unknown` |
+Name | Type |
+------ | ------ |
+`data` | string &#124; unknown |
 
-**Returns:** [BlockMap](blockmap.md)
+**Returns:** *[BlockMap](blockmap.md)‹›*
 
 ___
-<a id="parse"></a>
 
-### `<Static>` parse
+### `Static` parse
 
-▸ **parse**(value: *`string` \| `Buffer`*, verify?: *`boolean`*): [BlockMap](blockmap.md)
+▸ **parse**(`value`: string | Buffer, `verify`: boolean): *[BlockMap](blockmap.md)*
 
-*Defined in [blockmap.ts:128](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/blockmap.ts#L128)*
+*Defined in [lib/blockmap.ts:126](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/blockmap.ts#L126)*
+
+Parse a .bmap file
 
 **Parameters:**
 
-| Name | Type | Default value |
-| ------ | ------ | ------ |
-| value | `string` \| `Buffer` | - |
-| `Default value` verify | `boolean` | true |
+Name | Type | Default |
+------ | ------ | ------ |
+`value` | string &#124; Buffer | - |
+`verify` | boolean | true |
 
-**Returns:** [BlockMap](blockmap.md)
-
-___
-
+**Returns:** *[BlockMap](blockmap.md)*

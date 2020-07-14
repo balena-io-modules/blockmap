@@ -1,10 +1,10 @@
-[blockmap](../README.md) > [BlockMapOptionsRange](../interfaces/blockmapoptionsrange.md)
+[blockmap](../README.md) › [BlockMapOptionsRange](blockmapoptionsrange.md)
 
 # Interface: BlockMapOptionsRange
 
 ## Hierarchy
 
-**BlockMapOptionsRange**
+* **BlockMapOptionsRange**
 
 ## Index
 
@@ -14,35 +14,26 @@
 * [end](blockmapoptionsrange.md#end)
 * [start](blockmapoptionsrange.md#start)
 
----
-
 ## Properties
-
-<a id="checksum"></a>
 
 ###  checksum
 
-**● checksum**: *`string`*
+• **checksum**: *string*
 
-*Defined in [blockmap.ts:31](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/blockmap.ts#L31)*
+*Defined in [lib/blockmap.ts:31](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/blockmap.ts#L31)*
 
 ___
-<a id="end"></a>
 
 ###  end
 
-**● end**: *`number`*
+• **end**: *number*
 
-*Defined in [blockmap.ts:30](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/blockmap.ts#L30)*
+*Defined in [lib/blockmap.ts:30](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/blockmap.ts#L30)*
 
 ___
-<a id="start"></a>
 
 ###  start
 
-**● start**: *`number`*
+• **start**: *number*
 
-*Defined in [blockmap.ts:29](https://github.com/balena-io-modules/blockmap/blob/cb8180a/lib/blockmap.ts#L29)*
-
-___
-
+*Defined in [lib/blockmap.ts:29](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/blockmap.ts#L29)*
