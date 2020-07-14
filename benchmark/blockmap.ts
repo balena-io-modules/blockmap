@@ -38,12 +38,12 @@ bench(`BlockMap.parse() ⨉ ${ITERATIONS}`, async () => {
 
 bench('fs.ReadStream', async () => {
 	const filename = join(__dirname, '..', 'test/data/bmap.img');
-	await withOpenFile(filename, async fd => {
+	await withOpenFile(filename, async (fd) => {
 		const readStream = createReadStream('whatever', {
 			fd,
 			autoClose: false,
 		});
-		await new Promise(resolve => {
+		await new Promise((resolve) => {
 			readStream
 				.on('data', () => {
 					// drain
@@ -58,9 +58,9 @@ bench('fs.ReadStream', async () => {
 bench('ReadStream', async () => {
 	const filename = join(__dirname, '..', 'test/data/bmap.img');
 	const blockMap = new BlockMap(require('../test/data/version-2.0'));
-	await withOpenFile(filename, async fd => {
+	await withOpenFile(filename, async (fd) => {
 		const readStream = new ReadStream(fd, blockMap);
-		await new Promise(resolve => {
+		await new Promise((resolve) => {
 			readStream
 				.on('data', () => {
 					// drain
@@ -75,13 +75,13 @@ bench('ReadStream', async () => {
 bench('BlockMap.FilterStream', async () => {
 	const filename = join(__dirname, '..', 'test/data/bmap.img');
 	const blockMap = new BlockMap(require('../test/data/version-2.0'));
-	await withOpenFile(filename, async fd => {
+	await withOpenFile(filename, async (fd) => {
 		const readStream = createReadStream('whatever', {
 			fd,
 			autoClose: false,
 		});
 		const filter = new FilterStream(blockMap);
-		await new Promise(resolve => {
+		await new Promise((resolve) => {
 			readStream
 				.pipe(filter)
 				.on('data', () => {

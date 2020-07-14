@@ -31,7 +31,7 @@ describe('BlockMap.ReadStream', () => {
 	it('should read only mapped blocks', async () => {
 		const filename = join(__dirname, 'data', 'bmap.img');
 		const blockMap = new BlockMap(require('./data/version-2.0'));
-		await withOpenFile(filename, async fd => {
+		await withOpenFile(filename, async (fd) => {
 			const readStream = new ReadStream(fd, blockMap);
 			let byteCount = 0;
 
@@ -79,7 +79,7 @@ describe('BlockMap.ReadStream', () => {
 		const blockMap = new BlockMap(
 			require('./data/version-2.0-large-last-range'),
 		);
-		await withOpenFile(filename, async fd => {
+		await withOpenFile(filename, async (fd) => {
 			const readStream = new ReadStream(fd, blockMap);
 			let byteCount = 0;
 
@@ -126,10 +126,10 @@ describe('BlockMap.ReadStream', () => {
 		const filename = join(__dirname, 'data', 'bmap.img');
 		const blockMap = new BlockMap(require('./data/version-2.0'));
 		const checksumlessBlockMap = new BlockMap(require('./data/version-2.0'));
-		checksumlessBlockMap.ranges.forEach(range => {
+		checksumlessBlockMap.ranges.forEach((range) => {
 			delete range.checksum;
 		});
-		await withOpenFile(filename, async fd => {
+		await withOpenFile(filename, async (fd) => {
 			const readStream = new ReadStream(fd, checksumlessBlockMap, false, true);
 
 			await new Promise((resolve, reject) => {
@@ -153,7 +153,7 @@ describe('BlockMap.ReadStream', () => {
 	it('should position blocks correctly', async () => {
 		const filename = join(__dirname, 'data', 'bmap.img');
 		const blockMap = new BlockMap(require('./data/version-2.0'));
-		await withOpenFile(filename, async fd => {
+		await withOpenFile(filename, async (fd) => {
 			const readStream = new ReadStream(fd, blockMap);
 			let blocksCount = 0;
 			let firstBlock = true;
@@ -246,7 +246,7 @@ describe('BlockMap.ReadStream', () => {
 		const filename = join(__dirname, '/data/padded-bmap.img');
 		const blockMap = new BlockMap(require('./data/version-2.0'));
 		let byteCount = 0;
-		await withOpenFile(filename, async fd => {
+		await withOpenFile(filename, async (fd) => {
 			const readStream = new ReadStream(fd, blockMap, true, false, 4096);
 
 			await new Promise((resolve, reject) => {
@@ -292,7 +292,7 @@ describe('BlockMap.ReadStream', () => {
 		const filename = join(__dirname, 'data', 'bmap.img');
 		const blockMap = new BlockMap(require('./data/version-2.0'));
 		let byteCount = 0;
-		await withOpenFile(filename, async fd => {
+		await withOpenFile(filename, async (fd) => {
 			// This encompasses the first mapped range
 			const readStream = new ReadStream(
 				fd,
@@ -338,7 +338,7 @@ describe('BlockMap.ReadStream', () => {
 		const filename = join(__dirname, '/data/padded-bmap.img');
 		const blockMap = new BlockMap(require('./data/version-2.0'));
 		let byteCount = 0;
-		await withOpenFile(filename, async fd => {
+		await withOpenFile(filename, async (fd) => {
 			const readStream = new ReadStream(
 				fd,
 				blockMap,
@@ -399,7 +399,7 @@ describe('BlockMap.ReadStream', () => {
 		const filename = join(__dirname, 'data', 'bmap.img');
 		const blockMap = new BlockMap(require('./data/version-2.0'));
 		let byteCount = 0;
-		await withOpenFile(filename, async fd => {
+		await withOpenFile(filename, async (fd) => {
 			const readStream = new ReadStream(fd, blockMap, true, false, 0, 0);
 
 			await new Promise((resolve, reject) => {
@@ -428,7 +428,7 @@ describe('BlockMap.ReadStream', () => {
 		const filename = join(__dirname, 'data', 'bmap.img');
 		const blockMap = new BlockMap(require('./data/version-2.0'));
 		let byteCount = 0;
-		await withOpenFile(filename, async fd => {
+		await withOpenFile(filename, async (fd) => {
 			const readStream = new ReadStream(
 				fd,
 				blockMap,
@@ -455,7 +455,7 @@ describe('BlockMap.ReadStream', () => {
 	it('should emit an error if start goes beyond the file', async () => {
 		const filename = join(__dirname, 'data', 'bmap.img');
 		const blockMap = new BlockMap(require('./data/version-2.0'));
-		await withOpenFile(filename, async fd => {
+		await withOpenFile(filename, async (fd) => {
 			const readStream = new ReadStream(
 				fd,
 				blockMap,
@@ -487,7 +487,7 @@ describe('BlockMap.ReadStream', () => {
 		const filename = join(__dirname, 'data', 'bmap.img');
 		const blockMap = new BlockMap(require('./data/version-2.0'));
 		let byteCount = 0;
-		await withOpenFile(filename, async fd => {
+		await withOpenFile(filename, async (fd) => {
 			const readStream = new ReadStream(
 				fd,
 				blockMap,
@@ -536,7 +536,7 @@ describe('BlockMap.ReadStream', () => {
 	});
 
 	context('disabled verification', () => {
-		BlockMap.versions.forEach(v => {
+		BlockMap.versions.forEach((v) => {
 			it(`v${v}: ignore invalid ranges`, async () => {
 				const filename = join(__dirname, 'data', 'bmap.img');
 				const bmapFile = join(
@@ -547,14 +547,11 @@ describe('BlockMap.ReadStream', () => {
 					`multiple-${v}.bmap`,
 				);
 				const blockMap = BlockMap.parse(readFileSync(bmapFile, 'utf8'));
-				await withOpenFile(filename, async fd => {
+				await withOpenFile(filename, async (fd) => {
 					const readStream = new ReadStream(fd, blockMap, false);
 
 					await new Promise((resolve, reject) => {
-						readStream
-							.resume()
-							.on('error', reject)
-							.on('end', resolve);
+						readStream.resume().on('error', reject).on('end', resolve);
 					});
 				});
 			});
@@ -562,7 +559,7 @@ describe('BlockMap.ReadStream', () => {
 	});
 
 	context('single invalid range', () => {
-		BlockMap.versions.forEach(v => {
+		BlockMap.versions.forEach((v) => {
 			it(`v${v}: detect an invalid range`, async () => {
 				const filename = join(__dirname, 'data', 'bmap.img');
 				const bmapFile = join(
@@ -573,7 +570,7 @@ describe('BlockMap.ReadStream', () => {
 					`version-${v}.bmap`,
 				);
 				const blockMap = BlockMap.parse(readFileSync(bmapFile, 'utf8'));
-				await withOpenFile(filename, async fd => {
+				await withOpenFile(filename, async (fd) => {
 					const readStream = new ReadStream(fd, blockMap);
 					let errorCount = 0;
 
@@ -615,7 +612,7 @@ describe('BlockMap.ReadStream', () => {
 	});
 
 	context('multiple invalid ranges', () => {
-		BlockMap.versions.forEach(v => {
+		BlockMap.versions.forEach((v) => {
 			it(`v${v}: detect invalid ranges`, async () => {
 				const filename = join(__dirname, 'data', 'bmap.img');
 				const bmapFile = join(
@@ -626,14 +623,14 @@ describe('BlockMap.ReadStream', () => {
 					`multiple-${v}.bmap`,
 				);
 				const blockMap = BlockMap.parse(readFileSync(bmapFile, 'utf8'));
-				await withOpenFile(filename, async fd => {
+				await withOpenFile(filename, async (fd) => {
 					const readStream = new ReadStream(fd, blockMap, true);
 					let hadErrors = 0;
 
-					await new Promise(resolve => {
+					await new Promise((resolve) => {
 						readStream
 							.resume()
-							.on('error', error => {
+							.on('error', (error) => {
 								assert.ok(
 									error instanceof Error,
 									'error not instance of Error',

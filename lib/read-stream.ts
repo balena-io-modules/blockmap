@@ -128,7 +128,7 @@ export class ReadStream extends Readable {
 					return readRange;
 				},
 			)
-			.filter(readRange => {
+			.filter((readRange) => {
 				return readRange.end <= this.end + this.start;
 			});
 	}

@@ -225,7 +225,7 @@ describe('BlockMap.FilterStream', () => {
 	});
 
 	context('disabled verification', () => {
-		BlockMap.versions.forEach(v => {
+		BlockMap.versions.forEach((v) => {
 			it(`v${v}: ignore invalid ranges`, async () => {
 				const filename = join(__dirname, 'data', 'bmap.img');
 				const bmapFile = join(
@@ -258,7 +258,7 @@ describe('BlockMap.FilterStream', () => {
 	});
 
 	context('single invalid range', () => {
-		BlockMap.versions.forEach(v => {
+		BlockMap.versions.forEach((v) => {
 			it(`v${v}: detect an invalid range`, async () => {
 				const filename = join(__dirname, 'data', 'bmap.img');
 				const bmapFile = join(
@@ -310,7 +310,7 @@ describe('BlockMap.FilterStream', () => {
 	});
 
 	context('multiple invalid ranges', () => {
-		BlockMap.versions.forEach(v => {
+		BlockMap.versions.forEach((v) => {
 			it(`v${v}: detect invalid ranges`, async () => {
 				const filename = join(__dirname, 'data', 'bmap.img');
 				const bmapFile = join(
@@ -325,7 +325,7 @@ describe('BlockMap.FilterStream', () => {
 				const transform = new FilterStream(blockMap, true);
 				let hadErrors = 0;
 
-				await new Promise(resolve => {
+				await new Promise((resolve) => {
 					readStream
 						.pipe(transform)
 						.on('data', (block: Chunk) => {
