@@ -87,7 +87,7 @@
 
 *Overrides void*
 
-*Defined in [lib/filter-stream.ts:50](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/filter-stream.ts#L50)*
+*Defined in [lib/filter-stream.ts:50](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/filter-stream.ts#L50)*
 
 **Parameters:**
 
@@ -106,7 +106,7 @@ Name | Type | Default |
 
 • **_bytes**: *number* = 0
 
-*Defined in [lib/filter-stream.ts:50](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/filter-stream.ts#L50)*
+*Defined in [lib/filter-stream.ts:50](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/filter-stream.ts#L50)*
 
 ___
 
@@ -114,7 +114,7 @@ ___
 
 • **_chunks**: *Buffer[]* = []
 
-*Defined in [lib/filter-stream.ts:49](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/filter-stream.ts#L49)*
+*Defined in [lib/filter-stream.ts:49](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/filter-stream.ts#L49)*
 
 ___
 
@@ -122,7 +122,7 @@ ___
 
 • **_hash**? : *Hash*
 
-*Defined in [lib/filter-stream.ts:48](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/filter-stream.ts#L48)*
+*Defined in [lib/filter-stream.ts:48](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/filter-stream.ts#L48)*
 
 Hash stream to calculate range checksums
 
@@ -132,7 +132,7 @@ ___
 
 • **blockMap**: *[BlockMap](blockmap.md)*
 
-*Defined in [lib/filter-stream.ts:53](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/filter-stream.ts#L53)*
+*Defined in [lib/filter-stream.ts:53](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/filter-stream.ts#L53)*
 
 ___
 
@@ -140,7 +140,7 @@ ___
 
 • **blocksRead**: *number* = 0
 
-*Defined in [lib/filter-stream.ts:34](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/filter-stream.ts#L34)*
+*Defined in [lib/filter-stream.ts:34](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/filter-stream.ts#L34)*
 
 Number of blocks read
 
@@ -150,7 +150,7 @@ ___
 
 • **blocksWritten**: *number* = 0
 
-*Defined in [lib/filter-stream.ts:38](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/filter-stream.ts#L38)*
+*Defined in [lib/filter-stream.ts:38](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/filter-stream.ts#L38)*
 
 Number of bytes written
 
@@ -160,7 +160,7 @@ ___
 
 • **bytesRead**: *number* = 0
 
-*Defined in [lib/filter-stream.ts:36](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/filter-stream.ts#L36)*
+*Defined in [lib/filter-stream.ts:36](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/filter-stream.ts#L36)*
 
 Number of bytes read
 
@@ -170,7 +170,7 @@ ___
 
 • **bytesWritten**: *number* = 0
 
-*Defined in [lib/filter-stream.ts:40](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/filter-stream.ts#L40)*
+*Defined in [lib/filter-stream.ts:40](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/filter-stream.ts#L40)*
 
 Number of bytes written
 
@@ -180,7 +180,7 @@ ___
 
 • **chunkSize**: *number*
 
-*Defined in [lib/filter-stream.ts:56](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/filter-stream.ts#L56)*
+*Defined in [lib/filter-stream.ts:56](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/filter-stream.ts#L56)*
 
 ___
 
@@ -188,7 +188,7 @@ ___
 
 • **currentRange**? : *[ReadRange](readrange.md)*
 
-*Defined in [lib/filter-stream.ts:46](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/filter-stream.ts#L46)*
+*Defined in [lib/filter-stream.ts:46](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/filter-stream.ts#L46)*
 
 Range being currently processed
 
@@ -198,7 +198,7 @@ ___
 
 • **generateChecksums**: *boolean*
 
-*Defined in [lib/filter-stream.ts:55](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/filter-stream.ts#L55)*
+*Defined in [lib/filter-stream.ts:55](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/filter-stream.ts#L55)*
 
 ___
 
@@ -206,7 +206,7 @@ ___
 
 • **position**: *number* = 0
 
-*Defined in [lib/filter-stream.ts:42](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/filter-stream.ts#L42)*
+*Defined in [lib/filter-stream.ts:42](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/filter-stream.ts#L42)*
 
 Current offset in bytes
 
@@ -216,7 +216,7 @@ ___
 
 • **ranges**: *[ReadRange](readrange.md)[]*
 
-*Defined in [lib/filter-stream.ts:44](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/filter-stream.ts#L44)*
+*Defined in [lib/filter-stream.ts:44](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/filter-stream.ts#L44)*
 
 ___
 
@@ -224,7 +224,7 @@ ___
 
 • **rangesRead**: *number* = 0
 
-*Defined in [lib/filter-stream.ts:30](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/filter-stream.ts#L30)*
+*Defined in [lib/filter-stream.ts:30](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/filter-stream.ts#L30)*
 
 Number of block map ranges read
 
@@ -234,7 +234,7 @@ ___
 
 • **rangesVerified**: *number* = 0
 
-*Defined in [lib/filter-stream.ts:32](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/filter-stream.ts#L32)*
+*Defined in [lib/filter-stream.ts:32](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/filter-stream.ts#L32)*
 
 Number of block map ranges verified
 
@@ -254,7 +254,7 @@ ___
 
 • **verify**: *boolean*
 
-*Defined in [lib/filter-stream.ts:54](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/filter-stream.ts#L54)*
+*Defined in [lib/filter-stream.ts:54](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/filter-stream.ts#L54)*
 
 ___
 
@@ -282,7 +282,7 @@ Defined in node_modules/@types/node/base.d.ts:681
 
 ▸ **_flush**(`done`: function): *void*
 
-*Defined in [lib/filter-stream.ts:252](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/filter-stream.ts#L252)*
+*Defined in [lib/filter-stream.ts:252](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/filter-stream.ts#L252)*
 
 Flush out any unprocessed chunks from
 the internal buffer once the stream is being ended
@@ -301,7 +301,7 @@ ___
 
 ▸ **_getByteRangesFromBlockMap**(): *[ReadRange](readrange.md)‹›[]*
 
-*Defined in [lib/filter-stream.ts:77](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/filter-stream.ts#L77)*
+*Defined in [lib/filter-stream.ts:77](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/filter-stream.ts#L77)*
 
 Preprocess the `blockMap`'s ranges into byte-ranges
 with respect to the `start` offset, and an `offset`
@@ -315,7 +315,7 @@ ___
 
 ▸ **_rangeInChunk**(`chunk`: Buffer): *boolean*
 
-*Defined in [lib/filter-stream.ts:116](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/filter-stream.ts#L116)*
+*Defined in [lib/filter-stream.ts:116](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/filter-stream.ts#L116)*
 
 Determine whether a chunk is in the current range
 
@@ -353,7 +353,7 @@ ___
 
 *Overrides void*
 
-*Defined in [lib/filter-stream.ts:204](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/filter-stream.ts#L204)*
+*Defined in [lib/filter-stream.ts:204](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/filter-stream.ts#L204)*
 
 Transform input into block-sized chunks
 
@@ -375,7 +375,7 @@ ___
 
 ▸ **_transformBlock**(`chunk`: Buffer, `next`: function): *void*
 
-*Defined in [lib/filter-stream.ts:135](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/filter-stream.ts#L135)*
+*Defined in [lib/filter-stream.ts:135](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/filter-stream.ts#L135)*
 
 Chunk a given input buffer into blocks
 matching the blockSize and advance the
@@ -397,7 +397,7 @@ ___
 
 ▸ **_verifyRange**(): *void*
 
-*Defined in [lib/filter-stream.ts:89](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/filter-stream.ts#L89)*
+*Defined in [lib/filter-stream.ts:89](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/filter-stream.ts#L89)*
 
 Verify a fully read range's checksum against
 the range's checksum from the blockmap
