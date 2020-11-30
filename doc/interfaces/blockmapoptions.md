@@ -25,7 +25,7 @@
 
 • **blockSize**? : *undefined | number*
 
-*Defined in [lib/blockmap.ts:40](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/blockmap.ts#L40)*
+*Defined in [lib/blockmap.ts:40](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/blockmap.ts#L40)*
 
 ___
 
@@ -33,7 +33,7 @@ ___
 
 • **blocksCount**? : *undefined | number*
 
-*Defined in [lib/blockmap.ts:42](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/blockmap.ts#L42)*
+*Defined in [lib/blockmap.ts:42](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/blockmap.ts#L42)*
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 • **checksum**? : *undefined | string*
 
-*Defined in [lib/blockmap.ts:46](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/blockmap.ts#L46)*
+*Defined in [lib/blockmap.ts:46](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/blockmap.ts#L46)*
 
 ___
 
@@ -49,7 +49,7 @@ ___
 
 • **checksumType**? : *undefined | string*
 
-*Defined in [lib/blockmap.ts:48](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/blockmap.ts#L48)*
+*Defined in [lib/blockmap.ts:48](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/blockmap.ts#L48)*
 
 ___
 
@@ -57,7 +57,7 @@ ___
 
 • **imageSize**? : *undefined | number*
 
-*Defined in [lib/blockmap.ts:38](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/blockmap.ts#L38)*
+*Defined in [lib/blockmap.ts:38](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/blockmap.ts#L38)*
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 • **mappedBlocksCount**? : *undefined | number*
 
-*Defined in [lib/blockmap.ts:44](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/blockmap.ts#L44)*
+*Defined in [lib/blockmap.ts:44](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/blockmap.ts#L44)*
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 • **ranges**? : *[BlockMapOptionsRange](blockmapoptionsrange.md)[]*
 
-*Defined in [lib/blockmap.ts:50](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/blockmap.ts#L50)*
+*Defined in [lib/blockmap.ts:50](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/blockmap.ts#L50)*
 
 ___
 
@@ -81,4 +81,4 @@ ___
 
 • **version**? : *undefined | string*
 
-*Defined in [lib/blockmap.ts:36](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/blockmap.ts#L36)*
+*Defined in [lib/blockmap.ts:36](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/blockmap.ts#L36)*

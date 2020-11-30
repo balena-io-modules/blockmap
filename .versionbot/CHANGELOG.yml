@@ -1,0 +1,522 @@
+- version: 4.0.2
+  date: 2020-07-14T14:55:19Z
+  commits:
+    - hash: f2aa6e3c847bee8406db0689b8d8275aba9ca574
+      author: Alexis Svinartchouk
+      footers:
+        change-type: patch
+      subject: Update resin-lint -> balena-lint
+      body:
+    - hash: 6a3f0a1f8347bef5e77f5bb7ec0ba30842a88e23
+      author: Alexis Svinartchouk
+      footers:
+        change-type: patch
+      subject: Update dependencies
+      body:
+    - hash: 6e01bf04fb47e76784dc897a5a5021d3e26d8309
+      author: Alexis Svinartchouk
+      footers:
+        change-type: patch
+      subject: Use strict typescript flag
+      body:
+    - hash: 19620da587dad00ef627ae511b4e77c40c9ac916
+      author: Alexis Svinartchouk
+      footers:
+        change-type: patch
+      subject: Use tslib
+      body:
+    - hash: 156c02ff6b52ed3caede241ee6477e26bd094d22
+      author: Alexis Svinartchouk
+      footers:
+        change-type: patch
+      subject: Update generated docs
+      body:
+- version: 4.0.1
+  date: 2020-03-31T17:26:28Z
+  commits:
+    - hash: 8647d1e864a6a226e53530b5cc2c01ab50874069
+      author: Alexis Svinartchouk
+      footers:
+        change-type: patch
+      subject: Transform._flush is public
+      body:
+    - hash: c4bc415cdb7d6fe6c9c38f62216f9accd82b58c4
+      author: Alexis Svinartchouk
+      footers:
+        change-type: patch
+      subject: Update resin-lint
+      body:
+    - hash: 183b63608f893a8281d750823a0a233fb8351647
+      author: Alexis Svinartchouk
+      footers:
+        change-type: patch
+      subject: Update generated docs
+      body:
+- version: 4.0.0
+  date: 2019-04-04T11:12:11Z
+  commits:
+    - hash: ba7113ac728e1415be3fef7a7f225a56d4b6e46e
+      author: Alexis Svinartchouk
+      footers:
+        change-type: major
+      subject: Convert to typescript
+      body: |-
+        * replace xml and htmlparser2 with xml-js;
+        * remove nanobench;
+        * remove file open/close from ReadStream;
+    - hash: fc8001c0387f847a3d54e4ca347fd34d52cc7646
+      author: Alexis Svinartchouk
+      footers:
+        change-type: patch
+      subject: Add licence in each ts file
+      body:
+    - hash: 4e39e17bcff3ef321eb9b74ec7459076be87c52d
+      author: Alexis Svinartchouk
+      footers:
+        change-type: patch
+      subject: Change licence MIT -> Apache
+      body:
+    - hash: 5ae07cfd54740455ad83d14028df33d03875de1b
+      author: Alexis Svinartchouk
+      footers:
+        change-type: patch
+      subject: Replace jsdoc with typedoc, rename resin -> balena
+      body:
+    - hash: cb47b917d09805948bffe4311f2f11296fd1c800
+      author: Alexis Svinartchouk
+      footers:
+        change-type: patch
+      subject: Don't test on node 4
+      body:
+    - hash: 5ea81fecfa605802b2bf2bd68c59a7ee8dafbe14
+      author: Alexis Svinartchouk
+      footers:
+        change-type: patch
+      subject: Remove travis and appveyor configs
+      body:
+- version: 3.4.3
+  date: 2018-06-01T17:50:12Z
+  commits:
+    - hash: 94993f14a37227e25aa6e5b5582015989976cfca
+      author: Jonas Hermsmeier
+      footers:
+        change-type: patch
+      subject: 'upgrade(package): Bump dev dependencies'
+      body: |-
+        - mocha 5.0.1 -> 5.2.0
+        - nanobench 2.1.0 -> 2.1.1
+- version: 3.4.2
+  date: 2018-06-01T16:38:24Z
+  commits:
+    - hash: a277fdc80d30629d1842fc9bf3d45bc9ff90f729
+      author: Alexis Svinartchouk
+      footers:
+        change-type: patch
+      subject: fix(test) Fix typo in ReadStream tests
+      body:
+    - hash: 590a573cc5173a2a2536844d2f16e7f79195cbb4
+      author: Alexis Svinartchouk
+      footers:
+        change-type: patch
+      subject: test(read-stream) Add a test case with the last block larger than chunk size
+      body:
+    - hash: ab77861f4edc5ac99a4c4c386b0a3cf05abd5bcb
+      author: Alexis Svinartchouk
+      footers:
+        change-type: patch
+      subject: 'fix(read-stream): Read the last range entirely in ReadStream'
+      body:
+- version: 3.4.1
+  date: 2018-05-30T21:06:31Z
+  commits:
+    - hash: e5763a022767af0a7b5a8ea275497e64fde6e21f
+      author: Jonas Hermsmeier
+      footers:
+        change-type: patch
+      subject: 'test(ci): Add Node v10 to CI test matrix'
+      body:
+- version: 3.4.0
+  date: 2018-05-30T20:11:15Z
+  commits:
+    - hash: ffd60a76ec371e40ba58ae9d161038f578deda07
+      author: Alexis Svinartchouk
+      footers:
+        change-type: minor
+      subject: 'feat(read-stream): Add a generateChecksums option'
+      body: This option will update the blockmap adding a checksum to every Range.
+- version: 3.3.0
+  date: 2018-05-30T17:59:44Z
+  commits:
+    - hash: 848e6d00285414f0b4fad9fcf1987d16467584b0
+      author: Jonas Hermsmeier
+      footers:
+        change-type: minor
+      subject: 'feat(read-stream): Add .rangesVerified counter'
+      body:
+    - hash: 1b6ba578c3b5ef09999d82349ccc11dc7b2eb2ee
+      author: Jonas Hermsmeier
+      subject: 'test(read-stream): Add assertions for .rangesVerified'
+      body:
+    - hash: c5799072357fa89219f9b49262e44f9eb7d7ba0d
+      author: Jonas Hermsmeier
+      footers:
+        change-type: minor
+      subject: 'feat(filter-stream): Add .rangesVerified counter'
+      body:
+    - hash: 08086a460a35ee0439fc1fd3257ecbdcd9eab494
+      author: Jonas Hermsmeier
+      subject: 'test(filter-stream): Add assertions for .rangesVerified'
+      body:
+    - hash: 0f1247a8f64f5c508f3d72fba51b3d6e23c84521
+      author: Jonas Hermsmeier
+      footers:
+        change-type: patch
+      subject: 'fix(read-stream): Verify on end'
+      body:
+    - hash: 53ace7575e32c07beb04087dcdf8cf3616ef85b0
+      author: Jonas Hermsmeier
+      subject: 'doc(README): Update API documentation'
+      body:
+- version: 3.2.1
+  date: 2018-05-30T10:01:31Z
+  commits:
+    - hash: 73b9cd4b12640e2adb645e59ac23d34a98ea2412
+      author: Jonas Hermsmeier
+      footers:
+        change-type: patch
+      subject: 'fix(test): Fix ERR_AMBIGUOUS_ARGUMENT in assert with Node 10'
+      body: |-
+        This fixes tests failing under Node 10 due to changes to the `assert` module;
+        ```
+        TypeError [ERR_AMBIGUOUS_ARGUMENT]: The "error/message" argument is ambiguous.
+        ```
+- version: 3.2.0
+  date: 2018-05-29T19:50:24Z
+  commits:
+    - hash: 6cced772420179bf8cb3b10aa854fc4c8564b99c
+      author: Alexis Svinartchouk
+      footers:
+        change-type: minor
+      subject: 'feat(filter-stream): Add a generateChecksums option'
+      body: This option will update the blockmap adding a checksum to every Range.
+- version: 3.1.0
+  date: 2018-05-29T17:13:19Z
+  commits:
+    - hash: 5035e5c42e293b753eeb0e2f7f614278e7357348
+      author: Alexis Svinartchouk
+      footers:
+        change-type: minor
+      subject: 'feat(read-stream): Accept a custom fs implementation in ReadStream constructor options.'
+      body:
+- version: 3.0.0
+  date: 2018-02-23T17:00:22Z
+  commits:
+    - hash: f7c2fcd091e5df8e986fb9c97b6eb8623d41906f
+      author: Jonas Hermsmeier
+      footers:
+        change-type: major
+      subject: 'feat(filter-stream): Emit Chunk objects instead of Buffers'
+      body: |-
+        This updates `BlockMap.FilterStream` to emit objects with
+        buffer and position properties, rather than monkeypatching
+        the position onto the buffers.
+    - hash: 0ceb95884199e871f9623cc223456aa245377e54
+      author: Jonas Hermsmeier
+      footers:
+        change-type: patch
+      subject: 'test(filter-stream): Remove checks for block.address'
+      body: |-
+        This removes testing for `block.address`, as this property
+        has been removed in FilterStream while switching to emitting
+        objects rather than buffers.
+    - hash: ea2f2afae9a75090303de7a38420ea04cc7fac91
+      author: Jonas Hermsmeier
+      footers:
+        change-type: major
+      subject: 'feat(lib): Add BlockMap.Range & ReadStream.ReadRange'
+      body: This adds classes for ranges & read-ranges to facilitate type consistency
+    - hash: 017c5aab56eea1517148af2159b854b82a2578ef
+      author: Jonas Hermsmeier
+      footers:
+        change-type: major
+      subject: 'feat(read-stream): Make ReadStream emit BlockMap.Chunk'
+      body: |-
+        This updates the `BlockMap.ReadStream` to emit `BlockMap.Chunk`s
+        instead of `Buffer`s.
+    - hash: ccc4e9958bd703a4becdc7431189fc1beb31fb9c
+      author: Jonas Hermsmeier
+      subject: 'doc(lib): Add ReadRange description in doc block'
+      body:
+    - hash: e195f9e7a634d7a2672a7ba476e2b910b8d2aa44
+      author: Jonas Hermsmeier
+      subject: 'feat(filter-stream): Use ReadStream.ReadRanges'
+      body:
+    - hash: 84c6abdbabf6ba2663716058e8aff4463cc84775
+      author: Jonas Hermsmeier
+      footers:
+        change-type: minor
+      subject: 'feat(blockmap): Move ReadStream.ReadStream -> BlockMap.ReadStream'
+      body:
+    - hash: a89b2940700746aa0c12c60b7aab0b7934945bbd
+      author: Jonas Hermsmeier
+      subject: 'doc: Update doc blocks & API documentation'
+      body:
+    - hash: 2a6d8bb58936fd010b1a802d3e0ef102785a7690
+      author: Jonas Hermsmeier
+      footers:
+        change-type: patch
+      subject: 'doc(README): Update examples with new chunk format'
+      body:
+- version: 2.0.5
+  date: 2018-02-20T17:47:38Z
+  commits:
+    - hash: 99eec29a8ddb13d50256a2260b1ca5de28c8eee7
+      author: Jonas Hermsmeier
+      footers:
+        change-type: patch
+      subject: 'test(filter-stream): Add assertions for bytes read'
+      body:
+- version: 2.0.4
+  date: 2018-02-16T10:51:06Z
+  commits:
+    - hash: 85628b8cd04626d00e75b893efdf7a324cabcd89
+      author: Jonas Hermsmeier
+      footers:
+        change-type: patch
+      subject: 'chore(package): Update dependencies'
+      body: |-
+        - jsdoc-to-markdown 3.0.0 -> 4.0.1
+        - mocha 4.0.1 -> 5.0.1
+- version: 2.0.3
+  date: 2018-02-16T10:39:39Z
+  commits:
+    - hash: c22c19d713c112b6a0050ff54427b04f2b9d6f04
+      author: Jonas Hermsmeier
+      footers:
+        change-type: patch
+      subject: 'doc(README): Add reference links'
+      body: This adds links to resources about bmaps to the README
+- version: 2.0.2
+  date: 2017-11-03T11:21:43Z
+  commits:
+    - hash: 7aeb67209ca4bfb759e2cfd69356f3c89d9037e4
+      author: Jonas Hermsmeier
+      footers:
+        change-type: patch
+      subject: 'upgrade(package): Bump dependencies'
+      body: |-
+        - debug 2.6.8 -> 3.1.0
+        - mocha 3.5.0 -> 4.0.1
+- version: 2.0.1
+  date: 2017-10-03T15:15:52Z
+  commits:
+    - hash: 6f3fcd9e0a7a9aa8bd911d2fd2e780ef038625be
+      author: Jonas Hermsmeier
+      footers:
+        change-type: patch
+      subject: 'doc: Update changelog to versionbot standards'
+      body:
+    - hash: f14deb8e0e233e42d7766bc9fff9fc150e16fd47
+      author: Jonas Hermsmeier
+      footers:
+        change-type: patch
+      subject: 'test: Test all versions for when input is string | buffer'
+      body:
+    - hash: b825f3169039365ec7b178c3da94199a63da86ec
+      author: Jonas Hermsmeier
+      footers:
+        change-type: patch
+      subject: 'refactor(test): Properly split up joined paths'
+      body:
+    - hash: 41ed04bf892bce5a256cde6eca1882fa107d8601
+      author: Jonas Hermsmeier
+      footers:
+        change-type: patch
+      subject: 'fix(filter-stream): Fix position being always zero'
+      body: Due to a bug in how the block's position was set, it would always be zero.
+    - hash: 43f4ad3e60af22750b14e4febe90226b5cad0de2
+      author: Jonas Hermsmeier
+      footers:
+        change-type: patch
+      subject: 'chore(appveyor): Explicitly specify Node 8'
+      body: |-
+        This explicitly specifies the Node version for the latest
+        version in the matrix, in hope this will fix sporadic
+        combustion of the Node 8 CI builds.
+    - hash: fa9eb19fd013b300deeae3d6f95d756903e97362
+      author: Jonas Hermsmeier
+      subject: 'chore(package): Version 2.0.1'
+      body: |-
+        - **fix(package):** Fix `nanobench` not being a dev dependency
+        - **chore(package):** Update mocha 3.4.2 -> 3.5.0
+    - hash: 10b94100a228efbb6a4fa16d99c4727d71b304ea
+      author: Jonas Hermsmeier
+      footers:
+        change-type: patch
+      subject: 'fix(package): Fix `nanobench` not being a dev dependency'
+      body:
+    - hash: 9e0d8db3eb929e19e2f6261c7923ed8c987c6e5d
+      author: Jonas Hermsmeier
+      subject: 'chore(package): Update mocha 3.4.2 -> 3.5.0'
+      body:
+- version: 2.0.0
+  date: 2017-08-04T16:39:38Z
+  commits:
+    - hash: 2be498af975cbaa973c47bc58a20c5db84c2e717
+      author: Jonas Hermsmeier
+      subject: 'doc: Update API documentation'
+      body:
+    - hash: 69283cf2e78ac3ef1af97bd9471494220cca9d91
+      author: Jonas Hermsmeier
+      subject: 'doc(CHANGELOG): Add 2.0.0 changes'
+      body:
+    - hash: fa26a6dfb4ac6b78fa2b7be4bdc962c2cc50dff8
+      author: Jonas Hermsmeier
+      subject: 'chore(package): Version 2.0.0'
+      body:
+    - hash: a41f5d6261f519221206d5a97bc076e7370188c0
+      author: Jonas Hermsmeier
+      subject: 'refactor(filter-stream): Optimize performance'
+      body:
+    - hash: fc3f56a16281382e912c40d5cca98f7fde3a5c34
+      author: Jonas Hermsmeier
+      footers:
+        change-type: major
+      subject: 'feat(read-stream): Refactor & optimize BlockMap.ReadStream'
+      body: |-
+        This is a major refactoring & optimization of the blockmapped `ReadStream`
+        to iron out some performance issues and bugs in behavior.
+        Changes:
+        - Add `debug` module
+        - BREAKING: Remove `.blockInRange` property
+        - Add `.closed` & `.destroyed` properties
+        - Convert blockMap's ranges to byte ranges for simplified block reading
+        - Add `.highWaterMark` getter/setter
+        - Support `autoClose` option
+        - Rewrite `._readBlock()` to read up to `highWaterMark` chunks within a range
+        to increase throughput, and decrease CPU load and read calls
+        - BREAKING: Rewrite `open()`, `close()` and `destroy()`
+        to implement the same behavior as `fs.ReadStream`
+        - BREAKING: `start` & `end` options will now cause only partially covered
+        regions to **NOT** be read
+        - Update tests to match above changes
+        - BREAKING: Remove `.options`, add `.verify` instead
+    - hash: 557e4913eb7528064c67584e6be882260e399a04
+      author: Jonas Hermsmeier
+      footers:
+        change-type: patch
+      subject: 'chore(package): Add benchmarks'
+      body: |-
+        This adds benchmarks for some BlockMap parts,
+        to facilitate observing performance improvements.
+    - hash: 3aeb991cb0ff925c63e5adf21e063c01f79c3738
+      author: Jonas Hermsmeier
+      subject: 'chore(package): Version 1.2.0'
+      body:
+    - hash: aa7eb071a078426d874a1e3efe458148e8a55913
+      author: Jonas Hermsmeier
+      footers:
+        change-type: patch
+      subject: 'chore(package): Update mocha 3.2.0 -> 3.4.2'
+      body:
+    - hash: feee48cc71c89ab3888bfd85f4f63923ca9fad08
+      author: Jonas Hermsmeier
+      subject: 'fix(filter-stream): Prevent emitting too small blocks'
+      body: |-
+        Due to an error in how blocks were chunked, it was possible to emit
+        too small or improperly sized blocks when encountering backpressure
+        buffering.
+        This fixes that behavior, and ensure that all read buffers are consumed.
+    - hash: c938a38b569d920b9d6751e077f5fe858bd5960e
+      author: Jonas Hermsmeier
+      subject: 'doc(README): Clarify omission of ranges in examples'
+      body:
+    - hash: e898f75438d4a3f052d414de44e46fed44ec5c0c
+      author: Jonas Hermsmeier
+      subject: 'chore(README): Clarify stream type by var name in examples'
+      body:
+- version: 1.1.0
+  date: 2017-02-23T13:04:38Z
+  commits:
+    - hash: 90aa99d120de46dd6591333de7b2cb840a50f961
+      author: Jonas Hermsmeier
+      subject: 'doc(api): Fix duplicate methods, add missing .toString()'
+      body:
+    - hash: 6ce00b530209f9c64cc408f53cb231535ed242bc
+      author: Jonas Hermsmeier
+      subject: 'doc(api): Add BlockMap & BlockMap.create options'
+      body:
+    - hash: 6969fedb581a8a3f212ffdea221f5fd51d51d70a
+      author: Jonas Hermsmeier
+      subject: 'feat(readstream): Add `fd` option'
+      body: |-
+        Analog to node core's `fs.ReadStream`, if passed an `fd` in
+        the `options`, the `path` argument will be ignored,
+        and the `fd` used instead.
+    - hash: 33ba4c85a1094548f0a68c6ac3962c9e867c9f20
+      author: Jonas Hermsmeier
+      subject: 'feat(blockmap): Add .createFilterStream()'
+      body:
+    - hash: c9c84dd2414d9462934e81eaa8239cdcf200efe9
+      author: Jonas Hermsmeier
+      subject: 'doc: Fix `fd` type annotation'
+      body:
+    - hash: 6f2dab60f2b5bab9b3400275beb32a4385cd2fd0
+      author: Jonas Hermsmeier
+      subject: 'feat(read-stream): Add ''start'', ''end'', and ''autoClose'' options'
+      body:
+    - hash: d3b2f397ea9ac97b43b5f422459e9399b27aacce
+      author: Jonas Hermsmeier
+      subject: 'test(read-stream): Add more [start,end] range tests'
+      body:
+    - hash: 0c302cf7c9eea60ee1f7046a491bcbe94e2af226
+      author: Jonas Hermsmeier
+      subject: 'fix(read-stream): Throw if [start,end] are OOB'
+      body:
+    - hash: cd9af7000e6d9968f9ca5e928c0da21fe8df93d3
+      author: Jonas Hermsmeier
+      subject: 'chore: Add appveyor.yml for CI on Windows'
+      body:
+- version: 1.0.0
+  date: 2017-02-14T16:20:56Z
+  commits:
+    - hash: 39fedf7632f78662226089337dcec52beb757df2
+      author: Jonas Hermsmeier
+      subject: 'chore(package): Update jsdoc-to-markdown 2.0.1 -> 3.0.0'
+      body:
+    - hash: f56aa2e2b556343e0f94d99e2e1d5a58a7560889
+      author: Jonas Hermsmeier
+      subject: 'doc(README): Improve usage examples'
+      body:
+    - hash: e1693ed251eb28be8beac62a30fd3151205bc52e
+      author: Jonas Hermsmeier
+      subject: 'feat(blockmap): Implement BlockMap.stringify() & .toString()'
+      body:
+    - hash: cebbd5f107389175b35e1330c5c077ad202974ed
+      author: Jonas Hermsmeier
+      subject: 'feat(blockmap): Implement bmap file checksum verification'
+      body:
+    - hash: 85450f8e3eca367dde38c358db2538195d34001c
+      author: Jonas Hermsmeier
+      subject: 'feat(streams): Implement block range checksum validation'
+      body:
+    - hash: 00bbfdfaf1b057c22af311783c2927d2aded4659
+      author: Jonas Hermsmeier
+      subject: 'feat(blockmap): Implement a block filter stream'
+      body:
+    - hash: ac1f0c3720f1eef6e60ca4a34bbb0ff17ef1843c
+      author: Jonas Hermsmeier
+      subject: 'doc(README): Add FilterStream usage example'
+      body:
+    - hash: 779e1c66a8cbe9de9a233ac6c33052d4e997bca4
+      author: Jonas Hermsmeier
+      subject: 'doc: Add FilterStream API documentation'
+      body:
+    - hash: 4a77fff0c6c401efe8a33f348660e9f822e24d43
+      author: Jonas Hermsmeier
+      subject: 'doc(README): Fix wrong argument to fs.createReadStream'
+      body:
+    - hash: d6e403b17d3d3d7cff2f742d9a8ab83e85f5ff81
+      author: Jonas Hermsmeier
+      subject: 'fix: Change syntax which is unavailable in Node v4'
+      body:

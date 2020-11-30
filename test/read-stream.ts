@@ -35,7 +35,7 @@ describe('BlockMap.ReadStream', () => {
 			const readStream = new ReadStream(fd, blockMap);
 			let byteCount = 0;
 
-			await new Promise((resolve, reject) => {
+			await new Promise<void>((resolve, reject) => {
 				readStream
 					.on('data', (block: Chunk) => {
 						byteCount += block.length;
@@ -83,7 +83,7 @@ describe('BlockMap.ReadStream', () => {
 			const readStream = new ReadStream(fd, blockMap);
 			let byteCount = 0;
 
-			await new Promise((resolve, reject) => {
+			await new Promise<void>((resolve, reject) => {
 				readStream
 					.on('data', (block: Chunk) => {
 						byteCount += block.length;
@@ -132,7 +132,7 @@ describe('BlockMap.ReadStream', () => {
 		await withOpenFile(filename, async (fd) => {
 			const readStream = new ReadStream(fd, checksumlessBlockMap, false, true);
 
-			await new Promise((resolve, reject) => {
+			await new Promise<void>((resolve, reject) => {
 				readStream
 					.on('data', () => {
 						// drain
@@ -158,7 +158,7 @@ describe('BlockMap.ReadStream', () => {
 			let blocksCount = 0;
 			let firstBlock = true;
 
-			await new Promise((resolve, reject) => {
+			await new Promise<void>((resolve, reject) => {
 				readStream
 					.on('data', (block: Chunk) => {
 						blocksCount += block.length / blockMap.blockSize;
@@ -204,7 +204,7 @@ describe('BlockMap.ReadStream', () => {
 		const readStream = new ReadStream(fd, blockMap);
 		let byteCount = 0;
 
-		await new Promise((resolve, reject) => {
+		await new Promise<void>((resolve, reject) => {
 			readStream
 				.on('data', (block: Chunk) => {
 					byteCount += block.length;
@@ -249,7 +249,7 @@ describe('BlockMap.ReadStream', () => {
 		await withOpenFile(filename, async (fd) => {
 			const readStream = new ReadStream(fd, blockMap, true, false, 4096);
 
-			await new Promise((resolve, reject) => {
+			await new Promise<void>((resolve, reject) => {
 				readStream
 					.on('data', (block: Chunk) => {
 						byteCount += block.length;
@@ -303,7 +303,7 @@ describe('BlockMap.ReadStream', () => {
 				blockMap.blockSize * 2,
 			);
 
-			await new Promise((resolve, reject) => {
+			await new Promise<void>((resolve, reject) => {
 				readStream
 					.on('data', (block: Chunk) => {
 						byteCount += block.length;
@@ -348,7 +348,7 @@ describe('BlockMap.ReadStream', () => {
 				4096 + blockMap.blockSize,
 			);
 
-			await new Promise((resolve, reject) => {
+			await new Promise<void>((resolve, reject) => {
 				readStream
 					.on('data', (block: Chunk) => {
 						byteCount += block.length;
@@ -402,7 +402,7 @@ describe('BlockMap.ReadStream', () => {
 		await withOpenFile(filename, async (fd) => {
 			const readStream = new ReadStream(fd, blockMap, true, false, 0, 0);
 
-			await new Promise((resolve, reject) => {
+			await new Promise<void>((resolve, reject) => {
 				readStream
 					.on('error', reject)
 					.on('end', () => {
@@ -438,7 +438,7 @@ describe('BlockMap.ReadStream', () => {
 				blockMap.blockSize,
 			);
 
-			await new Promise((resolve, reject) => {
+			await new Promise<void>((resolve, reject) => {
 				readStream
 					.on('error', reject)
 					.on('end', () => {
@@ -466,7 +466,7 @@ describe('BlockMap.ReadStream', () => {
 
 			const hadError = false;
 
-			await new Promise((resolve, reject) => {
+			await new Promise<void>((resolve, reject) => {
 				readStream
 					.on('error', () => {
 						resolve();
@@ -497,7 +497,7 @@ describe('BlockMap.ReadStream', () => {
 				statSync(filename).size + blockMap.blockSize,
 			);
 
-			await new Promise((resolve, reject) => {
+			await new Promise<void>((resolve, reject) => {
 				readStream
 					.on('error', reject)
 					.on('end', () => {
@@ -550,7 +550,7 @@ describe('BlockMap.ReadStream', () => {
 				await withOpenFile(filename, async (fd) => {
 					const readStream = new ReadStream(fd, blockMap, false);
 
-					await new Promise((resolve, reject) => {
+					await new Promise<void>((resolve, reject) => {
 						readStream.resume().on('error', reject).on('end', resolve);
 					});
 				});
@@ -574,7 +574,7 @@ describe('BlockMap.ReadStream', () => {
 					const readStream = new ReadStream(fd, blockMap);
 					let errorCount = 0;
 
-					await new Promise((resolve, reject) => {
+					await new Promise<void>((resolve, reject) => {
 						readStream
 							.resume()
 							.on('error', (error: ReadRangeError) => {
@@ -627,7 +627,7 @@ describe('BlockMap.ReadStream', () => {
 					const readStream = new ReadStream(fd, blockMap, true);
 					let hadErrors = 0;
 
-					await new Promise((resolve) => {
+					await new Promise<void>((resolve) => {
 						readStream
 							.resume()
 							.on('error', (error) => {

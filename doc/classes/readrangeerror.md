@@ -29,7 +29,7 @@
 
 \+ **new ReadRangeError**(`message`: string, `range`: [ReadRange](readrange.md), `checksum?`: undefined | string): *[ReadRangeError](readrangeerror.md)*
 
-*Defined in [lib/read-range.ts:46](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-range.ts#L46)*
+*Defined in [lib/read-range.ts:46](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/read-range.ts#L46)*
 
 **Parameters:**
 
@@ -47,7 +47,7 @@ Name | Type |
 
 • **checksum**? : *undefined | string*
 
-*Defined in [lib/read-range.ts:50](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-range.ts#L50)*
+*Defined in [lib/read-range.ts:50](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/read-range.ts#L50)*
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 • **range**: *[ReadRange](readrange.md)*
 
-*Defined in [lib/read-range.ts:49](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-range.ts#L49)*
+*Defined in [lib/read-range.ts:49](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/read-range.ts#L49)*
 
 ___
 

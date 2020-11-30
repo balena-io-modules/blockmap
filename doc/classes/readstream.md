@@ -78,7 +78,7 @@
 
 *Overrides void*
 
-*Defined in [lib/read-stream.ts:54](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-stream.ts#L54)*
+*Defined in [lib/read-stream.ts:54](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/read-stream.ts#L54)*
 
 **Parameters:**
 
@@ -100,7 +100,7 @@ Name | Type | Default |
 
 • **_hash**? : *Hash*
 
-*Defined in [lib/read-stream.ts:51](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-stream.ts#L51)*
+*Defined in [lib/read-stream.ts:51](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/read-stream.ts#L51)*
 
 Hash stream to calculate range checksums
 
@@ -110,7 +110,7 @@ ___
 
 • **blockMap**: *[BlockMap](blockmap.md)*
 
-*Defined in [lib/read-stream.ts:58](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-stream.ts#L58)*
+*Defined in [lib/read-stream.ts:58](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/read-stream.ts#L58)*
 
 ___
 
@@ -118,7 +118,7 @@ ___
 
 • **blocksRead**: *number* = 0
 
-*Defined in [lib/read-stream.ts:45](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-stream.ts#L45)*
+*Defined in [lib/read-stream.ts:45](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/read-stream.ts#L45)*
 
 Number of blocks read
 
@@ -128,7 +128,7 @@ ___
 
 • **bytesRead**: *number* = 0
 
-*Defined in [lib/read-stream.ts:47](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-stream.ts#L47)*
+*Defined in [lib/read-stream.ts:47](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/read-stream.ts#L47)*
 
 Number of bytes read
 
@@ -138,7 +138,7 @@ ___
 
 • **chunkSize**: *number*
 
-*Defined in [lib/read-stream.ts:63](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-stream.ts#L63)*
+*Defined in [lib/read-stream.ts:63](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/read-stream.ts#L63)*
 
 ___
 
@@ -146,7 +146,7 @@ ___
 
 • **currentRange**? : *[ReadRange](readrange.md)*
 
-*Defined in [lib/read-stream.ts:39](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-stream.ts#L39)*
+*Defined in [lib/read-stream.ts:39](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/read-stream.ts#L39)*
 
 Range being currently processed
 
@@ -156,7 +156,7 @@ ___
 
 • **end**: *number*
 
-*Defined in [lib/read-stream.ts:62](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-stream.ts#L62)*
+*Defined in [lib/read-stream.ts:62](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/read-stream.ts#L62)*
 
 ___
 
@@ -164,7 +164,7 @@ ___
 
 • **generateChecksums**: *boolean*
 
-*Defined in [lib/read-stream.ts:60](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-stream.ts#L60)*
+*Defined in [lib/read-stream.ts:60](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/read-stream.ts#L60)*
 
 ___
 
@@ -172,7 +172,7 @@ ___
 
 • **position**: *number* = 0
 
-*Defined in [lib/read-stream.ts:49](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-stream.ts#L49)*
+*Defined in [lib/read-stream.ts:49](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/read-stream.ts#L49)*
 
 Current offset in bytes
 
@@ -182,7 +182,7 @@ ___
 
 • **ranges**: *[ReadRange](readrange.md)[]*
 
-*Defined in [lib/read-stream.ts:53](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-stream.ts#L53)*
+*Defined in [lib/read-stream.ts:53](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/read-stream.ts#L53)*
 
 Ranges to be read from the image
 
@@ -192,7 +192,7 @@ ___
 
 • **rangesRead**: *number* = 0
 
-*Defined in [lib/read-stream.ts:41](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-stream.ts#L41)*
+*Defined in [lib/read-stream.ts:41](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/read-stream.ts#L41)*
 
 Number of block map ranges read
 
@@ -202,7 +202,7 @@ ___
 
 • **rangesVerified**: *number* = 0
 
-*Defined in [lib/read-stream.ts:43](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-stream.ts#L43)*
+*Defined in [lib/read-stream.ts:43](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/read-stream.ts#L43)*
 
 Number of block map ranges verified
 
@@ -212,7 +212,7 @@ ___
 
 • **readFn**: *[ReadFunction](../README.md#readfunction)*
 
-*Defined in [lib/read-stream.ts:54](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-stream.ts#L54)*
+*Defined in [lib/read-stream.ts:54](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/read-stream.ts#L54)*
 
 ___
 
@@ -230,7 +230,7 @@ ___
 
 • **start**: *number*
 
-*Defined in [lib/read-stream.ts:61](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-stream.ts#L61)*
+*Defined in [lib/read-stream.ts:61](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/read-stream.ts#L61)*
 
 ___
 
@@ -238,7 +238,7 @@ ___
 
 • **verify**: *boolean*
 
-*Defined in [lib/read-stream.ts:59](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-stream.ts#L59)*
+*Defined in [lib/read-stream.ts:59](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/read-stream.ts#L59)*
 
 ___
 
@@ -256,7 +256,7 @@ Defined in node_modules/@types/node/base.d.ts:681
 
 ▸ **_advanceRange**(): *Promise‹void›*
 
-*Defined in [lib/read-stream.ts:215](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-stream.ts#L215)*
+*Defined in [lib/read-stream.ts:215](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/read-stream.ts#L215)*
 
 Advance to next the Range if there is one then read a block;
 else end the stream;
@@ -271,7 +271,7 @@ ___
 
 ▸ **_prepareRanges**(): *[ReadRange](readrange.md)[]*
 
-*Defined in [lib/read-stream.ts:118](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-stream.ts#L118)*
+*Defined in [lib/read-stream.ts:118](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/read-stream.ts#L118)*
 
 Preprocess the `blockMap`'s ranges into byte-ranges
 with respect to the `start` offset, and an `offset`
@@ -287,7 +287,7 @@ ___
 
 *Overrides [FilterStream](filterstream.md).[_read](filterstream.md#_read)*
 
-*Defined in [lib/read-stream.ts:231](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-stream.ts#L231)*
+*Defined in [lib/read-stream.ts:231](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/read-stream.ts#L231)*
 
 Initiate a new read, advancing the range if necessary,
 and verifying checksums, if enabled
@@ -302,7 +302,7 @@ ___
 
 ▸ **_readBlock**(): *Promise‹void›*
 
-*Defined in [lib/read-stream.ts:167](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-stream.ts#L167)*
+*Defined in [lib/read-stream.ts:167](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/read-stream.ts#L167)*
 
 Read the current range (or a chunk thereof),
 update state and emit the read block
@@ -315,7 +315,7 @@ ___
 
 ▸ **_verifyRange**(): *void*
 
-*Defined in [lib/read-stream.ts:140](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/read-stream.ts#L140)*
+*Defined in [lib/read-stream.ts:140](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/read-stream.ts#L140)*
 
 Verify a fully read range's checksum against
 the range's checksum from the blockmap

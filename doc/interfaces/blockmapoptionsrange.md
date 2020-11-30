@@ -20,7 +20,7 @@
 
 • **checksum**: *string*
 
-*Defined in [lib/blockmap.ts:31](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/blockmap.ts#L31)*
+*Defined in [lib/blockmap.ts:31](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/blockmap.ts#L31)*
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 • **end**: *number*
 
-*Defined in [lib/blockmap.ts:30](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/blockmap.ts#L30)*
+*Defined in [lib/blockmap.ts:30](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/blockmap.ts#L30)*
 
 ___
 
@@ -36,4 +36,4 @@ ___
 
 • **start**: *number*
 
-*Defined in [lib/blockmap.ts:29](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/blockmap.ts#L29)*
+*Defined in [lib/blockmap.ts:29](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/blockmap.ts#L29)*

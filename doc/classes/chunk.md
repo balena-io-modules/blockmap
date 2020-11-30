@@ -42,7 +42,7 @@ limitations under the License.
 
 \+ **new Chunk**(`buffer`: Buffer, `position`: number): *[Chunk](chunk.md)*
 
-*Defined in [lib/chunk.ts:18](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/chunk.ts#L18)*
+*Defined in [lib/chunk.ts:18](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/chunk.ts#L18)*
 
 **Parameters:**
 
@@ -59,7 +59,7 @@ Name | Type |
 
 • **buffer**: *Buffer*
 
-*Defined in [lib/chunk.ts:20](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/chunk.ts#L20)*
+*Defined in [lib/chunk.ts:20](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/chunk.ts#L20)*
 
 ___
 
@@ -67,7 +67,7 @@ ___
 
 • **position**: *number*
 
-*Defined in [lib/chunk.ts:21](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/chunk.ts#L21)*
+*Defined in [lib/chunk.ts:21](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/chunk.ts#L21)*
 
 ## Accessors
 
@@ -75,6 +75,6 @@ ___
 
 • **get length**(): *number*
 
-*Defined in [lib/chunk.ts:24](https://github.com/balena-io-modules/blockmap/blob/5d53a58/lib/chunk.ts#L24)*
+*Defined in [lib/chunk.ts:24](https://github.com/balena-io-modules/blockmap/blob/8429cdf/lib/chunk.ts#L24)*
 
 **Returns:** *number*
