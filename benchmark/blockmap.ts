@@ -43,7 +43,7 @@ bench('fs.ReadStream', async () => {
 			fd,
 			autoClose: false,
 		});
-		await new Promise((resolve) => {
+		await new Promise<void>((resolve) => {
 			readStream
 				.on('data', () => {
 					// drain
@@ -60,7 +60,7 @@ bench('ReadStream', async () => {
 	const blockMap = new BlockMap(require('../test/data/version-2.0'));
 	await withOpenFile(filename, async (fd) => {
 		const readStream = new ReadStream(fd, blockMap);
-		await new Promise((resolve) => {
+		await new Promise<void>((resolve) => {
 			readStream
 				.on('data', () => {
 					// drain
@@ -81,7 +81,7 @@ bench('BlockMap.FilterStream', async () => {
 			autoClose: false,
 		});
 		const filter = new FilterStream(blockMap);
-		await new Promise((resolve) => {
+		await new Promise<void>((resolve) => {
 			readStream
 				.pipe(filter)
 				.on('data', () => {

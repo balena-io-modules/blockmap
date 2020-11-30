@@ -29,7 +29,7 @@ describe('BlockMap.FilterStream', () => {
 		const transform = new FilterStream(blockMap);
 		let blocksCount = 0;
 
-		await new Promise((resolve, reject) => {
+		await new Promise<void>((resolve, reject) => {
 			readStream
 				.pipe(transform)
 				.on('data', (block: Chunk) => {
@@ -88,7 +88,7 @@ describe('BlockMap.FilterStream', () => {
 		const readStream = createReadStream(filename);
 		const transform = new FilterStream(checksumlessBlockMap, false, true);
 
-		await new Promise((resolve, reject) => {
+		await new Promise<void>((resolve, reject) => {
 			readStream
 				.pipe(transform)
 				.on('data', () => {
@@ -113,7 +113,7 @@ describe('BlockMap.FilterStream', () => {
 		const transform = new FilterStream(blockMap);
 		let blocksCount = 0;
 
-		await new Promise((resolve, reject) => {
+		await new Promise<void>((resolve, reject) => {
 			readStream
 				.pipe(transform)
 				.on('data', (block: Chunk) => {
@@ -170,7 +170,7 @@ describe('BlockMap.FilterStream', () => {
 		let blocksCount = 0;
 		let firstBlock = true;
 
-		await new Promise((resolve, reject) => {
+		await new Promise<void>((resolve, reject) => {
 			readStream
 				.pipe(transform)
 				.on('data', (block: Chunk) => {
@@ -239,7 +239,7 @@ describe('BlockMap.FilterStream', () => {
 				const readStream = createReadStream(filename);
 				const transform = new FilterStream(blockMap, false);
 
-				await new Promise((resolve, reject) => {
+				await new Promise<void>((resolve, reject) => {
 					readStream
 						.pipe(transform)
 						.on('data', (block: Chunk) => {
@@ -272,7 +272,7 @@ describe('BlockMap.FilterStream', () => {
 				const readStream = createReadStream(filename);
 				const transform = new FilterStream(blockMap);
 
-				await new Promise((resolve, reject) => {
+				await new Promise<void>((resolve, reject) => {
 					readStream
 						.pipe(transform)
 						.on('data', (block: Chunk) => {
@@ -325,7 +325,7 @@ describe('BlockMap.FilterStream', () => {
 				const transform = new FilterStream(blockMap, true);
 				let hadErrors = 0;
 
-				await new Promise((resolve) => {
+				await new Promise<void>((resolve) => {
 					readStream
 						.pipe(transform)
 						.on('data', (block: Chunk) => {
